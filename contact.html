@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - IBS Infinite Building Solutions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#003087',
+            secondary: '#007bff'
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { color-scheme: dark; }
+    .animate-fadeInUp {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .map-container {
+      height: 400px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+    .form-loading {
+      position: relative;
+    }
+    .form-loading::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 3px solid #f3f4f6;
+      border-top: 3px solid #007bff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 min-h-screen">
+
+  <!-- Navigation -->
+  <nav class="bg-primary/95 backdrop-blur-md fixed w-full z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <div class="text-2xl font-bold text-white flex items-center gap-2">
+          <img src="./assets/logo.png.png" alt="IBS Logo" class="h-10 w-auto">
+          IBS
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="IBS.html" class="text-white font-semibold hover:text-blue-200 px-3 py-2 rounded-lg transition">Home</a>
+          <a href="about.html" class="text-white font-semibold hover:text-blue-200 px-3 py-2 rounded-lg transition">About</a>
+          <a href="services.html" class="text-white font-semibold hover:text-blue-200 px-3 py-2 rounded-lg transition">Services</a>
+          <a href="contact.html" class="text-white font-semibold bg-white/20 px-4 py-2 rounded-lg transition">Contact</a>
+          <button id="dark-toggle" class="p-2 rounded-lg hover:bg-white/20 transition">
+            <span class="dark:hidden">🌙</span>
+            <span class="hidden dark:inline">☀️</span>
+          </button>
+        </div>
+        <button class="md:hidden hamburger p-2 rounded-lg hover:bg-white/20">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="nav-menu md:hidden hidden bg-primary/95 py-4 rounded-lg shadow-xl">
+        <a href="IBS.html" class="block px-4 py-3 hover:bg-white/10 rounded transition">Home</a>
+        <a href="about.html" class="block px-4 py-3 hover:bg-white/10 rounded transition">About</a>
+        <a href="services.html" class="block px-4 py-3 hover:bg-white/10 rounded transition">Services</a>
+        <a href="contact.html" class="block px-4 py-3 bg-white/20 rounded transition">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero/Contact Banner -->
+  <section class="pt-24 pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary via-secondary to-primary text-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl">Get In Touch</h1>
+      <p class="text-2xl opacity-90 max-w-2xl mx-auto leading-relaxed">
+        Ready to protect your building? Let's discuss your project.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Info & Form -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
+      
+      <!-- Contact Information -->
+      <div class="animate-on-scroll lg:sticky lg:top-24">
+        <h2 class="text-4xl font-bold text-primary mb-12">Contact Information</h2>
+        
+        <div class="space-y-8 mb-12">
+          <div class="group p-8 bg-gradient-to-r from-primary to-secondary text-white rounded-3xl shadow-2xl hover:shadow-3xl transition-all hover:scale-105">
+            <div class="flex items-start gap-4 mb-4">
+              <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-2xl font-bold">📞</div>
+              <h3 class="text-2xl font-bold">Phone</h3>
+            </div>
+            <div class="space-y-2">
+              <a href="tel:+923323070499" class="text-3xl font-bold hover:text-white block group-hover:translate-x-2 transition-all">+92 332 3070499</a>
+              <a href="tel:+923366822155" class="text-xl font-semibold hover:text-white block group-hover:translate-x-2 transition-all">+92 336 6822155</a>
+            </div>
+          </div>
+          
+          <div class="group p-8 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-3xl shadow-2xl hover:shadow-3xl transition-all hover:scale-105">
+            <div class="flex items-start gap-4 mb-4">
+              <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-2xl font-bold">📧</div>
+              <h3 class="text-2xl font-bold">Email</h3>
+            </div>
+            <a href="mailto:info@ibsolutions.pk" class="text-xl font-semibold hover:text-white block group-hover:translate-x-2 transition-all">info@ibsolutions.pk</a>
+          </div>
+          
+          <div class="p-8 bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border-4 border-dashed border-primary/30">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center text-2xl font-bold text-white">📍</div>
+              <h3 class="text-2xl font-bold text-primary">Location</h3>
+            </div>
+            <p class="text-xl text-gray-700 dark:text-gray-300 leading-relaxed">Lahore, Pakistan<br>Serving nationwide</p>
+          </div>
+        </div>
+        
+        <!-- Quick Actions -->
+        <div class="grid md:grid-cols-2 gap-4">
+          <a href="tel:+923323070499" class="bg-gradient-to-r from-primary to-secondary text-white py-6 px-8 rounded-2xl font-bold text-xl text-center block hover:shadow-2xl hover:scale-105 shadow-xl transition-all">
+            Call Now ☎️
+          </a>
+          <a href="#contact-form" class="bg-white text-primary py-6 px-8 rounded-2xl font-bold text-xl text-center block hover:shadow-2xl hover:scale-105 shadow-xl transition-all border-2 border-primary">
+            Send Message
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="animate-on-scroll">
+        <div id="contact-form" class="bg-white dark:bg-gray-800 p-12 rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700">
+          <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-2">Send us a Message</h2>
+          <p class="text-xl text-gray-600 dark:text-gray-300 mb-12">We'll respond within 24 hours</p>
+          
+          <form action="send_email.php" method="POST" class="space-y-6">
+            <div>
+              <label class="block text-lg font-semibold text-gray-900 dark:text-white mb-3">Full Name</label>
+              <input type="text" name="name" required 
+                     class="w-full px-6 py-5 rounded-2xl border-2 border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-lg focus:border-primary focus:ring-4 focus:ring-primary/20 focus:outline-none transition-all shadow-sm"
+                     placeholder="Enter your full name">
+            </div>
+            
+            <div>
+              <label class="block text-lg font-semibold text-gray-900 dark:text-white mb-3">Email Address</label>
+              <input type="email" name="user_email" required 
+                     class="w-full px-6 py-5 rounded-2xl border-2 border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-lg focus:border-primary focus:ring-4 focus:ring-primary/20 focus:outline-none transition-all shadow-sm"
+                     placeholder="your.email@example.com">
+            </div>
+            
+            <div>
+              <label class="block text-lg font-semibold text-gray-900 dark:text-white mb-3">Project Details</label>
+              <textarea name="message" rows="6" required 
+                        class="w-full px-6 py-5 rounded-2xl border-2 border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-lg resize-vertical focus:border-primary focus:ring-4 focus:ring-primary/20 focus:outline-none transition-all shadow-sm"
+                        placeholder="Tell us about your project requirements, building type, location, timeline..."></textarea>
+            </div>
+            
+            <button type="submit" 
+                    class="w-full bg-gradient-to-r from-primary to-secondary text-white py-8 px-12 rounded-3xl font-bold text-2xl shadow-2xl hover:shadow-3xl hover:scale-[1.02] transition-all duration-300 relative overflow-hidden group">
+              <span class="relative z-10">Send Message 🚀</span>
+              <div class="absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location Map -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+        Find Us
+      </h2>
+      <div class="map-container mx-auto max-w-4xl">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.894753678464!2d74.3583!3d31.5204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391911b7f2a8c2b9%3A0x9c5ebfa2e0e8e8e8!2sLahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2sus!4v1690000000000"
+          width="100%" height="400" style="border:0; border-radius: 24px;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center md:text-left">
+      <div>
+        <h3 class="text-2xl font-bold mb-4 flex items-center justify-center md:justify-start gap-2">
+          <img src="./assets/logo.png.png" alt="IBS Logo" class="h-10 w-auto"> IBS
+        </h3>
+        <p class="text-gray-300 mb-6">Contact us anytime for professional building protection services.</p>
+      </div>
+      <div>
+        <h4 class="text-xl font-semibold mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="IBS.html" class="hover:text-secondary transition">Home</a></li>
+          <li><a href="about.html" class="hover:text-secondary transition">About</a></li>
+          <li><a href="services.html" class="hover:text-secondary transition">Services</a></li>
+          <li><a href="contact.html" class="hover:text-secondary transition">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xl font-semibold mb-4">Services</h4>
+        <ul class="space-y-2">
+          <li><a href="services.html#waterproofing" class="hover:text-secondary transition">Waterproofing</a></li>
+          <li><a href="services.html#termite" class="hover:text-secondary transition">Termite Proofing</a></li>
+          <li><a href="services.html#insulation" class="hover:text-secondary transition">Insulation</a></li>
+          <li><a href="services.html#pest" class="hover:text-secondary transition">Pest Control</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xl font-semibold mb-4">Contact Info</h4>
+        <div class="space-y-2 text-lg">
+          <p>📞 <a href="tel:+923323070499" class="hover:text-secondary">(0332) 3070499</a></p>
+          <p>📧 <a href="mailto:info@ibsolutions.pk" class="hover:text-secondary">info@ibsolutions.pk</a></p>
+          <p>📍 Lahore, Pakistan</p>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+      <p>&copy; 2024 IBS - Infinite Building Solutions. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
+

@@ -1,0 +1,16 @@
+{
+  "name": "IBS - Infinite Building Solutions",
+  "short_name": "IBS",
+  "description": "Pakistan's premier building protection services",
+  "start_url": "/IBS.html",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#003087",
+  "icons": [
+    {
+      "src": "./assets/logo.png.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

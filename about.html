@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - IBS Infinite Building Solutions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#003087',
+            secondary: '#007bff'
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { color-scheme: dark; }
+    .animate-fadeInUp {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .testimonial-slide {
+      display: none;
+    }
+    .testimonial-slide.active {
+      display: block;
+    }
+    .nav-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #cbd5e1;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin: 0 4px;
+    }
+    .nav-dot.active {
+      background: #007bff;
+      transform: scale(1.2);
+    }
+    .counter {
+      font-size: 3rem;
+      font-weight: bold;
+      background: linear-gradient(to right, #007bff, #003087);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 min-h-screen">
+
+  <!-- Navigation (same as home) -->
+  <nav class="bg-primary/95 backdrop-blur-md fixed w-full z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <div class="text-2xl font-bold text-white flex items-center gap-2">
+          <img src="./assets/logo.png.png" alt="IBS Logo" class="h-10 w-auto">
+          IBS
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="IBS.html" class="text-white font-semibold hover:text-blue-200 px-3 py-2 rounded-lg transition">Home</a>
+          <a href="about.html" class="text-white font-semibold bg-white/20 px-4 py-2 rounded-lg transition">About</a>
+          <a href="services.html" class="text-white font-semibold hover:text-blue-200 px-3 py-2 rounded-lg transition">Services</a>
+          <a href="contact.html" class="text-white font-semibold hover:text-blue-200 px-3 py-2 rounded-lg transition">Contact</a>
+          <button id="dark-toggle" class="p-2 rounded-lg hover:bg-white/20 transition">
+            <span class="dark:hidden">🌙</span>
+            <span class="hidden dark:inline">☀️</span>
+          </button>
+        </div>
+        <button class="md:hidden hamburger p-2 rounded-lg hover:bg-white/20">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="nav-menu md:hidden hidden bg-primary/95 py-4 rounded-lg shadow-xl">
+        <a href="IBS.html" class="block px-4 py-3 hover:bg-white/10 rounded transition">Home</a>
+        <a href="about.html" class="block px-4 py-3 bg-white/20 rounded transition">About</a>
+        <a href="services.html" class="block px-4 py-3 hover:bg-white/10 rounded transition">Services</a>
+        <a href="contact.html" class="block px-4 py-3 hover:bg-white/10 rounded transition">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero/About Banner -->
+  <section class="pt-24 pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary via-secondary to-primary text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-black/30"></div>
+    <div class="relative max-w-6xl mx-auto text-center">
+      <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl">About IBS</h1>
+      <p class="text-2xl opacity-90 max-w-3xl mx-auto leading-relaxed">Building Pakistan's future, one protected structure at a time.</p>
+    </div>
+  </section>
+
+  <!-- Company Story -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div class="animate-on-scroll md:order-2">
+          <img src="./assets/herosectionimg.jpeg" alt="IBS Team" class="rounded-3xl shadow-2xl w-full h-96 object-cover">
+        </div>
+        <div class="animate-on-scroll">
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            Our Story
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+            Founded in 2018, Infinite Building Solutions has grown from a local specialist to Pakistan's leading provider 
+            of building protection services. With thousands of successful projects across Lahore and beyond, we combine 
+            cutting-edge materials with expert craftsmanship.
+          </p>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-gradient-to-br from-primary to-secondary text-white p-8 rounded-2xl shadow-xl">
+              <div class="text-4xl font-bold counter" data-target="5000">0</div>
+              <div class="text-xl mt-2">Projects Completed</div>
+            </div>
+            <div class="bg-gradient-to-br from-secondary to-primary text-white p-8 rounded-2xl shadow-xl">
+              <div class="text-4xl font-bold counter" data-target="10">0</div>
+              <div class="text-xl mt-2">Years Guarantee</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Values -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-20 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+        Our Mission
+      </h2>
+      <div class="grid lg:grid-cols-3 gap-8">
+        <div class="text-center p-12 animate-on-scroll">
+          <div class="w-24 h-24 bg-gradient-to-br from-primary to-secondary rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-xl">
+            <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Quality First</h3>
+          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">Premium materials and certified workmanship with unconditional satisfaction guarantee.</p>
+        </div>
+        <div class="text-center p-12 animate-on-scroll" style="animation-delay: 0.1s;">
+          <div class="w-24 h-24 bg-gradient-to-br from-secondary to-primary rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-xl">
+            <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Trusted Protection</h3>
+          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">10+ years warranty on all termite and waterproofing services.</p>
+        </div>
+        <div class="text-center p-12 animate-on-scroll" style="animation-delay: 0.2s;">
+          <div class="w-24 h-24 bg-gradient-to-br from-primary to-secondary rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-xl">
+            <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Customer First</h3>
+          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">24/7 emergency support and dedicated project managers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-20 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+        Our Experts
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center animate-on-scroll group">
+          <div class="w-48 h-48 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mx-auto mb-6 shadow-2xl group-hover:scale-110 transition-all duration-500 overflow-hidden">
+            <img src="./assets/logo.png.png" alt="CEO" class="w-full h-full object-cover rounded-full">
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Syed Ezaan</h3>
+          <p class="text-primary font-semibold mb-4">Founder & CEO</p>
+          <p class="text-gray-600 dark:text-gray-300">20+ years in construction chemicals and pest management.</p>
+        </div>
+        <div class="text-center animate-on-scroll group" style="animation-delay: 0.1s;">
+          <div class="w-48 h-48 bg-gradient-to-br from-green-400 to-green-600 rounded-full mx-auto mb-6 shadow-2xl group-hover:scale-110 transition-all duration-500 overflow-hidden">
+            <img src="./assets/Insugreenlogo..png" alt="CTO" class="w-full h-full object-cover rounded-full">
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Technical Director</h3>
+          <p class="text-primary font-semibold mb-4">Insulation Specialist</p>
+          <p class="text-gray-600 dark:text-gray-300">Expert in XPS thermal insulation systems.</p>
+        </div>
+        <div class="text-center animate-on-scroll group" style="animation-delay: 0.2s;">
+          <div class="w-48 h-48 bg-gradient-to-br from-red-400 to-red-600 rounded-full mx-auto mb-6 shadow-2xl group-hover:scale-110 transition-all duration-500 overflow-hidden">
+            <img src="./assets/TermiteProofinglogo..png" alt="Operations" class="w-full h-full object-cover rounded-full">
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Operations Manager</h3>
+          <p class="text-primary font-semibold mb-4">Termite Control Lead</p>
+          <p class="text-gray-600 dark:text-gray-300">Certified pest control professional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-20 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+        What Our Clients Say
+      </h2>
+      <div class="relative">
+        <div class="testimonial-container">
+          <div class="testimonial-slide active bg-white dark:bg-gray-800 p-12 rounded-3xl shadow-2xl text-center animate-on-scroll">
+            <div class="w-24 h-24 bg-gradient-to-br from-secondary to-primary rounded-full mx-auto mb-8 flex items-center justify-center">
+              <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <p class="text-xl italic text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">"IBS completely transformed our building. The waterproofing is flawless and the team was professional throughout."</p>
+            <div class="font-semibold text-gray-900 dark:text-white">- Ahmed Khan, Property Developer</div>
+          </div>
+          <div class="testimonial-slide bg-white dark:bg-gray-800 p-12 rounded-3xl shadow-2xl text-center animate-on-scroll">
+            <div class="w-24 h-24 bg-gradient-to-br from-primary to-secondary rounded-full mx-auto mb-8 flex items-center justify-center">
+              <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <p class="text-xl italic text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">"Termite free for 5 years now! Excellent service and preventive measures that actually work."</p>
+            <div class="font-semibold text-gray-900 dark:text-white">- Sara Malik, Homeowner</div>
+          </div>
+          <div class="testimonial-slide bg-white dark:bg-gray-800 p-12 rounded-3xl shadow-2xl text-center animate-on-scroll">
+            <div class="w-24 h-24 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full mx-auto mb-8 flex items-center justify-center">
+              <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <p class="text-xl italic text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">"INSUGREEN insulation saved us 35% on electricity bills. Highly recommended!"</p>
+            <div class="font-semibold text-gray-900 dark:text-white">- Commercial Client</div>
+          </div>
+        </div>
+        <div class="slider-nav flex justify-center mt-12" style="animation-delay: 0.3s;">
+          <!-- JS will populate -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (same as home) -->
+  <footer class="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center md:text-left">
+      <div>
+        <h3 class="text-2xl font-bold mb-4 flex items-center justify-center md:justify-start gap-2">
+          <img src="./assets/logo.png.png" alt="IBS Logo" class="h-10 w-auto"> IBS
+        </h3>
+        <p class="text-gray-300 mb-6">Pakistan's premier building protection specialists since 2018.</p>
+      </div>
+      <div>
+        <h4 class="text-xl font-semibold mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="IBS.html" class="hover:text-secondary transition">Home</a></li>
+          <li><a href="about.html" class="hover:text-secondary transition">About Us</a></li>
+          <li><a href="services.html" class="hover:text-secondary transition">Services</a></li>
+          <li><a href="contact.html" class="hover:text-secondary transition">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xl font-semibold mb-4">Services</h4>
+        <ul class="space-y-2">
+          <li><a href="services.html#waterproofing" class="hover:text-secondary transition">Waterproofing</a></li>
+          <li><a href="services.html#termite" class="hover:text-secondary transition">Termite Proofing</a></li>
+          <li><a href="services.html#insulation" class="hover:text-secondary transition">Insulation</a></li>
+          <li><a href="services.html#pest" class="hover:text-secondary transition">Pest Control</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xl font-semibold mb-4">Contact</h4>
+        <div class="space-y-3 text-lg">
+          <p>📞 <a href="tel:+923323070499" class="hover:text-secondary">(0332) 3070499</a></p>
+          <p>📧 <a href="mailto:info@ibsolutions.pk" class="hover:text-secondary">info@ibsolutions.pk</a></p>
+          <p>📍 Lahore, Pakistan</p>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+      <p>&copy; 2024 IBS - Infinite Building Solutions. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+  <script>
+    // Counter Animation for stats
+    const counters = document.querySelectorAll('.counter');
+    const observer2 = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = parseInt(entry.target.dataset.target);
+          let count = 0;
+          const increment = target / 100;
+          const timer = setInterval(() => {
+            count += increment;
+            if (count >= target) {
+              entry.target.textContent = target;
+              clearInterval(timer);
+            } else {
+              entry.target.textContent = Math.floor(count);
+            }
+          }, 20);
+          observer2.unobserve(entry.target);
+        }
+      });
+    });
+    counters.forEach(counter => observer2.observe(counter));
+  </script>
+</body>
+</html>
