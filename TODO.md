@@ -3,7 +3,7 @@
 ## Completed:
 - [x] Step 1: Rename folder ✓
 - [x] Step 2: script.js ✓
-- [x] Step 3: IBS.html ✓
+- [x] Step 3: index.html ✓
 - [x] Step 4: about.html ✓
 - [x] Step 5: services.html ✓
 - [x] Step 6: contact.html ✓
@@ -15,5 +15,5 @@
 ## Status:
 ✅ **WEBSITE COMPLETE** - Modern responsive Tailwind + JS site ready!
 
-Open `IBS.html` to view.
+Open `index.html` to view.
 

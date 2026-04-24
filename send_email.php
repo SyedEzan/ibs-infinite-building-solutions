@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           IBS
         </div>
         <div class="hidden md:flex items-center gap-8">
-          <a href="IBS.html" class="text-white font-semibold hover:text-blue-200 px-3 py-2 rounded-lg transition">Home</a>
+          <a href="index.html" class="text-white font-semibold hover:text-blue-200 px-3 py-2 rounded-lg transition">Home</a>
           <a href="about.html" class="text-white font-semibold hover:text-blue-200 px-3 py-2 rounded-lg transition">About</a>
           <a href="services.html" class="text-white font-semibold hover:text-blue-200 px-3 py-2 rounded-lg transition">Services</a>
           <a href="contact.html" class="text-white font-semibold bg-white/20 px-4 py-2 rounded-lg transition">Contact</a>
@@ -173,7 +173,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div>
         <h4 class="text-xl font-semibold mb-4">Quick Links</h4>
         <ul class="space-y-2">
-          <li><a href="IBS.html" class="hover:text-secondary transition">Home</a></li>
+          <li><a href="index.html" class="hover:text-secondary transition">Home</a></li>
           <li><a href="about.html" class="hover:text-secondary transition">About</a></li>
           <li><a href="services.html" class="hover:text-secondary transition">Services</a></li>
         </ul>

@@ -10,6 +10,6 @@ class Handler(SimpleHTTPRequestHandler):
         super().__init__(*args, directory=DIRECTORY, **kwargs)
 
 with HTTPServer(('', PORT), Handler) as httpd:
-    print(f"🚀 IBS Website live at http://localhost:{PORT}/IBS.html")
+    print(f"🚀 IBS Website live at http://localhost:{PORT}/index.html")
     print("Press Ctrl+C to stop")
     httpd.serve_forever()
