@@ -1,19 +1,10 @@
-# IBS Website Rebuild Progress
+# TODO - Light Theme Conversion
 
-## Completed:
-- [x] Step 1: Rename folder ✓
-- [x] Step 2: script.js ✓
-- [x] Step 3: index.html ✓
-- [x] Step 4: about.html ✓
-- [x] Step 5: services.html ✓
-- [x] Step 6: contact.html ✓
-- [x] Step 7: send_email.php styling ✓
-
-## Testing:
-- [x] Step 8: All pages responsive, JS working, form functional
-
-## Status:
-✅ **WEBSITE COMPLETE** - Modern responsive Tailwind + JS site ready!
-
-Open `index.html` to view.
+- [ ] Create forced-light changes across pages by removing/neutralizing `dark:*` Tailwind classes.
+- [x] Update `index.html` dark variants (sections/cards/footer/gradients/faq) - partial.
+- [ ] Update `about.html` dark variants + footer background/text.
+- [ ] Update `services.html` dark variants.
+- [ ] Update `contact.html` dark variants + footer background/text.
+- [ ] Run quick grep for remaining `dark:` patterns.
+- [ ] Manual verification: open all pages in browser and confirm light/white look.
 

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You - IBS - Infinite Building Solutions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#003087',
+            secondary: '#007bff'
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .success-icon { animation: scaleIn 0.6s ease-out; }
+    @keyframes scaleIn {
+      from { transform: scale(0); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <nav class="bg-primary/95 backdrop-blur-md fixed w-full z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <a href="index.html" class="text-2xl font-bold text-white flex items-center gap-2">
+          IBS
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="text-white font-semibold hover:text-blue-200 px-3 py-2 rounded-lg transition">Home</a>
+          <a href="about.html" class="text-white font-semibold hover:text-blue-200 px-3 py-2 rounded-lg transition">About</a>
+          <a href="services.html" class="text-white font-semibold hover:text-blue-200 px-3 py-2 rounded-lg transition">Services</a>
+          <a href="contact.html" class="text-white font-semibold hover:text-blue-200 px-3 py-2 rounded-lg transition">Contact</a>
+        </div>
+        <div class="md:hidden">
+          <button id="mobile-menu-btn" class="text-white p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Thank You Content -->
+  <div class="flex-1 flex items-center justify-center pt-20 pb-12 px-4">
+    <div class="max-w-2xl w-full text-center">
+
+      <!-- Success Icon -->
+      <div class="mx-auto mb-8 w-24 h-24 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center success-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+      </div>
+
+  <h1 class="text-5xl md:text-6xl font-bold text-primary mb-6">Thank You!</h1>
+
+  <p class="text-2xl text-gray-700 dark:text-gray-300 mb-4">Your message has been sent successfully.</p>
+      <p class="text-xl text-gray-600 dark:text-gray-400 mb-12">We'll get back to you within 24 hours.</p>
+
+      <!-- Actions -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="index.html"
+           class="inline-flex items-center justify-center px-10 py-5 bg-primary text-white text-lg font-bold rounded-2xl hover:bg-primary/90 transition-all duration-300 shadow-xl hover:shadow-2xl">
+          Back to Home
+        </a>
+        <a href="contact.html"
+           class="inline-flex items-center justify-center px-10 py-5 border-2 border-primary text-primary text-lg font-bold rounded-2xl hover:bg-primary hover:text-white transition-all duration-300">
+          Send Another Message
+        </a>
+      </div>
+
+      <div class="mt-12 text-sm text-gray-500 dark:text-gray-400">
+        <p>Need urgent assistance? Call us at <a href="tel:+923323070499" class="text-primary font-semibold hover:underline">+92 332 3070499</a></p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white py-12 px-4">
+    <div class="max-w-7xl mx-auto text-center">
+      <div class="text-3xl font-bold mb-4">IBS</div>
+      <p class="text-white/80 mb-6">Pakistan's trusted partner for Waterproofing, Termite Proofing, Insulation & Pest Control</p>
+      <div class="text-sm text-white/60">© 2024 IBS - Infinite Building Solutions. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    if (mobileBtn) {
+      mobileBtn.addEventListener('click', () => {
+        const nav = document.querySelector('nav');
+        nav.classList.toggle('mobile-open');
+      });
+    }
+  </script>
+
+</body>
+</html>
