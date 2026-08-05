@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | IBS Infinite Building Solutions</title>
+  <meta name="description" content="Explore IBS premium building protection products: insulation boards, waterproofing membranes, coatings, chemicals and sealants for long-lasting performance.">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .breadcrumb { display: inline-flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.72); font-size: 0.95rem; margin-top: 18px; }
+    .breadcrumb a { color: var(--light-blue); }
+    .products-hero { min-height: 60vh; display: grid; place-items: center; padding: calc(var(--nav-height) + 80px) 0 80px; background: var(--dark); color: var(--white); text-align: center; }
+    .products-hero h1 { font-size: clamp(3rem, 7vw, 5rem); line-height: 1; margin-bottom: 18px; letter-spacing: -0.06em; }
+    .products-hero p { max-width: 720px; margin: 0 auto; color: rgba(255,255,255,0.77); font-size: 1.05rem; line-height: 1.8; }
+    .products-hero .hero-actions { margin-top: 32px; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+    .products-section { padding: 96px 0; }
+    .product-filters { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; justify-content: center; }
+    .product-filter-btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.06); color: var(--white); font-weight: 700; cursor: pointer; transition: background 0.25s ease; }
+    .product-filter-btn.active, .product-filter-btn:hover { background: rgba(255,255,255,0.14); }
+    .products-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin-top: 48px; }
+    .product-card { background: var(--white); border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--concrete-dark); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .product-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(10,22,40,0.12); }
+    .product-card-image { min-height: 240px; background: linear-gradient(135deg, rgba(29,78,216,0.08), rgba(245,158,11,0.06)); display: grid; place-items: center; padding: 28px; }
+    .product-card-image img { width: auto; max-width: 100%; max-height: 100%; }
+    .product-card-content { padding: 28px 30px 32px; display: flex; flex-direction: column; gap: 18px; }
+    .product-card-content h3 { font-size: 1.35rem; color: var(--navy); margin: 0; }
+    .product-card-content p { color: var(--text-body); line-height: 1.75; margin: 0; }
+    .product-card-features { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .product-card-features li { position: relative; padding-left: 22px; color: var(--text-dark); line-height: 1.7; }
+    .product-card-features li::before { content: ''; position: absolute; top: 9px; left: 0; width: 8px; height: 8px; border-radius: 50%; background: var(--cobalt); }
+    .product-card-actions { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .product-card-actions a { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 22px; border-radius: var(--radius-sm); font-weight: 700; text-decoration: none; border: 1px solid transparent; background: var(--cobalt); color: var(--white); transition: transform 0.2s ease, background 0.2s ease; }
+    .product-card-actions a:hover { background: var(--cobalt-light); transform: translateY(-1px); }
+    .section-subtitle { color: var(--text-body); max-width: 760px; margin: 20px auto 0; }
+    .cta-panel { background: linear-gradient(135deg, rgba(29,78,216,0.16), rgba(245,158,11,0.12)); border-radius: var(--radius-xl); padding: 48px 40px; display: grid; gap: 20px; justify-items: center; text-align: center; }
+    .cta-panel h2 { margin: 0; font-size: clamp(2rem, 4vw, 3.2rem); color: var(--navy); }
+    .cta-panel p { margin: 0; color: var(--text-body); line-height: 1.8; max-width: 820px; }
+    .cta-panel a { display: inline-flex; padding: 16px 30px; border-radius: 999px; background: var(--cobalt); color: var(--white); font-weight: 700; text-decoration: none; }
+    @media (max-width: 1024px) { .products-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 720px) { .products-hero { padding-top: calc(var(--nav-height) + 60px); } .products-grid { grid-template-columns: 1fr; } .product-card { min-height: 100%; } }
+  </style>
+</head>
+<body>
+  <header class="nav" role="banner">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand" aria-label="IBS Home">
+        <img src="./assets/ibs logo.pdf (1).webp" alt="IBS Infinite Building Solutions logo" class="nav-brand-logo" width="40" height="40">
+        <span class="nav-brand-text">IBS <span>Solutions</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="products.html" class="active">Products</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:14px;">
+        <a href="contact.html" class="nav-cta">Get Free Survey</a>
+        <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="products.html" class="active">Products</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" style="color:var(--cobalt-light)">Get Free Survey →</a>
+  </nav>
+
+  <main>
+    <section class="products-hero" aria-labelledby="products-banner-title">
+      <div class="container">
+        <p class="eyebrow">Products</p>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span>&gt;</span>
+          <span>Products</span>
+        </nav>
+        <h1 id="products-banner-title">Premium Building Protection Products</h1>
+        <p>IBS product systems are engineered for thermal comfort, leak resistance, and long-term durability across Pakistan’s extreme climate.</p>
+        <div class="hero-actions">
+          <a href="#products" class="btn-primary">Browse Products</a>
+          <a href="contact.html" class="btn btn-light-outline">Request a Quote</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="products-section" id="products" aria-label="Product catalogue">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-header-left">
+            <span class="eyebrow">Explore our range</span>
+            <h2 class="section-title">Products Designed for Protection, Insulation, and Repair</h2>
+            <p class="section-copy section-subtitle">Each product page includes full technical details, benefits, applications, and why IBS is the best choice.</p>
+          </div>
+        </div>
+
+        <div class="product-filters" role="tablist" aria-label="Product categories">
+          <button class="product-filter-btn active" type="button">All</button>
+          <button class="product-filter-btn" type="button">Insulation</button>
+          <button class="product-filter-btn" type="button">Waterproofing</button>
+          <button class="product-filter-btn" type="button">Repair</button>
+          <button class="product-filter-btn" type="button">Sealants</button>
+          <button class="product-filter-btn" type="button">Chemicals</button>
+        </div>
+
+        <div class="products-grid">
+          <article class="product-card">
+            <div class="product-card-image"><img src="./assets/Insugreenlogo..png" alt="XPS insulation board" width="240" height="160"></div>
+            <div class="product-card-content">
+              <span class="product-tag">Insulation</span>
+              <h3>XPS Insulation Board</h3>
+              <p>High-performance thermal insulation board for roofs and walls that resists moisture and heat transfer.</p>
+              <ul class="product-card-features">
+                <li>High compressive strength</li>
+                <li>Long-term thermal stability</li>
+              </ul>
+              <div class="product-card-actions"><a href="products/xps-insulation-board.html">View Details</a></div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card-image"><img src="./assets/WaterProofinglogo..png" alt="Heat reflective coating" width="240" height="160"></div>
+            <div class="product-card-content">
+              <span class="product-tag">Waterproofing</span>
+              <h3>Heat Reflective Coating</h3>
+              <p>Roof coating with heat-reflective pigments that reduce rooftop temperatures and extend surface life.</p>
+              <ul class="product-card-features">
+                <li>UV resistant finish</li>
+                <li>Energy-saving performance</li>
+              </ul>
+              <div class="product-card-actions"><a href="products/heat-reflective-coating.html">View Details</a></div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card-image"><img src="./assets/WaterProofinglogo..png" alt="Waterproofing membrane" width="240" height="160"></div>
+            <div class="product-card-content">
+              <span class="product-tag">Waterproofing</span>
+              <h3>Waterproofing Membrane</h3>
+              <p>Flexible membrane for roof decks, balconies, and underground structures that blocks water intrusion.</p>
+              <ul class="product-card-features">
+                <li>Seamless application</li>
+                <li>Durable weather resistance</li>
+              </ul>
+              <div class="product-card-actions"><a href="products/waterproofing-membrane.html">View Details</a></div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card-image"><img src="./assets/Insugreenlogo..png" alt="PU foam insulation" width="240" height="160"></div>
+            <div class="product-card-content">
+              <span class="product-tag">Insulation</span>
+              <h3>PU Foam Insulation</h3>
+              <p>Spray-applied polyurethane foam that seals cavities and delivers excellent thermal performance.</p>
+              <ul class="product-card-features">
+                <li>Rapid installation</li>
+                <li>Air-sealing barrier</li>
+              </ul>
+              <div class="product-card-actions"><a href="products/pu-foam-insulation.html">View Details</a></div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card-image"><img src="./assets/WaterProofinglogo..png" alt="Crack repair chemicals" width="240" height="160"></div>
+            <div class="product-card-content">
+              <span class="product-tag">Repair</span>
+              <h3>Crack Repair Chemicals</h3>
+              <p>Specialized repair compounds to restore cracks and protect structures against water infiltration.</p>
+              <ul class="product-card-features">
+                <li>Penetrating repair formula</li>
+                <li>Strong adhesion to masonry</li>
+              </ul>
+              <div class="product-card-actions"><a href="products/crack-repair.html">View Details</a></div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card-image"><img src="./assets/WaterProofinglogo..png" alt="Roof sealants" width="240" height="160"></div>
+            <div class="product-card-content">
+              <span class="product-tag">Sealants</span>
+              <h3>Roof Sealants</h3>
+              <p>Flexible sealant solutions for joints, parapets, and expansion gaps that maintain waterproof performance.</p>
+              <ul class="product-card-features">
+                <li>Elastic seal performance</li>
+                <li>Weatherproof joint protection</li>
+              </ul>
+              <div class="product-card-actions"><a href="products/roof-sealant.html">View Details</a></div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card-image"><img src="./assets/WaterProofinglogo..png" alt="Waterproofing chemicals" width="240" height="160"></div>
+            <div class="product-card-content">
+              <span class="product-tag">Chemicals</span>
+              <h3>Waterproofing Chemicals</h3>
+              <p>Advanced chemical formulations for concrete treatment, protection, and membrane reinforcement.</p>
+              <ul class="product-card-features">
+                <li>Improves substrate durability</li>
+                <li>Long-lasting waterproof shield</li>
+              </ul>
+              <div class="product-card-actions"><a href="products/waterproofing-chemicals.html">View Details</a></div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card-image"><img src="./assets/WaterProofinglogo..png" alt="Construction chemicals" width="240" height="160"></div>
+            <div class="product-card-content">
+              <span class="product-tag">Chemicals</span>
+              <h3>Construction Chemicals</h3>
+              <p>Performance additives and protective compounds designed to deliver stronger, more durable concrete systems.</p>
+              <ul class="product-card-features">
+                <li>Concrete strength enhancement</li>
+                <li>Durability under harsh conditions</li>
+              </ul>
+              <div class="product-card-actions"><a href="products/construction-chemicals.html">View Details</a></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="cta-panel">
+          <h2>Ready to Specify a Product?</h2>
+          <p>Contact IBS for a quotation, product recommendation, and installation plan tailored to your building's needs.</p>
+          <a href="contact.html">Request a Quote</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="./assets/ibs logo.pdf (1).webp" alt="IBS Infinite Building Solutions logo" class="footer-logo" width="44" height="44" loading="lazy">
+          <div class="footer-brand-name">Infinite <span>Building</span> Solutions</div>
+          <p class="footer-desc">Pakistan's trusted specialists in waterproofing, termite proofing, XPS insulation, and pest control. Serving Karachi and nationwide since 2018.</p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Products</h4>
+          <ul class="footer-links">
+            <li><a href="products.html">Products</a></li>
+            <li><a href="products/xps-insulation-board.html">XPS Board</a></li>
+            <li><a href="products/heat-reflective-coating.html">Heat Reflective Coating</a></li>
+            <li><a href="products/waterproofing-membrane.html">Waterproofing</a></li>
+            <li><a href="products/pu-foam-insulation.html">PU Foam</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About IBS</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-item">
+            <address>Office No.02, SB-44, Sector X-4<br>Gulshan-e-Maymar, Karachi, Pakistan</address>
+            <a href="tel:+923323070499">0332-3070499</a>
+            <a href="tel:+923366822155">0336-6822155</a>
+            <a href="mailto:ibsolution786@gmail.com">ibsolution786@gmail.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 IBS — Infinite Building Solutions. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/923323070499" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"></a>
+  <button class="back-top" id="backTop" type="button" aria-label="Back to top">&uarr;</button>
+  <script src="script.js" defer></script>
+</body>
+</html>

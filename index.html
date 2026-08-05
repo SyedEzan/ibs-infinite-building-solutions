@@ -386,6 +386,38 @@
     .section-body-muted { color: rgba(255,255,255,0.58); }
 
     .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .product-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 24px; }
+    .product-card {
+      display: flex; flex-direction: column;
+      background: var(--white); border-radius: var(--radius-xl);
+      overflow: hidden; border: 1px solid var(--concrete-dark);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(10,22,40,0.12); }
+    .product-card-image {
+      min-height: 220px; display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, rgba(29,78,216,0.08), rgba(245,158,11,0.06));
+      padding: 28px;
+    }
+    .product-card-image img { width: auto; max-width: 100%; max-height: 100%; object-fit: contain; }
+    .product-card-content { padding: 28px 30px 32px; display: flex; flex-direction: column; gap: 16px; }
+    .product-tag {
+      display: inline-flex; align-items: center; padding: 8px 14px;
+      border-radius: 999px; background: rgba(29,78,216,0.1);
+      color: var(--cobalt); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .product-card-content h3 { font-size: 1.25rem; color: var(--navy); margin: 0; }
+    .product-card-content p { color: var(--text-body); line-height: 1.75; margin: 0; }
+    .product-card-features { list-style: none; display: grid; gap: 10px; padding: 0; margin: 0; }
+    .product-card-features li {
+      position: relative; padding-left: 22px; color: var(--text-dark);
+      font-size: 0.95rem; line-height: 1.7;
+    }
+    .product-card-features li::before {
+      content: '';
+      position: absolute; left: 0; top: 10px;
+      width: 8px; height: 8px; border-radius: 50%; background: var(--cobalt);
+    }
     .service-card {
       background: var(--white); border-radius: var(--radius-xl);
       overflow: hidden; border: 1px solid var(--concrete-dark);
@@ -640,6 +672,7 @@
         <a href="index.html" class="active">Home</a>
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
+        <a href="products.html">Products</a>
         <a href="contact.html">Contact</a>
       </nav>
       <div style="display:flex;align-items:center;gap:14px;">
@@ -655,6 +688,7 @@
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
+    <a href="products.html">Products</a>
     <a href="contact.html">Contact</a>
     <a href="contact.html" style="color:var(--cobalt-light)">Get Free Survey →</a>
   </nav>
@@ -713,6 +747,88 @@
               <div class="hero-float-sub">Written warranty on every project</div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS PREVIEW -->
+    <section class="section services-section" aria-label="Our Premium Products">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-header-row">
+            <div class="section-header-left">
+              <span class="eyebrow">Our Premium Products</span>
+              <h2 class="section-title">Trusted Materials for Long-Lasting Protection</h2>
+              <p class="section-body">Explore our most popular building protection products, selected for performance, durability, and compatibility with IBS systems.</p>
+            </div>
+            <a href="products.html" class="btn-primary" style="flex-shrink:0;">See All Products</a>
+          </div>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-card-image">
+              <img src="./assets/Insugreenlogo..png" alt="XPS insulation board" width="240" height="160" loading="lazy">
+            </div>
+            <div class="product-card-content">
+              <span class="product-tag">Featured</span>
+              <h3>XPS Insulation Board</h3>
+              <p>High-performance thermal insulation that keeps roofs and walls cool under Pakistan’s toughest heat.</p>
+              <ul class="product-card-features">
+                <li>Moisture-resistant foam board</li>
+                <li>Reduces cooling costs</li>
+              </ul>
+              <a href="products/xps-insulation-board.html" class="btn-primary" style="width:fit-content;padding:12px 20px;">View Details</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card-image">
+              <img src="./assets/WaterProofinglogo..png" alt="Heat reflective coating" width="240" height="160" loading="lazy">
+            </div>
+            <div class="product-card-content">
+              <span class="product-tag">Featured</span>
+              <h3>Heat Reflective Coating</h3>
+              <p>Reflective roof coatings that lower surface temperature and protect your building envelope.</p>
+              <ul class="product-card-features">
+                <li>High solar reflectance</li>
+                <li>Improves roof life</li>
+              </ul>
+              <a href="products/heat-reflective-coating.html" class="btn-primary" style="width:fit-content;padding:12px 20px;">View Details</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card-image">
+              <img src="./assets/WaterProofinglogo..png" alt="Waterproofing membrane" width="240" height="160" loading="lazy">
+            </div>
+            <div class="product-card-content">
+              <span class="product-tag">Featured</span>
+              <h3>Waterproofing Membrane</h3>
+              <p>Durable membrane protection for terraces, balconies, and below-grade surfaces.</p>
+              <ul class="product-card-features">
+                <li>Seals against leaks</li>
+                <li>Flexible, long-lasting finish</li>
+              </ul>
+              <a href="products/waterproofing-membrane.html" class="btn-primary" style="width:fit-content;padding:12px 20px;">View Details</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card-image">
+              <img src="./assets/Insugreenlogo..png" alt="PU foam insulation" width="240" height="160" loading="lazy">
+            </div>
+            <div class="product-card-content">
+              <span class="product-tag">Featured</span>
+              <h3>PU Foam Insulation</h3>
+              <p>Spray-applied insulation ideal for cavities and hard-to-reach roof areas.</p>
+              <ul class="product-card-features">
+                <li>Fast application</li>
+                <li>Excellent thermal barrier</li>
+              </ul>
+              <a href="products/pu-foam-insulation.html" class="btn-primary" style="width:fit-content;padding:12px 20px;">View Details</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
