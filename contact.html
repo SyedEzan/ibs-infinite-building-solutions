@@ -1,413 +1,56 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact IBS - Free Site Survey | Karachi, Pakistan | 0332-3070499</title>
-  <meta name="description" content="Contact IBS Infinite Building Solutions for waterproofing, termite proofing and insulation services. Free site survey. Karachi office. Call 0332-3070499." />
-  <meta name="keywords" content="contact IBS Pakistan, waterproofing Karachi, termite proofing Karachi, building protection contact, free site survey Pakistan" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --dark: #0d1b2a;
-      --primary: #1e3a5f;
-      --accent: #2563eb;
-      --light-blue: #3b82f6;
-      --bg-light: #f0f4ff;
-      --white: #ffffff;
-      --text-dark: #1e293b;
-      --text-muted: #64748b;
-      --border: #e2e8f0;
-    }
-
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      color: var(--text-dark);
-      background: var(--white);
-      line-height: 1.6;
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--dark);
-      padding: 0 48px;
-      height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid #1e3a5f;
-    }
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .nav-logo img { height: 36px; object-fit: contain; }
-    .nav-links { display: flex; gap: 36px; list-style: none; }
-    .nav-links a { color: #94a3b8; text-decoration: none; font-size: 14px; letter-spacing: 0.03em; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--white); }
-    .nav-links a.active { color: var(--light-blue); }
-    .nav-toggle { display: none; background: none; border: none; cursor: pointer; }
-    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--white); margin: 5px 0; transition: 0.3s; }
-
-    .hero {
-      height: 56vh;
-      min-height: 340px;
-      background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 60%, #1a4a7a 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 0 24px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(circle, rgba(37,99,235,0.08) 1px, transparent 1px);
-      background-size: 32px 32px;
-    }
-    .hero-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--light-blue); margin-bottom: 16px; position: relative; }
-    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; color: var(--white); line-height: 1.15; margin-bottom: 16px; position: relative; }
-    .hero p { font-size: 16px; color: #94a3b8; max-width: 520px; position: relative; }
-    .breadcrumb { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); font-size: 12px; color: #475569; letter-spacing: 0.04em; }
-    .breadcrumb a { color: #475569; text-decoration: none; }
-    .breadcrumb a:hover { color: var(--light-blue); }
-
-    .contact-section {
-      padding: 96px 48px;
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 48px;
-      align-items: start;
-    }
-    .contact-info { background: var(--dark); color: var(--white); padding: 48px 40px; border-radius: 2px; position: sticky; top: 96px; }
-    .contact-info h3 { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--light-blue); margin-bottom: 32px; }
-    .info-group { margin-bottom: 32px; }
-    .info-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: #475569; margin-bottom: 8px; }
-    .info-value { font-size: 14px; color: #cbd5e1; line-height: 2; }
-    .info-value a { color: #cbd5e1; text-decoration: none; display: block; transition: color 0.2s; }
-    .info-value a:hover { color: var(--white); }
-    .info-divider { height: 1px; background: #1e3a5f; margin: 32px 0; }
-    .whatsapp-btn { display: block; width: 100%; padding: 14px; background: #16a34a; color: var(--white); text-align: center; text-decoration: none; font-size: 13px; letter-spacing: 0.06em; font-weight: 500; transition: background 0.2s; margin-bottom: 24px; }
-    .whatsapp-btn:hover { background: #15803d; }
-    .social-row { display: flex; gap: 10px; }
-    .social-row a { width: 36px; height: 36px; border: 1px solid #1e3a5f; display: flex; align-items: center; justify-content: center; color: #94a3b8; text-decoration: none; font-size: 13px; transition: all 0.2s; }
-    .social-row a:hover { border-color: var(--accent); color: var(--white); background: var(--accent); }
-
-    .form-header { margin-bottom: 40px; }
-    .form-header h2 { font-size: 28px; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; }
-    .form-header p { font-size: 15px; color: var(--text-muted); }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .form-group { display: flex; flex-direction: column; gap: 6px; }
-    .form-group.full { grid-column: 1 / -1; }
-    .form-group label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-weight: 500; }
-    .form-group input,
-    .form-group select,
-    .form-group textarea { padding: 13px 16px; border: 1px solid var(--border); font-size: 14px; color: var(--text-dark); background: var(--white); outline: none; transition: border-color 0.2s, box-shadow 0.2s; font-family: inherit; border-radius: 0; -webkit-appearance: none; appearance: none; }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.08); }
-    .form-group textarea { resize: vertical; min-height: 120px; }
-    .form-group select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748b' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
-    .submit-btn { display: block; width: 100%; padding: 16px; background: var(--accent); color: var(--white); border: none; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; margin-top: 8px; font-family: inherit; }
-    .submit-btn:hover { background: #1d4ed8; }
-    .form-note { font-size: 12px; color: #94a3b8; margin-top: 14px; text-align: center; }
-
-    .process-section { background: var(--bg-light); padding: 80px 48px; }
-    .process-inner { max-width: 1200px; margin: 0 auto; }
-    .section-label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
-    .section-heading { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; color: var(--text-dark); margin-bottom: 48px; }
-    .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
-    .process-card { background: var(--white); padding: 40px 32px; }
-    .process-step { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; font-weight: 600; }
-    .process-card h3 { font-size: 17px; font-weight: 600; color: var(--text-dark); margin-bottom: 12px; }
-    .process-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
-
-    .map-section { padding: 80px 48px; max-width: 1200px; margin: 0 auto; }
-    .map-header { margin-bottom: 32px; }
-    .map-header h2 { font-size: 22px; font-weight: 700; color: var(--text-dark); }
-    .map-header p { font-size: 14px; color: var(--text-muted); margin-top: 6px; }
-    .map-embed { width: 100%; height: 380px; border: 1px solid var(--border); filter: grayscale(20%); }
-
-    footer { background: var(--dark); border-top: 1px solid #1e3a5f; }
-    .footer-main { max-width: 1200px; margin: 0 auto; padding: 64px 48px; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 48px; }
-    .footer-brand img { height: 38px; object-fit: contain; margin-bottom: 12px; display: block; }
-    .footer-tagline { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #475569; margin-bottom: 14px; }
-    .footer-brand p { font-size: 13px; color: #64748b; line-height: 1.7; max-width: 220px; }
-    .footer-social { display: flex; gap: 8px; margin-top: 20px; }
-    .footer-social a { width: 32px; height: 32px; border: 1px solid #1e3a5f; display: flex; align-items: center; justify-content: center; color: #64748b; text-decoration: none; font-size: 12px; transition: all 0.2s; }
-    .footer-social a:hover { border-color: var(--accent); color: var(--white); background: var(--accent); }
-    .footer-col h4 { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white); padding-bottom: 14px; border-bottom: 1px solid #1e3a5f; margin-bottom: 20px; }
-    .footer-col ul { list-style: none; }
-    .footer-col ul li a { color: #64748b; text-decoration: none; font-size: 13px; line-height: 2.4; display: block; transition: color 0.2s; }
-    .footer-col ul li a:hover { color: var(--white); }
-    .footer-contact-list { list-style: none; }
-    .footer-contact-list li { font-size: 13px; color: #64748b; line-height: 2.4; }
-    .footer-contact-list a { color: #64748b; text-decoration: none; transition: color 0.2s; }
-    .footer-contact-list a:hover { color: var(--white); }
-    .footer-bottom { background: #060f1a; border-top: 1px solid #1e3a5f; padding: 16px 48px; }
-    .footer-bottom-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-    .footer-bottom span { font-size: 12px; color: #334155; }
-
-    .wa-float { position: fixed; bottom: 28px; right: 28px; z-index: 999; width: 50px; height: 50px; background: #16a34a; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 16px rgba(0,0,0,0.2); transition: transform 0.2s; }
-    .wa-float:hover { transform: scale(1.06); }
-    .wa-float svg { width: 24px; height: 24px; fill: white; }
-
-    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-    @media (max-width: 900px) {
-      nav { padding: 0 24px; }
-      .nav-links { display: none; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--dark); padding: 20px 24px; border-top: 1px solid #1e3a5f; gap: 0; }
-      .nav-links.open { display: flex; }
-      .nav-links li { border-bottom: 1px solid #1e3a5f; }
-      .nav-links a { display: block; padding: 14px 0; }
-      .nav-toggle { display: block; }
-      .contact-section { grid-template-columns: 1fr; padding: 60px 24px; }
-      .contact-info { position: static; }
-      .form-grid { grid-template-columns: 1fr; }
-      .form-group.full { grid-column: 1; }
-      .process-section { padding: 60px 24px; }
-      .process-grid { grid-template-columns: 1fr; }
-      .map-section { padding: 60px 24px; }
-      .footer-main { grid-template-columns: 1fr 1fr; padding: 48px 24px; gap: 36px; }
-      .footer-bottom { padding: 16px 24px; }
-      .footer-bottom-inner { flex-direction: column; gap: 6px; text-align: center; }
-    }
-    @media (max-width: 480px) {
-      .hero { min-height: 300px; }
-      .footer-main { grid-template-columns: 1fr; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact IBS | Waterproofing & Building Protection Experts</title>
+<meta name="description" content="Contact Infinite Building Solutions for waterproofing, heat proofing, PU coating, termite proofing, insulation, and building protection services across Pakistan.">
+<meta name="keywords" content="contact IBS, waterproofing Pakistan, heat proofing Karachi, termite proofing, building protection">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#0F4C97;--blue-dark:#092f61;--soft:#EAF4FF;--ink:#10233f;--muted:#667891;--line:#dbe7f3;--canvas:#f7faff;--success:#20b56b;--shadow:0 22px 70px rgba(15,76,151,.11);--radius:20px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--canvas);color:var(--ink);font-family:Poppins,sans-serif;line-height:1.6}body.menu-open{overflow:hidden}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}img{display:block;max-width:100%}.container{width:min(1180px,calc(100% - 48px));margin:auto}.eyebrow{margin:0 0 16px;color:#5d91cf;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.section-heading{max-width:680px;margin:0;color:var(--ink);font-size:clamp(2rem,4vw,3.35rem);line-height:1.08;letter-spacing:-.045em}.section-copy{max-width:580px;margin:18px 0 0;color:var(--muted);font-size:1rem}
+/* navigation */
+.nav{position:fixed;inset:0 0 auto;z-index:1000;height:72px;background:rgba(9,32,62,.91);border-bottom:1px solid rgba(255,255,255,.12);backdrop-filter:blur(18px)}.nav-inner{width:min(1180px,calc(100% - 48px));height:100%;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px}.nav-brand{display:inline-flex;align-items:center;gap:10px;color:#fff;font-size:1.05rem;font-weight:700}.nav-brand-logo{width:40px;height:40px;object-fit:contain}.nav-brand-text span{color:#69a5f2}.nav-links{display:flex;align-items:center;gap:6px}.nav-links a{padding:9px 13px;border-radius:999px;color:rgba(255,255,255,.72);font-size:.86rem;transition:.2s}.nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,.13)}.nav-cta{display:inline-flex;align-items:center;min-height:42px;padding:10px 18px;border-radius:999px;background:#2f74e5;color:#fff;font-size:.8rem;font-weight:700;transition:.2s}.nav-cta:hover{transform:translateY(-2px);background:#4689ed}.hamburger{display:none;width:42px;height:42px;padding:9px;border:1px solid rgba(255,255,255,.18);border-radius:50%;background:rgba(255,255,255,.08);cursor:pointer}.hamburger span{display:block;width:22px;height:2px;margin:5px 0;background:#fff}.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;z-index:999;padding:12px 24px;background:rgba(9,32,62,.98);border-top:1px solid rgba(255,255,255,.1)}.mobile-menu.open{display:block}.mobile-menu a{display:block;padding:13px 14px;border-radius:12px;color:#fff;font-weight:600}.mobile-menu a:hover,.mobile-menu a.active{background:rgba(255,255,255,.11)}.mobile-menu .mobile-cta{margin-top:6px;text-align:center;background:#2f74e5}
+/* hero */
+.hero{min-height:720px;padding:150px 0 92px;color:#fff;background-image:linear-gradient(90deg,rgba(5,23,48,.94),rgba(5,23,48,.72) 47%,rgba(5,23,48,.26)),url('./assets/herosectionimg.jpeg');background-size:cover;background-position:center;display:flex;align-items:center}.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(330px,.72fr);align-items:center;gap:80px}.hero h1{max-width:700px;margin:0;font-size:clamp(3rem,6vw,5.8rem);line-height:.99;letter-spacing:-.065em}.hero h1 span{color:#8fc4ff}.hero-copy{max-width:590px;margin:26px 0 0;color:rgba(255,255,255,.75);font-size:1.05rem;line-height:1.8}.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}.button{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:13px 20px;border:1px solid transparent;border-radius:12px;font-size:.84rem;font-weight:700;transition:.2s}.button:hover{transform:translateY(-2px)}.button-primary{background:linear-gradient(135deg,#2f79e7,#1255ad);color:#fff;box-shadow:0 14px 32px rgba(9,55,120,.35)}.button-ghost{border-color:rgba(255,255,255,.34);background:rgba(255,255,255,.09);color:#fff;backdrop-filter:blur(12px)}.button-ghost:hover{background:rgba(255,255,255,.16)}.hero-card{padding:28px;border:1px solid rgba(255,255,255,.22);border-radius:22px;background:rgba(255,255,255,.12);box-shadow:0 25px 70px rgba(0,0,0,.2);backdrop-filter:blur(18px);animation:rise .8s ease both}.hero-card-label{margin:0 0 22px;color:#b7d7ff;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase}.hero-contact{display:grid;gap:14px}.hero-contact a{display:flex;align-items:center;gap:12px;color:#fff;font-size:.9rem}.hero-contact a:hover{color:#a8d0ff}.hero-contact-icon,.card-icon{display:inline-flex;align-items:center;justify-content:center;border-radius:12px;background:var(--soft);color:var(--blue)}.hero-contact-icon{width:34px;height:34px;background:rgba(255,255,255,.14);color:#b9d9ff}.hero-contact-icon svg{width:17px;height:17px}
+/* cards and form */
+.contact-cards-section,.form-section,.areas-section{padding:96px 0;background:#fff}.contact-cards-head{display:flex;align-items:end;justify-content:space-between;gap:32px;margin-bottom:38px}.contact-card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.contact-card,.why-card{padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:0 10px 30px rgba(15,76,151,.05);transition:.25s}.contact-card{min-height:190px}.contact-card:hover,.why-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:#a9c8eb}.card-icon{width:44px;height:44px;margin-bottom:24px}.card-icon svg{width:21px;height:21px}.contact-card h3,.why-card h3{margin:0 0 8px;font-size:.95rem}.contact-card p,.why-card p{margin:0;color:var(--muted);font-size:.83rem;line-height:1.8}.contact-card a:hover{color:var(--blue)}.form-shell{display:grid;grid-template-columns:.72fr 1.28fr;gap:72px;align-items:start;padding:64px;border-radius:28px;background:var(--soft);overflow:hidden}.form-intro{position:sticky;top:104px}.form-intro .section-heading{font-size:clamp(2rem,4vw,3.15rem)}.form-intro-list{display:grid;gap:16px;margin:32px 0 0;padding:0;list-style:none}.form-intro-list li{display:flex;align-items:center;gap:10px;color:#4e6783;font-size:.86rem}.check{display:inline-flex;align-items:center;justify-content:center;width:21px;height:21px;border-radius:50%;background:#cfe5ff;color:var(--blue);font-size:.75rem;font-weight:700}.form-card{padding:34px;border:1px solid rgba(15,76,151,.12);border-radius:20px;background:#fff;box-shadow:0 20px 50px rgba(15,76,151,.09)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:23px 16px}.field{position:relative}.field.full{grid-column:1/-1}.field input,.field select,.field textarea{width:100%;min-height:54px;padding:20px 15px 7px;border:1px solid var(--line);border-radius:11px;outline:none;color:var(--ink);background:#fbfdff;transition:.2s}.field textarea{min-height:142px;resize:vertical}.field label{position:absolute;top:7px;left:15px;color:#72849a;font-size:.68rem;font-weight:600;pointer-events:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:#5a96dc;background:#fff;box-shadow:0 0 0 4px rgba(15,76,151,.1)}.checkbox-field{display:flex;align-items:center;gap:9px;margin-top:20px;color:var(--muted);font-size:.78rem}.checkbox-field input{width:17px;height:17px;accent-color:var(--blue)}.form-submit{width:100%;margin-top:24px;border:0;cursor:pointer}.form-status{min-height:22px;margin:12px 0 0;color:var(--success);font-size:.78rem;text-align:center}
+/* why, areas, faq */
+.why-section,.faq-section{padding:96px 0;background:var(--canvas)}.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:42px}.why-card{min-height:190px}.why-card .card-icon{margin-bottom:22px}.areas-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:48px;align-items:center}.areas-list{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}.area-pill{padding:8px 12px;border:1px solid #c9dced;border-radius:999px;color:#46627f;background:#f7fbff;font-size:.78rem}.map-frame{width:100%;min-height:330px;border:0;border-radius:20px;box-shadow:var(--shadow);filter:saturate(.8)}.emergency-section{padding:34px 0;background:#fff}.emergency{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:34px 42px;border-radius:20px;background:linear-gradient(120deg,#0d4385,#1972d2);color:#fff;box-shadow:0 20px 45px rgba(15,76,151,.22)}.emergency h2{margin:0;font-size:clamp(1.35rem,3vw,2rem);letter-spacing:-.03em}.emergency p{margin:5px 0 0;color:rgba(255,255,255,.72);font-size:.86rem}.emergency .button{background:#fff;color:var(--blue);white-space:nowrap}.faq-layout{display:grid;grid-template-columns:.7fr 1.3fr;gap:80px;align-items:start}.faq-list{display:grid;gap:10px}.faq-item{border:1px solid var(--line);border-radius:13px;background:#fff;overflow:hidden}.faq-item summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px;cursor:pointer;list-style:none;font-size:.9rem;font-weight:600}.faq-item summary::-webkit-details-marker{display:none}.faq-item summary::after{content:'+';color:var(--blue);font-size:1.4rem;font-weight:400}.faq-item[open] summary::after{content:'-'}.faq-answer{padding:0 22px 20px;color:var(--muted);font-size:.83rem;line-height:1.8}.stats-section{padding:75px 0;background:var(--blue-dark);color:#fff}.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.16)}.stat{padding:30px 20px;background:var(--blue-dark);text-align:center}.stat strong{display:block;font-size:clamp(2rem,4vw,3.25rem);line-height:1;letter-spacing:-.05em}.stat span{display:block;margin-top:10px;color:rgba(255,255,255,.63);font-size:.75rem;text-transform:uppercase;letter-spacing:.1em}
+/* footer and motion */
+footer{padding:70px 0 0;background:#071d3a;color:#fff}.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:50px}.footer-brand img{width:44px;height:44px;object-fit:contain;margin-bottom:17px}.footer-brand h3{margin:0 0 10px;font-size:.95rem}.footer-brand p{max-width:280px;margin:0;color:rgba(255,255,255,.55);font-size:.8rem;line-height:1.8}.footer-heading{margin:4px 0 18px;color:rgba(255,255,255,.42);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase}.footer-links{display:grid;gap:10px;margin:0;padding:0;list-style:none}.footer-links a,.footer-contact p{color:rgba(255,255,255,.62);font-size:.8rem}.footer-links a:hover,.footer-contact a:hover{color:#fff}.footer-contact p{margin:0 0 10px;line-height:1.7}.footer-contact a{display:block;margin-top:7px;color:rgba(255,255,255,.62);font-size:.8rem}.footer-socials{display:flex;gap:8px;margin-top:22px}.footer-socials a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid rgba(255,255,255,.16);border-radius:9px;color:#fff;font-size:.75rem}.footer-socials a:hover{background:rgba(255,255,255,.12)}.footer-socials img{width:25px;height:25px;object-fit:contain}.footer-bottom{padding:18px 0;border-top:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.4);font-size:.72rem}.footer-bottom-inner{display:flex;justify-content:space-between;gap:20px}.wa-float{position:fixed;right:24px;bottom:24px;z-index:900;width:58px;height:58px;border-radius:50%;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.2);transition:.2s}.wa-float:hover{transform:translateY(-4px) scale(1.05)}.wa-float img{width:100%;height:100%;object-fit:contain}.back-top{position:fixed;right:29px;bottom:94px;z-index:900;width:46px;height:46px;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--blue);box-shadow:0 10px 25px rgba(15,76,151,.12);opacity:0;pointer-events:none;cursor:pointer;transition:.2s}.back-top.visible{opacity:1;pointer-events:auto}.back-top:hover{transform:translateY(-3px)}[data-reveal]{animation:rise .65s ease both}[data-reveal].revealed{opacity:1;transform:none}.hamburger{background:linear-gradient(#fff 0 0) center 13px/20px 2px no-repeat,linear-gradient(#fff 0 0) center 20px/20px 2px no-repeat,linear-gradient(#fff 0 0) center 27px/20px 2px no-repeat,rgba(255,255,255,.08)}.hamburger span{visibility:hidden}@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media(max-width:900px){.nav-links,.nav-cta{display:none}.hamburger{display:inline-flex;flex-direction:column;align-items:center;justify-content:center}.hero{min-height:auto;padding:132px 0 72px}.hero-grid,.form-shell,.areas-grid,.faq-layout{grid-template-columns:1fr;gap:38px}.hero-card,.form-intro{position:static}.contact-card-grid,.why-grid{grid-template-columns:1fr 1fr}.form-shell{padding:38px 28px}.stats-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.container,.nav-inner{width:min(100% - 32px,1180px)}.hero h1{font-size:3.2rem}.hero-actions,.button{width:100%}.contact-cards-head,.emergency,.footer-bottom-inner{display:block}.contact-cards-head .section-copy{margin-top:14px}.contact-card-grid,.why-grid,.form-grid,.footer-grid{grid-template-columns:1fr}.contact-card,.why-card{min-height:0}.form-shell{padding:30px 20px}.form-card{padding:24px 18px}.emergency{padding:28px 24px}.emergency .button{width:auto;margin-top:22px}.stats-grid{grid-template-columns:1fr 1fr}.footer-bottom-inner span+span{display:block;margin-top:8px}.back-top{right:20px;bottom:88px}.wa-float{right:16px;bottom:16px}}
+	.footer-socials a[aria-label="Facebook"], .footer-socials a[aria-label="Instagram"] { overflow: hidden; }
+	.footer-socials a[aria-label="Facebook"] { background: #fff url('./assets/facebook-logo-facebook-icon-transparent-free-png.webp') center / 25px 25px no-repeat; color: transparent; }
+	.footer-socials a[aria-label="Instagram"] { background: #fff url('./assets/logo-instagram_971166-164497.avif') center / 25px 25px no-repeat; color: transparent; }
+	.footer-socials a[aria-label="Facebook"] img, .footer-socials a[aria-label="Instagram"] img { display: none; }
+</style>
 </head>
 <body>
+<header class="nav" role="banner"><div class="nav-inner"><a href="index.html" class="nav-brand" aria-label="IBS Home"><img src="./assets/logo.png.png" alt="IBS Logo" class="nav-brand-logo" width="40" height="40"><span class="nav-brand-text">IBS <span>Solutions</span></span></a><nav class="nav-links" aria-label="Primary navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="contact.html" class="active">Contact</a></nav><div style="display:flex;align-items:center;gap:14px"><a href="#inspection" class="nav-cta">Get Free Survey</a><button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" id="hamburger"><span></span><span></span><span></span></button></div></div></header>
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="contact.html" class="active">Contact</a><a href="#inspection" class="mobile-cta">Get Free Survey</a></nav>
+<main>
+<section class="hero" aria-labelledby="hero-title"><div class="container hero-grid"><div data-reveal><p class="eyebrow">Infinite Building Solutions &#8226;istan</p><h1 id="hero-title">Let's protect <span>your property.</span></h1><p class="hero-copy">Have questions or need expert advice? Our specialists are ready to help with waterproofing, insulation, termite protection, heat proofing, and more.</p><div class="hero-actions"><a class="button button-primary" href="#inspection">Get Free Inspection <span aria-hidden="true">&rarr;</span></a><a class="button button-ghost" href="tel:+923323070499">Call Now <span aria-hidden="true">&nearr;</span></a></div></div><aside class="hero-card" aria-label="IBS contact details"><p class="hero-card-label">Talk to an IBS specialist</p><div class="hero-contact"><a href="tel:+923323070499"><span class="hero-contact-icon">&#8226;</span>0332-3070499</a><a href="tel:+923366822155"><span class="hero-contact-icon">&#8226;</span>0336-6822155</a><a href="mailto:ibsolution786@gmail.com"><span class="hero-contact-icon">@</span>ibsolution786@gmail.com</a><a href="https://ibsolutions.pk" target="_blank" rel="noopener"><span class="hero-contact-icon">&#8226;</span>www.ibsolutions.pk</a></div></aside></div></section>
+<section class="contact-cards-section" aria-labelledby="contact-options-title"><div class="container"><div class="contact-cards-head" data-reveal><div><p class="eyebrow">Reach us directly</p><h2 class="section-heading" id="contact-options-title">Choose the way that works for you.</h2></div><p class="section-copy">A real specialist is one call away. We make it easy to start with a clear answer.</p></div><div class="contact-card-grid"><article class="contact-card" data-reveal><span class="card-icon">&#8226;</span><h3>Call Us</h3><p><a href="tel:+923323070499">0332-3070499</a><br><a href="tel:+923366822155">0336-6822155</a></p></article><article class="contact-card" data-reveal><span class="card-icon">@</span><h3>Email</h3><p><a href="mailto:ibsolution786@gmail.com">ibsolution786@gmail.com</a></p></article><article class="contact-card" data-reveal><span class="card-icon">&#8226;</span><h3>Office</h3><p>Karachi, Pakistan<br>Serving nationwide</p></article><article class="contact-card" data-reveal><span class="card-icon">&#8226;</span><h3>Working Hours</h3><p>Monday - Saturday<br>9 AM - 6 PM</p></article></div></div></section>
+<section class="form-section" id="inspection" aria-labelledby="form-title"><div class="container form-shell"><div class="form-intro" data-reveal><p class="eyebrow">Start with a conversation</p><h2 class="section-heading" id="form-title">Send us a message.</h2><p class="section-copy">Share a few details and our team will prepare the right next step for your property.</p><ul class="form-intro-list"><li><span class="check">&#8226;</span>No-obligation first consultation</li><li><span class="check">&#8226;</span>Clear recommendations from specialists</li><li><span class="check">&#8226;</span>Free inspection for qualified projects</li></ul></div><div class="form-card" data-reveal><form id="contactForm"><div class="form-grid"><div class="field"><label for="name">Full Name</label><input id="name" name="name" type="text" placeholder=" " required></div><div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder=" "></div><div class="field"><label for="phone">Phone Number</label><input id="phone" name="phone" type="tel" placeholder="03XX-XXXXXXX" required></div><div class="field"><label for="service">Select Service</label><select id="service" name="service" required><option value="" selected disabled>Choose a service</option><option>Waterproofing</option><option>Heat Proofing</option><option>PU Coating</option><option>Termite Proofing</option><option>Insulation</option><option>Roof Coating</option></select></div><div class="field full"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell us briefly about the property or issue..."></textarea></div></div><label class="checkbox-field"><input type="checkbox" required><span>I agree to the Privacy Policy.</span></label><button class="button button-primary form-submit" type="submit">Request Free Inspection <span aria-hidden="true">&rarr;</span></button><p class="form-status" id="formStatus" role="status" aria-live="polite"></p></form></div></div></section>
+<section class="why-section" aria-labelledby="why-title"><div class="container"><p class="eyebrow">The IBS difference</p><h2 class="section-heading" id="why-title">Protection built around your property.</h2><div class="why-grid"><article class="why-card" data-reveal><span class="card-icon">&#8226;</span><h3>Certified Professionals</h3><p>Experienced specialists who understand materials, surfaces, and local conditions.</p></article><article class="why-card" data-reveal><span class="card-icon">&#8226;</span><h3>Fast Response</h3><p>Clear communication from the first call through project completion.</p></article><article class="why-card" data-reveal><span class="card-icon">&#8226;</span><h3>Free Site Inspection</h3><p>We assess the real problem before recommending the right system.</p></article><article class="why-card" data-reveal><span class="card-icon">+</span><h3>Long-Term Protection</h3><p>Durable systems and practical advice designed to protect your investment.</p></article></div></div></section>
+<section class="areas-section" aria-labelledby="areas-title"><div class="container areas-grid"><div data-reveal><p class="eyebrow">Service areas</p><h2 class="section-heading" id="areas-title">Local knowledge. Nationwide reach.</h2><p class="section-copy">Serving residential, commercial, and industrial projects across Karachi and Pakistan.</p><div class="areas-list"><span class="area-pill">Karachi</span><span class="area-pill">Lahore</span><span class="area-pill">Islamabad</span><span class="area-pill">Rawalpindi</span><span class="area-pill">Nationwide</span></div></div><iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.4!2d67.09!3d24.97!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDU4JzEyLjAiTiA2N8KwMDUnMjQuMCJF!5e0!3m2!1sen!2spk!4v1600000000000!5m2!1sen!2spk" loading="lazy" allowfullscreen title="IBS service area map"></iframe></div></section>
+<section class="emergency-section"><div class="container"><div class="emergency"><div><h2>Need immediate assistance?</h2><p>Call our experts today and get practical guidance.</p></div><a class="button" href="tel:+923323070499">0332-3070499 <span aria-hidden="true">&nearr;</span></a></div></div></section>
+<section class="faq-section" aria-labelledby="faq-title"><div class="container faq-layout"><div><p class="eyebrow">Questions, answered</p><h2 class="section-heading" id="faq-title">Before you make the call.</h2><p class="section-copy">A few of the questions we hear most often from property owners.</p></div><div class="faq-list"><details class="faq-item" open><summary>How quickly can IBS inspect my property?</summary><div class="faq-answer">Our team usually calls back within 24 hours and schedules an inspection at the earliest convenient time.</div></details><details class="faq-item"><summary>Do you offer free inspections?</summary><div class="faq-answer">Yes. Qualified residential, commercial, and industrial projects can receive a free initial site inspection.</div></details><details class="faq-item"><summary>Which areas do you cover?</summary><div class="faq-answer">We serve Karachi and support projects across Lahore, Islamabad, Rawalpindi, and other areas of Pakistan.</div></details><details class="faq-item"><summary>How long does waterproofing last?</summary><div class="faq-answer">Service life depends on the surface and system. Our specialist recommends the right preparation and protection for your conditions.</div></details><details class="faq-item"><summary>Can termite treatment be done in occupied homes?</summary><div class="faq-answer">Yes. We plan treatments around occupants and explain the preparation and safety steps before work begins.</div></details></div></div></section>
+<section class="stats-section" aria-label="IBS at a glance"><div class="container stats-grid"><div class="stat"><strong data-count="500" data-suffix="+">0+</strong><span>Projects completed</span></div><div class="stat"><strong data-count="1000" data-suffix="+">0+</strong><span>Satisfied clients</span></div><div class="stat"><strong data-count="6" data-suffix="+">0+</strong><span>Years experience</span></div><div class="stat"><strong data-count="10" data-suffix="yr">0yr</strong><span>Guarantee period</span></div></div></section>
+</main>
+<footer><div class="container footer-grid"><div class="footer-brand"><img src="./assets/logo.png.png" alt="IBS logo" width="44" height="44"><h3>Infinite Building Solutions</h3><p>Professional waterproofing, heat proofing, PU coating, termite proofing, insulation, and building protection services.</p><div class="footer-socials"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Instagram">ig</a><a href="https://wa.me/923323070499" aria-label="WhatsApp"><img src="./assets/whatsapp-logo-4456_1024.png" alt="" width="25" height="25"></a></div></div><div><h4 class="footer-heading">Quick links</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div><div><h4 class="footer-heading">Services</h4><ul class="footer-links"><li><a href="services.html#waterproofing">Waterproofing</a></li><li><a href="services.html#termite">Termite Proofing</a></li><li><a href="services.html#insulation">Insulation</a></li><li><a href="services.html#pest">Pest Control</a></li></ul></div><div class="footer-contact"><h4 class="footer-heading">Contact</h4><p>Karachi, Pakistan<br>Serving nationwide</p><a href="tel:+923323070499">0332-3070499</a><a href="mailto:ibsolution786@gmail.com">ibsolution786@gmail.com</a></div></div><div class="footer-bottom"><div class="container footer-bottom-inner"><span>&#8226;5 IBS - Infinite Building Solutions. All rights reserved.</span><span>Strength You Can Trust.</span></div></div></footer>
+<a class="wa-float" href="https://wa.me/923323070499" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><img src="./assets/whatsapp-logo-4456_1024.png" alt="" width="58" height="58"></a><button class="back-top" id="backTop" type="button" aria-label="Back to top">&uarr;</button>
+<script>
+const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobile-menu');hamburger.addEventListener('click',()=>{const open=mobileMenu.classList.toggle('open');document.body.classList.toggle('menu-open',open);hamburger.setAttribute('aria-expanded',String(open));hamburger.setAttribute('aria-label',open?'Close menu':'Open menu')});mobileMenu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{mobileMenu.classList.remove('open');document.body.classList.remove('menu-open');hamburger.setAttribute('aria-expanded','false')}));
+const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('revealed');revealObserver.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('[data-reveal]').forEach(element=>revealObserver.observe(element));
+const countObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(!entry.isIntersecting)return;const element=entry.target,target=Number(element.dataset.count),suffix=element.dataset.suffix||'',start=performance.now();const tick=now=>{const progress=Math.min((now-start)/1200,1);element.textContent=Math.round(target*(1-Math.pow(1-progress,3)))+suffix;if(progress<1)requestAnimationFrame(tick)};requestAnimationFrame(tick);countObserver.unobserve(element)}),{threshold:.5});document.querySelectorAll('[data-count]').forEach(element=>countObserver.observe(element));
+const form=document.getElementById('contactForm');form.addEventListener('submit',event=>{event.preventDefault();document.getElementById('formStatus').textContent='Thank you. An IBS specialist will contact you shortly.';form.querySelector('button').textContent='Inspection Requested'});const backTop=document.getElementById('backTop');window.addEventListener('scroll',()=>backTop.classList.toggle('visible',window.scrollY>500),{passive:true});backTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
++</script>
++</body>
++</html>
 
-  <nav>
-    <a href="index.html" class="nav-logo">
-      <img src="assets/logo.png.png" alt="IBS Logo" />
-    </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
-    </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
 
-  <section class="hero">
-    <p class="hero-eyebrow">Get In Touch</p>
-    <h1>Contact Us</h1>
-    <p>Request a free site survey. Our team responds within 24 hours.</p>
-    <div class="breadcrumb"><a href="index.html">Home</a> / Contact</div>
-  </section>
-
-  <section class="contact-section">
-    <div class="contact-info fade-in">
-      <h3>Contact Information</h3>
-      <div class="info-group">
-        <div class="info-label">Office Address</div>
-        <div class="info-value">
-          Office No.02, SB-44, Sector X-4<br>
-          Gulshan-e-Maymar, Karachi
-        </div>
-      </div>
-      <div class="info-group">
-        <div class="info-label">Phone</div>
-        <div class="info-value">
-          <a href="tel:+923323070499">0332-3070499</a>
-          <a href="tel:+923366822155">0336-6822155</a>
-          <a href="tel:+923028400827">0302-8400827</a>
-          <a href="tel:02136353044">021-36353044</a>
-        </div>
-      </div>
-      <div class="info-group">
-        <div class="info-label">Email</div>
-        <div class="info-value">
-          <a href="mailto:ibsolution786@gmail.com">ibsolution786@gmail.com</a>
-        </div>
-      </div>
-      <div class="info-group">
-        <div class="info-label">Website</div>
-        <div class="info-value">
-          <a href="https://ibsolutions.pk" target="_blank">ibsolutions.pk</a>
-        </div>
-      </div>
-      <div class="info-divider"></div>
-      <a href="https://wa.me/923323070499" target="_blank" class="whatsapp-btn">Message Us on WhatsApp</a>
-      <div class="social-row">
-        <a href="#" aria-label="Facebook">f</a>
-        <a href="#" aria-label="Instagram">in</a>
-        <a href="https://wa.me/923323070499" aria-label="WhatsApp">w</a>
-      </div>
-    </div>
-
-    <div class="contact-form-wrap fade-in">
-      <div class="form-header">
-        <h2>Send Us a Message</h2>
-        <p>Fill in the form below and we will get back to you with a tailored quote.</p>
-      </div>
-      <form id="contactForm">
-        <div class="form-grid">
-          <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Your full name" required />
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="03XX-XXXXXXX" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" />
-          </div>
-          <div class="form-group">
-            <label for="service">Service Required</label>
-            <select id="service" name="service" required>
-              <option value="" disabled selected>Select a service</option>
-              <option value="waterproofing">Waterproofing</option>
-              <option value="termite">Termite Proofing</option>
-              <option value="insulation">XPS Insulation</option>
-              <option value="pest">Pest Control</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div class="form-group full">
-            <label for="city">City</label>
-            <input type="text" id="city" name="city" placeholder="Your city" />
-          </div>
-          <div class="form-group full">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Briefly describe your requirement..."></textarea>
-          </div>
-        </div>
-        <button type="submit" class="submit-btn">Send Message</button>
-        <p class="form-note">We typically respond within 24 hours on business days.</p>
-      </form>
-    </div>
-  </section>
-
-  <section class="process-section">
-    <div class="process-inner">
-      <p class="section-label fade-in">How It Works</p>
-      <h2 class="section-heading fade-in">What Happens After You Contact Us</h2>
-      <div class="process-grid">
-        <div class="process-card fade-in">
-          <div class="process-step">Step 01</div>
-          <h3>We Call You Back</h3>
-          <p>Our team contacts you within 24 hours to understand your requirements and schedule a convenient time for a site visit.</p>
-        </div>
-        <div class="process-card fade-in">
-          <div class="process-step">Step 02</div>
-          <h3>Free Site Survey</h3>
-          <p>A certified IBS specialist visits your property, assesses the scope of work, and identifies the most suitable solution for your building.</p>
-        </div>
-        <div class="process-card fade-in">
-          <div class="process-step">Step 03</div>
-          <h3>Custom Quote</h3>
-          <p>You receive a detailed, transparent quote tailored to your property with no hidden charges and a clear project timeline.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="map-section">
-    <div class="map-header fade-in">
-      <h2>Our Location</h2>
-      <p>Office No.02, SB-44, Sector X-4, Gulshan-e-Maymar, Karachi</p>
-    </div>
-    <iframe
-      class="map-embed fade-in"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.4!2d67.09!3d24.97!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDU4JzEyLjAiTiA2N8KwMDUnMjQuMCJF!5e0!3m2!1sen!2spk!4v1600000000000!5m2!1sen!2spk"
-      allowfullscreen="" loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      title="IBS Office Location">
-    </iframe>
-  </section>
-
-  <footer>
-    <div class="footer-main">
-      <div class="footer-brand">
-        <img src="assets/logo.png.png" alt="IBS Logo" />
-        <p class="footer-tagline">Strength You Can Trust</p>
-        <p>Pakistan's trusted building protection specialists since 2018. Serving residential, commercial and industrial clients nationwide.</p>
-        <div class="footer-social">
-          <a href="#" aria-label="Facebook">f</a>
-          <a href="#" aria-label="Instagram">in</a>
-          <a href="https://wa.me/923323070499" aria-label="WhatsApp">w</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="services.html#waterproofing">Waterproofing</a></li>
-          <li><a href="services.html#termite">Termite Proofing</a></li>
-          <li><a href="services.html#insulation">XPS Insulation</a></li>
-          <li><a href="services.html#pest">Pest Control</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul class="footer-contact-list">
-          <li>Office No.02, SB-44, Sector X-4</li>
-          <li>Gulshan-e-Maymar, Karachi</li>
-          <li style="margin-top:8px"><a href="tel:+923323070499">0332-3070499</a></li>
-          <li><a href="tel:+923366822155">0336-6822155</a></li>
-          <li style="margin-top:8px"><a href="mailto:ibsolution786@gmail.com">ibsolution786@gmail.com</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-bottom-inner">
-        <span>© 2025 IBS - Infinite Building Solutions. All rights reserved.</span>
-        <span>Waterproofing · Termite Proofing · Insulation · Pest Control</span>
-      </div>
-    </div>
-  </footer>
-
-  <a href="https://wa.me/923323070499" target="_blank" class="wa-float" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-  </a>
-
-  <script>
-    const toggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-    toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const btn = this.querySelector('.submit-btn');
-      btn.textContent = 'Message Sent';
-      btn.style.background = '#16a34a';
-      setTimeout(() => { btn.textContent = 'Send Message'; btn.style.background = ''; }, 3000);
-    });
-  </script>
-</body>
-</html>
-```
-
-Copy karo, apne project mein `contact.html` file mein paste karo aur save karo!

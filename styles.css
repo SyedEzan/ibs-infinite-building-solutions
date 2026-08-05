@@ -52,7 +52,7 @@
 
     body {
       min-height: 100vh;
-      font-family: 'Inter', sans-serif;
+font-family: 'Poppins', sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -219,6 +219,10 @@
       width: auto;
     }
 
+    .brand strong {
+      color: var(--light-blue);
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
@@ -244,6 +248,25 @@
       display: flex;
       align-items: center;
       gap: 10px;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--white);
+      font-size: 0.82rem;
+      font-weight: 800;
+      transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--light-blue);
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.3);
+      transform: translateY(-2px);
     }
 
     .theme-toggle {
@@ -319,6 +342,12 @@
 
     .mobile-menu a:hover {
       background: rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-cta {
+      margin-top: 6px;
+      text-align: center;
+      background: var(--accent);
     }
 
     .hero {
@@ -897,6 +926,15 @@
       fill: currentColor;
     }
 
+    .socials a[aria-label="WhatsApp"] {
+      background: url('./assets/whatsapp-logo-4456_1024.png') center / contain no-repeat;
+    }
+
+    .socials a[aria-label="WhatsApp"] svg,
+    .whatsapp-float svg {
+      display: none;
+    }
+
     .footer-bottom {
       margin-top: 44px;
       padding-top: 16px;
@@ -930,7 +968,7 @@
       align-items: center;
       justify-content: center;
       border-radius: 999px;
-      background: #25d366;
+      background: url('./assets/whatsapp-logo-4456_1024.png') center / contain no-repeat;
       color: var(--white);
       box-shadow: 0 18px 40px rgba(37, 211, 102, 0.35);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -1025,6 +1063,10 @@
         display: none;
       }
 
+      .nav-cta {
+        display: none;
+      }
+
       .hamburger {
         display: inline-flex;
         flex-direction: column;
@@ -1084,4 +1126,49 @@
       .footer-bottom {
         flex-direction: column;
       }
+    }
+
+    /* Shared site header */
+    .nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 1000;
+      height: 68px;
+      background: rgba(10, 22, 40, 0.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .nav-inner {
+      width: min(1160px, calc(100% - 48px));
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--white);
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .nav-brand-logo { width: 40px; height: 40px; object-fit: contain; }
+    .nav-brand-text span { color: var(--light-blue); }
+    .nav-inner .nav-links { display: flex; align-items: center; gap: 8px; }
+    .nav-inner .nav-links a { padding: 9px 13px; border-radius: 999px; color: rgba(255,255,255,0.76); font-size: 0.86rem; font-weight: 500; }
+    .nav-inner .nav-links a:hover, .nav-inner .nav-links a.active { color: var(--white); background: rgba(255,255,255,0.12); }
+    .nav-inner .nav-cta { display: inline-flex; align-items: center; padding: 10px 18px; border-radius: 999px; background: var(--accent); color: var(--white); font-size: 0.8rem; font-weight: 700; }
+    .nav-inner .nav-cta:hover { background: var(--light-blue); }
+    .nav-inner .hamburger { display: none; width: 42px; height: 42px; padding: 9px; border: 1px solid rgba(255,255,255,0.18); border-radius: 999px; background: rgba(255,255,255,0.08); }
+    .nav-inner .hamburger span { display: block; width: 22px; height: 2px; margin: 5px 0; background: var(--white); }
+    .nav + .mobile-menu { position: fixed; top: 68px; left: 0; right: 0; z-index: 999; }
+
+    @media (max-width: 860px) {
+      .nav-inner { width: min(100% - 32px, 1160px); }
+      .nav-inner .nav-links, .nav-inner .nav-cta { display: none; }
+      .nav-inner .hamburger { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; }
     }

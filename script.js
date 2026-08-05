@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Mobile Nav Toggle
   const hamburger = document.querySelector('.hamburger');
-  const navMenu = document.querySelector('.nav-menu');
+  const navMenu = document.querySelector('.nav-menu, .mobile-menu');
 
   
   if (hamburger && navMenu) {
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Close menu on link click
-    document.querySelectorAll('.nav-menu a').forEach(link => {
+    navMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navMenu.classList.add('hidden');

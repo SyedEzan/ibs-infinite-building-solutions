@@ -6,7 +6,10 @@
   <title>Our Services - Waterproofing, Termite Proofing, XPS Insulation & Pest Control | IBS Pakistan</title>
   <meta name="description" content="IBS services: waterproofing (polyurethane, bituminous, crystalline), termite proofing (pre & post construction), INSUGREEN XPS insulation, pest control. Serving Karachi, Lahore & all Pakistan.">
   <meta name="keywords" content="waterproofing Pakistan, termite proofing Pakistan, XPS insulation Pakistan, INSUGREEN XPS, pest control Karachi, building protection services, IBS Pakistan">
-  <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     .services-page-hero {
       position: relative;
@@ -326,46 +329,34 @@
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <a href="index.html" class="brand" aria-label="IBS Home">
-        <img src="./assets/logo.png.png" alt="IBS Logo" class="brand-logo">
-        <span>Infinite Building Solutions</span>
+  <header class="nav" role="banner">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand" aria-label="IBS Home">
+        <img src="./assets/logo.png.png" alt="IBS Logo" class="nav-brand-logo" width="40" height="40">
+        <span class="nav-brand-text">IBS <span>Solutions</span></span>
       </a>
-
-      <nav class="nav-links desktop-links" aria-label="Primary navigation">
+      <nav class="nav-links" aria-label="Primary navigation">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="services.html" class="active">Services</a>
         <a href="contact.html">Contact</a>
       </nav>
-
-      <div class="nav-actions">
-        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark and light mode">
-          <svg class="sun-icon" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M12 3v2m0 14v2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M3 12h2m14 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
-            <circle cx="12" cy="12" r="4"></circle>
-          </svg>
-          <svg class="moon-icon hidden" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-
-        <button class="hamburger" type="button" aria-label="Open menu">
-          <span></span>
-          <span></span>
-          <span></span>
+      <div style="display:flex;align-items:center;gap:14px;">
+        <a href="contact.html" class="nav-cta">Get Free Survey</a>
+        <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" id="hamburger">
+          <span></span><span></span><span></span>
         </button>
       </div>
     </div>
-
-    <nav class="mobile-menu" aria-label="Mobile navigation">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html" class="active">Services</a>
-      <a href="contact.html">Contact</a>
-    </nav>
   </header>
+
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" style="color:var(--cobalt-light)">Get Free Survey →</a>
+  </nav>
 
   <main>
     <section class="services-page-hero">

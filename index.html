@@ -1,607 +1,1069 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IBS - Waterproofing, Termite Proofing & Insulation in Pakistan</title>
-  <meta name="description" content="IBS Infinite Building Solutions — professional waterproofing, termite proofing, XPS insulation & pest control in Karachi & Pakistan. Free site survey. 500+ projects.">
-  <meta name="keywords" content="waterproofing Pakistan, termite proofing Pakistan, XPS insulation Karachi, pest control Pakistan, IBS Infinite Building Solutions, building protection services">
-  <link rel="stylesheet" href="styles.css">
+
+  <title>Waterproofing & Termite Proofing in Karachi | IBS Infinite Building Solutions</title>
+  <meta name="description" content="IBS — Karachi's trusted waterproofing, termite proofing, XPS insulation & pest control experts. 500+ projects, 10-year guarantee, free site survey. Call now!">
+  <meta name="keywords" content="waterproofing Karachi, termite proofing Pakistan, XPS insulation Karachi, pest control Karachi, waterproofing company Pakistan, roof waterproofing Karachi, building protection Pakistan">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ibsolutions.pk/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Waterproofing & Termite Proofing Experts in Karachi | IBS">
+  <meta property="og:description" content="500+ projects. 10-year guarantee. Free site survey. Pakistan's trusted building protection company.">
+  <meta property="og:url" content="https://ibsolutions.pk/">
+  <meta property="og:image" content="https://ibsolutions.pk/assets/herosection.2.png">
+  <link rel="icon" type="image/webp" href="./assets/ibs%20logo.pdf%20(1).webp">
+  <link rel="apple-touch-icon" href="./assets/ibs%20logo.pdf%20(1).webp">
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"LocalBusiness","name":"IBS Infinite Building Solutions","image":"https://ibsolutions.pk/assets/ibs%20logo.pdf%20(1).webp","url":"https://ibsolutions.pk","telephone":"+923323070499","email":"ibsolution786@gmail.com","address":{"@type":"PostalAddress","streetAddress":"Office No.02, SB-44, Sector X-4, Gulshan-e-Maymar","addressLocality":"Karachi","addressRegion":"Sindh","addressCountry":"PK"},"areaServed":["Karachi","Lahore","Islamabad","Pakistan"],"description":"Professional waterproofing, termite proofing, XPS insulation and pest control across Pakistan.","foundingDate":"2018","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"120"}}
+  </script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the cost of waterproofing in Karachi?","acceptedAnswer":{"@type":"Answer","text":"Cost depends on area size, surface condition, and system used. IBS offers a FREE site survey with no obligation to assess and quote accurately."}},{"@type":"Question","name":"How long does termite proofing last?","acceptedAnswer":{"@type":"Answer","text":"IBS termite proofing comes with a 10+ year written guarantee using certified chemical barrier systems."}},{"@type":"Question","name":"Can XPS insulation reduce electricity bills in Pakistan?","acceptedAnswer":{"@type":"Answer","text":"Yes — INSUGREEN XPS boards reduce heat transfer by up to 40%, directly lowering cooling costs in Pakistan's hot climate."}},{"@type":"Question","name":"Does IBS serve areas outside Karachi?","acceptedAnswer":{"@type":"Answer","text":"Yes. IBS serves residential and commercial clients across all of Pakistan including Lahore, Islamabad, and Rawalpindi."}}]}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    .homepage-hero {
-      position: relative;
-      min-height: 100vh;
-      overflow: hidden;
-      color: var(--white);
-      background: linear-gradient(135deg, #0d1b2a 0%, #2563eb 100%);
-      isolation: isolate;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0A1628;
+      --navy-mid: #112040;
+      --cobalt: #1D4ED8;
+      --cobalt-light: #3B6EE8;
+      --amber: #F59E0B;
+      --concrete: #F5F3EF;
+      --concrete-dark: #EAE8E3;
+      --white: #ffffff;
+      --steel: #8B9BAE;
+      --text-dark: #0A1628;
+      --text-body: #3A4A5C;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
     }
 
-    .homepage-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      opacity: 0.16;
-      background-image: radial-gradient(circle, rgba(255, 255, 255, 0.8) 1px, transparent 1.5px);
-      background-size: 28px 28px;
-      mask-image: linear-gradient(to bottom, black, transparent 92%);
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--concrete);
+      color: var(--text-body);
+      line-height: 1.65;
+      font-size: 16px;
+      overflow-x: hidden;
     }
 
-    .homepage-hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background:
-        radial-gradient(circle at 18% 22%, rgba(59, 130, 246, 0.35), transparent 28%),
-        radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.16), transparent 26%),
-        radial-gradient(circle at 70% 86%, rgba(37, 99, 235, 0.24), transparent 28%);
-    }
-
-    .homepage-hero-grid {
-      position: relative;
-      z-index: 1;
-      width: min(1180px, calc(100% - 40px));
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr);
-      align-items: center;
-      gap: 64px;
-      padding: calc(var(--nav-height) + 70px) 0 86px;
-    }
-
-    .homepage-hero-copy {
-      max-width: 720px;
-    }
-
-    .homepage-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 24px;
-      padding: 10px 16px;
-      border: 1px solid rgba(255, 255, 255, 0.24);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(14px);
-      color: rgba(255, 255, 255, 0.95);
-      font-size: 0.88rem;
-      font-weight: 900;
-      letter-spacing: 0.04em;
-    }
-
-    .homepage-title {
-      font-size: clamp(3rem, 7vw, 6.2rem);
-      line-height: 0.96;
-      font-weight: 900;
-      letter-spacing: -0.07em;
-      margin-bottom: 24px;
-    }
-
-    .homepage-text {
-      color: rgba(255, 255, 255, 0.86);
-      font-size: clamp(1.08rem, 2vw, 1.35rem);
-      line-height: 1.75;
-      margin-bottom: 34px;
-    }
-
-    .homepage-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 34px;
-    }
-
-    .homepage-stats {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      max-width: 660px;
-    }
-
-    .homepage-stat {
-      padding: 16px 18px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 22px;
-      background: rgba(255, 255, 255, 0.09);
-      backdrop-filter: blur(16px);
-    }
-
-    .homepage-stat strong {
-      display: block;
-      color: var(--white);
-      font-size: 1.65rem;
-      line-height: 1;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      margin-bottom: 7px;
-    }
-
-    .homepage-stat span {
-      color: rgba(255, 255, 255, 0.74);
-      font-size: 0.82rem;
+    /* TYPOGRAPHY */
+    .display {
+      font-family: 'Poppins', sans-serif;
       font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.0;
+      color: var(--navy);
     }
+.display-xl { font-size: clamp(2.8rem, 6.2vw, 5.2rem); }
 
-    .homepage-media {
+    .eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cobalt);
+    }
+    .eyebrow-amber { color: var(--amber); }
+    .eyebrow-white { color: rgba(255,255,255,0.6); }
+
+    /* LAYOUT */
+    .container { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
+    .section { padding: 100px 0; }
+
+    /* NAV */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,22,40,0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      height: 72px;
+      display: flex; align-items: center;
+    }
+    .nav-inner {
+      width: min(1160px, calc(100% - 48px));
+      margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-brand-logo { width: 40px; height: 40px; object-fit: contain; }
+    .nav-brand-text {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800; font-size: 1.05rem;
+      color: var(--white); letter-spacing: -0.02em;
+    }
+    .nav-brand-text span { color: var(--cobalt-light); }
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-links a {
+      font-size: 0.88rem; font-weight: 500;
+      color: rgba(255,255,255,0.72);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--cobalt); color: var(--white);
+      font-size: 0.84rem; font-weight: 600;
+      padding: 10px 20px; border-radius: var(--radius-sm);
+      text-decoration: none; transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--cobalt-light); transform: translateY(-1px); }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+    .mobile-menu {
+      display: none; position: fixed; top: 72px; left: 0; right: 0;
+      background: var(--navy); border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 20px 24px; z-index: 99;
+      flex-direction: column; gap: 16px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: rgba(255,255,255,0.82); text-decoration: none; font-size: 1rem; font-weight: 500; }
+    .mobile-menu a:hover { color: var(--white); }
+
+    /* HERO */
+    .hero {
+      background:
+        linear-gradient(90deg, rgba(3,12,27,0.96) 0%, rgba(5,18,39,0.82) 43%, rgba(5,18,39,0.22) 78%, rgba(5,18,39,0.38) 100%),
+        linear-gradient(180deg, rgba(4,14,31,0.2), rgba(4,14,31,0.58)),
+        url('./assets/herosection.2.png') center / cover no-repeat;
+      padding-top: 72px;
+      min-height: 100vh;
+      display: grid;
       position: relative;
-      display: flex;
-      justify-content: center;
+      overflow: hidden;
     }
-
-    .homepage-frame {
-      position: relative;
-      width: min(100%, 520px);
-      border-radius: 34px;
-      padding: 14px;
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.95), rgba(37, 99, 235, 0.35));
-      box-shadow:
-        0 0 0 1px rgba(59, 130, 246, 0.5),
-        0 0 70px rgba(37, 99, 235, 0.42),
-        0 34px 80px rgba(0, 0, 0, 0.34);
-      transform: rotate(2deg);
+    .hero-grid-bg {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(29,78,216,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(29,78,216,0.07) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black, transparent);
+      opacity: 0.35;
     }
-
-    .homepage-frame img {
-      width: 100%;
-      height: 620px;
-      object-fit: cover;
-      border-radius: 24px;
+    .hero-glow {
+      position: absolute; width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(29,78,216,0.22) 0%, transparent 70%);
+      top: -100px; right: -100px; pointer-events: none;
+    }
+    .hero-glow-2 {
+      position: absolute; width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%);
+      bottom: 60px; left: -60px; pointer-events: none;
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      width: min(1160px, calc(100% - 48px)); margin: 0 auto;
       display: block;
-      filter: saturate(1.08) contrast(1.04);
+      align-items: center; gap: 60px;
+      padding: 80px 0 90px;
+      min-height: calc(100vh - 72px);
+    }
+    .hero-inner > div:first-child { max-width: 700px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(245,158,11,0.12);
+      border: 1px solid rgba(245,158,11,0.3);
+      border-radius: 999px; padding: 7px 16px;
+      font-size: 0.76rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 28px;
+    }
+    .hero-badge-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--amber);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+    .hero-title { color: var(--white); margin-bottom: 24px; }
+    .hero-title .accent-word { color: var(--cobalt-light); }
+
+    /* HERO entrance animations */
+    /* Typography: make hero heading slightly more medium-feel */
+    .hero-title { font-weight: 700; }
+    .hero-body { font-weight: 500; }
+    @keyframes heroRevealUp {
+      from { opacity: 0; transform: translateY(18px); filter: blur(2px); }
+      to { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+    @keyframes heroRevealLeft {
+      from { opacity: 0; transform: translateX(-18px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes heroFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
-    .homepage-shape {
+    .hero > .hero-inner > div > * {
+      animation: heroRevealUp 0.9s ease both;
+    }
+    .hero > .hero-inner > div > .hero-badge { animation-name: heroRevealLeft; animation-duration: 0.9s; }
+    .hero > .hero-inner > div > .hero-body { animation-delay: 0.12s; }
+    .hero > .hero-inner > div > .hero-actions { animation-delay: 0.22s; }
+    .hero > .hero-inner > div > .hero-stats { animation-delay: 0.32s; }
+
+    .hero-glow,
+    .hero-glow-2 {
+      animation: heroFloat 6s ease-in-out infinite;
+    }
+    .hero-glow-2 { animation-duration: 8s; }
+
+    .hero-visual {
+      animation: heroRevealUp 1.0s ease both;
+      animation-delay: 0.18s;
+    }
+    .hero-img-wrap {
+      animation: heroFloat 7s ease-in-out infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero > .hero-inner > div > *,
+      .hero-glow,
+      .hero-glow-2,
+      .hero-visual,
+      .hero-img-wrap { animation: none !important; }
+    }
+    .hero-body {
+      color: rgba(255,255,255,0.62); font-size: 1.08rem;
+      line-height: 1.8; margin-bottom: 40px; max-width: 520px;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 52px; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--cobalt); color: var(--white);
+      font-size: 0.94rem; font-weight: 600;
+      padding: 14px 28px; border-radius: var(--radius-sm);
+      text-decoration: none; border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-primary:hover { background: var(--cobalt-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(29,78,216,0.4); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: rgba(255,255,255,0.82);
+      font-size: 0.94rem; font-weight: 600;
+      padding: 14px 28px; border-radius: var(--radius-sm);
+      text-decoration: none; border: 1px solid rgba(255,255,255,0.2);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: var(--white); background: rgba(255,255,255,0.06); }
+
+    .btn-cobalt-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--white);
+      font-size: 0.94rem; font-weight: 600;
+      padding: 14px 28px; border-radius: var(--radius-sm);
+      text-decoration: none; border: 1px solid rgba(255,255,255,0.4);
+      transition: all 0.2s;
+    }
+    .btn-cobalt-outline:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-md); overflow: hidden;
+    }
+    .hero-stat { background: rgba(255,255,255,0.04); padding: 22px 20px; text-align: center; }
+    .hero-stat-num {
+      font-family: 'Poppins', sans-serif; font-weight: 800;
+      font-size: 2rem; color: var(--white);
+      letter-spacing: -0.04em; display: block; margin-bottom: 4px;
+    }
+    .hero-stat-label {
+      font-size: 0.74rem; font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+
+    /* Hero visual */
+    .hero-visual { display: none; }
+    .hero-img-wrap {
+      position: relative; border-radius: calc(var(--radius-xl) + 6px);
+      overflow: hidden; aspect-ratio: 4/3;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.38), 0 0 0 12px rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.12);
+      transform: translateZ(0);
+    }
+    .hero-img-wrap::after {
+      content: '';
       position: absolute;
-      z-index: 0;
+      inset: -20% -20% -20% -20%;
+      background: radial-gradient(circle at 30% 20%, rgba(29,78,216,0.35), transparent 45%);
+      z-index: 2;
       pointer-events: none;
-      opacity: 0.58;
-      animation: floatShape 9s ease-in-out infinite;
+      opacity: 0.85;
+    }
+    .hero-img-wrap img {
+      transition: transform 0.6s ease;
+    }
+    .hero-visual:hover .hero-img-wrap img {
+      transform: scale(1.04);
+    }
+    .hero-img-wrap::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to top, rgba(10,22,40,0.5) 0%, transparent 50%);
+    }
+    .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: 68% center; display: block; }
+    .hero-float-tag {
+      position: absolute; bottom: 24px; left: 24px; z-index: 2;
+      background: rgba(10,22,40,0.85); backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-md);
+      padding: 16px 20px; display: flex; align-items: center; gap: 14px;
+    }
+    .hero-float-icon {
+      width: 42px; height: 42px; background: var(--cobalt); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; flex-shrink: 0;
+    }
+    .hero-float-title { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 0.92rem; color: var(--white); margin-bottom: 2px; }
+    .hero-float-sub { font-size: 0.74rem; color: rgba(255,255,255,0.55); }
+    .hero-img-border-accent {
+      position: absolute; top: -10px; right: -10px;
+      width: 140px; height: 140px;
+      border-top: 3px solid var(--cobalt);
+      border-right: 3px solid var(--cobalt);
+      border-radius: 0 var(--radius-xl) 0 0; pointer-events: none;
+    }
+    .hero-img-border-accent-bl {
+      position: absolute; bottom: -10px; left: -10px;
+      width: 100px; height: 100px;
+      border-bottom: 3px solid var(--amber);
+      border-left: 3px solid var(--amber);
+      border-radius: 0 0 0 var(--radius-xl); pointer-events: none;
     }
 
-    .shape-circle {
-      width: 92px;
-      height: 92px;
-      left: 8%;
-      top: 22%;
-      border-radius: 999px;
-      border: 2px solid rgba(255, 255, 255, 0.36);
+    /* TRUST BAR */
+    .trust-bar { background: var(--white); border-bottom: 1px solid var(--concrete-dark); padding: 18px 0; }
+    .trust-bar-inner {
+      width: min(1160px, calc(100% - 48px)); margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; flex-wrap: wrap;
+    }
+    .trust-item { display: flex; align-items: center; gap: 10px; font-size: 0.82rem; font-weight: 600; color: var(--text-dark); }
+    .trust-item-icon {
+      width: 32px; height: 32px; background: rgba(29,78,216,0.1);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
     }
 
-    .shape-square {
-      width: 120px;
-      height: 120px;
-      right: 12%;
-      top: 18%;
-      border-radius: 32px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      transform: rotate(18deg);
-      animation-delay: -2s;
+    /* SERVICES */
+    .services-section { background: var(--concrete); }
+    .section-header { margin-bottom: 64px; }
+    .section-header-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .section-header-left { max-width: 560px; }
+    .section-title {
+      font-family: 'Poppins', sans-serif; font-weight: 800;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.03em; color: var(--navy);
+      margin-top: 10px; line-height: 1.1;
     }
+    .section-title-white { color: var(--white); }
+    .section-body { margin-top: 14px; color: var(--text-body); font-size: 1rem; line-height: 1.75; max-width: 520px; }
+    .section-body-muted { color: rgba(255,255,255,0.58); }
 
-    .shape-triangle {
-      width: 76px;
-      height: 76px;
-      right: 38%;
-      bottom: 18%;
-      background: rgba(59, 130, 246, 0.28);
-      clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
-      animation-delay: -4s;
-    }
-
-    .shape-diamond {
-      width: 54px;
-      height: 54px;
-      left: 42%;
-      bottom: 12%;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      transform: rotate(45deg);
-      animation-delay: -6s;
-    }
-
-    @keyframes floatShape {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-22px) rotate(8deg); }
-    }
-
-    .services-section {
-      background: var(--bg-light);
-      color: var(--text-dark);
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 24px;
-    }
-
+    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
     .service-card {
-      padding: 30px;
-      border-radius: 30px;
-      background: var(--white);
-      border-top: 6px solid var(--accent);
-      box-shadow: 0 18px 45px rgba(13, 27, 42, 0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      background: var(--white); border-radius: var(--radius-xl);
+      overflow: hidden; border: 1px solid var(--concrete-dark);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(10,22,40,0.12); }
+    .service-card-top {
+      padding: 36px 36px 28px; border-bottom: 1px solid var(--concrete-dark);
+      display: flex; align-items: flex-start; gap: 20px;
+    }
+    .service-icon-wrap {
+      width: 64px; height: 64px; border-radius: 16px;
+      background: rgba(29,78,216,0.08);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .service-icon-wrap img { width: 40px; height: 40px; object-fit: contain; }
+    .service-icon-wrap .emoji { font-size: 1.6rem; }
+    .service-card-tag {
+      display: inline-block; background: rgba(29,78,216,0.1); color: var(--cobalt);
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 6px; margin-bottom: 8px;
+    }
+    .service-card-title { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--navy); letter-spacing: -0.02em; }
+    .service-card-body { padding: 24px 36px 32px; }
+    .service-card-body p { color: var(--text-body); line-height: 1.75; margin-bottom: 20px; font-size: 0.95rem; }
+    .service-features { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+    .service-features li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.86rem; font-weight: 500; color: var(--text-dark);
+    }
+    .service-features li::before {
+      content: ''; width: 18px; height: 18px; flex-shrink: 0;
+      background: rgba(29,78,216,0.12);
+      border-radius: 50%;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231D4ED8' stroke-width='2.5'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
+      background-size: 11px; background-repeat: no-repeat; background-position: center;
+    }
+    .service-link { display: inline-flex; align-items: center; gap: 6px; color: var(--cobalt); font-size: 0.88rem; font-weight: 600; text-decoration: none; transition: gap 0.2s; }
+    .service-link:hover { gap: 10px; }
+    .service-card-ribbon {
+      position: absolute; top: 20px; right: -28px;
+      background: var(--amber); color: var(--navy);
+      font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 4px 36px; transform: rotate(45deg);
     }
 
-    .service-card:hover {
-      transform: translateY(-10px);
-      border-color: var(--light-blue);
-      box-shadow: 0 30px 70px rgba(37, 99, 235, 0.16);
+    /* PROCESS */
+    .process-section {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 20%, rgba(29,78,216,0.16), transparent 28%),
+        linear-gradient(135deg, #071225 0%, var(--navy) 58%, #102750 100%);
     }
-
-    .service-icon {
-      width: 74px;
-      height: 74px;
-      object-fit: contain;
-      margin-bottom: 20px;
+    .process-section::after {
+      content: '';
+      position: absolute;
+      width: 420px; height: 420px;
+      right: -180px; bottom: -240px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 50%;
+      box-shadow: 0 0 0 36px rgba(255,255,255,0.025), 0 0 0 72px rgba(255,255,255,0.02);
+      pointer-events: none;
     }
-
-    .service-icon.placeholder {
-      width: 74px;
-      height: 74px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 22px;
-      background: rgba(37, 99, 235, 0.1);
-      color: var(--accent);
-      margin-bottom: 20px;
-      font-size: 2rem;
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; position: relative; margin-top: 56px; }
+    .process-steps::before {
+      content: ''; position: absolute; top: 36px;
+      left: calc(12.5% + 20px); right: calc(12.5% + 20px);
+      height: 1px; background: linear-gradient(90deg, rgba(59,110,232,0.2), var(--cobalt-light), rgba(59,110,232,0.2));
+      box-shadow: 0 0 14px rgba(59,110,232,0.45);
     }
-
-    .service-card h3 {
-      color: var(--text-dark);
-      font-size: 1.35rem;
-      font-weight: 900;
-      margin-bottom: 14px;
+    .process-step {
+      text-align: center; padding: 28px 22px 30px;
+      position: relative; z-index: 1;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.045);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
     }
-
-    .service-card p {
-      color: var(--muted);
-      line-height: 1.75;
-      margin-bottom: 20px;
+    .process-step:hover {
+      transform: translateY(-6px);
+      border-color: rgba(59,110,232,0.7);
+      background: rgba(29,78,216,0.12);
     }
-
-    .why-section {
-      background: var(--dark);
-      color: var(--white);
+    .process-step-num {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: #0c2145; border: 2px solid var(--cobalt);
+      display: flex; align-items: center; justify-content: center;
+      margin: -64px auto 24px; position: relative; z-index: 2;
+      box-shadow: 0 0 0 8px var(--navy), 0 0 24px rgba(29,78,216,0.35);
     }
+    .process-step-num span { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--white); }
+    .process-step h3 { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 1rem; color: var(--white); margin-bottom: 10px; }
+    .process-step p { font-size: 0.84rem; color: rgba(255,255,255,0.58); line-height: 1.7; }
 
-    .why-section .section-title,
-    .why-section .section-copy {
-      color: var(--white);
-    }
-
-    .why-section .section-copy {
-      color: rgba(255, 255, 255, 0.72);
-    }
-
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 24px;
-    }
-
+    /* WHY IBS */
+    .why-section { background: var(--concrete); }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .why-card {
-      padding: 34px 28px;
-      border-radius: 30px;
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      transition: transform 0.3s ease, border-color 0.3s ease;
+      background: var(--white); border: 1px solid var(--concrete-dark);
+      border-radius: var(--radius-xl); padding: 36px 30px;
+      position: relative; overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-
-    .why-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(59, 130, 246, 0.45);
+    .why-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(10,22,40,0.08); }
+    .why-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--cobalt), var(--cobalt-light));
+      transform: scaleX(0); transition: transform 0.3s;
     }
+    .why-card:hover::after { transform: scaleX(1); }
+    .why-icon { font-size: 2rem; margin-bottom: 20px; display: block; }
+    .why-card h3 { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--navy); margin-bottom: 12px; }
+    .why-card p { font-size: 0.9rem; color: var(--text-body); line-height: 1.75; }
 
-    .why-icon {
-      font-size: 2.4rem;
-      margin-bottom: 18px;
+    /* FAQ */
+    .faq-section { background: var(--navy); }
+    .faq-layout { display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: start; }
+    .faq-left { position: sticky; top: 96px; }
+    .faq-left p { color: rgba(255,255,255,0.55); font-size: 0.95rem; line-height: 1.8; margin-top: 18px; margin-bottom: 32px; }
+    .faq-list { display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); overflow: hidden; background: rgba(255,255,255,0.03); }
+    .faq-btn {
+      width: 100%; text-align: left; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 20px 24px; background: none; border: none; cursor: pointer;
+      color: var(--white); font-family: 'Poppins', sans-serif; font-size: 0.96rem; font-weight: 600;
+      transition: color 0.2s;
     }
-
-    .why-card h3 {
-      color: var(--white);
-      font-size: 1.2rem;
-      font-weight: 900;
-      margin-bottom: 10px;
+    .faq-btn:hover { color: var(--cobalt-light); }
+    .faq-icon {
+      width: 28px; height: 28px; flex-shrink: 0;
+      border: 1px solid rgba(255,255,255,0.2); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; color: var(--steel);
+      transition: transform 0.3s, background 0.3s, border-color 0.3s;
     }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--cobalt); border-color: var(--cobalt); color: var(--white); }
+    .faq-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-body-inner { padding: 0 24px 22px; color: rgba(255,255,255,0.58); font-size: 0.9rem; line-height: 1.8; }
+    .faq-item.open .faq-body { max-height: 300px; }
 
-    .why-card p {
-      color: rgba(255, 255, 255, 0.72);
-      line-height: 1.7;
+    /* CTA */
+    .cta-section { background: var(--concrete); padding: 100px 0; }
+    .cta-box {
+      background: var(--navy); border-radius: var(--radius-xl);
+      padding: 72px 80px; display: grid; grid-template-columns: 1fr auto;
+      align-items: center; gap: 48px; position: relative; overflow: hidden;
     }
-
-    .cta-strip {
-      background: var(--accent);
-      color: var(--white);
-      padding: 72px 0;
-      text-align: center;
+    .cta-box::before {
+      content: ''; position: absolute; top: -80px; right: 80px;
+      width: 280px; height: 280px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(29,78,216,0.3) 0%, transparent 70%);
+      pointer-events: none;
     }
-
-    .cta-strip h2 {
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
-      line-height: 1.1;
-      font-weight: 900;
-      margin-bottom: 16px;
+    .cta-box h2 {
+      font-family: 'Poppins', sans-serif; font-weight: 800;
+      font-size: clamp(2rem, 4vw, 3rem); color: var(--white);
+      letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 16px; margin-top: 16px;
     }
+    .cta-box p { color: rgba(255,255,255,0.58); font-size: 1rem; line-height: 1.75; max-width: 480px; }
+    .cta-box-actions { display: flex; flex-direction: column; gap: 12px; flex-shrink: 0; }
 
-    .cta-strip p {
-      max-width: 720px;
-      margin: 0 auto 30px;
-      color: rgba(255, 255, 255, 0.86);
-      font-size: 1.15rem;
+    /* FOOTER */
+    .footer { background: linear-gradient(135deg, #050D19 0%, #091A32 100%); padding: 80px 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.35fr; gap: 56px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .footer-logo { width: 48px; margin-bottom: 18px; }
+    .footer-brand-name { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 1.08rem; color: var(--white); margin-bottom: 14px; }
+    .footer-brand-name span { color: var(--cobalt-light); }
+    .footer-desc { font-size: 0.86rem; color: rgba(255,255,255,0.45); line-height: 1.8; margin-bottom: 24px; max-width: 300px; }
+    .footer-socials { display: flex; gap: 10px; }
+    .footer-social {
+      width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.14); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.82); background: rgba(255,255,255,0.04); text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
     }
+    .footer-social:hover { border-color: var(--cobalt); color: var(--white); background: rgba(29,78,216,0.2); }
+    .footer-social img { width: 20px; height: 20px; object-fit: contain; }
+    .footer-social[aria-label="WhatsApp"] { background: #25D366; border-color: #25D366; }
+    .footer-social[aria-label="WhatsApp"] svg { display: none; }
+    .footer-heading { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.58); margin-bottom: 22px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a { font-size: 0.88rem; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-contact-item { display: flex; flex-direction: column; gap: 10px; }
+    .footer-contact-item address, .footer-contact-item a { font-size: 0.86rem; color: rgba(255,255,255,0.5); text-decoration: none; font-style: normal; line-height: 1.6; transition: color 0.2s; }
+    .footer-contact-item a:hover { color: var(--white); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; gap: 20px; flex-wrap: wrap; }
+    .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
 
-    @media (max-width: 1040px) {
-      .homepage-hero-grid,
-      .services-grid,
-      .why-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .homepage-frame img {
-        height: 520px;
-      }
+    /* WHATSAPP FLOAT */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 200;
+      width: 56px; height: 56px; background: #25D366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 24px rgba(37,211,102,0.4); text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
+    .wa-float:hover { transform: scale(1.1); box-shadow: 0 12px 32px rgba(37,211,102,0.5); }
+    .wa-float img { width: 100%; height: 100%; object-fit: contain; }
+    .wa-float { background: url('./assets/whatsapp-logo-4456_1024.png') center / contain no-repeat; }
+    .wa-float svg { display: none; }
 
-    @media (max-width: 720px) {
-      .homepage-hero-grid,
-      .services-grid,
-      .why-grid,
-      .homepage-stats {
-        grid-template-columns: 1fr;
-      }
-
-      .homepage-frame img {
-        height: 420px;
-      }
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .hero-inner { padding: 60px 0 70px; min-height: auto; }
+      .hero-inner > div:first-child { max-width: 720px; }
+      .hero { background-position: 62% center; }
+      .services-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); gap: 56px 20px; }
+      .process-steps::before { display: none; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .faq-layout { grid-template-columns: 1fr; gap: 48px; }
+      .faq-left { position: static; }
+      .cta-box { grid-template-columns: 1fr; padding: 48px 40px; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .section { padding: 72px 0; }
+      .services-grid, .why-grid, .process-steps { grid-template-columns: 1fr; }
+      .hero-inner { width: min(100% - 32px, 560px); padding: 42px 0 52px; gap: 34px; }
+      .hero-title { font-size: clamp(2.45rem, 11vw, 3.8rem); margin-bottom: 18px; }
+      .hero-body { font-size: 0.94rem; line-height: 1.65; margin-bottom: 28px; }
+      .hero-actions { margin-bottom: 30px; }
+      .hero-stats { grid-template-columns: repeat(3, 1fr); }
+      .process-steps { gap: 56px 16px; }
+      .process-step { padding-left: 16px; padding-right: 16px; }
+      .hero-stat { padding: 16px 8px; }
+      .hero-stat-num { font-size: 1.45rem; }
+      .hero-stat-label { font-size: 0.58rem; line-height: 1.35; letter-spacing: 0.04em; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-box { padding: 40px 28px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <a href="index.html" class="brand" aria-label="IBS Home">
-        <img src="./assets/logo.png.png" alt="IBS Logo" class="brand-logo">
-        <span>Infinite Building Solutions</span>
-      </a>
 
-      <nav class="nav-links desktop-links" aria-label="Primary navigation">
+  <!-- NAV -->
+  <header class="nav" role="banner">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand" aria-label="IBS Home">
+        <img src="./assets/ibs logo.pdf (1).webp" alt="IBS Infinite Building Solutions logo" class="nav-brand-logo" width="40" height="40" decoding="async">
+        <span class="nav-brand-text">IBS <span>Solutions</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
         <a href="index.html" class="active">Home</a>
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
         <a href="contact.html">Contact</a>
       </nav>
-
-      <div class="nav-actions">
-        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark and light mode">
-          <svg class="sun-icon" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M12 3v2m0 14v2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M3 12h2m14 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
-            <circle cx="12" cy="12" r="4"></circle>
-          </svg>
-          <svg class="moon-icon hidden" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-
-        <button class="hamburger" type="button" aria-label="Open menu">
-          <span></span>
-          <span></span>
-          <span></span>
+      <div style="display:flex;align-items:center;gap:14px;">
+        <a href="contact.html" class="nav-cta">Get Free Survey</a>
+        <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" id="hamburger">
+          <span></span><span></span><span></span>
         </button>
       </div>
     </div>
-
-    <nav class="mobile-menu" aria-label="Mobile navigation">
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html">Contact</a>
-    </nav>
   </header>
 
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" style="color:var(--cobalt-light)">Get Free Survey →</a>
+  </nav>
+
   <main>
-    <section class="homepage-hero">
-      <span class="homepage-shape shape-circle"></span>
-      <span class="homepage-shape shape-square"></span>
-      <span class="homepage-shape shape-triangle"></span>
-      <span class="homepage-shape shape-diamond"></span>
 
-      <div class="homepage-hero-grid">
-        <div class="homepage-hero-copy">
-          <div class="homepage-badge animate-on-scroll">✦ Trusted Since 2018</div>
-          <h1 class="homepage-title animate-on-scroll" style="animation-delay: 0.08s;">Strength You Can Trust</h1>
-          <p class="homepage-text animate-on-scroll" style="animation-delay: 0.16s;">Pakistan's trusted partner for Waterproofing, Termite Proofing, Insulation & Pest Control.</p>
-
-          <div class="homepage-actions animate-on-scroll" style="animation-delay: 0.24s;">
-            <a href="services.html" class="btn btn-primary">Explore Services</a>
-            <a href="contact.html" class="btn btn-outline">Get Free Quote</a>
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-glow-2" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <div>
+          <div class="hero-badge">
+            <span class="hero-badge-dot" aria-hidden="true"></span>
+            Trusted Building Protection Since 2018
           </div>
-
-          <div class="homepage-stats animate-on-scroll" style="animation-delay: 0.32s;">
-            <div class="homepage-stat">
-              <strong class="counter" data-target="500" data-suffix="+">0</strong>
-              <span>Projects</span>
+          <h1 class="display display-xl hero-title">
+            Waterproofing &amp;<br>
+            <span class="accent-word">Termite Proofing</span><br>
+            Experts in Pakistan
+          </h1>
+          <p class="hero-body">
+            IBS Infinite Building Solutions protects homes, offices, and industrial buildings across Karachi and Pakistan with professional <strong style="color:rgba(255,255,255,0.85);font-weight:600;">waterproofing</strong>, <strong style="color:rgba(255,255,255,0.85);font-weight:600;">termite proofing</strong>, <strong style="color:rgba(255,255,255,0.85);font-weight:600;">XPS insulation</strong>, and <strong style="color:rgba(255,255,255,0.85);font-weight:600;">pest control</strong>. Every project comes with a written guarantee.
+          </p>
+          <div class="hero-actions">
+            <a href="services.html" class="btn-primary">Explore Services</a>
+            <a href="contact.html" class="btn-ghost">Get Free Site Survey</a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <span class="hero-stat-num">500+</span>
+              <span class="hero-stat-label">Projects Completed</span>
             </div>
-            <div class="homepage-stat">
-              <strong class="counter" data-target="6" data-suffix="+">0</strong>
-              <span>Years</span>
+            <div class="hero-stat">
+              <span class="hero-stat-num">6+</span>
+              <span class="hero-stat-label">Years Experience</span>
             </div>
-            <div class="homepage-stat">
-              <strong class="counter" data-target="1000" data-suffix="+">0</strong>
-              <span>Clients</span>
+            <div class="hero-stat">
+              <span class="hero-stat-num">1000+</span>
+              <span class="hero-stat-label">Satisfied Clients</span>
             </div>
           </div>
         </div>
 
-        <div class="homepage-media animate-on-scroll" style="animation-delay: 0.2s;">
-          <div class="homepage-frame">
-            <img src="./assets/herosectionimg.jpeg" alt="IBS building protection project">
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-img-wrap">
+            <img src="./assets/herosection.2.png" alt="Modern property protected by IBS building solutions at dusk" width="520" height="650" loading="eager" fetchpriority="high">
+          </div>
+          <div class="hero-img-border-accent"></div>
+          <div class="hero-img-border-accent-bl"></div>
+          <div class="hero-float-tag">
+            <div class="hero-float-icon">🏆</div>
+            <div>
+              <div class="hero-float-title">10+ Year Guarantee</div>
+              <div class="hero-float-sub">Written warranty on every project</div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section services-section">
+    <!-- SERVICES -->
+    <section class="section services-section" id="services" aria-label="Our Services">
       <div class="container">
         <div class="section-header">
-          <span class="eyebrow">What We Do</span>
-          <h2 class="section-title">Our Core Services</h2>
-          <p class="section-copy">Specialized building protection services for homes, offices, and industries across Pakistan.</p>
+          <div class="section-header-row">
+            <div class="section-header-left">
+              <span class="eyebrow">What We Do</span>
+              <h2 class="section-title">Building Protection Services in Pakistan</h2>
+              <p class="section-body">From rooftop waterproofing to termite barriers, our certified teams protect your building — backed by the strongest guarantee in the industry.</p>
+            </div>
+            <a href="services.html" class="btn-primary" style="flex-shrink:0;">View All Services</a>
+          </div>
         </div>
 
         <div class="services-grid">
-          <article class="service-card animate-on-scroll">
-            <img class="service-icon" src="./assets/WaterProofinglogo..png" alt="Waterproofing">
-            <h3>Waterproofing</h3>
-            <p>Polyurethane, Bituminous, Crystalline & Acrylic systems for roofs, basements & balconies.</p>
-            <a href="services.html#waterproofing" class="learn-link">Learn More →</a>
+
+          <article class="service-card" id="waterproofing">
+            <div class="service-card-ribbon">Guaranteed</div>
+            <div class="service-card-top">
+              <div class="service-icon-wrap">
+                <img src="./assets/WaterProofinglogo..png" alt="" loading="lazy" width="40" height="40">
+              </div>
+              <div>
+                <span class="service-card-tag">Residential &amp; Commercial</span>
+                <h3 class="service-card-title">Waterproofing in Karachi</h3>
+              </div>
+            </div>
+            <div class="service-card-body">
+              <p>Persistent roof leaks, basement seepage, or damp walls cause structural damage, mold, and costly repairs. IBS applies the right waterproofing system — Polyurethane, Bituminous, Crystalline, or Acrylic — with a full written guarantee.</p>
+              <ul class="service-features">
+                <li>Roof, terrace &amp; balcony waterproofing</li>
+                <li>Basement &amp; underground waterproofing</li>
+                <li>Bathroom &amp; wet area treatment</li>
+                <li>Polyurethane, Bituminous &amp; Crystalline systems</li>
+              </ul>
+              <a href="services.html#waterproofing" class="service-link">Learn more <span>→</span></a>
+            </div>
           </article>
 
-          <article class="service-card animate-on-scroll" style="animation-delay: 0.08s;">
-            <img class="service-icon" src="./assets/TermiteProofinglogo..png" alt="Termite Proofing">
-            <h3>Termite Proofing</h3>
-            <p>Pre & post-construction chemical treatment with 10+ year guarantee.</p>
-            <a href="services.html#termite" class="learn-link">Learn More →</a>
+          <article class="service-card" id="termite">
+            <div class="service-card-ribbon">10-Yr Guarantee</div>
+            <div class="service-card-top">
+              <div class="service-icon-wrap">
+                <img src="./assets/TermiteProofinglogo..png" alt="" loading="lazy" width="40" height="40">
+              </div>
+              <div>
+                <span class="service-card-tag">Pre &amp; Post Construction</span>
+                <h3 class="service-card-title">Termite Proofing in Pakistan</h3>
+              </div>
+            </div>
+            <div class="service-card-body">
+              <p>Termites silently destroy wooden furniture, door frames, and structural elements before you notice. IBS provides pre-construction soil treatment and post-construction chemical barrier systems using certified anti-termite chemicals.</p>
+              <ul class="service-features">
+                <li>Pre-construction soil treatment</li>
+                <li>Post-construction chemical barrier</li>
+                <li>Wood treatment &amp; borate application</li>
+                <li>10+ year written guarantee</li>
+              </ul>
+              <a href="services.html#termite" class="service-link">Learn more <span>→</span></a>
+            </div>
           </article>
 
-          <article class="service-card animate-on-scroll" style="animation-delay: 0.16s;">
-            <img class="service-icon" src="./assets/Insugreenlogo..png" alt="XPS Insulation">
-            <h3>XPS Insulation</h3>
-            <p>INSUGREEN XPS boards — reduce cooling costs by up to 40%.</p>
-            <a href="services.html#insulation" class="learn-link">Learn More →</a>
+          <article class="service-card" id="insulation">
+            <div class="service-card-top">
+              <div class="service-icon-wrap">
+                <img src="./assets/Insugreenlogo..png" alt="" loading="lazy" width="40" height="40">
+              </div>
+              <div>
+                <span class="service-card-tag">Energy Saving</span>
+                <h3 class="service-card-title">XPS Insulation in Karachi</h3>
+              </div>
+            </div>
+            <div class="service-card-body">
+              <p>Pakistan's intense heat drives up electricity bills. IBS installs INSUGREEN XPS extruded polystyrene boards that block heat transfer through your roof and walls — reducing cooling costs by up to 40% year-round.</p>
+              <ul class="service-features">
+                <li>Roof &amp; wall thermal insulation</li>
+                <li>INSUGREEN certified XPS boards</li>
+                <li>Up to 40% reduction in cooling costs</li>
+                <li>Moisture-resistant &amp; long-lasting</li>
+              </ul>
+              <a href="services.html#insulation" class="service-link">Learn more <span>→</span></a>
+            </div>
           </article>
 
-          <article class="service-card animate-on-scroll" style="animation-delay: 0.24s;">
-            <div class="service-icon placeholder" aria-hidden="true">🛡️</div>
-            <h3>Pest Control</h3>
-            <p>Professional fumigation for homes & commercial spaces. Guaranteed results.</p>
-            <a href="services.html#pest" class="learn-link">Learn More →</a>
+          <article class="service-card" id="pest">
+            <div class="service-card-top">
+              <div class="service-icon-wrap"><span class="emoji" aria-hidden="true">🛡️</span></div>
+              <div>
+                <span class="service-card-tag">Homes &amp; Offices</span>
+                <h3 class="service-card-title">Pest Control in Karachi</h3>
+              </div>
+            </div>
+            <div class="service-card-body">
+              <p>Cockroaches, rodents, bed bugs, and mosquitoes spread disease and damage property. IBS uses safe, government-approved pesticides and fumigation to fully eliminate infestations in homes, restaurants, and commercial spaces.</p>
+              <ul class="service-features">
+                <li>Residential &amp; commercial fumigation</li>
+                <li>Cockroach, rodent &amp; bed bug control</li>
+                <li>Safe, certified pesticide application</li>
+                <li>Guaranteed pest-free results</li>
+              </ul>
+              <a href="services.html#pest" class="service-link">Learn more <span>→</span></a>
+            </div>
           </article>
+
         </div>
       </div>
     </section>
 
-    <section class="section why-section">
+    <!-- PROCESS -->
+    <section class="section process-section" aria-label="How IBS works">
+      <div class="container">
+        <span class="eyebrow eyebrow-white">Our Process</span>
+        <h2 class="section-title section-title-white" style="margin-top:10px;">Simple. Transparent. Guaranteed.</h2>
+        <p class="section-body section-body-muted">From first contact to project completion, we make the entire process easy for you.</p>
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="process-step-num"><span>01</span></div>
+            <h3>Free Site Survey</h3>
+            <p>Our expert visits your property, inspects the problem, and recommends the best solution — at no cost.</p>
+          </div>
+          <div class="process-step">
+            <div class="process-step-num"><span>02</span></div>
+            <h3>Detailed Quotation</h3>
+            <p>You receive a transparent, itemized quote with material specs and timeline — no hidden charges.</p>
+          </div>
+          <div class="process-step">
+            <div class="process-step-num"><span>03</span></div>
+            <h3>Professional Application</h3>
+            <p>Our certified team applies the treatment using premium materials with minimal disruption.</p>
+          </div>
+          <div class="process-step">
+            <div class="process-step-num"><span>04</span></div>
+            <h3>Written Guarantee</h3>
+            <p>We hand you a written guarantee covering your project — long-term protection and peace of mind.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY IBS -->
+    <section class="section why-section" aria-label="Why choose IBS">
       <div class="container">
         <div class="section-header">
           <span class="eyebrow">Why IBS</span>
-          <h2 class="section-title">Why Choose Us</h2>
-          <p class="section-copy">Reliable protection backed by experience, quality materials, and guaranteed results.</p>
+          <h2 class="section-title">Why Pakistan Trusts IBS</h2>
+          <p class="section-body">Six years. 500+ projects. One commitment — protect your building and keep it protected.</p>
         </div>
-
         <div class="why-grid">
-          <article class="why-card animate-on-scroll">
-            <div class="why-icon">🏆</div>
-            <h3>10+ Year Guarantee</h3>
-            <p>Long-term protection for termite proofing and waterproofing projects.</p>
+          <article class="why-card">
+            <span class="why-icon" aria-hidden="true">🏆</span>
+            <h3>10+ Year Written Guarantee</h3>
+            <p>Every waterproofing and termite proofing project comes with a formal written guarantee. If the problem returns within the warranty period, we fix it at no cost.</p>
           </article>
-          <article class="why-card animate-on-scroll" style="animation-delay: 0.08s;">
-            <div class="why-icon">👷</div>
-            <h3>Certified Professionals</h3>
-            <p>Skilled teams trained to deliver safe, precise, and durable work.</p>
+          <article class="why-card">
+            <span class="why-icon" aria-hidden="true">🧪</span>
+            <h3>Certified Materials Only</h3>
+            <p>We use internationally certified, ISO-compliant waterproofing chemicals and anti-termite treatments — never cheap substitutes. The right material for each surface, every time.</p>
           </article>
-          <article class="why-card animate-on-scroll" style="animation-delay: 0.16s;">
-            <div class="why-icon">📋</div>
-            <h3>Free Site Survey</h3>
-            <p>Expert inspection and practical recommendations before work begins.</p>
+          <article class="why-card">
+            <span class="why-icon" aria-hidden="true">👷</span>
+            <h3>Trained, Experienced Teams</h3>
+            <p>Our teams are professionally trained in surface preparation and application techniques. Proper application is what separates a 2-year result from a 10-year one.</p>
           </article>
-          <article class="why-card animate-on-scroll" style="animation-delay: 0.24s;">
-            <div class="why-icon">🇵🇰</div>
+          <article class="why-card">
+            <span class="why-icon" aria-hidden="true">📋</span>
+            <h3>Free Survey &amp; Honest Advice</h3>
+            <p>We visit your site, diagnose the actual problem, and recommend only what you need — not an upsell. Transparent assessment, honest pricing.</p>
+          </article>
+          <article class="why-card">
+            <span class="why-icon" aria-hidden="true">🇵🇰</span>
             <h3>Pan-Pakistan Service</h3>
-            <p>Trusted support for residential, commercial, and industrial clients nationwide.</p>
+            <p>Based in Karachi, we serve residential, commercial, and industrial clients across Pakistan — Lahore, Islamabad, Rawalpindi, and beyond.</p>
+          </article>
+          <article class="why-card">
+            <span class="why-icon" aria-hidden="true">⚡</span>
+            <h3>Fast Project Turnaround</h3>
+            <p>Construction timelines matter. Our teams work efficiently to complete projects on schedule — no unnecessary delays, no surprises.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="cta-strip">
+    <!-- FAQ -->
+    <section class="section faq-section" id="faq" aria-label="Frequently asked questions">
       <div class="container">
-        <h2 class="animate-on-scroll">Ready to Protect Your Building?</h2>
-        <p class="animate-on-scroll" style="animation-delay: 0.08s;">Free site survey — no cost, no obligation.</p>
-        <a href="contact.html" class="btn btn-outline animate-on-scroll" style="animation-delay: 0.16s;">Get Free Quote</a>
+        <div class="faq-layout">
+          <div class="faq-left">
+            <span class="eyebrow eyebrow-white">FAQs</span>
+            <h2 class="section-title section-title-white" style="margin-top:10px;">Common Questions</h2>
+            <p>Everything you need to know about waterproofing, termite proofing, insulation, and pest control in Pakistan.</p>
+            <a href="contact.html" class="btn-primary" style="width:fit-content;margin-top:8px;">Contact us →</a>
+          </div>
+          <div class="faq-list">
+
+            <div class="faq-item">
+              <button class="faq-btn" aria-expanded="false">
+                What is the cost of waterproofing in Karachi?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-inner">Cost depends on the surface area, existing condition, and system chosen — Polyurethane, Bituminous, Crystalline, or Acrylic. IBS offers a <strong style="color:rgba(255,255,255,0.8)">FREE site survey</strong> to assess your specific situation and provide an accurate, no-obligation quote.</div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-btn" aria-expanded="false">
+                How long does termite proofing last in Pakistan?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-inner">IBS termite proofing comes with a <strong style="color:rgba(255,255,255,0.8)">10+ year written guarantee</strong>. Our certified chemical soil barriers and post-construction treatments eliminate existing colonies and prevent re-infestation for over a decade.</div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-btn" aria-expanded="false">
+                Can XPS insulation really reduce electricity bills?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-inner">Yes — significantly. INSUGREEN XPS boards reduce heat entering through your roof and walls by up to <strong style="color:rgba(255,255,255,0.8)">40%</strong>. In Pakistan's climate, where rooftop heat is the primary driver of high summer bills, this translates into real monthly savings.</div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-btn" aria-expanded="false">
+                Does IBS serve cities outside Karachi?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-inner">Yes. IBS provides waterproofing, termite proofing, insulation, and pest control <strong style="color:rgba(255,255,255,0.8)">across all of Pakistan</strong> — including Lahore, Islamabad, Rawalpindi, Faisalabad, and other cities.</div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-btn" aria-expanded="false">
+                What types of buildings does IBS work on?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-inner">We work on all building types: <strong style="color:rgba(255,255,255,0.8)">homes, apartments, offices, commercial plazas, warehouses, factories, hospitals, and schools</strong>. Our solutions are customized to the specific demands of each structure.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
     </section>
+
+    <!-- CTA -->
+    <section class="cta-section" aria-label="Get a free site survey">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <span class="eyebrow eyebrow-white">Ready to Protect Your Building?</span>
+            <h2>Book a Free Site Survey Before the Next Monsoon</h2>
+            <p>Leaks and termite damage don't fix themselves — they get worse. Let our experts visit your property, assess the problem honestly, and recommend the most cost-effective solution. No pressure. No obligation.</p>
+          </div>
+          <div class="cta-box-actions">
+            <a href="contact.html" class="btn-primary" style="white-space:nowrap;">Book Free Survey →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="footer">
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand">
-          <img src="./assets/logo.png.png" alt="IBS Logo" class="footer-logo">
-          <div class="footer-tagline">Strength You Can Trust</div>
-          <p class="footer-description">Pakistan's trusted building protection specialists since 2018. Serving residential, commercial and industrial clients nationwide.</p>
-          <div class="socials" aria-label="Social media links">
-            <a href="#" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M14 8.5V6.8c0-.8.2-1.3 1.3-1.3H17V2.1c-.8-.1-1.7-.2-2.5-.2-2.5 0-4.2 1.5-4.2 4.3v2.3H7.8V12h2.5v9H14v-9h2.4l.4-3.5H14z"></path>
-              </svg>
+        <div>
+          <img src="./assets/ibs logo.pdf (1).webp" alt="IBS Infinite Building Solutions logo" class="footer-logo" width="44" height="44" loading="lazy" decoding="async">
+          <div class="footer-brand-name">Infinite <span>Building</span> Solutions</div>
+          <p class="footer-desc">Pakistan's trusted specialists in waterproofing, termite proofing, XPS insulation, and pest control. Serving Karachi and nationwide since 2018.</p>
+          <div class="footer-socials" aria-label="Social media">
+            <a href="#" class="footer-social" aria-label="Facebook">
+              <img src="./assets/facebook-logo-facebook-icon-transparent-free-png.webp" alt="" loading="lazy" width="20" height="20">
             </a>
-            <a href="#" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 4.1A3.9 3.9 0 1 1 12 16a3.9 3.9 0 0 1 0-7.9zm0 2A1.9 1.9 0 1 0 12 14a1.9 1.9 0 0 0 0-3.9zM17.2 6.2a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
-              </svg>
+            <a href="#" class="footer-social" aria-label="Instagram">
+              <img src="./assets/logo-instagram_971166-164497.avif" alt="" loading="lazy" width="20" height="20">
             </a>
-            <a href="https://wa.me/923323070499" aria-label="WhatsApp" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M17.5 3.1A8.9 8.9 0 0 0 12 1.2C6.9 1.2 2.8 5.3 2.8 10.4c0 1.7.5 3.3 1.3 4.7L3 19.8l4.8-1.1a8.9 8.9 0 0 0 4.2 1.1c5.1 0 9.2-4.1 9.2-9.2S17.1 3.1 12 3.1zm0 16.4c-1.4 0-2.8-.4-4-1.1l-.3-.2-3.2.7.7-3.1-.2-.3a7.2 7.2 0 1 1 7 3.9z"></path>
-                <path d="M16.8 14.3c-.3-.1-1.7-.8-2-1-.3-.1-.5-.1-.7.2-.2.2-.7.9-.9 1.1-.2.2-.4.2-.7.1-.3-.1-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.5.1-.7.2-.1.3-.3.5-.5.1-.2.2-.3.3-.5.1-.2.1-.4 0-.6-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1.1-1.1 2.6s1.1 2.9 1.3 3.1c.1.2 2.1 3.3 5.2 4.5.7.3 1.3.5 1.8.6.8.2 1.5.2 2 .1.6-.1 1.7-.7 1.9-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"></path>
-              </svg>
+            <a href="https://wa.me/923323070499" class="footer-social" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/whatsapp-logo-4456_1024.png" alt="" loading="lazy" width="20" height="20">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             </a>
           </div>
         </div>
-
-        <div class="footer-services">
-          <h4 class="footer-heading">SERVICES</h4>
+        <div>
+          <h4 class="footer-heading">Services</h4>
           <ul class="footer-links">
-            <li><a href="services.html#waterproofing">Waterproofing</a></li>
-            <li><a href="services.html#termite">Termite Proofing</a></li>
-            <li><a href="services.html#insulation">XPS Insulation</a></li>
-            <li><a href="services.html#pest">Pest Control</a></li>
+            <li><a href="services.html#waterproofing">Waterproofing in Karachi</a></li>
+            <li><a href="services.html#termite">Termite Proofing Pakistan</a></li>
+            <li><a href="services.html#insulation">XPS Insulation Karachi</a></li>
+            <li><a href="services.html#pest">Pest Control Karachi</a></li>
           </ul>
         </div>
-
-        <div class="footer-company">
-          <h4 class="footer-heading">COMPANY</h4>
+        <div>
+          <h4 class="footer-heading">Company</h4>
           <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About IBS</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
-
-        <div class="footer-contact">
-          <h4 class="footer-heading">CONTACT</h4>
-          <div class="footer-contact-lines">
-            <address>Office No.02, SB-44, Sector X-4<br>Gulshan-e-Maymar, Karachi</address>
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-item">
+            <address>Office No.02, SB-44, Sector X-4<br>Gulshan-e-Maymar, Karachi, Pakistan</address>
             <a href="tel:+923323070499">0332-3070499</a>
             <a href="tel:+923366822155">0336-6822155</a>
             <a href="mailto:ibsolution786@gmail.com">ibsolution786@gmail.com</a>
-            <a href="https://ibsolutions.pk">ibsolutions.pk</a>
           </div>
         </div>
       </div>
-
       <div class="footer-bottom">
-        <p>&copy; 2025 IBS - Infinite Building Solutions. All rights reserved.</p>
-        <p class="footer-bottom-right">Waterproofing · Termite Proofing · Insulation · Pest Control</p>
+        <p>&copy; 2025 IBS — Infinite Building Solutions. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <a class="whatsapp-float" href="https://wa.me/923323070499" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M17.5 3.1A8.9 8.9 0 0 0 12 1.2C6.9 1.2 2.8 5.3 2.8 10.4c0 1.7.5 3.3 1.3 4.7L3 19.8l4.8-1.1a8.9 8.9 0 0 0 4.2 1.1c5.1 0 9.2-4.1 9.2-9.2S17.1 3.1 12 3.1zm0 16.4c-1.4 0-2.8-.4-4-1.1l-.3-.2-3.2.7.7-3.1-.2-.3a7.2 7.2 0 1 1 7 3.9z"></path>
-      <path d="M16.8 14.3c-.3-.1-1.7-.8-2-1-.3-.1-.5-.1-.7.2-.2.2-.7.9-.9 1.1-.2.2-.4.2-.7.1-.3-.1-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.5.1-.7.2-.1.3-.3.5-.5.1-.2.2-.3.3-.5.1-.2.1-.4 0-.6-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1.1-1.1 2.6s1.1 2.9 1.3 3.1c.1.2 2.1 3.3 5.2 4.5.7.3 1.3.5 1.8.6.8.2 1.5.2 2 .1.6-.1 1.7-.7 1.9-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"></path>
-    </svg>
+  <a class="wa-float" href="https://wa.me/923323070499" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
   </a>
 
-  <script src="script.js" defer></script>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+    document.querySelectorAll('.faq-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
