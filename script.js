@@ -276,7 +276,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // FAQ Accordion
+// FAQ Accordion
   document.querySelectorAll('.faq-question').forEach(button => {
     button.addEventListener('click', () => {
       const answer = button.nextElementSibling;
@@ -286,6 +286,51 @@ document.addEventListener('DOMContentLoaded', function() {
       answer.classList.toggle('hidden');
       icon.textContent = answer.classList.contains('hidden') ? '+' : '−';
       icon.classList.toggle('rotate-180');
+    });
+  });
+
+  // ===== SERVICES DROPDOWN (desktop) =====
+  document.querySelectorAll('.nav-item.has-dropdown').forEach(item => {
+    const toggle = item.querySelector('.nav-toggle');
+    if (!toggle) return;
+
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isOpen = item.classList.contains('open');
+      // Close any other open dropdowns
+      document.querySelectorAll('.nav-item.has-dropdown.open').forEach(other => {
+        if (other !== item) other.classList.remove('open');
+      });
+      item.classList.toggle('open', !isOpen);
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!item.contains(e.target)) {
+        item.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close on Escape
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        item.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.focus();
+      }
+    });
+  });
+
+  // ===== SERVICES SUBMENU (mobile) =====
+  document.querySelectorAll('.mobile-services-toggle').forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const submenu = document.getElementById('mobile-services-submenu');
+      const isOpen = toggle.classList.contains('open');
+      toggle.classList.toggle('open', !isOpen);
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+      if (submenu) submenu.classList.toggle('open', !isOpen);
     });
   });
 });
