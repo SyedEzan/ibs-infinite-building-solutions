@@ -15,15 +15,15 @@
   <meta property="og:description" content="Professional waterproofing, termite treatment, XPS insulation & pest control across Karachi. Free site survey.">
   <meta property="og:url" content="https://ibsolutions.pk/">
   <meta property="og:image" content="https://ibsolutions.pk/assets/herosection.2.png">
-  <link rel="icon" type="image/webp" href="./assets/ibs%20logo.pdf%20(1).webp">
-  <link rel="apple-touch-icon" href="./assets/ibs%20logo.pdf%20(1).webp">
+  <link rel="icon" type="image/webp" href="./assets/ibs-logo.webp">
+  <link rel="apple-touch-icon" href="./assets/ibs-logo.webp">
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"LocalBusiness","name":"IBS Infinite Building Solutions","image":"https://ibsolutions.pk/assets/ibs%20logo.pdf%20(1).webp","url":"https://ibsolutions.pk","telephone":"+923323070499","email":"ibsolution786@gmail.com","address":{"@type":"PostalAddress","streetAddress":"Office No.02, SB-44, Sector X-4, Gulshan-e-Maymar","addressLocality":"Karachi","addressRegion":"Sindh","addressCountry":"PK"},"areaServed":["Karachi","Lahore","Islamabad","Pakistan"],"description":"Professional waterproofing, termite proofing, XPS insulation and pest control across Pakistan.","foundingDate":"2018"}}
+  {"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"IBS Infinite Building Solutions","image":"https://ibsolutions.pk/assets/ibs-logo.webp","url":"https://ibsolutions.pk","telephone":"+923323070499","address":{"@type":"PostalAddress","streetAddress":"Office No.02, SB-44, Sector X-4, Gulshan-e-Maymar","addressLocality":"Karachi","addressRegion":"Sindh","addressCountry":"PK"},"areaServed":["Karachi","Lahore","Islamabad","Rawalpindi","Faisalabad"],"sameAs":["https://www.facebook.com/PLACEHOLDER","https://www.instagram.com/PLACEHOLDER"]}
   </script>
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the cost of waterproofing in Karachi?","acceptedAnswer":{"@type":"Answer","text":"Cost depends on area size, surface condition, and system used. IBS offers a FREE site survey with no obligation to assess and quote accurately."}},{"@type":"Question","name":"How long does termite proofing last?","acceptedAnswer":{"@type":"Answer","text":"IBS termite proofing comes with a 10+ year written guarantee using certified chemical barrier systems."}},{"@type":"Question","name":"Can XPS insulation reduce electricity bills in Pakistan?","acceptedAnswer":{"@type":"Answer","text":"Yes — INSUGREEN XPS boards reduce heat transfer by up to 40%, directly lowering cooling costs in Pakistan's hot climate."}},{"@type":"Question","name":"Does IBS serve areas outside Karachi?","acceptedAnswer":{"@type":"Answer","text":"Yes. IBS serves residential and commercial clients across all of Pakistan including Lahore, Islamabad, and Rawalpindi."}}]}
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the cost of waterproofing in Karachi?","acceptedAnswer":{"@type":"Answer","text":"Cost depends on the surface area, existing condition, and system chosen — Polyurethane, Bituminous, Crystalline, or Acrylic. IBS offers a FREE site survey to assess your specific situation and provide an accurate, no-obligation quote."}},{"@type":"Question","name":"How long does termite proofing last in Pakistan?","acceptedAnswer":{"@type":"Answer","text":"IBS termite proofing comes with a 10+ year written guarantee. Our certified chemical soil barriers and post-construction treatments eliminate existing colonies and prevent re-infestation for over a decade."}},{"@type":"Question","name":"Can XPS insulation really reduce electricity bills?","acceptedAnswer":{"@type":"Answer","text":"Yes — significantly. INSUGREEN XPS boards reduce heat entering through your roof and walls by up to 40%. In Pakistan's climate, where rooftop heat is the primary driver of high summer bills, this translates into real monthly savings."}},{"@type":"Question","name":"Does IBS serve cities outside Karachi?","acceptedAnswer":{"@type":"Answer","text":"Yes. IBS provides waterproofing, termite proofing, insulation, and pest control across all of Pakistan — including Lahore, Islamabad, Rawalpindi, Faisalabad, and other cities."}},{"@type":"Question","name":"What types of buildings does IBS work on?","acceptedAnswer":{"@type":"Answer","text":"We work on all building types: homes, apartments, offices, commercial plazas, warehouses, factories, hospitals, and schools. Our solutions are customized to the specific demands of each structure."}}]}
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -617,12 +617,38 @@
       width: 56px; height: 56px; background: #25D366; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       box-shadow: 0 8px 24px rgba(37,211,102,0.4); text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
+      opacity: 0; visibility: hidden; transform: translateY(16px);
+      transition: opacity 0.45s ease, transform 0.45s ease, visibility 0.45s, box-shadow 0.2s;
     }
-    .wa-float:hover { transform: scale(1.1); box-shadow: 0 12px 32px rgba(37,211,102,0.5); }
+    .wa-float.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    .wa-float:hover { transform: translateY(-2px) scale(1.08); box-shadow: 0 12px 32px rgba(37,211,102,0.5); }
     .wa-float img { width: 100%; height: 100%; object-fit: contain; }
     .wa-float { background: url('./assets/whatsapp-logo-4456_1024.png') center / contain no-repeat; }
     .wa-float svg { display: none; }
+
+    /* TESTIMONIALS */
+    .testimonials-section { background: var(--concrete); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+    .testimonial-card {
+      background: var(--white); border: 1px solid var(--concrete-dark); border-radius: var(--radius-xl);
+      padding: 36px 30px; display: flex; flex-direction: column; gap: 16px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .testimonial-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(10,22,40,0.1); }
+    .testimonial-stars { color: var(--amber); font-size: 1.05rem; letter-spacing: 0.08em; }
+    .testimonial-stars .star { color: var(--amber); }
+    .testimonial-quote { font-size: 0.96rem; color: var(--text-body); line-height: 1.8; font-style: italic; flex: 1; }
+    .testimonial-client { display: flex; align-items: center; gap: 12px; }
+    .testimonial-avatar {
+      width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--cobalt), var(--cobalt-light));
+      color: var(--white); font-weight: 700; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .testimonial-client-name { font-weight: 700; color: var(--navy); font-size: 0.95rem; }
+    .testimonial-client-role { font-size: 0.78rem; color: var(--steel); }
+    @media (max-width: 1024px) { .testimonials-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .testimonials-grid { grid-template-columns: 1fr; } }
 
 /* SERVICES DROPDOWN (desktop) */
     .nav-item { position: relative; }
@@ -717,7 +743,7 @@
   <header class="nav" role="banner">
     <div class="nav-inner">
       <a href="index.html" class="nav-brand" aria-label="IBS Home">
-        <img src="./assets/ibs logo.pdf (1).webp" alt="IBS Infinite Building Solutions logo" class="nav-brand-logo" width="40" height="40" decoding="async">
+        <img src="./assets/ibs-logo.webp" alt="IBS Infinite Building Solutions logo" class="nav-brand-logo" width="40" height="40" decoding="async">
         <span class="nav-brand-text">IBS <span>Solutions</span></span>
       </a>
 <nav class="nav-links" aria-label="Primary navigation">
@@ -841,7 +867,7 @@
             <div class="service-card-ribbon">Guaranteed</div>
             <div class="service-card-top">
               <div class="service-icon-wrap">
-                <img src="./assets/WaterProofinglogo..png" alt="" loading="lazy" width="40" height="40">
+                <img src="./assets/WaterProofinglogo.png" alt="Waterproofing service icon - IBS Karachi" loading="lazy" width="40" height="40">
               </div>
               <div>
                 <span class="service-card-tag">Residential &amp; Commercial</span>
@@ -864,7 +890,7 @@
             <div class="service-card-ribbon">10-Yr Guarantee</div>
             <div class="service-card-top">
               <div class="service-icon-wrap">
-                <img src="./assets/TermiteProofinglogo..png" alt="" loading="lazy" width="40" height="40">
+                <img src="./assets/TermiteProofinglogo.png" alt="Termite proofing service icon - IBS Karachi" loading="lazy" width="40" height="40">
               </div>
               <div>
                 <span class="service-card-tag">Pre &amp; Post Construction</span>
@@ -886,7 +912,7 @@
           <article class="service-card" id="insulation">
             <div class="service-card-top">
               <div class="service-icon-wrap">
-                <img src="./assets/Insugreenlogo..png" alt="" loading="lazy" width="40" height="40">
+                <img src="./assets/Insugreenlogo.png" alt="INSUGREEN XPS insulation service icon - IBS Karachi" loading="lazy" width="40" height="40">
               </div>
               <div>
                 <span class="service-card-tag">Energy Saving</span>
@@ -1070,6 +1096,52 @@
       </div>
     </section>
 
+    <!-- TESTIMONIALS -->
+    <section class="section testimonials-section" aria-label="What our clients say">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Testimonials</span>
+          <h2 class="section-title">What Our Clients Say</h2>
+          <p class="section-body">Real feedback from property owners we've helped protect across Pakistan.</p>
+        </div>
+        <div class="testimonials-grid">
+          <article class="testimonial-card">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-quote">"[PLACEHOLDER - replace with real client quote]"</p>
+            <div class="testimonial-client">
+              <span class="testimonial-avatar" aria-hidden="true">A</span>
+              <div>
+                <div class="testimonial-client-name">[PLACEHOLDER - Client Name]</div>
+                <div class="testimonial-client-role">[PLACEHOLDER - e.g. Homeowner, Karachi]</div>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-quote">"[PLACEHOLDER - replace with real client quote]"</p>
+            <div class="testimonial-client">
+              <span class="testimonial-avatar" aria-hidden="true">B</span>
+              <div>
+                <div class="testimonial-client-name">[PLACEHOLDER - Client Name]</div>
+                <div class="testimonial-client-role">[PLACEHOLDER - e.g. Business Owner, Lahore]</div>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-quote">"[PLACEHOLDER - replace with real client quote]"</p>
+            <div class="testimonial-client">
+              <span class="testimonial-avatar" aria-hidden="true">C</span>
+              <div>
+                <div class="testimonial-client-name">[PLACEHOLDER - Client Name]</div>
+                <div class="testimonial-client-role">[PLACEHOLDER - e.g. Property Developer, Islamabad]</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA -->
     <section class="cta-section" aria-label="Get a free site survey">
       <div class="container">
@@ -1093,18 +1165,18 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <img src="./assets/ibs logo.pdf (1).webp" alt="IBS Infinite Building Solutions logo" class="footer-logo" width="44" height="44" loading="lazy" decoding="async">
+          <img src="./assets/ibs-logo.webp" alt="IBS Infinite Building Solutions logo" class="footer-logo" width="44" height="44" loading="lazy" decoding="async">
           <div class="footer-brand-name">Infinite <span>Building</span> Solutions</div>
           <p class="footer-desc">Pakistan's trusted specialists in waterproofing, termite proofing, XPS insulation, and pest control. Serving Karachi and nationwide since 2018.</p>
           <div class="footer-socials" aria-label="Social media">
-            <a href="#" class="footer-social" aria-label="Facebook">
-              <img src="./assets/facebook-logo-facebook-icon-transparent-free-png.webp" alt="" loading="lazy" width="20" height="20">
+            <a href="https://www.facebook.com/PLACEHOLDER" class="footer-social" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/facebook-logo-facebook-icon-transparent-free-png.webp" alt="IBS Infinite Building Solutions on Facebook" loading="lazy" width="20" height="20">
             </a>
-            <a href="#" class="footer-social" aria-label="Instagram">
-              <img src="./assets/logo-instagram_971166-164497.avif" alt="" loading="lazy" width="20" height="20">
+            <a href="https://www.instagram.com/PLACEHOLDER" class="footer-social" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/logo-instagram_971166-164497.avif" alt="IBS Infinite Building Solutions on Instagram" loading="lazy" width="20" height="20">
             </a>
             <a href="https://wa.me/923323070499" class="footer-social" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
-              <img src="./assets/whatsapp-logo-4456_1024.png" alt="" loading="lazy" width="20" height="20">
+              <img src="./assets/whatsapp-logo-4456_1024.png" alt="Chat with IBS on WhatsApp" loading="lazy" width="20" height="20">
               <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             </a>
           </div>
@@ -1148,6 +1220,18 @@
   </a>
 
   <script>
+    // WhatsApp float appears after scrolling ~400px past the hero
+    const waFloat = document.querySelector('.wa-float');
+    const heroEl = document.querySelector('.hero');
+    function updateWaFloat() {
+      if (!waFloat) return;
+      const heroBottom = heroEl ? heroEl.offsetTop + heroEl.offsetHeight : 0;
+      const show = window.scrollY > heroBottom + 400;
+      waFloat.classList.toggle('visible', show);
+    }
+    window.addEventListener('scroll', updateWaFloat, { passive: true });
+    updateWaFloat();
+
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
     hamburger.addEventListener('click', () => {
