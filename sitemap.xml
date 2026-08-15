@@ -4,24 +4,30 @@
     <loc>https://ibsolutions.pk/</loc>
   </url>
   <url>
-    <loc>https://ibsolutions.pk/about.html</loc>
+    <loc>https://ibsolutions.pk/about</loc>
   </url>
   <url>
-    <loc>https://ibsolutions.pk/services.html</loc>
-  </url>
-<url>
-    <loc>https://ibsolutions.pk/contact.html</loc>
+    <loc>https://ibsolutions.pk/services</loc>
   </url>
   <url>
-    <loc>https://ibsolutions.pk/waterproofing.html</loc>
+    <loc>https://ibsolutions.pk/contact</loc>
   </url>
   <url>
-    <loc>https://ibsolutions.pk/termite-proofing.html</loc>
+    <loc>https://ibsolutions.pk/waterproofing</loc>
   </url>
   <url>
-    <loc>https://ibsolutions.pk/thermal-insulation.html</loc>
+    <loc>https://ibsolutions.pk/termite-proofing</loc>
   </url>
   <url>
-    <loc>https://ibsolutions.pk/pest-control.html</loc>
+    <loc>https://ibsolutions.pk/thermal-insulation</loc>
+  </url>
+  <url>
+    <loc>https://ibsolutions.pk/pest-control</loc>
+  </url>
+  <url>
+    <loc>https://ibsolutions.pk/products/heat-reflective-coating</loc>
+  </url>
+  <url>
+    <loc>https://ibsolutions.pk/thank-you</loc>
   </url>
 </urlset>
