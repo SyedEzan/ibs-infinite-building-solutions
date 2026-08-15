@@ -114,12 +114,11 @@ document.addEventListener('DOMContentLoaded', function() {
     style.textContent = `
       .hamburger span {
         display: block;
-        width: 28px;
-        height: 3px;
+        width: 24px;
+        height: 2px;
         background: #ffffff;
-        margin: 5px 0;
-        transition: 0.3s;
-        border-radius: 9999px;
+        border-radius: 2px;
+        transition: all 0.3s;
       }
       .hamburger.active span:nth-child(1) { transform: rotate(-45deg) translate(-6px, 7px); }
       .hamburger.active span:nth-child(2) { opacity: 0; }
