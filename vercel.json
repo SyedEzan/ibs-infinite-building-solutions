@@ -1,4 +1,17 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://ibsolutions.pk/$1",
+      "permanent": true,
+      "has": [
+        {
+          "type": "host",
+          "value": "www.ibsolutions.pk"
+        }
+      ]
+    }
+  ]
 }
