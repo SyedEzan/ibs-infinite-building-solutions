@@ -1,6 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
+  "trailingSlash": false,
   "redirects": [
     {
       "source": "/(.*)",
@@ -12,6 +13,11 @@
           "value": "www.ibsolutions.pk"
         }
       ]
+    },
+    {
+      "source": "/:path*/",
+      "destination": "/:path*",
+      "permanent": true
     }
   ]
 }
