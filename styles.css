@@ -322,8 +322,8 @@ font-family: 'Poppins', sans-serif;
     .mobile-menu {
       display: none;
       padding: 12px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(13, 27, 42, 0.98);
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      background: rgba(255, 255, 255, 0.92);
     }
 
 .mobile-menu.active,
@@ -335,12 +335,12 @@ font-family: 'Poppins', sans-serif;
       display: block;
       padding: 13px 14px;
       border-radius: 14px;
-      color: var(--white);
-      font-weight: 700;
+      color: #111827;
+      font-weight: 600;
     }
 
     .mobile-menu a:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.06);
     }
 
     .mobile-cta {
@@ -1132,10 +1132,11 @@ font-family: 'Poppins', sans-serif;
       position: fixed;
       inset: 0 0 auto;
       z-index: 1000;
-      height: 68px;
-      background: rgba(10, 22, 40, 0.92);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      height: 84px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     }
     .nav-inner {
       width: min(1160px, calc(100% - 48px));
@@ -1155,16 +1156,17 @@ font-family: 'Poppins', sans-serif;
       font-weight: 700;
       text-decoration: none;
     }
-    .nav-brand-logo { width: 40px; height: 40px; object-fit: contain; }
+    .nav-brand-logo { width: auto; height: 72px; object-fit: contain; }
+    @media (max-width: 640px) { .nav-brand-logo { height: 48px; } }
     .nav-brand-text span { color: var(--light-blue); }
     .nav-inner .nav-links { display: flex; align-items: center; gap: 8px; }
-    .nav-inner .nav-links a { padding: 9px 13px; border-radius: 999px; color: rgba(255,255,255,0.76); font-size: 0.86rem; font-weight: 500; }
-    .nav-inner .nav-links a:hover, .nav-inner .nav-links a.active { color: var(--white); background: rgba(255,255,255,0.12); }
+    .nav-inner .nav-links a { padding: 9px 13px; border-radius: 999px; color: #111827; font-size: 0.86rem; font-weight: 600; }
+    .nav-inner .nav-links a:hover, .nav-inner .nav-links a.active { color: #000000; background: rgba(0, 0, 0, 0.06); }
     .nav-inner .nav-cta { display: inline-flex; align-items: center; padding: 10px 18px; border-radius: 999px; background: var(--accent); color: var(--white); font-size: 0.8rem; font-weight: 700; }
     .nav-inner .nav-cta:hover { background: var(--light-blue); }
     .nav-inner .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
-    .nav-inner .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
-    .nav + .mobile-menu { position: fixed; top: 68px; left: 0; right: 0; z-index: 999; }
+    .nav-inner .hamburger span { display: block; width: 24px; height: 2px; background: #111827; border-radius: 2px; transition: all 0.3s; }
+    .nav + .mobile-menu { position: fixed; top: 84px; left: 0; right: 0; z-index: 999; }
 
 @media (max-width: 860px) {
       .nav-inner { width: min(100% - 32px, 1160px); }
@@ -1182,19 +1184,20 @@ font-family: 'Poppins', sans-serif;
       border: 0;
       border-radius: 999px;
       background: transparent;
-      color: rgba(255,255,255,0.76);
+      color: #111827;
       font-family: 'Poppins', sans-serif;
       font-size: 0.86rem;
-      font-weight: 500;
+      font-weight: 600;
       cursor: pointer;
       text-decoration: none;
       transition: color 0.2s, background 0.2s;
     }
-    .nav-toggle:hover { color: var(--white); background: rgba(255,255,255,0.12); }
+    .nav-toggle:hover { color: #000000; background: rgba(0, 0, 0, 0.06); }
     .nav-toggle .caret { font-size: 0.7rem; transition: transform 0.2s; }
     .nav-item.has-dropdown.open .nav-toggle .caret { transform: rotate(180deg); }
     .nav-item.has-dropdown.open .nav-toggle,
-    .nav-item.has-dropdown:focus-within .nav-toggle { color: var(--white); background: rgba(255,255,255,0.12); outline: 2px solid rgba(59,130,246,0.7); outline-offset: 2px; }
+    .nav-item.has-dropdown:focus-within .nav-toggle { color: #000000; background: rgba(0, 0, 0, 0.06); }
+    .nav-toggle:focus-visible { outline: 2px solid rgba(59,130,246,0.7); outline-offset: 2px; }
 
     .dropdown {
       position: absolute;
@@ -1203,9 +1206,9 @@ font-family: 'Poppins', sans-serif;
       transform: translateX(-50%) translateY(8px);
       min-width: 230px;
       padding: 8px;
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid rgba(0, 0, 0, 0.08);
       border-radius: 16px;
-      background: #0d1b2a;
+      background: rgba(255, 255, 255, 0.92);
       box-shadow: 0 24px 50px rgba(0,0,0,0.45);
       opacity: 0;
       visibility: hidden;
@@ -1223,17 +1226,17 @@ font-family: 'Poppins', sans-serif;
       display: block;
       padding: 11px 14px;
       border-radius: 10px;
-      color: rgba(255,255,255,0.86);
+      color: #111827;
       font-size: 0.9rem;
-      font-weight: 500;
+      font-weight: 600;
       text-decoration: none;
       transition: background 0.2s, color 0.2s;
     }
     .dropdown a:hover,
     .dropdown a:focus,
     .dropdown a.active {
-      background: rgba(37,99,235,0.24);
-      color: var(--white);
+      background: rgba(37,99,235,0.1);
+      color: #000000;
       outline: none;
     }
     .dropdown a:focus-visible { outline: 2px solid rgba(59,130,246,0.8); }
@@ -1248,7 +1251,7 @@ font-family: 'Poppins', sans-serif;
       border: 0;
       border-radius: 14px;
       background: transparent;
-      color: var(--white);
+      color: #111827;
       font-family: 'Poppins', sans-serif;
       font-size: 1rem;
       font-weight: 700;
@@ -1266,9 +1269,9 @@ font-family: 'Poppins', sans-serif;
       display: block;
       padding: 11px 14px;
       border-radius: 12px;
-      color: rgba(255,255,255,0.82);
+      color: #111827;
       font-size: 0.95rem;
       font-weight: 600;
     }
     .mobile-services-submenu a:hover,
-    .mobile-services-submenu a.active { background: rgba(255,255,255,0.1); color: var(--white); }
+    .mobile-services-submenu a.active { background: rgba(0,0,0,0.06); color: #000000; }
