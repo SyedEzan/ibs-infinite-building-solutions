@@ -177,12 +177,50 @@ font-family: 'Poppins', sans-serif;
       box-shadow: var(--shadow);
     }
 
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 1000;
+      background: rgba(13, 27, 42, 0.86);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    [data-theme="light"] .site-header,
+    [data-theme="dark"] .site-header {
+      background: rgba(13, 27, 42, 0.9);
+    }
+
+    .site-header.scrolled {
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.22);
+    }
+
     .nav {
       height: var(--nav-height);
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--white);
+      font-size: 1.35rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+
+    .brand img {
+      height: 44px;
+      width: auto;
+    }
+
+    .brand strong {
+      color: var(--light-blue);
     }
 
     .nav-links {
@@ -206,6 +244,12 @@ font-family: 'Poppins', sans-serif;
       background: rgba(255, 255, 255, 0.12);
     }
 
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     .nav-cta {
       display: inline-flex;
       align-items: center;
@@ -222,6 +266,25 @@ font-family: 'Poppins', sans-serif;
     .nav-cta:hover {
       background: var(--light-blue);
       box-shadow: 0 10px 24px rgba(37, 99, 235, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .theme-toggle {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.16);
       transform: translateY(-2px);
     }
 
@@ -1095,6 +1158,7 @@ font-family: 'Poppins', sans-serif;
     }
     .nav-brand-logo { width: auto; height: 72px; object-fit: contain; }
     @media (max-width: 640px) { .nav-brand-logo { height: 48px; } }
+    .nav-brand-text span { color: var(--light-blue); }
     .nav-inner .nav-links { display: flex; align-items: center; gap: 8px; }
     .nav-inner .nav-links a { padding: 9px 13px; border-radius: 999px; color: #111827; font-size: 0.86rem; font-weight: 600; }
     .nav-inner .nav-links a:hover, .nav-inner .nav-links a.active { color: #000000; background: rgba(0, 0, 0, 0.06); }
