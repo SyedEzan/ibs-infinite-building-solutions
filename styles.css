@@ -926,7 +926,7 @@ font-family: 'Poppins', sans-serif;
     }
 
     .socials a[aria-label="WhatsApp"] {
-      background: url('./assets/whatsapp-logo-4456_1024.png') center / contain no-repeat;
+      background: url('./assets/whatsapp-logo-4456_1024.png') center / 16px 16px no-repeat;
     }
 
     .socials a[aria-label="WhatsApp"] svg,
