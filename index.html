@@ -307,32 +307,55 @@
       color: #fff;
       font-weight: 600;
     }
-    .ibs-hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      max-width: 730px;
-      margin: 40px auto 0;
+    /* SCROLLING STATS STRIP */
+    .ibs-marquee {
+      background: #000;
+      overflow: hidden;
+      white-space: nowrap;
+      border-top: 1px solid rgba(255, 255, 255, .06);
     }
-    .ibs-stat {
-      padding: 10px 20px;
-      border-right: 1px solid rgba(255, 255, 255, .2);
+    .ibs-marquee-track {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      padding: 16px 0;
+      will-change: transform;
+      animation: ibs-marquee-scroll 28s linear infinite;
     }
-    .ibs-stat:last-child {
-      border-right: 0;
+    .ibs-marquee-group {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
     }
-    .ibs-stat strong {
-      display: block;
+    .ibs-marquee-item {
       color: #fff;
-      font-size: 33px;
-      line-height: 1.3;
-      margin-bottom: 5px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: .6px;
+      padding: 0 20px;
     }
-    .ibs-stat span {
-      display: block;
-      color: #ccdaea;
-      font-size: 11px;
-      letter-spacing: .7px;
-      text-transform: uppercase;
+    .ibs-marquee-sep {
+      color: #fff;
+      font-size: 16px;
+      line-height: 1;
+    }
+    .ibs-marquee:hover .ibs-marquee-track,
+    .ibs-marquee:focus-within .ibs-marquee-track {
+      animation-play-state: paused;
+    }
+    @keyframes ibs-marquee-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ibs-marquee-track {
+        animation: none;
+        transform: none;
+        white-space: normal;
+      }
+      .ibs-marquee {
+        white-space: normal;
+      }
     }
     /* SERVICES */
     .ibs-services-grid {
@@ -840,18 +863,9 @@
       .ibs-hero .ibs-btn {
         width: 100%;
       }
-      .ibs-hero-stats {
-        margin-top: 30px;
-      }
-      .ibs-stat {
-        padding: 9px 5px;
-      }
-      .ibs-stat strong {
-        font-size: 26px;
-      }
-      .ibs-stat span {
-        font-size: 9px;
-        letter-spacing: .1px;
+      .ibs-marquee-item {
+        font-size: 12px;
+        padding: 0 14px;
       }
       .ibs-services-grid,
       .ibs-process-grid,
@@ -999,23 +1013,34 @@
               Get Free Site Survey
             </a>
           </div>
-          <div class="ibs-hero-stats">
-            <div class="ibs-stat">
-              <strong>500+</strong>
-              <span>Projects Completed</span>
-            </div>
-            <div class="ibs-stat">
-              <strong>Since 2018</strong>
-              <span>Serving Karachi &amp; Nationwide</span>
-            </div>
-            <div class="ibs-stat">
-              <strong>1000+</strong>
-              <span>Satisfied Clients</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
+    <!-- SCROLLING STATS STRIP (homepage only) -->
+    <div class="ibs-marquee" role="region" aria-label="IBS highlights">
+      <div class="ibs-marquee-track">
+        <div class="ibs-marquee-group">
+          <span class="ibs-marquee-item">500+ Projects Completed</span>
+          <span class="ibs-marquee-sep" aria-hidden="true">&bull;</span>
+          <span class="ibs-marquee-item">Since 2018</span>
+          <span class="ibs-marquee-sep" aria-hidden="true">&bull;</span>
+          <span class="ibs-marquee-item">Serving Karachi &amp; Nationwide</span>
+          <span class="ibs-marquee-sep" aria-hidden="true">&bull;</span>
+          <span class="ibs-marquee-item">1000+ Satisfied Clients</span>
+          <span class="ibs-marquee-sep" aria-hidden="true">&bull;</span>
+        </div>
+        <div class="ibs-marquee-group" aria-hidden="true">
+          <span class="ibs-marquee-item">500+ Projects Completed</span>
+          <span class="ibs-marquee-sep">&bull;</span>
+          <span class="ibs-marquee-item">Since 2018</span>
+          <span class="ibs-marquee-sep">&bull;</span>
+          <span class="ibs-marquee-item">Serving Karachi &amp; Nationwide</span>
+          <span class="ibs-marquee-sep">&bull;</span>
+          <span class="ibs-marquee-item">1000+ Satisfied Clients</span>
+          <span class="ibs-marquee-sep">&bull;</span>
+        </div>
+      </div>
+    </div>
     <!-- SERVICES -->
     <section
       class="ibs-section ibs-soft"
@@ -1678,14 +1703,9 @@
   rel="noopener noreferrer"
   aria-label="Chat with IBS on WhatsApp"
 >
-  <img
-    src="/assets/whatsapp-logo-4456_1024.png"
-    alt=""
-    width="34"
-    height="34"
-    loading="lazy"
-    decoding="async"
-  >
+  <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+    <path d="M16.03 3.2c-7.06 0-12.8 5.73-12.8 12.8 0 2.26.6 4.39 1.64 6.23L3.2 28.8l6.75-1.77a12.74 12.74 0 0 0 6.08 1.55h.01c7.06 0 12.8-5.73 12.8-12.8 0-3.42-1.33-6.63-3.75-9.05a12.7 12.7 0 0 0-9.06-3.53Zm0 23.2h-.01a10.6 10.6 0 0 1-5.4-1.48l-.39-.23-4.01 1.05 1.07-3.91-.25-.4a10.58 10.58 0 0 1-1.62-5.63c0-5.88 4.79-10.67 10.68-10.67 2.85 0 5.53 1.11 7.54 3.13a10.6 10.6 0 0 1 3.12 7.55c0 5.88-4.79 10.67-10.68 10.67Zm5.86-7.98c-.32-.16-1.91-.94-2.21-1.05-.3-.11-.51-.16-.73.16-.21.32-.83 1.05-1.02 1.27-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.59-.95-.85-1.59-1.9-1.78-2.21-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.72-1.74-.99-2.38-.26-.62-.53-.54-.73-.55-.19-.01-.4-.01-.61-.01-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.66s1.15 3.09 1.31 3.3c.16.21 2.26 3.45 5.48 4.84.77.33 1.36.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.91-.78 2.18-1.54.27-.75.27-1.4.19-1.54-.08-.14-.29-.22-.61-.38Z"/>
+  </svg>
 </a>
 
 <button

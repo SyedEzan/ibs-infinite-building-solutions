@@ -31,7 +31,7 @@ $header = [System.IO.File]::ReadAllText((Join-Path $root 'components/shared-head
 $footer = [System.IO.File]::ReadAllText((Join-Path $root 'components/shared-footer.html'), $utf8).TrimEnd()
 
 # Tokens that identify an OLD inline chrome-behaviour script to retire.
-$chromeTokens = 'ibs-menu-toggle|menuToggle|mainNavigation|menu-toggle|whatsappButton|backTop|ibs-footer-include|nav-item has-dropdown|nav-item\.has-dropdown|getElementById\("(navigation|services)"\)'
+$chromeTokens = 'ibs-menu-toggle|menuToggle|mainNavigation|menu-toggle|whatsappButton|backTop|ibs-footer-include|nav-item has-dropdown|nav-item\.has-dropdown|getElementById\("(navigation|services)"\)|getElementById\(''hamburger''\)|getElementById\(''mobile-menu''\)|getElementById\("menu"\)'
 
 foreach ($pg in $pages) {
   $path = Join-Path $root $pg

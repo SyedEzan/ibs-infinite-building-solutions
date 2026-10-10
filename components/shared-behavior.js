@@ -80,7 +80,7 @@
     var whatsapp = document.getElementById("ibs-whatsapp");
     if (whatsapp) {
       function updateWhatsApp() {
-        whatsapp.classList.toggle("is-visible", window.scrollY > 350);
+        whatsapp.classList.toggle("is-visible", window.scrollY > 300);
       }
       window.addEventListener("scroll", updateWhatsApp, { passive: true });
       window.addEventListener("resize", updateWhatsApp);
@@ -91,7 +91,7 @@
     var backTop = document.getElementById("ibs-back-top");
     if (backTop) {
       function updateBackTop() {
-        backTop.classList.toggle("is-visible", window.scrollY > 500);
+        backTop.classList.toggle("is-visible", window.scrollY > 300);
       }
       window.addEventListener("scroll", updateBackTop, { passive: true });
       window.addEventListener("resize", updateBackTop);
@@ -267,21 +267,6 @@
         });
       }
       setInterval(function () { showSlide((currentSlide + 1) % slides.length); }, 5000);
-    }
-
-    /* Hero scroll indicator (homepage) */
-    var hero = document.querySelector(".ibs-hero");
-    if (hero && !hero.querySelector(".scroll-indicator")) {
-      var indicator = document.createElement("button");
-      indicator.type = "button";
-      indicator.className = "scroll-indicator";
-      indicator.setAttribute("aria-label", "Scroll to services");
-      indicator.textContent = "\u2335";
-      hero.appendChild(indicator);
-      indicator.addEventListener("click", function () {
-        var services = document.getElementById("services");
-        if (services) services.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth" });
-      });
     }
   });
 })();
