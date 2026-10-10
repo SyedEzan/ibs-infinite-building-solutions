@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Roof Insulation Services in Karachi | IBS</title>
-  <meta name="description" content="Roof and thermal insulation services in Karachi with INSUGREEN XPS boards. Reduce roof heat transfer and cooling costs by up to 40% with IBS.">
+  <meta name="description" content="Roof and thermal insulation services in Karachi with INSUGREEN XPS boards. Helps reduce roof heat transfer and cooling demand. Results depend on the building, insulation thickness and installation.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://ibsolutions.pk/thermal-insulation">
-  <link rel="icon" type="image/webp" href="./assets/ibs-logo.webp">
-  <link rel="apple-touch-icon" href="./assets/ibs-logo.webp">
+  <link rel="icon" type="image/webp" href="./assets/ibs-logo.png">
+  <link rel="apple-touch-icon" href="./assets/ibs-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
         "name": "How much can XPS roof insulation reduce my electricity bill in Karachi?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "INSUGREEN XPS boards can reduce heat transfer through your roof by up to 40%. In Karachi's hot climate, where rooftop heat is the primary driver of high summer electricity bills, this translates into meaningful monthly savings on air conditioning. The exact reduction depends on the size of your roof, the thickness of the insulation installed, and how much of your cooling load comes from rooftop heat gain."
+          "text": "Helps reduce roof heat transfer and cooling demand. Results depend on the building, insulation thickness and installation. In Karachi's hot climate, where rooftop heat is the primary driver of high summer electricity bills, this translates into meaningful monthly savings on air conditioning. The exact reduction depends on the size of your roof, the thickness of the insulation installed, and how much of your cooling load comes from rooftop heat gain."
         }
       },
       {
@@ -107,40 +107,65 @@
     .section-title { font-size: clamp(2.1rem, 4vw, 3.2rem); line-height: 1.1; font-weight: 900; color: #111827; letter-spacing: -0.04em; }
     @media (max-width: 900px) { .content-grid, .feature-grid, .process-grid, .benefit-grid { grid-template-columns: 1fr; } .info-card { position: static; } }
   </style>
-<link rel="stylesheet" href="components/footer.css">
+  <link rel="stylesheet" href="/components/shared-blocks.css">
 </head>
 <body>
-  <header class="nav" role="banner">
-    <div class="nav-inner">
-      <a href="/" class="nav-brand" aria-label="IBS Home">
-        <img src="./assets/ibs-logo.webp" alt="IBS Infinite Building Solutions logo" class="nav-brand-logo" width="40" height="40">
-        <span class="nav-brand-text">IBS <span>Solutions</span></span>
-      </a>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <div class="nav-item has-dropdown">
-          <button type="button" class="nav-toggle" id="services-toggle" aria-haspopup="true" aria-expanded="false">
-            Services <span class="caret" aria-hidden="true">▾</span>
-          </button>
-          <div class="dropdown" role="menu" aria-label="Services">
-            <a href="/waterproofing" role="menuitem">Waterproofing</a>
-            <a href="/termite-proofing" role="menuitem">Termite Proofing</a>
-            <a href="/thermal-insulation" class="active" role="menuitem">Thermal / XPS Insulation</a>
-            <a href="/pest-control" role="menuitem">Pest Control</a>
-          </div>
-        </div>
-        <a href="/contact">Contact</a>
-      </nav>
-      <div style="display:flex;align-items:center;gap:14px;">
-        <a href="/contact" class="nav-cta">Get Free Survey</a>
-        <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" id="hamburger">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </header>
+<!--IBS:HEADER-->
+<header class="ibs-header">
+  <div class="ibs-container ibs-nav">
 
+    <a class="ibs-logo" href="/" aria-label="Infinite Building Solutions home">
+      <img
+        src="/assets/ibs-logo.png"
+        alt="Infinite Building Solutions"
+        width="100"
+        height="66"
+        decoding="async"
+      >
+    </a>
+
+    <button
+      class="ibs-menu-toggle"
+      id="ibs-menu-toggle"
+      type="button"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="ibs-navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav
+      class="ibs-nav-links"
+      id="ibs-navigation"
+      aria-label="Main navigation"
+    >
+      <a href="/">Home</a>
+      <a href="/about">About IBS</a>
+
+      <details class="ibs-nav-dropdown">
+        <summary>Services</summary>
+
+        <div class="ibs-dropdown-panel">
+          <a href="/services">All Services</a>
+          <a href="/waterproofing">Waterproofing</a>
+          <a href="/termite-proofing">Termite Proofing</a>
+          <a href="/thermal-insulation">XPS Insulation</a>
+          <a href="/pest-control">Pest Control</a>
+          <a href="/products/heat-reflective-coating">Heat Reflective Coating</a>
+        </div>
+      </details>
+
+      <a href="/contact">Contact</a>
+      <a class="ibs-nav-call" href="tel:+923323070499">
+        0332-3070499
+      </a>
+    </nav>
+
+  </div>
+</header>
   <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
     <a href="/">Home</a>
     <a href="/about">About</a>
@@ -156,7 +181,6 @@
     <a href="/contact">Contact</a>
     <a href="/contact" style="color:var(--cobalt-light)">Get Free Survey →</a>
   </nav>
-
   <main>
     <section class="page-hero" aria-labelledby="insulation-page-title">
       <div class="container">
@@ -176,19 +200,18 @@
         </div>
         <div class="hero-badges" aria-label="Roof insulation highlights">
           <span>INSUGREEN XPS Boards</span>
-          <span>Up to 40% Cooling Savings</span>
+          <span>Reduces Cooling Demand</span>
           <span>Roof & Wall Insulation</span>
         </div>
       </div>
     </section>
-
     <section class="service-section" aria-labelledby="intro-title">
       <div class="container content-grid">
         <article class="copy-card">
           <div class="eyebrow">Why It Matters</div>
           <h2 id="intro-title" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; margin: 14px 0 20px; color:#111827; font-weight:900; letter-spacing:-0.04em;">Roof Insulation in Karachi for Lower Energy Bills</h2>
           <p>In Karachi, Pakistan, the summer sun is relentless. From May through September, rooftop temperatures can soar, and unprotected roof slabs absorb that heat throughout the day, then release it into the building at night. This means your air conditioner has to work harder and run longer just to keep the indoor temperature comfortable, which directly drives up your electricity bill. In a city where electricity costs are already a major household expense, this constant heat gain is a problem that many property owners overlook.</p>
-          <p>At IBS Infinite Building Solutions, we solve this problem with INSUGREEN XPS extruded polystyrene insulation boards. XPS is a premium rigid insulation material that blocks heat transfer through roofs and walls, keeping the interior cooler in summer and warmer in winter. INSUGREEN, launched in 2017, is a certified XPS board that is moisture-resistant, durable, and well suited to Karachi's humid coastal conditions. By installing the right thickness of XPS insulation, we can reduce heat entering your building by up to 40%, which translates into real, measurable savings on your cooling costs year after year.</p>
+          <p>At IBS Infinite Building Solutions, we solve this problem with INSUGREEN XPS extruded polystyrene insulation boards. XPS is a professional rigid insulation material that blocks heat transfer through roofs and walls, keeping the interior cooler in summer and warmer in winter. INSUGREEN, launched in 2017, is a certified XPS board that is moisture-resistant, durable, and well suited to Karachi's humid coastal conditions. By installing the right thickness of XPS insulation, we can Helps reduce roof heat transfer and cooling demand. Results depend on the building, insulation thickness and installation.</p>
           <div class="feature-grid">
             <div class="feature-item">
               <h3>Roof Insulation</h3>
@@ -210,14 +233,13 @@
           <ul class="info-list">
             <li>Roof and wall thermal insulation</li>
             <li>INSUGREEN certified XPS boards</li>
-            <li>Up to 40% reduction in cooling costs</li>
+            <li>Helps reduce roof heat transfer and cooling demand. Results depend on the building, insulation thickness and installation.</li>
             <li>Moisture-resistant and long-lasting</li>
             <li>Site inspection and recommendation</li>
           </ul>
         </aside>
       </div>
     </section>
-
     <section class="service-section" style="background:#eff6ff;" aria-labelledby="benefits-title">
       <div class="container">
         <div class="section-header" style="margin-bottom: 38px; text-align:left;">
@@ -240,7 +262,6 @@
         </div>
       </div>
     </section>
-
     <section class="service-section" aria-labelledby="applications-title">
       <div class="container">
         <div class="section-header" style="margin-bottom: 38px; text-align:left;">
@@ -264,7 +285,6 @@
         </div>
       </div>
     </section>
-
     <section class="service-section" style="background:#eff6ff;" aria-labelledby="process-title">
       <div class="container">
         <div class="section-header" style="margin-bottom: 38px; text-align:left;">
@@ -295,7 +315,6 @@
         </div>
       </div>
     </section>
-
     <section class="service-section" aria-labelledby="signs-title">
       <div class="container">
         <div class="section-header" style="margin-bottom: 38px; text-align:left;">
@@ -330,7 +349,6 @@
         </div>
       </div>
     </section>
-
     <section class="service-section" style="background:#eff6ff;" aria-labelledby="pricing-title">
       <div class="container">
         <div class="section-header" style="margin-bottom: 38px; text-align:left;">
@@ -355,7 +373,6 @@
         </div>
       </div>
     </section>
-
     <section class="service-section" aria-labelledby="coverage-title">
       <div class="container">
         <div class="section-header" style="margin-bottom: 38px; text-align:left;">
@@ -380,7 +397,6 @@
         </div>
       </div>
     </section>
-
     <section class="service-section" style="background:#eff6ff;" aria-labelledby="faq-title">
       <div class="container">
         <div class="section-header" style="margin-bottom: 38px; text-align:left;">
@@ -390,7 +406,7 @@
         <div class="faq-grid">
           <article class="faq-item">
             <h3>How much can XPS roof insulation reduce my electricity bill in Karachi?</h3>
-            <div class="faq-answer">INSUGREEN XPS boards can reduce heat transfer through your roof by up to 40%. In Karachi's hot climate, where rooftop heat is the primary driver of high summer electricity bills, this translates into meaningful monthly savings on air conditioning. The exact reduction depends on the size of your roof, the thickness of the insulation installed, and how much of your cooling load comes from rooftop heat gain.</div>
+            <div class="faq-answer">Helps reduce roof heat transfer and cooling demand. Results depend on the building, insulation thickness and installation. In Karachi's hot climate, where rooftop heat is the primary driver of high summer electricity bills, this translates into meaningful monthly savings on air conditioning. The exact reduction depends on the size of your roof, the thickness of the insulation installed, and how much of your cooling load comes from rooftop heat gain.</div>
           </article>
           <article class="faq-item">
             <h3>How long does XPS insulation last on a roof in Pakistan?</h3>
@@ -407,7 +423,6 @@
         </div>
       </div>
     </section>
-
     <section class="service-section" aria-labelledby="quote-title">
       <div class="container">
         <div class="cta-panel">
@@ -423,58 +438,6 @@
       </div>
     </section>
   </main>
-
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <img src="./assets/ibs-logo.webp" alt="IBS Infinite Building Solutions logo" class="footer-logo" width="44" height="44" loading="lazy">
-          <div class="footer-brand-name">Infinite <span>Building</span> Solutions</div>
-          <p class="footer-desc">Professional waterproofing, termite treatment, XPS insulation, and pest control solutions for Karachi and Pakistan.</p>
-          <div class="footer-socials" aria-label="Social media links">
-            <a href="https://www.facebook.com/PLACEHOLDER" class="footer-social" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><img src="./assets/facebook-logo-facebook-icon-transparent-free-png.webp" alt="IBS Infinite Building Solutions on Facebook" loading="lazy" width="20" height="20"></a>
-            <a href="https://www.instagram.com/PLACEHOLDER" class="footer-social" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><img src="./assets/logo-instagram_971166-164497.avif" alt="IBS Infinite Building Solutions on Instagram" loading="lazy" width="20" height="20"></a>
-            <a href="https://wa.me/923323070499" class="footer-social" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><img src="./assets/whatsapp-logo-4456_1024.png" alt="Chat with IBS on WhatsApp" loading="lazy" width="20" height="20"></a>
-          </div>
-        </div>
-        <div>
-          <h4 class="footer-heading">Services</h4>
-          <ul class="footer-links">
-            <li><a href="/waterproofing">Waterproofing</a></li>
-            <li><a href="/termite-proofing">Termite Proofing</a></li>
-            <li><a href="/thermal-insulation">Thermal Insulation</a></li>
-            <li><a href="/pest-control">Pest Control</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="footer-heading">Company</h4>
-          <ul class="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/contact">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="footer-heading">Contact</h4>
-          <div class="footer-contact-item">
-            <address>Office No.02, SB-44, Sector X-4<br>Gulshan-e-Maymar, Karachi, Pakistan</address>
-            <a href="tel:+923323070499">0332-3070499</a>
-            <a href="tel:+923366822155">0336-6822155</a>
-            <a href="mailto:ibsolution786@gmail.com">ibsolution786@gmail.com</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2025 Infinite Building Solutions. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <a class="wa-float" href="https://wa.me/923323070499" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-    <img src="./assets/whatsapp-logo-4456_1024.png" alt="Chat with IBS on WhatsApp" width="56" height="56">
-  </a>
-
   <script>
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -489,8 +452,6 @@
       });
     });
   </script>
-  <script src="script.js" defer></script>
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -517,10 +478,9 @@
       "XPS Insulation",
       "Heat Insulation"
     ],
-    "description": "Professional roof and thermal insulation services in Karachi using INSUGREEN XPS boards. Reduce roof heat transfer and cooling costs by up to 40% with IBS."
+    "description": "Professional roof and thermal insulation services in Karachi using INSUGREEN XPS boards. Helps reduce roof heat transfer and cooling demand. Results depend on the building, insulation thickness and installation."
   }
   </script>
-
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -532,35 +492,174 @@
     ]
   }
   </script>
+<div id="ibs-footer-include"></div>
+  <footer class="ibs-footer">
+  <div class="ibs-container">
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How much can XPS roof insulation reduce my electricity bill in Karachi?",
-        "acceptedAnswer": { "@type": "Answer", "text": "INSUGREEN XPS boards can reduce heat transfer through your roof by up to 40%. In Karachi's hot climate, where rooftop heat is the primary driver of high summer electricity bills, this translates into meaningful monthly savings on air conditioning. The exact reduction depends on the size of your roof, the thickness of the insulation installed, and how much of your cooling load comes from rooftop heat gain." }
-      },
-      {
-        "@type": "Question",
-        "name": "How long does XPS insulation last on a roof in Pakistan?",
-        "acceptedAnswer": { "@type": "Answer", "text": "XPS (extruded polystyrene) is a highly durable material that is resistant to moisture and compression. When properly installed and protected, INSUGREEN XPS insulation can last for decades without losing its insulating performance. Unlike some other insulation materials, XPS does not absorb water, so it maintains its thermal resistance even in humid conditions like those found in Karachi." }
-      },
-      {
-        "@type": "Question",
-        "name": "Can XPS insulation be installed on an existing roof or only during construction?",
-        "acceptedAnswer": { "@type": "Answer", "text": "XPS insulation can be installed on both new and existing roofs. For new buildings, the boards are typically installed as part of the roof construction. For existing buildings, the insulation can be applied on top of the roof slab and then covered with a protective screed or waterproofing layer. IBS assesses your roof condition and recommends the most suitable installation approach for your building." }
-      },
-      {
-        "@type": "Question",
-        "name": "Is XPS insulation suitable for cold storage and poultry farms in Pakistan?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. INSUGREEN XPS insulation is widely used in cold storages, poultry farms, and dairy farms across Pakistan. These facilities need to maintain consistent internal temperatures, and XPS boards provide excellent thermal resistance while being moisture-resistant and easy to clean. This helps reduce energy costs and keeps produce, poultry, and dairy products at the right temperature." }
-      }
-    ]
-  }
-  </script>
-<div id="ibs-footer-include"></div><script src="components/footer.js" defer></script>
+    <div class="ibs-footer-grid">
+
+      <div>
+        <img
+          class="ibs-footer-logo"
+          src="/assets/ibs-logo.png"
+          alt="Infinite Building Solutions logo"
+          width="75"
+          height="75"
+          loading="lazy"
+          decoding="async"
+        >
+
+        <h3 class="ibs-footer-brand">
+          Infinite Building Solutions
+        </h3>
+
+        <p>
+          Pakistan's trusted specialists in waterproofing, termite
+          proofing, XPS insulation, heat reflective coating, and pest
+          control. Serving Karachi and nationwide since 2018.
+        </p>
+
+        <div class="ibs-social-links">
+          <a
+            href="https://www.facebook.com/profile.php?id=61587516124183"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+          >
+            <img
+              src="/assets/facebook-logo-facebook-icon-transparent-free-png.webp"
+              alt="Facebook"
+              width="20"
+              height="20"
+              loading="lazy"
+              decoding="async"
+            >
+          </a>
+
+          <a
+            href="https://www.instagram.com/infinite_building_solutions/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <img
+              src="/assets/logo-instagram_971166-164497.avif"
+              alt="Instagram"
+              width="20"
+              height="20"
+              loading="lazy"
+              decoding="async"
+            >
+          </a>
+
+          <a
+            href="https://wa.me/923323070499"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+          >
+            <img
+              src="/assets/whatsapp-logo-4456_1024.png"
+              alt="WhatsApp"
+              width="20"
+              height="20"
+              loading="lazy"
+              decoding="async"
+            >
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Services</h3>
+
+        <ul class="ibs-footer-links">
+          <li>
+            <a href="/waterproofing">Waterproofing in Karachi</a>
+          </li>
+          <li>
+            <a href="/termite-proofing">Termite Proofing Pakistan</a>
+          </li>
+          <li>
+            <a href="/thermal-insulation">XPS Insulation Karachi</a>
+          </li>
+          <li>
+            <a href="/pest-control">Pest Control Karachi</a>
+          </li>
+          <li>
+            <a href="/products/heat-reflective-coating">Heat Reflective Coating</a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Company</h3>
+
+        <ul class="ibs-footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About IBS</a></li>
+          <li><a href="/services">Our Services</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="ibs-footer-contact">
+        <h3>Contact</h3>
+
+        <address>
+          Office No.02, SB-44, Sector X-4<br>
+          Gulshan-e-Maymar, Karachi, Pakistan
+        </address>
+
+        <a href="tel:+923323070499">0332-3070499</a>
+        <a href="tel:+923366822155">0336-6822155</a>
+        <a href="mailto:ibsolution786@gmail.com">
+          ibsolution786@gmail.com
+        </a>
+      </div>
+
+    </div>
+
+    <div class="ibs-footer-bottom">
+      <p>
+        &copy; <span id="ibs-year">2026</span> IBS Infinite Building
+        Solutions. All rights reserved.
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<a
+  class="ibs-whatsapp"
+  id="ibs-whatsapp"
+  href="https://wa.me/923323070499"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Chat with IBS on WhatsApp"
+>
+  <img
+    src="/assets/whatsapp-logo-4456_1024.png"
+    alt=""
+    width="34"
+    height="34"
+    loading="lazy"
+    decoding="async"
+  >
+</a>
+
+<button
+  class="ibs-back-top"
+  id="ibs-back-top"
+  type="button"
+  aria-label="Back to top"
+>
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12 19V5"/>
+    <path d="M5 12l7-7 7 7"/>
+  </svg>
+</button>
+<!--IBS:FOOTER-->
+  <script src="/components/shared-behavior.js" defer></script>
 </body>
 </html>
