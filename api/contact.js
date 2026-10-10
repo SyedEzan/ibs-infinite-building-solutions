@@ -1,60 +1,114 @@
-/**
+﻿/**
  * Vercel Serverless Function: POST /api/contact
  *
  * Accepts contact-form submissions and sends an email notification
  * via the SendGrid v3 Mail Send Web API using Node's built-in `fetch`.
  *
- * Environment variables:
- *   SENDGRID_API_KEY    - SendGrid API key (secret, never sent to clients)
- *   SENDGRID_FROM_EMAIL - Verified sender address used in the "From" field
- *   SENDGRID_TO_EMAIL   - Recipient address that should receive inquiries
+ * Environment variables (set in the Vercel project settings):
+ *   SENDGRID_API_KEY     - SendGrid API key (secret, never sent to clients)
+ *   SENDGRID_FROM_EMAIL  - Verified sender address used in the "From" field
+ *   SENDGRID_TO_EMAIL    - Recipient address that should receive inquiries
+ *
+ * Important: Vercel Serverless Functions do not guarantee that `req.body`
+ * is already parsed (this is unreliable for same-origin `fetch` calls).
+ * This module therefore reads and parses the raw request body stream itself,
+ * so the contact form works reliably regardless of the hosting platform.
  */
+
+function readJsonBody(req) {
+  return new Promise((resolve, reject) => {
+    let body = '';
+    let size = 0;
+    const limit = 1024 * 1024; // 1 MB safety limit
+
+    req.on('data', (chunk) => {
+      size += chunk.length;
+      if (size > limit) {
+        reject(new Error('Payload too large'));
+        try { req.destroy(); } catch (err) { /* ignore */ }
+        return;
+      }
+      body += chunk;
+    });
+
+    req.on('end', () => {
+      if (!body) return resolve(undefined);
+      try {
+        resolve(JSON.parse(body));
+      } catch (err) {
+        // Not valid JSON -> treat as empty body.
+        resolve(undefined);
+      }
+    });
+
+    req.on('error', reject);
+  });
+}
+
+/**
+ * Escape user-supplied text for safe interpolation into the HTML email body.
+ * Every field below is rendered inside HTML markup, so this is required to
+ * prevent markup injection (and broken emails) from arbitrary input.
+ */
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+
+async function parseBody(req) {
+  let data = req.body;
+
+  if (data !== undefined && typeof data === 'object' && !Array.isArray(data)) {
+    return data;
+  }
+
+  if (typeof data === 'string' && data.trim()) {
+    try {
+      const parsed = JSON.parse(data);
+      if (typeof parsed === 'object' && !Array.isArray(parsed)) return parsed;
+    } catch (err) {
+      // Not valid JSON -> fall through to reading the raw stream.
+    }
+  }
+
+  const raw = await readJsonBody(req);
+  if (raw !== undefined && typeof raw === 'object' && !Array.isArray(raw)) {
+    return raw;
+  }
+  return {};
+}
 module.exports = async (req, res) => {
-  // ------------------------------------------------------------------
-  // 1. Only POST requests are accepted.
-  // ------------------------------------------------------------------
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     return res.status(405).json({
       success: false,
       error: 'Method Not Allowed',
-      message: 'This endpoint only accepts POST requests.'
+      message: 'This endpoint only accepts POST requests.',
     });
   }
 
-  // ------------------------------------------------------------------
-  // 2. Parse the JSON request body.
-  // ------------------------------------------------------------------
-  let data = req.body;
-  if (typeof data === 'string') {
-    try {
-      data = JSON.parse(data);
-    } catch (err) {
-      return res.status(400).json({
-        success: false,
-        error: 'Bad Request',
-        message: 'Request body must be valid JSON.'
-      });
-    }
+  let data;
+  try {
+    data = await parseBody(req);
+  } catch (err) {
+    return res.status(413).json({
+      success: false,
+      error: 'Payload Too Large',
+      message: 'The submitted data is too large. Please shorten your message.',
+    });
   }
 
-  // Normalise to an object (tolerate empty/missing bodies gracefully).
-  if (!data || typeof data !== 'object' || Array.isArray(data)) {
-    data = {};
-  }
+  const name = (data.name || '').toString().trim();
+  const email = (data.email || '').toString().trim();
+  const phone = (data.phone || '').toString().trim();
+  const service = (data.service || '').toString().trim();
+  const message = (data.message || '').toString().trim();
 
-  // Extract the fields we care about, trimming whitespace where useful.
-  const name = data.name?.trim();
-  const email = data.email?.trim();
-  const phone = data.phone?.trim();
-  const service = data.service?.trim();
-  const message = data.message?.trim();
-
-  // ------------------------------------------------------------------
-  // 3. Validate the required fields.
-  //    These mirror the required attributes on the contact form:
-  //    name, phone and service are mandatory; email & message are optional.
-  // ------------------------------------------------------------------
   const missing = [];
   if (!name) missing.push('name');
   if (!phone) missing.push('phone');
@@ -64,24 +118,20 @@ module.exports = async (req, res) => {
     return res.status(400).json({
       success: false,
       error: 'Bad Request',
-      message: `Missing required field(s): ${missing.join(', ')}.`
+      message: `Missing required field(s): ${missing.join(', ')}.`,
     });
   }
 
-  // Validate the email format only when an email was actually provided.
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const hasValidEmail = Boolean(email) && emailRegex.test(email);
   if (email && !hasValidEmail) {
     return res.status(400).json({
       success: false,
       error: 'Bad Request',
-      message: 'A valid email address must be provided when email is supplied.'
+      message: 'A valid email address must be provided when email is supplied.',
     });
   }
 
-  // ------------------------------------------------------------------
-  // 4. Read configuration from environment variables.
-  // ------------------------------------------------------------------
   const apiKey = process.env.SENDGRID_API_KEY;
   const fromEmail = process.env.SENDGRID_FROM_EMAIL;
   const toEmail = process.env.SENDGRID_TO_EMAIL;
@@ -91,7 +141,7 @@ module.exports = async (req, res) => {
     return res.status(500).json({
       success: false,
       error: 'Internal Server Error',
-      message: 'Server email configuration error: API key is missing.'
+      message: 'Server email configuration error: API key is missing.',
     });
   }
 
@@ -100,111 +150,60 @@ module.exports = async (req, res) => {
     return res.status(500).json({
       success: false,
       error: 'Internal Server Error',
-      message: 'Server email configuration error: sender or recipient is missing.'
+      message: 'Server email configuration error: sender or recipient is missing.',
     });
   }
-
-  // ------------------------------------------------------------------
-  // 5. Build the email content (plain text + HTML).
-  //    All user-supplied values are escaped before being placed in HTML.
-  // ------------------------------------------------------------------
-  const escapeHtml = (value) => {
-    if (value === undefined || value === null) return '';
-    return String(value)
-      .replace(/&/g, '\x26amp;')
-      .replace(/</g, '\x26lt;')
-      .replace(/>/g, '\x26gt;')
-      .replace(/"/g, '\x26quot;')
-      .replace(/'/g, '\x26#39;');
-  };
-
-  const subject = 'New Website Inquiry - Infinite Building Solutions';
-
-  const plainTextContent = [
-    subject,
-    '',
-    `Name:    ${name || ''}`,
-    `Email:   ${email || ''}`,
-    `Phone:   ${phone || ''}`,
-    `Service: ${service || ''}`,
-    '',
-    'Message:',
-    `${message || ''}`
-  ].join('\n');
-
+  const replyTo = hasValidEmail ? email : undefined;
   const htmlContent = `
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>${escapeHtml(subject)}</title>
-</head>
-<body style="margin:0;padding:24px;font-family:Poppins,Arial,sans-serif;background:#f7faff;color:#10233f;">
-  <div style="max-width:640px;margin:0 auto;background:#ffffff;border:1px solid #dbe7f3;border-radius:16px;padding:32px;box-shadow:0 10px 30px rgba(15,76,151,.05);">
-    <h1 style="margin:0 0 20px;font-size:22px;color:#0F4C97;border-bottom:1px solid #dbe7f3;padding-bottom:12px;">${escapeHtml(subject)}</h1>
-    <table style="width:100%;border-collapse:collapse;font-size:15px;line-height:1.6;">
-      <tr>
-        <td style="padding:6px 0;font-weight:600;">Name:</td>
-        <td style="padding:6px 0;">${escapeHtml(name)}</td>
-      </tr>
-      <tr>
-        <td style="padding:6px 0;font-weight:600;">Email:</td>
-        <td style="padding:6px 0;">${escapeHtml(email)}</td>
-      </tr>
-      <tr>
-        <td style="padding:6px 0;font-weight:600;">Phone:</td>
-        <td style="padding:6px 0;">${escapeHtml(phone)}</td>
-      </tr>
-      <tr>
-        <td style="padding:6px 0;font-weight:600;">Service:</td>
-        <td style="padding:6px 0;">${escapeHtml(service)}</td>
-      </tr>
-      <tr>
-        <td colspan="2" style="padding:6px 0;font-weight:600;">Message:</td>
-      </tr>
-      <tr>
-        <td colspan="2" style="padding:6px 0;">${escapeHtml(message) || '<em>(no message provided)</em>'}</td>
-      </tr>
-    </table>
-    <p style="margin-top:24px;font-size:12px;color:#667891;">This email was sent automatically from the IBS website contact form.</p>
-  </div>
-</body>
-</html>
-`;
+    <div style="font-family: sans-serif; padding: 16px; border: 1px solid #ddd; border-radius: 8px; max-width: 600px;">
+      <h2 style="color: #0A1628;">New Contact Form Submission</h2>
+      <p style="color: #3A4A5C;"><b>Name:</b> ${escapeHtml(name)}</p>
+      ${hasValidEmail ? `<p style="color: #3A4A5C;"><b>Email:</b> ${escapeHtml(email)}</p>` : ''}
+      <p style="color: #3A4A5C;"><b>Phone:</b> ${escapeHtml(phone)}</p>
+      <p style="color: #3A4A5C;"><b>Service:</b> ${escapeHtml(service)}</p>
+      <p style="color: #3A4A5C;"><b>Message:</b><br>${escapeHtml(message)}</p>
+      <p style="color: #6B7280; font-size: 0.85rem;">Submitted from https://ibsolutions.pk/contact</p>
+    </div>
+  `.trim();
 
-  // ------------------------------------------------------------------
-  // 6. Assemble the SendGrid v3 Mail Send payload.
-  // ------------------------------------------------------------------
+  const textContent =
+    `New Contact Form Submission\n` +
+    `Name: ${name}\n` +
+    `${hasValidEmail ? `Email: ${email}\n` : ''}` +
+    `Phone: ${phone}\n` +
+    `Service: ${service}\n` +
+    `Message: ${message}\n` +
+    `Submitted from https://ibsolutions.pk/contact`;
+
   const payload = {
     personalizations: [
       {
         to: [{ email: toEmail }],
-        subject: subject
-      }
+        reply_to: replyTo ? { email: replyTo } : undefined,
+      },
     ],
     from: { email: fromEmail },
+    subject: `New contact form submission - IBS (${service})`,
     content: [
-      { type: 'text/plain', value: plainTextContent },
-      { type: 'text/html', value: htmlContent }
-    ]
+      {
+        type: 'text/plain',
+        value: textContent,
+      },
+      {
+        type: 'text/html',
+        value: htmlContent,
+      },
+    ],
   };
 
-  // Set reply_to ONLY when a valid customer email was provided.
-  if (hasValidEmail) {
-    payload.reply_to = { email: email };
-  }
-
-  // ------------------------------------------------------------------
-  // 7. Send the request to the SendGrid Web API.
-  // ------------------------------------------------------------------
   try {
     const response = await fetch('https://api.sendgrid.com/v3/mail/send', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${apiKey}`,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload),
     });
 
     if (!response.ok) {
@@ -213,21 +212,20 @@ module.exports = async (req, res) => {
       return res.status(500).json({
         success: false,
         error: 'Internal Server Error',
-        message: 'Failed to send email through the provider. Please try again later.'
+        message: 'Failed to deliver your message. Please try again later.',
       });
     }
 
-    // Successful SendGrid response (202 Accepted).
     return res.status(200).json({
       success: true,
-      message: 'Your message has been sent successfully.'
+      message: 'Thank you for reaching out! We will get back to you soon.',
     });
   } catch (err) {
     console.error('[contact] Error calling SendGrid API:', err);
     return res.status(500).json({
       success: false,
       error: 'Internal Server Error',
-      message: 'An unexpected error occurred while sending your message.'
+      message: 'Failed to deliver your message. Please try again later.',
     });
   }
 };
