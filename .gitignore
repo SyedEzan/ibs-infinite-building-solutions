@@ -1,11 +1,32 @@
+# Dependencies
 node_modules/
+
+# Env
 .env
 .env.local
 .env.production
 .env.*.local
+
+# Logs
 npm-debug.log
 yarn-debug.log
 yarn-error.log
+
+# Test output
 test/out.txt
 test/simple.txt
-`n# Local backups (never commit)`nbackup/
+
+# Local backups (never commit)
+backup/
+
+# Verification / dev tooling
+verify-render.js
+.screens/
+screenshots-review/
+
+# Agent worktrees
+.kilo/
+
+# OS / editor
+.DS_Store
+Thumbs.db

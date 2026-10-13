@@ -24,7 +24,8 @@ $pages = @(
   'termite-proofing.html',
   'thermal-insulation.html',
   'waterproofing.html',
-  'products/heat-reflective-coating.html'
+  'products/heat-reflective-coating.html',
+  '404.html'
 )
 
 $header = [System.IO.File]::ReadAllText((Join-Path $root 'components/shared-header.html'), $utf8).TrimEnd()
@@ -39,6 +40,21 @@ foreach ($pg in $pages) {
 
   # --- Fix broken webp logo references to the valid PNG. ---
   $c = $c -replace 'ibs-logo\.webp', 'ibs-logo.png'
+
+  # --- Normalize nested-page relative paths to root-relative. ---
+  $c = $c -replace '(?<=href="|src=")\.\./assets/', '/assets/'
+  $c = $c -replace '(?<=href="|src=")\.\./styles\.css', '/styles.css'
+  $c = $c -replace '(?<=href="|src=")\.\./components/', '/components/'
+
+  # --- Normalize ./ relative asset refs to root-relative. ---
+  $c = $c -replace '(?<=href="|src=")\./assets/', '/assets/'
+  $c = $c -replace 'url\("\./assets/', 'url("/assets/'
+
+  # --- Convert absolute production asset URLs used for RENDERING to root-relative. ---
+  # (og:image / JSON-LD logo+image stay absolute: they are SEO/social and must be absolute.)
+  $c = $c -replace 'src="https://ibsolutions\.pk/assets/', 'src="/assets/'
+  $c = $c -replace 'href="https://ibsolutions\.pk/assets/', 'href="/assets/'
+  $c = $c -replace 'url\("https://ibsolutions\.pk/assets/', 'url("/assets/'
 
   # --- Retire browser-side injector scripts (footer.js / old script.js). ---
   $c = [regex]::Replace($c, '(?is)<script[^>]*src="[^"]*(?:footer\.js|script\.js)"[^>]*>\s*</script>', '')
