@@ -446,6 +446,12 @@
       font-size: 16px;
       line-height: 1.5;
     }
+    /* Single-partner variant: keep the lone card compact and centred */
+    .ibs-partner-grid.ibs-partner-single {
+      grid-template-columns: minmax(0, 1fr);
+      max-width: 340px;
+      margin-inline: auto;
+    }
     /* TEAM */
     .ibs-team-grid {
       display: grid;
@@ -1175,18 +1181,9 @@
             and long-lasting building protection solutions.
           </p>
         </div>
-        <div class="ibs-partner-grid">
+        <div class="ibs-partner-grid ibs-partner-single">
           <article class="ibs-partner-card">
             <h3>Ali Akbar Group Pakistan</h3>
-          </article>
-          <article class="ibs-partner-card">
-            <h3>Solcraft Chemicals</h3>
-          </article>
-          <article class="ibs-partner-card">
-            <h3>Eurobit</h3>
-          </article>
-          <article class="ibs-partner-card">
-            <h3>Friends Environmental Solutions</h3>
           </article>
         </div>
       </div>
