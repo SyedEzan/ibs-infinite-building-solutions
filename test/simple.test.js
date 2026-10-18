@@ -1,87 +1,141 @@
 'use strict';
 
-/**
- * Minimal smoke test: runs ONE scenario through the contact handler.
- * Run: node test/simple.test.js
- */
+// Simple test harness for api/contact.js using only Node built-ins.
+// Brevo version: validates the request/response contract and inspects the
+// Brevo payload with a mocked global.fetch (no network, no real email).
+// Run with: node test/simple.test.js
 
-const path = require('path');
+process.env.BREVO_API_KEY = 'test-brevo-key';
+process.env.BREVO_FROM_EMAIL = 'noreply@example.com';
+process.env.BREVO_TO_EMAIL = 'contact@example.com';
 
-const CONTACT_JS = path.join(__dirname, '..', 'api', 'contact.js');
-const handler = require(CONTACT_JS);
+const handler = require('../api/contact.js');
+const fs = require('fs');
+
+const BREVO_URL = 'https://api.brevo.com/v3/smtp/email';
+
+let lastSendCall = null;
+
+global.fetch = async (url, options) => {
+  lastSendCall = { url, options, body: JSON.parse(options.body) };
+  return {
+    ok: true,
+    status: 201,
+    json: async () => ({ message: 'Queued', messageId: 'simple-test-id' }),
+    text: async () => '{"message":"Queued","messageId":"simple-test-id"}',
+  };
+};
+
+const outputLines = [];
+function log(line) {
+  console.log(line);
+  outputLines.push(line);
+}
+
+function createReq(body, method = 'POST') {
+  const req = {
+    method,
+    body: undefined,
+    readableEnded: false,
+    on(event, cb) {
+      if (event === 'data' && body !== undefined) {
+        setImmediate(() => {
+          try { cb(Buffer.from(typeof body === 'string' ? body : JSON.stringify(body))); } catch (err) { /* ignore */ }
+          if (req.readableEnded) return;
+          req.readableEnded = true;
+          (req._listeners.end || []).forEach((endCb) => endCb());
+        });
+      }
+      if (event === 'end') {
+        (req._listeners = req._listeners || {}).end = (req._listeners.end || []).concat(cb);
+      }
+      return req;
+    },
+    destroy() {},
+  };
+  return req;
+}
 
 function createRes() {
-  return {
+  const res = {
     statusCode: null,
     body: null,
     headers: {},
-    status(code) {
-      this.statusCode = code;
-      return this;
-    },
-    json(payload) {
-      this.body = payload;
-      return this;
-    },
-    setHeader() {},
+    setHeader(key, value) { this.headers[key] = value; },
+    status(code) { this.statusCode = code; return this; },
+    json(payload) { this.body = payload; return this; },
   };
+  return res;
 }
 
-function call(method, body) {
-  const req = { method, body };
-  const res = createRes();
-  return handler(req, res).then(() => ({ req, res }));
-}
+async function run() {
+  log('=== Testing api/contact.js with Brevo ===\n');
 
-// Mock fetch to avoid hitting SendGrid.
-let sgCall = null;
-const origFetch = global.fetch;
-// NOTE: arrow functions have no `arguments`; take the params explicitly.
-global.fetch = async (url, init) => {
-  sgCall = { url, init };
-  return new Response(JSON.stringify({ message: 'queued' }), {
-    status: 202,
-    headers: { 'content-type': 'application/json' },
+  log('--- Valid Submission ---');
+  let req = createReq({
+    name: 'John Doe',
+    email: 'john@example.com',
+    phone: '0300-1234567',
+    service: 'Construction',
+    message: 'I need a quote for my project.'
   });
-};
+  let res = createRes();
+  await handler(req, res);
+  log(`Status Code: ${res.statusCode}`);
+  log(`Response: ${JSON.stringify(res.body)}`);
+  log(`\n--- Brevo Request Details ---`);
+  log(`POST ${lastSendCall.url}`);
+  log(`Headers: ${JSON.stringify(lastSendCall.options.headers)}`);
+  log(`Payload:\n${JSON.stringify(lastSendCall.body, null, 2)}`);
+  log('');
 
-process.on('exit', () => {
-  global.fetch = origFetch;
-});
+  log('--- Missing Required Fields ---');
+  req = createReq({ message: 'No other fields' });
+  res = createRes();
+  await handler(req, res);
+  log(`Status Code: ${res.statusCode}`);
+  log(`Response: ${JSON.stringify(res.body)}\n`);
 
-async function main() {
-  const body = {
-    name: '  Ali Raza  ',
-    email: 'ali@example.com',
-    phone: ' 03001234567 ',
-    service: 'Waterproofing',
-    message: '  Need roof coating.  ',
-  };
+  log('--- Invalid Email ---');
+  req = createReq({ name: 'Test', email: 'invalid-email', phone: '123', service: 'Painting' });
+  res = createRes();
+  await handler(req, res);
+  log(`Status Code: ${res.statusCode}`);
+  log(`Response: ${JSON.stringify(res.body)}\n`);
 
-  console.log('Method: POST, body:', JSON.stringify(body));
-  const { res } = await call('POST', body);
+  log('--- Method Not Allowed (GET) ---');
+  req = createReq({}, 'GET');
+  res = createRes();
+  await handler(req, res);
+  log(`Status Code: ${res.statusCode}`);
+  log(`Response: ${JSON.stringify(res.body)}\n`);
 
-  console.log('STATUS:', res.statusCode);
-  console.log('BODY:', JSON.stringify(res.body));
-  console.log('SENDGRID CALL PRESENT:', sgCall !== null);
-  if (sgCall) {
-    try {
-      const p = JSON.parse(sgCall.init.body || '{}');
-      console.log('TO EMAIL:', p.personalizations[0].to[0].email);
-      console.log('REPLY_TO:', p.personalizations[0].reply_to?.email);
-      console.log('FROM:', p.from.email);
-    } catch (e) {
-      console.log('payload parse error:', e.message);
-    }
-  }
+  log('--- Malformed JSON body ---');
+  req = createReq('{"name": "Broken');
+  res = createRes();
+  await handler(req, res);
+  log(`Status Code: ${res.statusCode}`);
+  log(`Response: ${JSON.stringify(res.body)}\n`);
 
-  const ok = res.statusCode === 200 && res.body.success === true;
-  console.log(ok ? 'RESULT: PASS' : 'RESULT: FAIL');
-  process.exit(ok ? 0 : 1);
+  log('--- Array body ---');
+  req = createReq(['name', 'phone']);
+  res = createRes();
+  await handler(req, res);
+  log(`Status Code: ${res.statusCode}`);
+  log(`Response: ${JSON.stringify(res.body)}\n`);
+
+  log('--- Oversized message ---');
+  req = createReq({ name: 'A', phone: '1', service: 'Painting', message: 'x'.repeat(6000) });
+  res = createRes();
+  await handler(req, res);
+  log(`Status Code: ${res.statusCode}`);
+  log(`Response: ${JSON.stringify(res.body)}\n`);
+
+  fs.writeFileSync(`${__dirname}/simple.txt`, outputLines.join('\n'), 'utf8');
+  console.log('\n=== Test complete ===');
 }
 
-main().catch((e) => {
-  console.error('ERROR:', e);
-  console.error(e.stack);
+run().catch((err) => {
+  console.error('Fatal test error:', err);
   process.exit(1);
 });

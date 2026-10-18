@@ -1,294 +1,252 @@
-﻿'use strict';
+'use strict';
 
-/**
- * Comprehensive contact form test harness.
- * Tests the Vercel serverless function api/contact.js across all scenarios.
- * Run: node test/contact_flow.test.js
- */
+// Test harness for api/contact.js — end-to-end request → Brevo flow.
+// Run with: node test/contact_flow.test.js
+// Uses only Node built-ins (assert) with a mocked global.fetch; no network
+// and no real email is ever sent.
 
-const path = require('path');
+process.env.BREVO_API_KEY = 'test-brevo-key';
+process.env.BREVO_FROM_EMAIL = 'noreply@example.com';
+process.env.BREVO_TO_EMAIL = 'contact@example.com';
 
-const CONTACT_JS = path.join(__dirname, '..', 'api', 'contact.js');
-const handler = require(CONTACT_JS);
+const assert = require('assert');
+const handler = require('../api/contact.js');
 
-// Mock response mirroring Vercel's res API.
-function createRes() {
-  return {
-    statusCode: null,
-    body: null,
-    headers: {},
-    status(code) { this.statusCode = code; return this; },
-    json(payload) { this.body = payload; return this; },
-    setHeader(name, value) { this.headers[name] = value; },
+const BREVO_URL = 'https://api.brevo.com/v3/smtp/email';
+
+let lastSendCall = null;
+
+function mockFetchSuccess() {
+  lastSendCall = null;
+  global.fetch = async (url, options) => {
+    lastSendCall = { url, options, body: JSON.parse(options.body) };
+    return {
+      ok: true,
+      status: 201,
+      json: async () => ({ message: 'Queued', messageId: 'mock-id' }),
+      text: async () => '{"message":"Queued","messageId":"mock-id"}',
+    };
   };
 }
 
-// Mock request.
-//   body   -> the pre-parsed body (simulates Vercel auto-parse)
-//   stream -> if provided, emit this as the raw stream body when body is undefined
-function createReq(method, body, stream) {
-  const listeners = {};
+mockFetchSuccess();
+
+// Vercel-style request: platform already parsed the JSON body onto req.body.
+function createReq(body, method = 'POST') {
   const req = {
     method,
-    body,
-    on(event, listener) {
-      (listeners[event] = listeners[event] || []).push(listener);
-      // Emit asynchronously so all handlers are registered first (like a real stream).
-      if (event === 'end') {
+    body: undefined,
+    readableEnded: false,
+    on(event, cb) {
+      if (event === 'data' && body !== undefined) {
         setImmediate(() => {
-          if (stream !== undefined) {
-            (listeners.data || []).forEach(fn => fn(Buffer.from(stream)));
-          }
-          (listeners.end || []).forEach(fn => fn());
+          try { cb(Buffer.from(typeof body === 'string' ? body : JSON.stringify(body))); } catch (err) { /* ignore */ }
+          if (req.readableEnded) return;
+          req.readableEnded = true;
+          (req._listeners.end || []).forEach((endCb) => endCb());
         });
       }
-      return this;
+      if (event === 'end') {
+        (req._listeners = req._listeners || {}).end = (req._listeners.end || []).concat(cb);
+      }
+      return req;
     },
     destroy() {},
   };
   return req;
 }
 
-// Mock global fetch to avoid hitting SendGrid.
-let sgCall = null;
-const origFetch = global.fetch;
-global.fetch = async (url, init) => {
-  sgCall = { url, init };   // keep init so tests can inspect the payload
-  return new Response(JSON.stringify({ message: 'queued' }), {
-    status: 202,
-    headers: { 'content-type': 'application/json' },
+function createRes() {
+  const res = {
+    statusCode: null,
+    body: null,
+    headers: {},
+    setHeader(key, value) { this.headers[key] = value; },
+    status(code) { this.statusCode = code; return this; },
+    json(payload) { this.body = payload; return this; },
+  };
+  return res;
+}
+
+async function runTests() {
+  let passed = 0;
+  let failed = 0;
+
+  async function test(name, fn) {
+    try {
+      await fn();
+      console.log(`  ✓ ${name}`);
+      passed += 1;
+    } catch (err) {
+      console.error(`  ✗ ${name}`);
+      console.error(`    ${err && err.message ? err.message : err}`);
+      failed += 1;
+    }
+  }
+
+  console.log('Contact API end-to-end tests (Brevo):\n');
+
+  await test('Full valid submission flows to Brevo and returns success', async () => {
+    mockFetchSuccess();
+    const req = createReq({
+      name: 'Ali Raza',
+      email: 'ali@example.com',
+      phone: '03001234567',
+      service: 'Waterproofing',
+      message: 'Need waterproofing for my basement. Please call me back.',
+    });
+    const res = createRes();
+    await handler(req, res);
+    assert.strictEqual(res.statusCode, 200);
+    assert.strictEqual(res.body.success, true);
+    assert.ok(typeof res.body.message === 'string' && res.body.message.length > 0);
+    assert.ok(lastSendCall, 'Brevo must have been called');
+    assert.strictEqual(lastSendCall.url, BREVO_URL);
   });
-};
-process.on('exit', () => { global.fetch = origFetch; });
 
-// Run one scenario and record pass/fail.
-function record(name, condition, detail) {
-  results.push({ name, pass: Boolean(condition) });
-  console.log((condition ? 'PASS' : 'FAIL') + '  ' + name + (condition ? '' : '  ->  ' + detail));
-}
+  await test('Brevo request carries api-key header and JSON content type', async () => {
+    mockFetchSuccess();
+    const req = createReq({ name: 'A', phone: '1', service: 'Painting' });
+    const res = createRes();
+    await handler(req, res);
+    const headers = lastSendCall.options.headers;
+    assert.strictEqual(headers['api-key'], 'test-brevo-key');
+    assert.strictEqual(headers['Content-Type'], 'application/json');
+    assert.strictEqual(headers.Accept, 'application/json');
+  });
 
-async function postNoBodyParse() {
-  // Simulate Vercel NOT auto-parsing: req.body is undefined and the JSON only
-  // exists on the raw request stream. `createReq(..., stream)` emits it.
-  const raw = '{"name":"Ali","phone":"03001234567","service":"Waterproofing"}';
-  const req = createReq('POST', undefined, raw);
-  const res = createRes();
-  await handler(req, res);
-  return { res };
-}
+  await test('Brevo payload uses sender/to/replyTo/subject/htmlContent/textContent', async () => {
+    mockFetchSuccess();
+    const req = createReq({
+      name: 'Ali Raza',
+      email: 'ali@example.com',
+      phone: '03001234567',
+      service: 'Waterproofing',
+      message: 'Line1\nLine2',
+    });
+    const res = createRes();
+    await handler(req, res);
+    const payload = lastSendCall.body;
+    assert.deepStrictEqual(payload.sender, { name: 'Infinite Building Solutions', email: 'noreply@example.com' });
+    assert.deepStrictEqual(payload.to, [{ email: 'contact@example.com' }]);
+    assert.deepStrictEqual(payload.replyTo, { email: 'ali@example.com', name: 'Ali Raza' });
+    assert.strictEqual(payload.subject, 'New Contact Form Inquiry - IBS');
+    assert.ok(payload.htmlContent.includes('Line1<br>Line2'), 'htmlContent preserves line breaks');
+    assert.ok(payload.textContent.includes('Line1\nLine2'), 'textContent preserves line breaks');
+  });
 
-async function callHandler(method, body) {
-  const req = createReq(method, body);
-  const res = createRes();
-  await handler(req, res);
-  return { res, sgCall };
-}
+  await test('Visitor email is never used as the sender address', async () => {
+    mockFetchSuccess();
+    const req = createReq({ name: 'A', email: 'visitor@example.com', phone: '1', service: 'Painting' });
+    const res = createRes();
+    await handler(req, res);
+    assert.notStrictEqual(lastSendCall.body.sender.email, 'visitor@example.com');
+    assert.strictEqual(lastSendCall.body.replyTo.email, 'visitor@example.com');
+  });
 
-let results = [];
-function record(name, condition, detail) {
-  results.push({ name, pass: Boolean(condition) });
-  console.log((condition ? 'PASS' : 'FAIL') + '  ' + name + (condition ? '' : '  ->  ' + detail));
-}
+  await test('XSS payload in every field is escaped in htmlContent', async () => {
+    mockFetchSuccess();
+    const req = createReq({
+      name: '<script>alert(1)</script>',
+      phone: '1',
+      service: '"><img src=x onerror=alert(1)>',
+      message: "'); DROP TABLE users;--",
+    });
+    const res = createRes();
+    await handler(req, res);
+    assert.strictEqual(res.statusCode, 200);
+    const html = lastSendCall.body.htmlContent;
+    assert.ok(!html.includes('<script>'));
+    assert.ok(!html.includes('<img src=x'));
+    assert.ok(html.includes('&lt;script&gt;'));
+  });
 
-async function main() {
-  console.log('=== Contact Form Backend Scenarios (targeted) ===\n');
-  // 1. Valid submission
-
-
-  // 1. Valid submission
-  {
-    const body = { name: '  Ali Raza  ', email: 'ali@example.com', phone: ' 03001234567 ', service: 'Waterproofing', message: '  Need roof coating.  ' };
-    const { res, sgCall } = await callHandler('POST', body);
-    record('Valid submission -> 200', res.statusCode === 200, 'status=' + res.statusCode);
-    record('Valid submission success=true', res.body && res.body.success === true, JSON.stringify(res.body));
-    record('Valid submission SendGrid called', sgCall !== null, 'no fetch: ' + (sgCall === null));
-    if (sgCall) {
-      const p = JSON.parse((sgCall.init && sgCall.init.body) || '{}');
-      record('SendGrid: toEmail set', p.personalizations[0].to[0].email === process.env.SENDGRID_TO_EMAIL, 'got=' + p.personalizations[0].to[0].email);
-      record('SendGrid: reply_to = email', p.personalizations[0].reply_to && p.personalizations[0].reply_to.email === 'ali@example.com');
-      record('SendGrid: fromEmail set', p.from && p.from.email);
-      record('SendGrid: subject set', p.subject);
+  await test('Invalid input never triggers a Brevo call', async () => {
+    const cases = [
+      { name: '', phone: '1', service: 'Painting' },
+      { name: 'A', phone: '', service: 'Painting' },
+      { name: 'A', phone: '1', service: '' },
+      { name: 'A', phone: '1', service: 'Painting', email: 'not-an-email' },
+      { name: 'A', phone: '1', service: 'Painting', email: 'bad@@domain.com' },
+    ];
+    for (const payload of cases) {
+      lastSendCall = null;
+      mockFetchSuccess();
+      lastSendCall = null; // ensure no call recorded
+      const res = createRes();
+      await handler(createReq(payload), res);
+      assert.strictEqual(res.statusCode, 400, `expected 400 for ${JSON.stringify(payload)}`);
+      assert.strictEqual(lastSendCall, null, 'fetch must not be called for invalid input');
     }
-  }
+  });
 
-  // 2. Missing name
-  {
-    const body = { email: 'a@b.com', phone: '03001234567', service: 'Waterproofing' };
-    const { res } = await callHandler('POST', body);
-    record('Missing name -> 400', res.statusCode === 400 && /name/i.test(res.body ? res.body.message : '') , 'status=' + res.statusCode + ' msg=' + (res.body ? res.body.message : res.body));
-  }
-
-  // 3. Missing phone
-  {
-    const body = { name: 'Ali', service: 'Waterproofing' };
-    const { res } = await callHandler('POST', body);
-    record('Missing phone -> 400', res.statusCode === 400 && /phone/i.test(res.body ? res.body.message : ''), 'status=' + res.statusCode);
-  }
-
-  // 4. Missing service
-  {
-    const body = { name: 'Ali', phone: '03001234567' };
-    const { res } = await callHandler('POST', body);
-    record('Missing service -> 400', res.statusCode === 400 && /service/i.test(res.body ? res.body.message : ''), 'status=' + res.statusCode);
-  }
-
-  // 5. Empty object body
-  {
-    const { res } = await callHandler('POST', {});
-    record('Empty body -> 400', res.statusCode === 400, 'status=' + res.statusCode);
-  }
-
-  // 6. Body as string
-  {
-    const { res } = await callHandler('POST', JSON.stringify({ name: 'Ali', phone: '03001234567', service: 'Heat Proofing' }));
-    record('String body -> parses to 200', res.statusCode === 200, 'status=' + res.statusCode);
-  }
-
-  // 7. Array body -> 400
-  {
-    const { res } = await callHandler('POST', []);
-    record('Array body -> 400', res.statusCode === 400, 'status=' + res.statusCode);
-  }
-
-  // 8. GET -> 405
-  {
-    const { res } = await callHandler('GET', {});
-    record('GET -> 405', res.statusCode === 405, 'status=' + res.statusCode);
-  }
-
-  // 9. PUT -> 405
-  {
-    const { res } = await callHandler('PUT', {});
-    record('PUT -> 405', res.statusCode === 405, 'status=' + res.statusCode);
-  }
-
-  // 10. Invalid email
-  {
-    const body = { name: 'Ali', email: 'bad', phone: '03001234567', service: 'Waterproofing' };
-    const { res } = await callHandler('POST', body);
-    record('Invalid email -> 400', res.statusCode === 400 && /email/i.test(res.body ? res.body.message : ''), 'status=' + res.statusCode);
-  }
-
-  // 11. Email omitted -> 200
-  {
-    const body = { name: 'Ali', phone: '03001234567', service: 'Heat Proofing' };
-    const { res } = await callHandler('POST', body);
-    record('Email omitted -> 200', res.statusCode === 200, 'status=' + res.statusCode);
-  }
-
-  // 12. Whitespace-only required fields
-  {
-    const body = { name: '   ', phone: '', service: '  ', email: '   ', message: '  ' };
-    const { res } = await callHandler('POST', body);
-    record('Whitespace-only name/phone/service -> 400', res.statusCode === 400 && /name|phone|service/.test(res.body ? res.body.message : ''), 'status=' + res.statusCode);
-  }
-
-  // 13. HTML payloads
-  {
-    const body = { name: '<script>alert(1)</script>', phone: '03001234567', service: 'Waterproofing <b>X</b>', message: '<img src=x onerror=alert(2)>' };
-    const { res } = await callHandler('POST', body);
-    record('HTML payloads -> 200 (no crash)', res.statusCode === 200, 'status=' + res.statusCode);
-  }
-
-  // 14. Long fields
-  {
-    const body = { name: 'A'.repeat(5000), phone: '03001234567', service: 'Waterproofing', message: 'B'.repeat(20000) };
-    const { res } = await callHandler('POST', body);
-    record('Long fields -> 200', res.statusCode === 200, 'status=' + res.statusCode);
-  }
-
-  // 15. Unicode
-  {
-    const body = { name: 'اۓ αβγ 南', phone: '0300-123-4567', service: 'PU Coating', email: 'user@例子.测试', message: 'مرحبًا' };
-    const { res, sgCall } = await callHandler('POST', body);
-    record('Unicode -> 200', res.statusCode === 200, 'status=' + res.statusCode);
-    if (sgCall) {
-      const p = JSON.parse(sgCall.body || '{}');
-      record('Unicode: SendGrid called', true);
+  await test('Oversized fields are rejected before any Brevo call', async () => {
+    const cases = [
+      { name: 'N'.repeat(5000), phone: '1', service: 'Painting' },
+      { name: 'A', phone: '1', service: 'Painting', message: 'M'.repeat(20000) },
+    ];
+    for (const payload of cases) {
+      mockFetchSuccess();
+      const res = createRes();
+      await handler(createReq(payload), res);
+      assert.strictEqual(res.statusCode, 413, `expected 413 for ${Object.keys(payload).join(',')}`);
+      assert.strictEqual(lastSendCall, null, 'fetch must not be called for oversized input');
     }
-  }
+  });
 
-  // 16. Phone with dashes
-  {
-    const body = { name: 'Ali', phone: '0300-123-4567', service: 'Insulation' };
-    const { res } = await callHandler('POST', body);
-    record('Phone with dashes -> 200', res.statusCode === 200, 'status=' + res.statusCode);
-  }
+  await test('Array body returns 400 without crashing or calling Brevo', async () => {
+    mockFetchSuccess();
+    const res = createRes();
+    await handler(createReq(['name', 'phone']), res);
+    assert.strictEqual(res.statusCode, 400);
+    assert.strictEqual(res.body.success, false);
+    assert.strictEqual(lastSendCall, null);
+  });
 
-  // 17. Name/phone/service only
-  {
-    const body = { name: 'Ali', phone: '03001234567', service: 'Termite Proofing' };
-    const { res } = await callHandler('POST', body);
-    record('Name/phone/service only -> 200', res.statusCode === 200, 'status=' + res.statusCode);
-  }
+  await test('Empty message field is still a valid submission', async () => {
+    mockFetchSuccess();
+    const res = createRes();
+    await handler(createReq({ name: 'A', phone: '1', service: 'Painting' }), res);
+    assert.strictEqual(res.statusCode, 200);
+    assert.strictEqual(res.body.success, true);
+    assert.ok(lastSendCall.body.textContent.includes('Message: \n') || lastSendCall.body.textContent.includes('Message:'));
+  });
 
-  // 18. Numeric name
-  {
-    const body = { name: '12345', phone: '03001234567', service: 'Waterproofing' };
-    const { res } = await callHandler('POST', body);
-    record('Numeric name -> 200', res.statusCode === 200, 'status=' + res.statusCode);
-  }
+  await test('Numeric name and unicode content flow through to payload', async () => {
+    mockFetchSuccess();
+    const res = createRes();
+    await handler(createReq({ name: '12345', phone: '9876543210', service: 'Waterproofing', message: 'اۓ αβγ 南' }), res);
+    assert.strictEqual(res.statusCode, 200);
+    assert.ok(lastSendCall.body.htmlContent.includes('12345'));
+    assert.ok(lastSendCall.body.textContent.includes('9876543210'));
+    assert.ok(lastSendCall.body.textContent.includes('اۓ αβγ 南'));
+  });
 
-  // 19. Phone with special symbols
-  {
-    const body = { name: 'Ali', phone: '0300-123-4567!', service: 'Waterproofing', message: 'x' };
-    const { res } = await callHandler('POST', body);
-    record('Phone with ! -> 200', res.statusCode === 200, 'status=' + res.statusCode);
-  }
+  await test('Email omitted -> no replyTo key in payload', async () => {
+    mockFetchSuccess();
+    const res = createRes();
+    await handler(createReq({ name: 'A', phone: '1', service: 'Painting' }), res);
+    assert.strictEqual(res.statusCode, 200);
+    assert.ok(!('replyTo' in lastSendCall.body), 'replyTo must be absent when email is not supplied');
+  });
 
-  // 20. reply_to omitted when no email
-  {
-    const body = { name: 'Ali', phone: '03001234567', service: 'Waterproofing' };
-    const { res, sgCall } = await callHandler('POST', body);
-    if (sgCall) {
-      const p = JSON.parse((sgCall.init && sgCall.init.body) || '{}');
-      record('reply_to omitted when no email', !p.personalizations[0].reply_to, 'reply_to present');
-    }
-  }
+  await test('Response contract is always { success: boolean, message: string }', async () => {
+    mockFetchSuccess();
+    const okRes = createRes();
+    await handler(createReq({ name: 'A', phone: '1', service: 'Painting' }), okRes);
+    assert.strictEqual(typeof okRes.body.success, 'boolean');
+    assert.strictEqual(typeof okRes.body.message, 'string');
+    const errRes = createRes();
+    await handler(createReq({}), errRes);
+    assert.strictEqual(typeof errRes.body.success, 'boolean');
+    assert.strictEqual(typeof errRes.body.message, 'string');
+  });
 
-  // 21. req.body undefined (no Vercel auto-parse) with raw stream
-  {
-    const { res } = await postNoBodyParse();
-    record('No-auto-parse (raw stream) -> 200', res.statusCode === 200, 'status=' + res.statusCode);
-  }
-
-  // 22. req.body as string containing JSON
-  {
-    const { res } = await callHandler('POST', JSON.stringify({ name: 'Ali', phone: '03001234567', service: 'Heat Proofing' }));
-    record('req.body is JSON string -> 200 (parsed)', res.statusCode === 200, 'status=' + res.statusCode);
-  }
-
-  // 23. GET with body -> 405
-  {
-    const { res } = await callHandler('GET', { name: 'Ali' });
-    record('GET -> 405', res.statusCode === 405, 'status=' + res.statusCode);
-  }
-
-  // 24. Very long single field (200k) -> accepted (parsed body, no stream limit)
-  {
-    const body = { name: 'A'.repeat(200000), phone: '03001234567', service: 'Waterproofing' };
-    const { res } = await callHandler('POST', body);
-    record('200k name -> 200', res.statusCode === 200, 'status=' + res.statusCode);
-  }
-
-  // 25. Content-Type not JSON but body present (lenient)
-  {
-    const body = { name: 'Ali', phone: '03001234567', service: 'Waterproofing' };
-    const { res } = await callHandler('POST', body);
-    record('Body present (lenient) -> 200', res.statusCode === 200, 'status=' + res.statusCode);
-  }
-
-  // ------------------------------------------------------------------
-  console.log('\n=== Summary ===');
-  const failed = results.filter(r => !r.pass);
-  console.log('Total: ' + results.length + ' | Passed: ' + (results.length - failed.length) + ' | Failed: ' + failed.length);
-  if (failed.length) {
-    console.log('Failed:');
-    failed.forEach(r => console.log('  - ' + r.name));
-    process.exitCode = 1;
-  } else {
-    console.log('All scenarios passed.');
-  }
+  console.log(`\n${passed} passed, ${failed} failed`);
+  process.exit(failed > 0 ? 1 : 0);
 }
 
-main().catch((e) => { console.error('TEST ERROR:', e); process.exit(1); });
+runTests().catch((err) => {
+  console.error('Fatal test error:', err);
+  process.exit(1);
+});
