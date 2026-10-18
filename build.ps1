@@ -38,8 +38,8 @@ foreach ($pg in $pages) {
   $path = Join-Path $root $pg
   $c = [System.IO.File]::ReadAllText($path, $utf8)
 
-  # --- Fix broken webp logo references to the valid PNG. ---
-  $c = $c -replace 'ibs-logo\.webp', 'ibs-logo.png'
+  # --- Keep the logo reference on the uploaded WebP asset. ---
+  $c = $c -replace 'ibs-logo\.png', 'ibs-logo.webp'
 
   # --- Normalize nested-page relative paths to root-relative. ---
   $c = $c -replace '(?<=href="|src=")\.\./assets/', '/assets/'
