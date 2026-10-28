@@ -1,5 +1,161 @@
 <!doctype html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Waterproofing Services in Karachi | Infinite Building Solutions</title><style>html,body{margin:0;padding:0}</style><link rel="stylesheet" href="/components/shared-blocks.css"><style>@font-face{font-family: 'Poppins';font-style: normal;font-weight: 400;font-display: swap;src: url(assets/ibs/poppins-400.ttf) format('truetype');}@font-face{font-family: 'Poppins';font-style: normal;font-weight: 500;font-display: swap;src: url(assets/ibs/poppins-500.ttf) format('truetype');}@font-face{font-family: 'Poppins';font-style: normal;font-weight: 600;font-display: swap;src: url(assets/ibs/poppins-600.ttf) format('truetype');}@font-face{font-family: 'Poppins';font-style: normal;font-weight: 700;font-display: swap;src: url(assets/ibs/poppins-700.ttf) format('truetype');}</style></head><body>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Waterproofing Services in Karachi | Infinite Building Solutions</title><style>html,body{margin:0;padding:0}</style><link rel="stylesheet" href="/components/shared-blocks.css"><style>@font-face{font-family: 'Poppins';font-style: normal;font-weight: 400;font-display: swap;src: url(assets/fonts/poppins-400.ttf) format('truetype');}@font-face{font-family: 'Poppins';font-style: normal;font-weight: 500;font-display: swap;src: url(assets/fonts/poppins-500.ttf) format('truetype');}@font-face{font-family: 'Poppins';font-style: normal;font-weight: 600;font-display: swap;src: url(assets/fonts/poppins-600.ttf) format('truetype');}@font-face{font-family: 'Poppins';font-style: normal;font-weight: 700;font-display: swap;src: url(assets/fonts/poppins-700.ttf) format('truetype');}
+.ibs-final,.ibs-final *{box-sizing: border-box;}
+.ibs-final{--blue: #1d4ed8;--navy: #0f2a43;--text: #263746;--muted: #526477;--soft: #f5f8fc;--line: #dfe7f0;width: 100%;margin: 0;background: #fff;color: var(--text);font-family: "Poppins",sans-serif !important;font-size: 16px;line-height: 1.85;}
+.ibs-final :is( h1,h2,h3,p,a,li,span,small,strong,button,summary,th,td,figcaption ){font-family: "Poppins",sans-serif !important;}
+.ibs-final :is(h1,h2,h3,p,figure){margin: 0;}
+.ibs-final :is(h1,h2,h3){color: var(--navy);text-wrap: balance;}
+.ibs-final h2{font-size: clamp(27px,3vw,37px);font-weight: 600;line-height: 1.3;letter-spacing: -.8px;}
+.ibs-final h3{font-size: 20px;font-weight: 600;line-height: 1.4;letter-spacing: -.3px;}
+.ibs-final p + p{margin-top: 14px;}
+.ibs-final a{color: inherit;text-decoration: none;}
+.ibs-final img{display: block;max-width: 100%;}
+.ibs-final button{cursor: pointer;}
+.ibs-final :is(a,button,summary,[tabindex]):focus-visible{outline: 3px solid #91b9ff;outline-offset: 5px;}
+.ibs-f-wrap{width: min(1180px,calc(100% - 48px));margin-inline: auto;}
+.ibs-f-section{padding: 50px 0;scroll-margin-top: 100px;}
+.ibs-f-soft{background: var(--soft);}
+.ibs-f-label{display: block;margin-bottom: 11px;color: var(--blue);font-size: 11px;font-weight: 600;line-height: 1.6;letter-spacing: 1.6px;text-transform: uppercase;}
+.ibs-f-heading{max-width: 900px;margin: 0 auto 27px;text-align: center;}
+.ibs-f-heading > p{max-width: 850px;margin: 14px auto 0;}
+.ibs-f-actions{display: flex;flex-wrap: wrap;align-items: center;gap: 12px;margin-top: 23px;}
+.ibs-final .ibs-f-btn{display: inline-flex;align-items: center;justify-content: center;gap: 12px;min-height: 48px;padding: 13px 19px;color: #fff;background: var(--blue);border: 1px solid var(--blue);border-radius: 6px;box-shadow: 0 5px 14px rgba(29,78,216,.1);font-size: 13px;font-weight: 500;line-height: 1.5;text-align: center;transition: background .2s,border-color .2s;}
+.ibs-final .ibs-f-btn:hover{color: #fff;background: #153fae;border-color: #153fae;}
+.ibs-f-btn span{font-size: 19px;line-height: 1;}
+.ibs-f-hero{position: relative;width: var(--ibs-full-width,100%);max-width: none;margin-inline: calc( (100% - var(--ibs-full-width,100%)) / 2 );overflow: hidden;background: #102b43;color: #fff;isolation: isolate;}
+.ibs-f-backgrounds{position: absolute;inset: 0;z-index: 0;overflow: hidden;}
+.ibs-f-slide{position: absolute;inset: 0;z-index: 0;opacity: 0;transition: opacity 1000ms ease-in-out;pointer-events: none;}
+.ibs-f-slide.is-active{z-index: 2;opacity: 1;}
+.ibs-f-slide.is-leaving{z-index: 1;opacity: 0;}
+.ibs-f-slide img{display: block;width: 100%;height: 100%;max-width: none;object-fit: cover;object-position: var(--image-position,center);transform: scale(1);transform-origin: center;animation: none;}
+.ibs-f-slide.is-active img,.ibs-f-slide.is-leaving img{animation: ibsFinalZoom 6000ms linear both;}
+@keyframes ibsFinalZoom{from{transform: scale(1);}to{transform: scale(1.15);}}
+.ibs-f-hero-shade{position: absolute;inset: 0;z-index: 3;background: linear-gradient( 90deg,rgba(5,19,32,.33),rgba(5,19,32,.42) 50%,rgba(5,19,32,.33) ),linear-gradient( 180deg,rgba(5,19,32,.12),rgba(5,19,32,.12) 60%,rgba(5,19,32,.48) );pointer-events: none;}
+.ibs-f-hero > .ibs-f-wrap{position: relative;z-index: 4;}
+.ibs-f-hero-main{display: flex;align-items: center;justify-content: center;min-height: 555px;padding: 70px 65px 45px;}
+.ibs-f-hero-content{width: 100%;max-width: 940px;margin-inline: auto;padding: 0;background: transparent;border: 0;border-radius: 0;box-shadow: none;text-align: center;}
+.ibs-f-hero-label{display: inline-flex;align-items: center;justify-content: center;gap: 9px;margin-bottom: 18px;color: #edf4ff;font-size: 11px;font-weight: 500;line-height: 1.6;letter-spacing: 1.6px;text-transform: uppercase;text-shadow: 0 2px 8px rgba(0,0,0,.4);}
+.ibs-f-hero-label::before{width: 7px;height: 7px;background: #bed7ff;border-radius: 50%;content: "";}
+.ibs-final .ibs-f-hero h1{max-width: 940px;margin: 0 auto 23px;color: #fff;font-size: clamp(36px,4.6vw,61px);font-weight: 700;line-height: 1.17;letter-spacing: -1.7px;text-align: center;text-shadow: 0 3px 18px rgba(0,0,0,.35);}
+.ibs-f-hero h1 span{display: block;margin-top: 5px;color: #d5e5ff;}
+.ibs-f-hero-copy{max-width: 820px;margin: 0 auto !important;color: #fff;font-size: 16px;line-height: 1.9;text-align: center;text-shadow: 0 2px 8px rgba(0,0,0,.5);}
+.ibs-final .ibs-f-hero-copy + .ibs-f-hero-copy{margin-top: 12px !important;}
+.ibs-f-hero .ibs-f-actions{justify-content: center;margin-top: 27px;}
+.ibs-f-hero .ibs-f-btn{padding: 14px 21px;}
+.ibs-final .ibs-f-hero-call{color: #fff;background: rgba(255,255,255,.1);border-color: rgba(255,255,255,.7);-webkit-backdrop-filter: blur(3px);backdrop-filter: blur(3px);}
+.ibs-final .ibs-f-hero-call:hover{color: #0f2a43;background: #fff;border-color: #fff;}
+.ibs-final .ibs-f-tagline{margin-top: 21px;color: #f0f5ff;font-size: 12px;letter-spacing: .4px;text-shadow: 0 2px 8px rgba(0,0,0,.4);}
+.ibs-f-hero-bottom{padding-bottom: 16px;}
+.ibs-f-hero-services{display: grid;grid-template-columns: repeat(3,minmax(0,1fr));max-width: 1050px;margin-inline: auto;padding: 20px 0;border-top: 1px solid rgba(255,255,255,.3);}
+.ibs-f-hero-service{display: flex;align-items: center;justify-content: center;gap: 10px;padding: 0 15px;color: #fff;font-size: 12px;font-weight: 500;line-height: 1.7;text-align: center;}
+.ibs-f-hero-service + .ibs-f-hero-service{border-left: 1px solid rgba(255,255,255,.25);}
+.ibs-f-hero-service svg{width: 22px;height: 22px;flex-shrink: 0;color: #c6dcff;fill: none;stroke: currentColor;stroke-width: 1.6;stroke-linecap: round;stroke-linejoin: round;}
+.ibs-final .ibs-f-arrow{position: absolute;top: 46%;z-index: 5;display: inline-flex;align-items: center;justify-content: center;width: 44px;height: 44px;padding: 0;color: #fff;background: rgba(7,25,43,.17);border: 1px solid rgba(255,255,255,.55);border-radius: 50%;box-shadow: none;transform: translateY(-50%);}
+.ibs-f-arrow:hover{background: #1d4ed8;border-color: #1d4ed8;}
+.ibs-f-arrow svg{width: 19px;height: 19px;fill: none;stroke: currentColor;stroke-width: 1.8;stroke-linecap: round;stroke-linejoin: round;}
+.ibs-f-prev{left: 20px;}
+.ibs-f-next{right: 20px;}
+.ibs-f-controls{display: flex;align-items: center;justify-content: center;gap: 15px;}
+.ibs-f-dots{display: flex;align-items: center;gap: 7px;}
+.ibs-final .ibs-f-dot{display: inline-flex;align-items: center;justify-content: center;width: 28px;height: 28px;padding: 0;background: transparent;border: 0;border-radius: 50%;box-shadow: none;}
+.ibs-f-dot::before{width: 7px;height: 7px;background: rgba(255,255,255,.55);border-radius: 50%;content: "";}
+.ibs-f-dot[aria-pressed="true"]::before{background: #fff;transform: scale(1.35);}
+.ibs-f-dot:disabled{opacity: .3;cursor: default;}
+.ibs-final .ibs-f-pause{display: inline-flex;align-items: center;justify-content: center;width: 30px;height: 30px;padding: 0;background: rgba(9,28,47,.18);color: #fff;border: 1px solid rgba(255,255,255,.45);border-radius: 50%;box-shadow: none;font-size: 11px;line-height: 1;}
+.ibs-f-hero [hidden]{display: none !important;}
+.ibs-f-intro{display: grid;grid-template-columns: 1.15fr 1fr;align-items: center;gap: 32px;}
+.ibs-f-intro-copy h2{margin-bottom: 18px;}
+.ibs-f-options{display: grid;gap: 14px;}
+.ibs-f-option{padding: 23px 25px;background: #f6f9fe;border: 1px solid #e1e9f5;border-radius: 10px;}
+.ibs-f-option h3{margin-bottom: 9px;font-size: 19px;}
+.ibs-f-option p{font-size: 15px;}
+.ibs-f-split{display: grid;grid-template-columns: 1.1fr 1fr;align-items: center;gap: 32px;}
+.ibs-f-photo{overflow: hidden;background: #dfe7ee;border: 1px solid #e0e7ef;border-radius: 12px;box-shadow: 0 9px 24px rgba(15,42,67,.055);}
+.ibs-f-photo img{width: 100%;height: 370px;object-fit: cover;}
+.ibs-f-photo figcaption{padding: 9px 13px;background: #fff;color: #617183;font-size: 10px;line-height: 1.6;}
+.ibs-f-checks{display: grid;grid-template-columns: repeat(2,minmax(0,1fr));gap: 10px 20px;margin: 16px 0;padding: 0;list-style: none;}
+.ibs-f-checks li{position: relative;padding-left: 23px;font-size: 15px;line-height: 1.75;}
+.ibs-f-checks li::before{position: absolute;top: 0;left: 0;color: var(--blue);font-weight: 700;content: "\\2713";}
+.ibs-f-subheading{margin-top: 19px;margin-bottom: 11px;font-size: 18px;font-weight: 600;}
+.ibs-f-note{color: var(--muted);font-size: 14px;line-height: 1.8;}
+.ibs-f-metal{display: grid;grid-template-columns: 1.1fr 1fr;align-items: center;gap: 32px;background: #fff;border: 1px solid var(--line);border-radius: 11px;overflow: hidden;}
+.ibs-f-metal > div{padding: 32px;}
+.ibs-f-metal h3{margin-bottom: 11px;font-size: 20px;}
+.ibs-f-metal p{font-size: 15px;line-height: 1.85;}
+.ibs-f-metal img{width: 100%;height: 420px;object-fit: cover;}
+.ibs-f-system{display: block;margin-bottom: 7px;color: var(--blue);font-size: 12px;font-weight: 600;letter-spacing: 1.2px;text-transform: uppercase;}
+.ibs-f-foundation{display: grid;grid-template-columns: minmax(0,1fr) minmax(0,1.1fr);align-items: start;gap: 22px;}
+.ibs-f-foundation-photo{position: relative;min-height: 420px;overflow: hidden;background: #dfe7ee;border: 1px solid var(--line);border-radius: 12px;}
+.ibs-f-foundation-photo img{width: 100%;height: 100%;object-fit: cover;}
+.ibs-f-foundation-photo figcaption{position: absolute;bottom: 0;left: 0;right: 0;padding: 12px;background: rgba(255,255,255,.9);color: #617183;font-size: 11px;line-height: 1.5;}
+.ibs-f-tanks{display: grid;grid-template-columns: .9fr 1.15fr;align-items: center;gap: 22px;}
+.ibs-f-tanks .ibs-f-grid{grid-template-columns: 1fr;}
+.ibs-f-tanks .ibs-f-photo img{height: 365px;}
+.ibs-f-tank-note{margin-top: 14px;font-size: 14px;line-height: 1.8;color: var(--muted);}
+.ibs-f-wet{display: grid;grid-template-columns: 1.2fr .8fr;align-items: center;gap: 24px;}
+.ibs-f-wet .ibs-f-photo img{height: 390px;}
+.ibs-f-table-wrap{overflow-x: auto;}
+.ibs-f-table{width: 100%;border-collapse: collapse;font-size: 15px;}
+.ibs-f-table th,.ibs-f-table td{padding: 13px 18px;border-bottom: 1px solid var(--line);text-align: left;vertical-align: top;}
+.ibs-f-table th{background: var(--navy);color: #fff;font-weight: 500;}
+.ibs-f-table tbody th{background: #fff;color: var(--navy);font-weight: 500;width: 49%;}
+.ibs-f-table tr:nth-child(even) td{background: #f5f8fe;}
+.ibs-f-table-note{margin-top: 16px;}
+.ibs-f-signs{display: grid;grid-template-columns: repeat(4,minmax(0,1fr));gap: 17px;}
+.ibs-f-sign{position: relative;display: flex;flex-direction: column;}
+.ibs-f-sign img{width: 100%;height: 220px;object-fit: cover;border-radius: 8px;}
+.ibs-f-sign-copy{padding: 14px;background: #fff;border: 1px solid var(--line);border-top: 0;border-radius: 0 0 8px 8px;}
+.ibs-f-sign-copy h3{font-size: 16px;margin-bottom: 8px;}
+.ibs-f-sign-copy p{font-size: 14px;line-height: 1.7;}
+.ibs-f-credit{margin-top: 9px;font-size: 11px;line-height: 1.5;color: var(--muted);}
+.ibs-f-credit a{color: var(--blue);text-decoration: underline;}
+.ibs-f-four{display: grid;grid-template-columns: repeat(4,minmax(0,1fr));gap: 17px;}
+.ibs-f-step{padding: 25px;background: #f6f9fe;border: 1px solid #e1e9f5;border-radius: 10px;}
+.ibs-f-number{display: inline-block;margin-bottom: 12px;color: var(--blue);font-size: 18px;font-weight: 700;}
+.ibs-f-step h3{margin-bottom: 9px;font-size: 17px;}
+.ibs-f-step p{font-size: 14px;line-height: 1.75;}
+.ibs-f-why{padding: 25px;background: #f6f9fe;border: 1px solid #e1e9f5;border-radius: 10px;}
+.ibs-f-why h3{font-size: 17px;margin-bottom: 9px;}
+.ibs-f-why p{font-size: 14px;line-height: 1.75;}
+.ibs-f-pricing{display: grid;grid-template-columns: 1.15fr 1fr;gap: 32px;}
+.ibs-f-pricing-list{padding: 25px;background: #f6f9fe;border: 1px solid #e1e9f5;border-radius: 10px;}
+.ibs-f-pricing-list h3{font-size: 17px;margin-bottom: 11px;}
+.ibs-f-pricing-list ul{margin: 0;padding: 0;list-style: none;}
+.ibs-f-pricing-list li{padding: 8px 0;font-size: 14px;border-bottom: 1px solid #e1e9f5;}
+.ibs-f-area-copy{margin-bottom: 24px;}
+.ibs-f-area-copy p{font-size: 15px;line-height: 1.85;}
+.ibs-f-areas{display: flex;flex-wrap: wrap;gap: 10px;font-size: 14px;color: var(--muted);}
+.ibs-f-areas span{padding: 8px 14px;background: #f6f9fe;border: 1px solid #e1e9f5;border-radius: 20px;}
+.ibs-f-faqs{max-width: 980px;margin-inline: auto;overflow: hidden;background: #fff;border: 1px solid #dce5f0;border-radius: 11px;}
+.ibs-f-faqs details{padding: 0 24px;border-bottom: 1px solid var(--line);}
+.ibs-f-faqs details:last-child{border-bottom: 0;}
+.ibs-f-faqs summary{display: flex;align-items: center;justify-content: space-between;gap: 20px;padding: 19px 0;color: var(--navy);font-size: 16px;font-weight: 500;line-height: 1.7;list-style: none;cursor: pointer;}
+.ibs-f-faqs summary::-webkit-details-marker{display: none;}
+.ibs-f-faqs summary::after{flex-shrink: 0;color: var(--blue);font-size: 25px;font-weight: 400;line-height: 1;content: "+";}
+.ibs-f-faqs details[open]{background: #fbfcff;}
+.ibs-f-faqs details[open] summary::after{content: "\\2212";}
+.ibs-f-faqs p{padding-bottom: 21px;font-size: 15px;line-height: 1.85;}
+.ibs-f-contact-section{padding: 32px 0;}
+.ibs-f-contact{padding: 32px;background: radial-gradient( ellipse at 100% 0,rgba(74,124,242,.2),transparent 55% ),var(--navy);color: #e1eaf5;border: 1px solid #203f5b;border-radius: 13px;}
+.ibs-f-contact-top{display: grid;grid-template-columns: 1.5fr 1fr;align-items: center;gap: 32px;}
+.ibs-f-contact .ibs-f-label{color: #accaff;}
+.ibs-f-contact h2{max-width: 650px;margin-bottom: 15px;color: #fff;font-size: clamp(27px,3vw,35px);}
+.ibs-f-contact p{font-size: 15px;}
+.ibs-f-contact .ibs-f-actions{margin: 0;}
+.ibs-final .ibs-f-contact-call{background: transparent;color: #fff;border-color: #8094ab;}
+.ibs-final .ibs-f-contact-call:hover{background: #fff;color: var(--navy);border-color: #fff;}
+.ibs-final .ibs-f-message{display: inline-block;margin-top: 16px;color: #fff;font-size: 13px;text-decoration: underline;text-underline-offset: 4px;}
+.ibs-f-contact-links{display: grid;grid-template-columns: .9fr 1.15fr 1.5fr;gap: 24px;margin-top: 25px;padding-top: 22px;border-top: 1px solid rgba(255,255,255,.19);font-size: 13px;}
+.ibs-f-contact-links a{display: block;color: #fff;overflow-wrap: anywhere;}
+.ibs-f-contact-links small{display: block;margin-bottom: 7px;color: #accaff;font-size: 10px;font-weight: 600;letter-spacing: 1.2px;}
+.ibs-f-contact-links p{font-size: 13px;}
+.ibs-final .ibs-f-image-note{margin-top: 12px;color: var(--muted);font-size: 11px;text-align: center;}
+@media (max-width: 1000px){.ibs-f-hero-main{min-height: 535px;padding-inline: 55px;}.ibs-f-prev{left: 10px;}.ibs-f-next{right: 10px;}.ibs-f-foundation{grid-template-columns: 1fr;}.ibs-f-foundation-photo{min-height: 280px;}.ibs-f-tanks{grid-template-columns: .9fr 1.15fr;}.ibs-f-tanks .ibs-f-grid{grid-template-columns: 1fr;}.ibs-f-four{grid-template-columns: repeat(2,minmax(0,1fr));}.ibs-f-contact-top{grid-template-columns: 1fr;gap: 22px;}.ibs-f-contact-links{grid-template-columns: 1fr 1fr;}.ibs-f-contact-links > div:last-child{grid-column: 1 / -1;}}
+@media (max-width: 760px){.ibs-f-wrap{width: calc(100% - 32px);}.ibs-f-section{padding: 34px 0;}.ibs-f-hero-main{min-height: 0;padding: 50px 5px 34px;}.ibs-final .ibs-f-hero h1{font-size: clamp(33px,8.5vw,44px);letter-spacing: -1px;margin-bottom: 20px;}.ibs-f-hero-label{font-size: 10px;letter-spacing: 1.2px;}.ibs-f-hero-copy{font-size: 14px;line-height: 1.85;}.ibs-f-hero .ibs-f-actions{gap: 10px;margin-top: 23px;}.ibs-f-hero .ibs-f-btn{padding: 12px 16px;font-size: 12px;}.ibs-final .ibs-f-arrow{top: auto;bottom: 13px;width: 32px;height: 32px;transform: none;}.ibs-f-prev{left: 16px;}.ibs-f-next{right: 16px;}.ibs-f-hero-services{grid-template-columns: 1fr;padding: 5px 0 13px;}.ibs-f-hero-service{padding: 10px 0;font-size: 11px;}.ibs-f-hero-service + .ibs-f-hero-service{border-top: 1px solid rgba(255,255,255,.15);border-left: 0;}.ibs-f-intro,.ibs-f-split,.ibs-f-metal,.ibs-f-tanks,.ibs-f-wet,.ibs-f-pricing{grid-template-columns: 1fr;gap: 22px;}.ibs-f-heading{margin-bottom: 22px;}.ibs-f-heading > p{font-size: 15px;}.ibs-f-photo img,.ibs-f-tanks .ibs-f-photo img,.ibs-f-wet .ibs-f-photo img{height: 270px;}.ibs-f-metal img{height: 220px;}.ibs-f-foundation-photo{min-height: 250px;}.ibs-f-checks,.ibs-f-grid{grid-template-columns: 1fr;}.ibs-f-grid{gap: 13px;}.ibs-f-card,.ibs-f-option,.ibs-f-metal{padding: 20px;}.ibs-f-signs{grid-template-columns: 1fr;gap: 17px;}.ibs-f-sign,.ibs-f-sign:nth-child(4),.ibs-f-sign:nth-child(5){grid-column: auto;}.ibs-f-sign img{height: 220px;}.ibs-f-sign-copy{padding: 20px;}.ibs-f-pricing{padding: 20px;}.ibs-f-pricing-list{padding: 18px;}.ibs-f-table th,.ibs-f-table td{padding: 12px 16px;font-size: 14px;}.ibs-f-faqs details{padding: 0 18px;}.ibs-f-faqs summary{font-size: 15px;}.ibs-f-contact-section{padding: 24px 0;}.ibs-f-contact{padding: 23px;}.ibs-f-contact-links{grid-template-columns: 1fr;gap: 18px;}.ibs-f-contact-links > div:last-child{grid-column: auto;}}
+@media (max-width: 440px){.ibs-f-four{grid-template-columns: 1fr;}}
+@media (prefers-reduced-motion: reduce){.ibs-final .ibs-f-btn,.ibs-f-slide{transition: none;}.ibs-f-slide img,.ibs-f-slide.is-active img,.ibs-f-slide.is-leaving img{animation: none;transform: none;}}
+.ibs-f-hero[data-paused="true"] .ibs-f-slide img{animation-play-state: paused;}
+</style></head><body>
 <header class="ibs-header">
   <div class="ibs-container ibs-nav">
     <a class="ibs-logo" href="/" aria-label="Infinite Building Solutions home">
@@ -27,6 +183,7 @@
     </nav>
   </div>
 </header>
+<div class="ibs-final">
 <!-- 01: HERO -->
 <section
 class="ibs-f-hero"
@@ -80,7 +237,7 @@ decoding="async"
 <!-- BASEMENT WATERPROOFING -->
 <div class="ibs-f-slide">
 <img
-src="assets/ibs/damp-basement.webp"
+src="assets/ibs/hero-basement.webp"
 alt=""
 width="1800"
 height="1200"
@@ -113,7 +270,7 @@ hidden
 <div class="ibs-f-hero-main">
 <div class="ibs-f-hero-content">
 <span class="ibs-f-hero-label">
-Waterproofing Services · Karachi
+Waterproofing Services � Karachi
 </span>
 <h1 id="ibs-f-title">
 Waterproofing Services
@@ -131,7 +288,7 @@ the surface, water exposure and stage of construction.
 <div class="ibs-f-actions">
 <a class="ibs-f-btn" href="#ibs-f-contact">
 Request a Free Site Inspection
-<span aria-hidden="true">↗</span>
+<span aria-hidden="true">?</span>
 </a>
 <a
 class="ibs-f-btn ibs-f-hero-call"
@@ -141,7 +298,7 @@ Call 0332-3070499
 </a>
 </div>
 <p class="ibs-f-tagline">
-Infinite Building Solutions — Strength You Can Trust.
+Infinite Building Solutions � Strength You Can Trust.
 </p>
 </div>
 </div>
@@ -189,7 +346,7 @@ class="ibs-f-pause"
 type="button"
 aria-label="Pause background slideshow"
 >
-<span aria-hidden="true">Ⅱ</span>
+<span aria-hidden="true">?</span>
 </button>
 </div>
 </div>
@@ -315,7 +472,7 @@ at joints.
 <div class="ibs-f-actions">
 <a class="ibs-f-btn" href="#ibs-f-contact">
 Arrange a Roof Inspection
-<span aria-hidden="true">↗</span>
+<span aria-hidden="true">?</span>
 </a>
 </div>
 </div>
@@ -419,8 +576,7 @@ to the structure, access and intended use.
 <div>
 <figure class="ibs-f-photo">
 <img
-src="assets/ibs/hero-tank.webp"
-alt="Outdoor swimming pool illustrating a water-retaining structure"
+src="assets/ibs/pool.webp" alt="Outdoor swimming pool illustrating a water-retaining structure"
 width="900"
 height="900"
 loading="lazy"
@@ -642,8 +798,7 @@ Signs Your Property Needs Waterproofing Assessment
 <div class="ibs-f-signs">
 <article class="ibs-f-sign">
 <img
-src="assets/ibs/bathroom.webp"
-alt="Water staining on an interior ceiling"
+src="assets/ibs/ceiling-stain.webp" alt="Water staining on an interior ceiling"
 width="900"
 height="600"
 loading="lazy"
@@ -662,20 +817,19 @@ href="https://commons.wikimedia.org/wiki/File:Water_Damage.JPG"
 target="_blank"
 rel="noopener noreferrer"
 >Ed! / Wikimedia Commons</a>
-·
+�
 <a
 href="https://creativecommons.org/licenses/by-sa/3.0/"
 target="_blank"
 rel="noopener noreferrer"
 >CC BY-SA 3.0</a>
-· Display cropped.
+� Display cropped.
 </p>
 </div>
 </article>
 <article class="ibs-f-sign">
 <img
-src="assets/ibs/bathroom.webp"
-alt="Peeling paint on a moisture-damaged ceiling"
+src="assets/ibs/peeling-paint.webp" alt="Peeling paint on a moisture-damaged ceiling"
 width="900"
 height="600"
 loading="lazy"
@@ -694,13 +848,13 @@ href="https://commons.wikimedia.org/wiki/File:Ceiling_sheetrock_damaged_by_water
 target="_blank"
 rel="noopener noreferrer"
 >Tomwsulcer / Wikimedia Commons</a>
-· CC0 · Display cropped.
+� CC0 � Display cropped.
 </p>
 </div>
 </article>
 <article class="ibs-f-sign">
 <img
-src="assets/ibs/damp-basement.webp"
+src="assets/ibs/hero-basement.webp"
 alt="Illustrative damp basement wall with moisture damage"
 width="900"
 height="600"
@@ -717,8 +871,7 @@ assessment before choosing a treatment.
 </article>
 <article class="ibs-f-sign">
 <img
-src="assets/ibs/bathroom.webp"
-alt="Water staining on a bathroom ceiling above a shower"
+src="assets/ibs/bathroom-leak.webp" alt="Water staining on a bathroom ceiling above a shower"
 width="1000"
 height="650"
 loading="lazy"
@@ -734,8 +887,7 @@ tank leakage are reasons to arrange an inspection.
 </article>
 <article class="ibs-f-sign">
 <img
-src="assets/ibs/foundation.webp"
-alt="Cracking and deterioration on a concrete wall"
+src="assets/ibs/concrete-cracks.webp" alt="Cracking and deterioration on a concrete wall"
 width="1000"
 height="650"
 loading="lazy"
@@ -754,13 +906,13 @@ href="https://commons.wikimedia.org/wiki/File:Concrete_wall_cracking_as_its_stee
 target="_blank"
 rel="noopener noreferrer"
 >JonRichfield / Wikimedia Commons</a>
-·
+�
 <a
 href="https://creativecommons.org/licenses/by-sa/3.0/"
 target="_blank"
 rel="noopener noreferrer"
 >CC BY-SA 3.0</a>
-· Display cropped.
+� Display cropped.
 </p>
 </div>
 </article>
@@ -883,7 +1035,7 @@ work and provide a quotation.
 <div class="ibs-f-actions">
 <a class="ibs-f-btn" href="#ibs-f-contact">
 Request an Inspection &amp; Quote
-<span aria-hidden="true">↗</span>
+<span aria-hidden="true">?</span>
 </a>
 </div>
 </div>
@@ -1062,7 +1214,7 @@ target="_blank"
 rel="noopener noreferrer"
 >
 Request a Free Site Inspection
-<span aria-hidden="true">↗</span>
+<span aria-hidden="true">?</span>
 </a>
 <a
 class="ibs-f-btn ibs-f-contact-call"
@@ -1077,7 +1229,7 @@ href="https://wa.me/923323070499"
 target="_blank"
 rel="noopener noreferrer"
 >
-Discuss Your Waterproofing Issue ↗
+Discuss Your Waterproofing Issue ?
 </a>
 </div>
 </div>
@@ -1179,7 +1331,7 @@ timer = setTimeout(() => move(1), 4000);
 function update() {
 hero.dataset.paused = String(paused);
 pause?.setAttribute('aria-label', paused ? 'Play background slideshow' : 'Pause background slideshow');
-if (icon) icon.textContent = paused ? '▶' : 'Ⅱ';
+if (icon) icon.textContent = paused ? '▶' : '?';
 dots.forEach((dot, index) => {
 dot.setAttribute('aria-pressed', String(index === current));
 dot.disabled = !ready(index);
@@ -1267,3 +1419,7 @@ else boot();
 })();
 </script>
 </body></html>
+
+
+
+
