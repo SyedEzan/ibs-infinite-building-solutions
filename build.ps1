@@ -24,7 +24,6 @@ $pages = @(
   'termite-proofing.html',
   'thermal-insulation.html',
   'waterproofing.html',
-  'products/heat-reflective-coating.html',
   '404.html'
 )
 
