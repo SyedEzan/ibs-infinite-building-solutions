@@ -245,67 +245,298 @@
       background: currentColor;
       margin: 5px auto;
     }
-    /* HERO */
-    .ibs-hero {
-      background:
-        linear-gradient(
-          90deg,
-          rgba(15, 42, 67, .95),
-          rgba(15, 42, 67, .83)
-        ),
-        url("/assets/herosection.2.png")
-        center / cover no-repeat;
-      padding: 86px 0 68px;
-      text-align: center;
+    /* HERO - waterproofing-style slideshow, homepage content */
+    .ibs-f-wrap {
+      width: min(1180px, calc(100% - 48px));
+      margin-inline: auto;
     }
-    .ibs-hero-content {
-      max-width: 920px;
-      margin: auto;
+    .ibs-f-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-top: 23px;
     }
-    .ibs-hero-label {
+    .ibs-f-btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 48px;
+      padding: 13px 19px;
+      color: #fff;
+      background: var(--blue);
+      border: 1px solid var(--blue);
+      border-radius: 6px;
+      box-shadow: 0 5px 14px rgba(29, 78, 216, .1);
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.5;
+      text-align: center;
+      text-decoration: none;
+      transition: background .2s, border-color .2s;
+    }
+    .ibs-f-btn:hover {
+      color: #fff;
+      background: #153fae;
+      border-color: #153fae;
+    }
+    .ibs-f-btn span {
+      font-size: 19px;
+      line-height: 1;
+    }
+    .ibs-f-hero {
+      position: relative;
+      width: var(--ibs-full-width, 100%);
+      max-width: none;
+      margin-inline: calc((100% - var(--ibs-full-width, 100%)) / 2);
+      overflow: hidden;
+      background: #102b43;
+      color: #fff;
+      isolation: isolate;
+    }
+    .ibs-f-backgrounds {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .ibs-f-slide {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 1000ms ease-in-out;
+      pointer-events: none;
+    }
+    .ibs-f-slide.is-active {
+      z-index: 2;
+      opacity: 1;
+    }
+    .ibs-f-slide.is-leaving {
+      z-index: 1;
+      opacity: 0;
+    }
+    .ibs-f-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      object-fit: cover;
+      object-position: var(--image-position, center);
+      transform: scale(1);
+      transform-origin: center;
+      animation: none;
+    }
+    .ibs-f-slide.is-active img,
+    .ibs-f-slide.is-leaving img {
+      animation: ibsFinalZoom 6000ms linear both;
+    }
+    @keyframes ibsFinalZoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.15); }
+    }
+    .ibs-f-hero-shade {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      background:
+        linear-gradient(90deg, rgba(5, 19, 32, .33), rgba(5, 19, 32, .42) 50%, rgba(5, 19, 32, .33)),
+        linear-gradient(180deg, rgba(5, 19, 32, .12), rgba(5, 19, 32, .12) 60%, rgba(5, 19, 32, .48));
+      pointer-events: none;
+    }
+    .ibs-f-hero > .ibs-f-wrap {
+      position: relative;
+      z-index: 4;
+    }
+    .ibs-f-hero-main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 555px;
+      padding: 70px 65px 45px;
+    }
+    .ibs-f-hero-content {
+      width: 100%;
+      max-width: 940px;
+      margin-inline: auto;
+      padding: 0;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      text-align: center;
+    }
+    .ibs-f-hero-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       gap: 9px;
-      padding: 8px 16px;
-      margin-bottom: 25px;
-      border: 1px solid rgba(255, 255, 255, .25);
-      border-radius: 30px;
-      background: rgba(255, 255, 255, .07);
-      color: #d8e7ff;
+      margin-bottom: 18px;
+      color: #edf4ff;
       font-size: 11px;
       font-weight: 500;
-      letter-spacing: 1px;
+      line-height: 1.6;
+      letter-spacing: 1.6px;
       text-transform: uppercase;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, .4);
     }
-    .ibs-hero-label::before {
-      content: "";
+    .ibs-f-hero-label::before {
       width: 7px;
       height: 7px;
+      background: #bed7ff;
       border-radius: 50%;
-      background: #a9ceff;
-      flex-shrink: 0;
+      content: "";
     }
-    .ibs-hero h1 {
+    .ibs-f-hero h1 {
+      max-width: 940px;
+      margin: 0 auto 23px;
       color: #fff;
-      font-size: clamp(34px, 4.7vw, 61px);
-      line-height: 1.16;
-      letter-spacing: -1.8px;
+      font-size: clamp(36px, 4.6vw, 61px);
       font-weight: 700;
-      margin-bottom: 24px;
+      line-height: 1.17;
+      letter-spacing: -1.7px;
+      text-align: center;
+      text-shadow: 0 3px 18px rgba(0, 0, 0, .35);
     }
-    .ibs-hero h1 span {
-      color: #a9ceff;
+    .ibs-f-hero h1 span {
+      display: block;
+      margin-top: 5px;
+      color: #d5e5ff;
     }
-    .ibs-hero-description {
-      max-width: 760px;
-      margin: 0 auto 30px;
-      color: #e0e9f4;
-      font-size: 17px;
-      line-height: 1.85;
+    .ibs-f-hero-copy {
+      max-width: 820px;
+      margin: 0 auto !important;
+      color: #fff;
+      font-size: 16px;
+      line-height: 1.9;
+      text-align: center;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, .5);
     }
-    .ibs-hero-description strong {
+    .ibs-f-hero-copy strong {
       color: #fff;
       font-weight: 600;
+    }
+    .ibs-f-hero .ibs-f-actions {
+      justify-content: center;
+      margin-top: 27px;
+    }
+    .ibs-f-hero .ibs-f-btn {
+      padding: 14px 21px;
+    }
+    .ibs-f-hero-call {
+      color: #fff;
+      background: rgba(255, 255, 255, .1);
+      border-color: rgba(255, 255, 255, .7);
+      -webkit-backdrop-filter: blur(3px);
+      backdrop-filter: blur(3px);
+    }
+    .ibs-f-hero-call:hover {
+      color: #0f2a43;
+      background: #fff;
+      border-color: #fff;
+    }
+    .ibs-f-hero-bottom {
+      padding-bottom: 16px;
+    }
+    .ibs-f-arrow {
+      position: absolute;
+      top: 46%;
+      z-index: 5;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      color: #fff;
+      background: rgba(7, 25, 43, .17);
+      border: 1px solid rgba(255, 255, 255, .55);
+      border-radius: 50%;
+      box-shadow: none;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+    .ibs-f-arrow:hover {
+      background: #1d4ed8;
+      border-color: #1d4ed8;
+    }
+    .ibs-f-arrow svg {
+      width: 19px;
+      height: 19px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .ibs-f-prev { left: 20px; }
+    .ibs-f-next { right: 20px; }
+    .ibs-f-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+    .ibs-f-dots {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .ibs-f-dot {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      background: transparent;
+      border: 0;
+      border-radius: 50%;
+      box-shadow: none;
+      cursor: pointer;
+    }
+    .ibs-f-dot::before {
+      width: 7px;
+      height: 7px;
+      background: rgba(255, 255, 255, .55);
+      border-radius: 50%;
+      content: "";
+    }
+    .ibs-f-dot[aria-pressed="true"]::before {
+      background: #fff;
+      transform: scale(1.35);
+    }
+    .ibs-f-dot:disabled {
+      opacity: .3;
+      cursor: default;
+    }
+    .ibs-f-pause {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      background: rgba(9, 28, 47, .18);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, .45);
+      border-radius: 50%;
+      box-shadow: none;
+      font-size: 11px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .ibs-f-hero [hidden] {
+      display: none !important;
+    }
+    @media (max-width: 1000px) {
+      .ibs-f-hero-main {
+        min-height: 535px;
+        padding-inline: 55px;
+      }
+      .ibs-f-prev { left: 10px; }
+      .ibs-f-next { right: 10px; }
     }
     /* SCROLLING STATS STRIP */
     .ibs-marquee {
@@ -805,28 +1036,46 @@
       .ibs-section-head h2 {
         letter-spacing: -.6px;
       }
-      .ibs-hero {
-        padding: 58px 0 44px;
+      .ibs-f-wrap {
+        width: calc(100% - 32px);
       }
-      .ibs-hero-label {
-        font-size: 9px;
-        letter-spacing: .7px;
-        padding: 8px 12px;
+      .ibs-f-hero-main {
+        min-height: 0;
+        padding: 50px 5px 34px;
       }
-      .ibs-hero h1 {
-        font-size: 35px;
+      .ibs-f-hero h1 {
+        font-size: clamp(33px, 8.5vw, 44px);
         letter-spacing: -1px;
+        margin-bottom: 20px;
       }
-      .ibs-hero-description {
+      .ibs-f-hero-label {
+        font-size: 10px;
+        letter-spacing: 1.2px;
+      }
+      .ibs-f-hero-copy {
         font-size: 14px;
+        line-height: 1.85;
       }
-      .ibs-hero .ibs-actions {
+      .ibs-f-hero .ibs-f-actions {
+        gap: 10px;
+        margin-top: 23px;
         flex-direction: column;
         align-items: stretch;
       }
-      .ibs-hero .ibs-btn {
+      .ibs-f-hero .ibs-f-btn {
+        padding: 12px 16px;
+        font-size: 12px;
         width: 100%;
       }
+      .ibs-f-arrow {
+        top: auto;
+        bottom: 13px;
+        width: 32px;
+        height: 32px;
+        transform: none;
+      }
+      .ibs-f-prev { left: 16px; }
+      .ibs-f-next { right: 16px; }
       .ibs-marquee-item {
         font-size: 12px;
         padding: 0 14px;
@@ -945,31 +1194,70 @@
   <!-- HEADER -->
   <main>
     <!-- HERO -->
-    <section class="ibs-hero" aria-labelledby="ibs-hero-title">
-      <div class="ibs-container">
-        <div class="ibs-hero-content">
-          <div class="ibs-hero-label">
-            Trusted Building Protection Since 2018
+    <section class="ibs-f-hero" data-ibs-final-hero aria-labelledby="ibs-hero-title">
+      <div class="ibs-f-backgrounds" aria-hidden="true">
+        <div class="ibs-f-slide is-active">
+          <img src="/assets/ibs/hero-peb.webp" alt="" width="1600" height="1000" fetchpriority="high" decoding="async" style="--image-position: center 45%;">
+        </div>
+        <div class="ibs-f-slide">
+          <img src="/assets/ibs/hero-roof.webp" alt="" width="1448" height="1086" decoding="async">
+        </div>
+        <div class="ibs-f-slide">
+          <img src="/assets/ibs/hero-tank.webp" alt="" width="1280" height="960" decoding="async" style="--image-position: center 45%;">
+        </div>
+        <div class="ibs-f-slide">
+          <img src="/assets/ibs/hero-washroom.webp" alt="" width="1361" height="900" decoding="async">
+        </div>
+        <div class="ibs-f-slide">
+          <img src="/assets/ibs/hero-basement.webp" alt="" width="1800" height="1200" decoding="async">
+        </div>
+      </div>
+      <div class="ibs-f-hero-shade" aria-hidden="true"></div>
+      <button class="ibs-f-arrow ibs-f-prev" type="button" aria-label="Previous background image" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"></path></svg>
+      </button>
+      <button class="ibs-f-arrow ibs-f-next" type="button" aria-label="Next background image" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"></path></svg>
+      </button>
+      <div class="ibs-f-wrap">
+        <div class="ibs-f-hero-main">
+          <div class="ibs-f-hero-content">
+            <span class="ibs-f-hero-label">Trusted Building Protection Since 2018</span>
+            <h1 id="ibs-hero-title">
+              Professional Waterproofing &amp;
+              <span>Building Protection in Karachi</span>
+            </h1>
+            <p class="ibs-f-hero-copy">
+              Infinite Building Solutions protects homes, offices, and
+              industrial buildings across Karachi and Pakistan with professional
+              <strong>waterproofing</strong>,
+              <strong>termite proofing</strong>,
+              <strong>XPS insulation</strong>, and
+              <strong>pest control</strong>.
+            </p>
+            <div class="ibs-f-actions">
+              <a class="ibs-f-btn" href="/contact">
+                Get Free Site Survey
+                <span aria-hidden="true">&#8599;</span>
+              </a>
+              <a class="ibs-f-btn ibs-f-hero-call" href="tel:+923323070499">
+                Call 0332-3070499
+              </a>
+            </div>
           </div>
-          <h1 id="ibs-hero-title">
-            Professional Waterproofing &amp;
-            <span>Building Protection in Karachi</span>
-          </h1>
-          <p class="ibs-hero-description">
-             Infinite Building Solutions protects homes, offices, and
-            industrial buildings across Karachi and Pakistan with professional
-            <strong>waterproofing</strong>,
-            <strong>termite proofing</strong>,
-            <strong>XPS insulation</strong>, and
-            <strong>pest control</strong>.
-          </p>
-          <div class="ibs-actions">
-            <a class="ibs-btn ibs-btn-blue" href="tel:+923323070499">
-              Call 0332-3070499
-            </a>
-            <a class="ibs-btn ibs-btn-outline" href="/contact">
-              Get Free Site Survey
-            </a>
+        </div>
+        <div class="ibs-f-hero-bottom">
+          <div class="ibs-f-controls" hidden>
+            <div class="ibs-f-dots" aria-label="Choose background image">
+              <button class="ibs-f-dot" type="button" aria-label="Show PEB shed waterproofing image" aria-pressed="true"></button>
+              <button class="ibs-f-dot" type="button" aria-label="Show roof waterproofing image" aria-pressed="false"></button>
+              <button class="ibs-f-dot" type="button" aria-label="Show water tank waterproofing image" aria-pressed="false"></button>
+              <button class="ibs-f-dot" type="button" aria-label="Show washroom waterproofing image" aria-pressed="false"></button>
+              <button class="ibs-f-dot" type="button" aria-label="Show basement waterproofing image" aria-pressed="false"></button>
+            </div>
+            <button class="ibs-f-pause" type="button" aria-label="Pause background slideshow">
+              <span aria-hidden="true">&#10074;&#10074;</span>
+            </button>
           </div>
         </div>
       </div>
@@ -1679,5 +1967,258 @@
 </button>
 <!--IBS:FOOTER-->
   <script src="/components/shared-behavior.js" defer></script>
+  <script>
+    (() => {
+      function boot() {
+        document.querySelectorAll("[data-ibs-final-hero]").forEach(hero => {
+          if (hero.dataset.ready === "fixed") return;
+          hero.dataset.ready = "fixed";
+
+          const slides = [...hero.querySelectorAll(".ibs-f-slide")];
+          const dots = [...hero.querySelectorAll(".ibs-f-dot")];
+          const controls = hero.querySelector(".ibs-f-controls");
+          const pause = hero.querySelector(".ibs-f-pause");
+          const icon = pause?.querySelector("span");
+          const prev = hero.querySelector(".ibs-f-prev");
+          const next = hero.querySelector(".ibs-f-next");
+          const motion = matchMedia("(prefers-reduced-motion: reduce)");
+
+          if (!slides.length) return;
+
+          let current = Math.max(
+            0,
+            slides.findIndex(slide => slide.classList.contains("is-active"))
+          );
+
+          let timer = null;
+          let cleanup = null;
+          let busy = false;
+          let paused = motion.matches;
+          let keyboardFocus = false;
+          let pending = null;
+
+          const ready = index => {
+            const img = slides[index]?.querySelector("img");
+            return !!(img && img.complete && img.naturalWidth);
+          };
+
+          function fullWidth() {
+            hero.style.setProperty(
+              "--ibs-full-width",
+              document.documentElement.clientWidth + "px"
+            );
+          }
+
+          function stop() {
+            clearTimeout(timer);
+            timer = null;
+          }
+
+          function schedule() {
+            stop();
+
+            if (
+              paused ||
+              keyboardFocus ||
+              document.hidden ||
+              !hero.isConnected
+            ) {
+              return;
+            }
+
+            timer = setTimeout(() => move(1), 4000);
+          }
+
+          function update() {
+            hero.dataset.paused = String(paused);
+
+            pause?.setAttribute(
+              "aria-label",
+              paused
+                ? "Play background slideshow"
+                : "Pause background slideshow"
+            );
+
+            if (icon) {
+              icon.textContent = paused ? "\u25B6" : "\u275A\u275A";
+            }
+
+            dots.forEach((dot, index) => {
+              dot.setAttribute(
+                "aria-pressed",
+                String(index === current)
+              );
+              dot.disabled = !ready(index);
+            });
+          }
+
+          function show(index) {
+            if (!ready(index)) return false;
+
+            if (busy) {
+              pending = index;
+              return false;
+            }
+
+            if (index === current) {
+              schedule();
+              return false;
+            }
+
+            const outgoing = slides[current];
+            const incoming = slides[index];
+
+            busy = true;
+
+            outgoing.classList.add("is-leaving");
+            outgoing.classList.remove("is-active");
+
+            incoming.classList.remove("is-leaving");
+            incoming.classList.add("is-active");
+
+            current = index;
+            update();
+
+            clearTimeout(cleanup);
+
+            cleanup = setTimeout(() => {
+              outgoing.classList.remove("is-leaving");
+              busy = false;
+
+              if (pending !== null) {
+                const requested = pending;
+                pending = null;
+                show(requested);
+              }
+            }, motion.matches ? 0 : 1000);
+
+            schedule();
+            return true;
+          }
+
+          function move(direction) {
+            for (let step = 1; step < slides.length; step++) {
+              const index = (
+                current +
+                direction * step +
+                slides.length
+              ) % slides.length;
+
+              if (ready(index)) {
+                show(index);
+                return;
+              }
+            }
+
+            schedule();
+          }
+
+          function interact(event, action) {
+            if (event.detail > 0) {
+              keyboardFocus = false;
+            }
+
+            action();
+            schedule();
+          }
+
+          slides.forEach((slide, index) => {
+            const image = slide.querySelector("img");
+            if (!image) return;
+
+            const loaded = () => {
+              update();
+
+              if (!ready(current) && ready(index)) {
+                show(index);
+              }
+            };
+
+            image.addEventListener("load", loaded);
+
+            image.addEventListener("error", () => {
+              update();
+
+              if (index === current) {
+                move(1);
+              }
+            });
+          });
+
+          dots.forEach((dot, index) => {
+            dot.addEventListener("click", event => {
+              interact(event, () => show(index));
+            });
+          });
+
+          prev?.addEventListener("click", event => {
+            interact(event, () => move(-1));
+          });
+
+          next?.addEventListener("click", event => {
+            interact(event, () => move(1));
+          });
+
+          pause?.addEventListener("click", () => {
+            paused = !paused;
+            keyboardFocus = false;
+            update();
+            schedule();
+          });
+
+          hero.addEventListener("focusin", event => {
+            keyboardFocus = (
+              event.target !== pause &&
+              event.target.matches(":focus-visible")
+            );
+
+            schedule();
+          });
+
+          hero.addEventListener("focusout", event => {
+            if (!hero.contains(event.relatedTarget)) {
+              keyboardFocus = false;
+              schedule();
+            }
+          });
+
+          document.addEventListener("visibilitychange", schedule);
+
+          motion.addEventListener("change", event => {
+            paused = event.matches;
+            update();
+            schedule();
+          });
+
+          window.addEventListener("resize", fullWidth, {
+            passive: true
+          });
+
+          if (typeof ResizeObserver !== "undefined") {
+            new ResizeObserver(fullWidth).observe(
+              document.documentElement
+            );
+          }
+
+          fullWidth();
+
+          if (controls) controls.hidden = false;
+          if (prev) prev.hidden = false;
+          if (next) next.hidden = false;
+
+          update();
+          schedule();
+        });
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", boot, {
+          once: true
+        });
+      } else {
+        boot();
+      }
+    })();
+  </script>
 </body>
 </html>
