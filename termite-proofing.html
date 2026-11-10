@@ -624,6 +624,181 @@
       html { scroll-behavior: auto; }
       * { transition: none !important; }
     }
+    /* SLIDESHOW HERO - same style as homepage/waterproofing hero */
+    .ibs-f-hero {
+      position: relative;
+      overflow: hidden;
+      background: #102b43;
+      color: #fff;
+      isolation: isolate;
+    }
+    .hero.ibs-f-hero {
+      background: #102b43;
+    }
+    .ibs-f-hero > .ibs-container,
+    .ibs-f-hero > .container {
+      position: relative;
+      z-index: 4;
+    }
+    .ibs-f-backgrounds {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .ibs-f-slide {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 1000ms ease-in-out;
+      pointer-events: none;
+    }
+    .ibs-f-slide.is-active {
+      z-index: 2;
+      opacity: 1;
+    }
+    .ibs-f-slide.is-leaving {
+      z-index: 1;
+      opacity: 0;
+    }
+    .ibs-f-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      object-fit: cover;
+      object-position: var(--image-position, center);
+      transform: scale(1);
+      transform-origin: center;
+      animation: none;
+    }
+    .ibs-f-slide.is-active img,
+    .ibs-f-slide.is-leaving img {
+      animation: ibsFinalZoom 6000ms linear both;
+    }
+    .ibs-f-hero-shade {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      background:
+        linear-gradient(90deg, rgba(5, 19, 32, .33), rgba(5, 19, 32, .42) 50%, rgba(5, 19, 32, .33)),
+        linear-gradient(180deg, rgba(5, 19, 32, .12), rgba(5, 19, 32, .12) 60%, rgba(5, 19, 32, .48));
+      pointer-events: none;
+    }
+    .ibs-f-hero-bottom {
+      padding-bottom: 16px;
+    }
+    .ibs-f-arrow {
+      position: absolute;
+      top: 46%;
+      z-index: 5;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      color: #fff;
+      background: rgba(7, 25, 43, .17);
+      border: 1px solid rgba(255, 255, 255, .55);
+      border-radius: 50%;
+      box-shadow: none;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+    .ibs-f-arrow:hover {
+      background: #1d4ed8;
+      border-color: #1d4ed8;
+    }
+    .ibs-f-arrow svg {
+      width: 19px;
+      height: 19px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .ibs-f-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+    .ibs-f-dots {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .ibs-f-dot {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      background: transparent;
+      border: 0;
+      border-radius: 50%;
+      box-shadow: none;
+      cursor: pointer;
+    }
+    .ibs-f-dot::before {
+      width: 7px;
+      height: 7px;
+      background: rgba(255, 255, 255, .55);
+      border-radius: 50%;
+      content: "";
+    }
+    .ibs-f-dot[aria-pressed="true"]::before {
+      background: #fff;
+      transform: scale(1.35);
+    }
+    .ibs-f-dot:disabled {
+      opacity: .3;
+      cursor: default;
+    }
+    .ibs-f-pause {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      background: rgba(9, 28, 47, .18);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, .45);
+      border-radius: 50%;
+      box-shadow: none;
+      font-size: 11px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .ibs-f-hero [hidden] {
+      display: none !important;
+    }
+@keyframes ibsFinalZoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.15); }
+    }
+    .ibs-f-prev { left: 20px; }
+    .ibs-f-next { right: 20px; }
+    @media (max-width: 1000px) {
+      .ibs-f-prev { left: 10px; }
+      .ibs-f-next { right: 10px; }
+    }
+    @media (max-width: 640px) {
+      .ibs-f-arrow {
+        top: auto;
+        bottom: 13px;
+        width: 32px;
+        height: 32px;
+        transform: none;
+      }
+      .ibs-f-prev { left: 16px; }
+      .ibs-f-next { right: 16px; }
+    }
   </style>
   <link rel="stylesheet" href="/components/shared-blocks.css">
 </head>
@@ -739,7 +914,32 @@
   </svg>
   <main id="main">
     <!-- HERO -->
-    <section class="hero" aria-labelledby="page-title">
+    <section class="hero ibs-f-hero" data-ibs-final-hero aria-labelledby="page-title">
+      <div class="ibs-f-backgrounds" aria-hidden="true">
+        <div class="ibs-f-slide is-active">
+          <img src="/assets/ibs/hero-peb.webp" alt="" width="1600" height="1000" fetchpriority="high" decoding="async" style="--image-position: center 45%;">
+        </div>
+        <div class="ibs-f-slide">
+          <img src="/assets/ibs/hero-roof.webp" alt="" width="1448" height="1086" decoding="async">
+        </div>
+        <div class="ibs-f-slide">
+          <img src="/assets/ibs/hero-tank.webp" alt="" width="1280" height="960" decoding="async" style="--image-position: center 45%;">
+        </div>
+        <div class="ibs-f-slide">
+          <img src="/assets/ibs/hero-washroom.webp" alt="" width="1361" height="900" decoding="async">
+        </div>
+        <div class="ibs-f-slide">
+          <img src="/assets/ibs/hero-basement.webp" alt="" width="1800" height="1200" decoding="async">
+        </div>
+      </div>
+      <div class="ibs-f-hero-shade" aria-hidden="true"></div>
+      <button class="ibs-f-arrow ibs-f-prev" type="button" aria-label="Previous background image" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"></path></svg>
+      </button>
+      <button class="ibs-f-arrow ibs-f-next" type="button" aria-label="Next background image" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"></path></svg>
+      </button>
+
       <div class="container">
         <span class="eyebrow">Termite Treatment Â· Karachi</span>
         <h1 id="page-title">
@@ -783,7 +983,21 @@
           <span aria-current="page">Termite Proofing</span>
         </nav>
       </div>
-    </section>
+            <div class="ibs-f-hero-bottom">
+          <div class="ibs-f-controls" hidden>
+            <div class="ibs-f-dots" aria-label="Choose background image">
+              <button class="ibs-f-dot" type="button" aria-label="Show PEB shed waterproofing image" aria-pressed="true"></button>
+              <button class="ibs-f-dot" type="button" aria-label="Show roof waterproofing image" aria-pressed="false"></button>
+              <button class="ibs-f-dot" type="button" aria-label="Show water tank waterproofing image" aria-pressed="false"></button>
+              <button class="ibs-f-dot" type="button" aria-label="Show washroom waterproofing image" aria-pressed="false"></button>
+              <button class="ibs-f-dot" type="button" aria-label="Show basement waterproofing image" aria-pressed="false"></button>
+            </div>
+            <button class="ibs-f-pause" type="button" aria-label="Pause background slideshow">
+              <span aria-hidden="true">&#10074;&#10074;</span>
+            </button>
+          </div>
+        </div>
+</section>
     <!-- INTRODUCTION -->
     <section class="section" aria-labelledby="intro-title">
       <div class="container">
@@ -1577,5 +1791,259 @@
 </button>
 <!--IBS:FOOTER-->
   <script src="/components/shared-behavior.js" defer></script>
+  <script>
+    (() => {
+      function boot() {
+        document.querySelectorAll("[data-ibs-final-hero]").forEach(hero => {
+          if (hero.dataset.ready === "fixed") return;
+          hero.dataset.ready = "fixed";
+
+          const slides = [...hero.querySelectorAll(".ibs-f-slide")];
+          const dots = [...hero.querySelectorAll(".ibs-f-dot")];
+          const controls = hero.querySelector(".ibs-f-controls");
+          const pause = hero.querySelector(".ibs-f-pause");
+          const icon = pause?.querySelector("span");
+          const prev = hero.querySelector(".ibs-f-prev");
+          const next = hero.querySelector(".ibs-f-next");
+          const motion = matchMedia("(prefers-reduced-motion: reduce)");
+
+          if (!slides.length) return;
+
+          let current = Math.max(
+            0,
+            slides.findIndex(slide => slide.classList.contains("is-active"))
+          );
+
+          let timer = null;
+          let cleanup = null;
+          let busy = false;
+          let paused = motion.matches;
+          let keyboardFocus = false;
+          let pending = null;
+
+          const ready = index => {
+            const img = slides[index]?.querySelector("img");
+            return !!(img && img.complete && img.naturalWidth);
+          };
+
+          function fullWidth() {
+            hero.style.setProperty(
+              "--ibs-full-width",
+              document.documentElement.clientWidth + "px"
+            );
+          }
+
+          function stop() {
+            clearTimeout(timer);
+            timer = null;
+          }
+
+          function schedule() {
+            stop();
+
+            if (
+              paused ||
+              keyboardFocus ||
+              document.hidden ||
+              !hero.isConnected
+            ) {
+              return;
+            }
+
+            timer = setTimeout(() => move(1), 4000);
+          }
+
+          function update() {
+            hero.dataset.paused = String(paused);
+
+            pause?.setAttribute(
+              "aria-label",
+              paused
+                ? "Play background slideshow"
+                : "Pause background slideshow"
+            );
+
+            if (icon) {
+              icon.textContent = paused ? "\u25B6" : "\u275A\u275A";
+            }
+
+            dots.forEach((dot, index) => {
+              dot.setAttribute(
+                "aria-pressed",
+                String(index === current)
+              );
+              dot.disabled = !ready(index);
+            });
+          }
+
+          function show(index) {
+            if (!ready(index)) return false;
+
+            if (busy) {
+              pending = index;
+              return false;
+            }
+
+            if (index === current) {
+              schedule();
+              return false;
+            }
+
+            const outgoing = slides[current];
+            const incoming = slides[index];
+
+            busy = true;
+
+            outgoing.classList.add("is-leaving");
+            outgoing.classList.remove("is-active");
+
+            incoming.classList.remove("is-leaving");
+            incoming.classList.add("is-active");
+
+            current = index;
+            update();
+
+            clearTimeout(cleanup);
+
+            cleanup = setTimeout(() => {
+              outgoing.classList.remove("is-leaving");
+              busy = false;
+
+              if (pending !== null) {
+                const requested = pending;
+                pending = null;
+                show(requested);
+              }
+            }, motion.matches ? 0 : 1000);
+
+            schedule();
+            return true;
+          }
+
+          function move(direction) {
+            for (let step = 1; step < slides.length; step++) {
+              const index = (
+                current +
+                direction * step +
+                slides.length
+              ) % slides.length;
+
+              if (ready(index)) {
+                show(index);
+                return;
+              }
+            }
+
+            schedule();
+          }
+
+          function interact(event, action) {
+            if (event.detail > 0) {
+              keyboardFocus = false;
+            }
+
+            action();
+            schedule();
+          }
+
+          slides.forEach((slide, index) => {
+            const image = slide.querySelector("img");
+            if (!image) return;
+
+            const loaded = () => {
+              update();
+
+              if (!ready(current) && ready(index)) {
+                show(index);
+              }
+            };
+
+            image.addEventListener("load", loaded);
+
+            image.addEventListener("error", () => {
+              update();
+
+              if (index === current) {
+                move(1);
+              }
+            });
+          });
+
+          dots.forEach((dot, index) => {
+            dot.addEventListener("click", event => {
+              interact(event, () => show(index));
+            });
+          });
+
+          prev?.addEventListener("click", event => {
+            interact(event, () => move(-1));
+          });
+
+          next?.addEventListener("click", event => {
+            interact(event, () => move(1));
+          });
+
+          pause?.addEventListener("click", () => {
+            paused = !paused;
+            keyboardFocus = false;
+            update();
+            schedule();
+          });
+
+          hero.addEventListener("focusin", event => {
+            keyboardFocus = (
+              event.target !== pause &&
+              event.target.matches(":focus-visible")
+            );
+
+            schedule();
+          });
+
+          hero.addEventListener("focusout", event => {
+            if (!hero.contains(event.relatedTarget)) {
+              keyboardFocus = false;
+              schedule();
+            }
+          });
+
+          document.addEventListener("visibilitychange", schedule);
+
+          motion.addEventListener("change", event => {
+            paused = event.matches;
+            update();
+            schedule();
+          });
+
+          window.addEventListener("resize", fullWidth, {
+            passive: true
+          });
+
+          if (typeof ResizeObserver !== "undefined") {
+            new ResizeObserver(fullWidth).observe(
+              document.documentElement
+            );
+          }
+
+          fullWidth();
+
+          if (controls) controls.hidden = false;
+          if (prev) prev.hidden = false;
+          if (next) next.hidden = false;
+
+          update();
+          schedule();
+        });
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", boot, {
+          once: true
+        });
+      } else {
+        boot();
+      }
+    })();
+  </script>
+
 </body>
 </html>
