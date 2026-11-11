@@ -687,6 +687,33 @@
       text-align: center;
       margin-top: 32px;
     }
+    /* PROBLEMS WE SOLVE */
+    .ibs-problems-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+    .ibs-problem-card {
+      display: flex;
+      flex-direction: column;
+      padding: 28px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 6px 24px rgba(15, 42, 67, .03);
+    }
+    .ibs-problem-card .ibs-service-icon {
+      margin-bottom: 18px;
+    }
+    .ibs-problem-card h3 {
+      font-size: 19px;
+      margin: 0 0 8px;
+    }
+    .ibs-problem-card p {
+      font-size: 14px;
+      line-height: 1.85;
+      margin: 0 0 16px;
+    }
     /* PROCESS */
     .ibs-process-grid {
       display: grid;
@@ -1082,18 +1109,21 @@
       }
       .ibs-services-grid,
       .ibs-process-grid,
-      .ibs-why-grid {
+      .ibs-why-grid,
+      .ibs-problems-grid {
         grid-template-columns: 1fr;
       }
       .ibs-service-card,
       .ibs-why-card,
-      .ibs-review-card {
+      .ibs-review-card,
+      .ibs-problem-card {
         padding: 24px 22px;
       }
       .ibs-service-top {
         gap: 13px;
       }
-      .ibs-service-card h3 {
+      .ibs-service-card h3,
+      .ibs-problem-card h3 {
         font-size: 18px;
       }
       .ibs-faq-item summary {
@@ -1304,6 +1334,110 @@
         </div>
       </div>
     </div>
+    <!-- PROBLEMS WE SOLVE -->
+    <section
+      class="ibs-section"
+      aria-labelledby="ibs-problems-title"
+    >
+      <div class="ibs-container">
+        <div class="ibs-section-head">
+          <span class="ibs-eyebrow">Common Problems</span>
+          <h2 id="ibs-problems-title">
+            Problems We Solve
+          </h2>
+          <p>
+            Leaks, damp, termites or heat — if any of these sound familiar,
+            IBS has a lasting fix for it.
+          </p>
+        </div>
+        <div class="ibs-problems-grid">
+          <!-- ROOF LEAKS -->
+          <article class="ibs-problem-card">
+            <div class="ibs-service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3.5c3.2 4.2 6 7.2 6 10.3a6 6 0 1 1-12 0c0-3.1 2.8-6.1 6-10.3z"/></svg>
+            </div>
+            <span class="ibs-service-tag">Waterproofing</span>
+            <h3>Roof Leaks &amp; Seepage</h3>
+            <p>
+              Rainwater coming through your roof, terrace or balcony?
+            </p>
+            <a class="ibs-service-link" href="/waterproofing">
+              See the solution <span aria-hidden="true">→</span>
+            </a>
+          </article>
+          <!-- DAMP WALLS -->
+          <article class="ibs-problem-card">
+            <div class="ibs-service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M12 4l-1.8 4.5L12.5 12l-2 8"/></svg>
+            </div>
+            <span class="ibs-service-tag">Waterproofing</span>
+            <h3>Damp Walls &amp; Peeling Paint</h3>
+            <p>
+              Damp patches, bubbling paint or plaster falling off your walls?
+            </p>
+            <a class="ibs-service-link" href="/waterproofing">
+              See the solution <span aria-hidden="true">→</span>
+            </a>
+          </article>
+          <!-- BATHROOM & TANK LEAKS -->
+          <article class="ibs-problem-card">
+            <div class="ibs-service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 8h14v12H5z"/><path d="M5 12h14"/><path d="M9 8V4h6"/></svg>
+            </div>
+            <span class="ibs-service-tag">Waterproofing</span>
+            <h3>Bathroom &amp; Tank Leaks</h3>
+            <p>
+              Water leaking from bathrooms, kitchens or overhead tanks?
+            </p>
+            <a class="ibs-service-link" href="/waterproofing">
+              See the solution <span aria-hidden="true">→</span>
+            </a>
+          </article>
+          <!-- TERMITE DAMAGE -->
+          <article class="ibs-problem-card">
+            <div class="ibs-service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><ellipse cx="12" cy="14" rx="4.5" ry="6"/><circle cx="12" cy="6.5" r="2.5"/><path d="M7.5 10L4 8.5M7.5 14H3.5M7.5 18l-3.5 1.5M16.5 10l3.5-1.5M16.5 14h4M16.5 18l3.5 1.5"/></svg>
+            </div>
+            <span class="ibs-service-tag">Termite Proofing</span>
+            <h3>Termites Eating Your Wood</h3>
+            <p>
+              Mud tubes on walls, hollow-sounding wood or damaged door frames?
+            </p>
+            <a class="ibs-service-link" href="/termite-proofing">
+              See the solution <span aria-hidden="true">→</span>
+            </a>
+          </article>
+          <!-- HEAT -->
+          <article class="ibs-problem-card">
+            <div class="ibs-service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5 5l1.8 1.8M17.2 17.2L19 19M19 5l-1.8 1.8M6.8 17.2L5 19"/></svg>
+            </div>
+            <span class="ibs-service-tag">XPS Insulation</span>
+            <h3>Too Much Heat Indoors</h3>
+            <p>
+              Top floor unbearably hot in summer, with high cooling bills?
+            </p>
+            <a class="ibs-service-link" href="/thermal-insulation">
+              See the solution <span aria-hidden="true">→</span>
+            </a>
+          </article>
+          <!-- PESTS -->
+          <article class="ibs-problem-card">
+            <div class="ibs-service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M9 10h6v10a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 20z"/><path d="M10.5 10V6.5h3V10"/><path d="M10.5 6.5h3l1-2.5h.5"/><path d="M15 4.5L19 3"/></svg>
+            </div>
+            <span class="ibs-service-tag">Pest Control</span>
+            <h3>Cockroaches &amp; Pests</h3>
+            <p>
+              Cockroaches, mosquitoes or rodents in your home or workplace?
+            </p>
+            <a class="ibs-service-link" href="/pest-control">
+              See the solution <span aria-hidden="true">→</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
     <!-- SERVICES -->
     <section
       class="ibs-section ibs-soft"
