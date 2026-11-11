@@ -200,16 +200,343 @@
       flex-wrap: wrap;
       gap: 12px;
     }
-    /* HERO */
-    .hero {
-      padding: 85px 0 60px;
-      color: #fff;
-      text-align: center;
-      background:
-        linear-gradient(rgba(15,42,67,.89), rgba(15,42,67,.94)),
-        url("/assets/herosection.2.png")
-        center / cover;
+    /* HERO - waterproofing-style slideshow, homepage content */
+    .ibs-f-wrap {
+      width: min(1180px, calc(100% - 48px));
+      margin-inline: auto;
     }
+    .ibs-f-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-top: 23px;
+    }
+    .ibs-f-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 48px;
+      padding: 13px 19px;
+      color: #fff;
+      background: var(--blue);
+      border: 1px solid var(--blue);
+      border-radius: 6px;
+      box-shadow: 0 5px 14px rgba(29, 78, 216, .1);
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.5;
+      text-align: center;
+      text-decoration: none;
+      transition: background .2s, border-color .2s;
+    }
+    .ibs-f-btn:hover {
+      color: #fff;
+      background: #153fae;
+      border-color: #153fae;
+    }
+    .ibs-f-btn span {
+      font-size: 19px;
+      line-height: 1;
+    }
+    .ibs-f-hero {
+      position: relative;
+      width: var(--ibs-full-width, 100%);
+      max-width: none;
+      margin-inline: calc((100% - var(--ibs-full-width, 100%)) / 2);
+      overflow: hidden;
+      background: #102b43;
+      color: #fff;
+      isolation: isolate;
+    }
+    .ibs-f-backgrounds {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .ibs-f-slide {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 1000ms ease-in-out;
+      pointer-events: none;
+    }
+    .ibs-f-slide.is-active {
+      z-index: 2;
+      opacity: 1;
+    }
+    .ibs-f-slide.is-leaving {
+      z-index: 1;
+      opacity: 0;
+    }
+    .ibs-f-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      object-fit: cover;
+      object-position: var(--image-position, center);
+      transform: scale(1);
+      transform-origin: center;
+      animation: none;
+    }
+    .ibs-f-slide.is-active img,
+    .ibs-f-slide.is-leaving img {
+      animation: ibsFinalZoom 6000ms linear both;
+    }
+    @keyframes ibsFinalZoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.15); }
+    }
+    .ibs-f-hero-shade {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      background:
+        linear-gradient(90deg, rgba(5, 19, 32, .33), rgba(5, 19, 32, .42) 50%, rgba(5, 19, 32, .33)),
+        linear-gradient(180deg, rgba(5, 19, 32, .12), rgba(5, 19, 32, .12) 60%, rgba(5, 19, 32, .48));
+      pointer-events: none;
+    }
+    .ibs-f-hero > .ibs-f-wrap {
+      position: relative;
+      z-index: 4;
+    }
+    .ibs-f-hero-main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 555px;
+      padding: 70px 65px 45px;
+    }
+    .ibs-f-hero-content {
+      width: 100%;
+      max-width: 940px;
+      margin-inline: auto;
+      padding: 0;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      text-align: center;
+    }
+    .ibs-f-hero-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      margin-bottom: 18px;
+      color: #edf4ff;
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1.6;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, .4);
+    }
+    .ibs-f-hero-label::before {
+      width: 7px;
+      height: 7px;
+      background: #bed7ff;
+      border-radius: 50%;
+      content: "";
+    }
+    .ibs-f-hero h1 {
+      max-width: 940px;
+      margin: 0 auto 23px;
+      color: #fff;
+      font-size: clamp(36px, 4.6vw, 61px);
+      font-weight: 700;
+      line-height: 1.17;
+      letter-spacing: -1.7px;
+      text-align: center;
+      text-shadow: 0 3px 18px rgba(0, 0, 0, .35);
+    }
+    .ibs-f-hero h1 span {
+      display: block;
+      margin-top: 5px;
+      color: #d5e5ff;
+    }
+    .ibs-f-hero-copy {
+      max-width: 820px;
+      margin: 0 auto !important;
+      color: #fff;
+      font-size: 16px;
+      line-height: 1.9;
+      text-align: center;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, .5);
+    }
+    .ibs-f-hero-copy strong {
+      color: #fff;
+      font-weight: 600;
+    }
+    .ibs-f-hero .ibs-f-actions {
+      justify-content: center;
+      margin-top: 27px;
+    }
+    .ibs-f-hero .ibs-f-btn {
+      padding: 14px 21px;
+    }
+    .ibs-f-hero-call {
+      color: #fff;
+      background: rgba(255, 255, 255, .1);
+      border-color: rgba(255, 255, 255, .7);
+      -webkit-backdrop-filter: blur(3px);
+      backdrop-filter: blur(3px);
+    }
+    .ibs-f-hero-call:hover {
+      color: #0f2a43;
+      background: #fff;
+      border-color: #fff;
+    }
+    .ibs-f-hero-bottom {
+      padding-bottom: 16px;
+    }
+    .ibs-f-arrow {
+      position: absolute;
+      top: 46%;
+      z-index: 5;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      color: #fff;
+      background: rgba(7, 25, 43, .17);
+      border: 1px solid rgba(255, 255, 255, .55);
+      border-radius: 50%;
+      box-shadow: none;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+    .ibs-f-arrow:hover {
+      background: #1d4ed8;
+      border-color: #1d4ed8;
+    }
+    .ibs-f-arrow svg {
+      width: 19px;
+      height: 19px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .ibs-f-prev { left: 20px; }
+    .ibs-f-next { right: 20px; }
+    .ibs-f-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+    .ibs-f-dots {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .ibs-f-dot {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      background: transparent;
+      border: 0;
+      border-radius: 50%;
+      box-shadow: none;
+      cursor: pointer;
+    }
+    .ibs-f-dot::before {
+      width: 7px;
+      height: 7px;
+      background: rgba(255, 255, 255, .55);
+      border-radius: 50%;
+      content: "";
+    }
+    .ibs-f-dot[aria-pressed="true"]::before {
+      background: #fff;
+      transform: scale(1.35);
+    }
+    .ibs-f-dot:disabled {
+      opacity: .3;
+      cursor: default;
+    }
+    .ibs-f-pause {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      background: rgba(9, 28, 47, .18);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, .45);
+      border-radius: 50%;
+      box-shadow: none;
+      font-size: 11px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .ibs-f-hero [hidden] {
+      display: none !important;
+    }
+    @media (max-width: 1000px) {
+      .ibs-f-hero-main {
+        min-height: 535px;
+        padding-inline: 55px;
+      }
+      .ibs-f-prev { left: 10px; }
+      .ibs-f-next { right: 10px; }
+    }
+
+    @media (max-width: 640px) {
+      .ibs-f-wrap {
+        width: calc(100% - 32px);
+      }
+      .ibs-f-hero-main {
+        min-height: 0;
+        padding: 50px 5px 34px;
+      }
+      .ibs-f-hero h1 {
+        font-size: clamp(33px, 8.5vw, 44px);
+        letter-spacing: -1px;
+        margin-bottom: 20px;
+      }
+      .ibs-f-hero-label {
+        font-size: 10px;
+        letter-spacing: 1.2px;
+      }
+      .ibs-f-hero-copy {
+        font-size: 14px;
+        line-height: 1.85;
+      }
+      .ibs-f-hero .ibs-f-actions {
+        gap: 10px;
+        margin-top: 23px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .ibs-f-hero .ibs-f-btn {
+        padding: 12px 16px;
+        font-size: 12px;
+        width: 100%;
+      }
+      .ibs-f-arrow {
+        top: auto;
+        bottom: 13px;
+        width: 32px;
+        height: 32px;
+        transform: none;
+      }
+      .ibs-f-prev { left: 16px; }
+      .ibs-f-next { right: 16px; }
+    }
+    /* HERO EXTRAS - kept from this page's old hero */
     .eyebrow {
       display: inline-block;
       margin-bottom: 14px;
@@ -218,22 +545,6 @@
       font-weight: 600;
       letter-spacing: 1.4px;
       text-transform: uppercase;
-    }
-    .hero .eyebrow { color: #bed4ff; }
-    .hero h1 {
-      max-width: 920px;
-      margin: 0 auto 22px;
-      color: #fff;
-      font-size: clamp(34px,5vw,58px);
-      line-height: 1.15;
-      letter-spacing: -1.5px;
-    }
-    .hero h1 span { color: #b8d1ff; }
-    .hero-copy {
-      max-width: 770px;
-      margin: 0 auto 28px;
-      color: #e0e8f1;
-      font-size: 16px;
     }
     .badges {
       display: flex;
@@ -600,7 +911,6 @@
       }
       .two-columns,
       .grid-three { grid-template-columns: 1fr; }
-      .hero { padding: 65px 0 45px; }
     }
     @media (max-width: 640px) {
       .container { width: calc(100% - 36px); }
@@ -612,8 +922,6 @@
       .card,
       .sign-content { padding: 23px; }
       .sign-image { height: 250px; }
-      .hero h1 { letter-spacing: -.8px; }
-      .hero-copy { font-size: 14px; }
       .badges { gap: 8px; }
       .badges span { font-size: 11px; }
       .cta { padding: 35px 22px; }
@@ -623,181 +931,6 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       * { transition: none !important; }
-    }
-    /* SLIDESHOW HERO - same style as homepage/waterproofing hero */
-    .ibs-f-hero {
-      position: relative;
-      overflow: hidden;
-      background: #102b43;
-      color: #fff;
-      isolation: isolate;
-    }
-    .hero.ibs-f-hero {
-      background: #102b43;
-    }
-    .ibs-f-hero > .ibs-container,
-    .ibs-f-hero > .container {
-      position: relative;
-      z-index: 4;
-    }
-    .ibs-f-backgrounds {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      overflow: hidden;
-    }
-    .ibs-f-slide {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      opacity: 0;
-      transition: opacity 1000ms ease-in-out;
-      pointer-events: none;
-    }
-    .ibs-f-slide.is-active {
-      z-index: 2;
-      opacity: 1;
-    }
-    .ibs-f-slide.is-leaving {
-      z-index: 1;
-      opacity: 0;
-    }
-    .ibs-f-slide img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      max-width: none;
-      object-fit: cover;
-      object-position: var(--image-position, center);
-      transform: scale(1);
-      transform-origin: center;
-      animation: none;
-    }
-    .ibs-f-slide.is-active img,
-    .ibs-f-slide.is-leaving img {
-      animation: ibsFinalZoom 6000ms linear both;
-    }
-    .ibs-f-hero-shade {
-      position: absolute;
-      inset: 0;
-      z-index: 3;
-      background:
-        linear-gradient(90deg, rgba(5, 19, 32, .33), rgba(5, 19, 32, .42) 50%, rgba(5, 19, 32, .33)),
-        linear-gradient(180deg, rgba(5, 19, 32, .12), rgba(5, 19, 32, .12) 60%, rgba(5, 19, 32, .48));
-      pointer-events: none;
-    }
-    .ibs-f-hero-bottom {
-      padding-bottom: 16px;
-    }
-    .ibs-f-arrow {
-      position: absolute;
-      top: 46%;
-      z-index: 5;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      padding: 0;
-      color: #fff;
-      background: rgba(7, 25, 43, .17);
-      border: 1px solid rgba(255, 255, 255, .55);
-      border-radius: 50%;
-      box-shadow: none;
-      transform: translateY(-50%);
-      cursor: pointer;
-    }
-    .ibs-f-arrow:hover {
-      background: #1d4ed8;
-      border-color: #1d4ed8;
-    }
-    .ibs-f-arrow svg {
-      width: 19px;
-      height: 19px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .ibs-f-controls {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-    }
-    .ibs-f-dots {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
-    .ibs-f-dot {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-      padding: 0;
-      background: transparent;
-      border: 0;
-      border-radius: 50%;
-      box-shadow: none;
-      cursor: pointer;
-    }
-    .ibs-f-dot::before {
-      width: 7px;
-      height: 7px;
-      background: rgba(255, 255, 255, .55);
-      border-radius: 50%;
-      content: "";
-    }
-    .ibs-f-dot[aria-pressed="true"]::before {
-      background: #fff;
-      transform: scale(1.35);
-    }
-    .ibs-f-dot:disabled {
-      opacity: .3;
-      cursor: default;
-    }
-    .ibs-f-pause {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 30px;
-      height: 30px;
-      padding: 0;
-      background: rgba(9, 28, 47, .18);
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, .45);
-      border-radius: 50%;
-      box-shadow: none;
-      font-size: 11px;
-      line-height: 1;
-      cursor: pointer;
-    }
-    .ibs-f-hero [hidden] {
-      display: none !important;
-    }
-@keyframes ibsFinalZoom {
-      from { transform: scale(1); }
-      to { transform: scale(1.15); }
-    }
-    .ibs-f-prev { left: 20px; }
-    .ibs-f-next { right: 20px; }
-    @media (max-width: 1000px) {
-      .ibs-f-prev { left: 10px; }
-      .ibs-f-next { right: 10px; }
-    }
-    @media (max-width: 640px) {
-      .ibs-f-arrow {
-        top: auto;
-        bottom: 13px;
-        width: 32px;
-        height: 32px;
-        transform: none;
-      }
-      .ibs-f-prev { left: 16px; }
-      .ibs-f-next { right: 16px; }
     }
   </style>
   <link rel="stylesheet" href="/components/shared-blocks.css">
@@ -914,7 +1047,7 @@
   </svg>
   <main id="main">
     <!-- HERO -->
-    <section class="hero ibs-f-hero" data-ibs-final-hero aria-labelledby="page-title">
+    <section class="ibs-f-hero" data-ibs-final-hero aria-labelledby="page-title">
       <div class="ibs-f-backgrounds" aria-hidden="true">
         <div class="ibs-f-slide is-active">
           <img src="/assets/ibs/hero-peb.webp" alt="" width="1600" height="1000" fetchpriority="high" decoding="async" style="--image-position: center 45%;">
@@ -940,50 +1073,22 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"></path></svg>
       </button>
 
-      <div class="container">
-        <span class="eyebrow">Termite Treatment · Karachi</span>
-        <h1 id="page-title">
-          Termite Treatment &amp; Proofing <span>in Karachi</span>
-        </h1>
-        <p class="hero-copy">
-          Protect wooden doors, frames and fixtures from termite damage.
-          IBS provides pre-construction and post-construction treatment,
-          with recommendations based on your property and the signs
-          found during inspection.
-        </p>
-        <div class="actions">
-          <a class="button button-primary" href="/contact">
-            <svg class="icon" aria-hidden="true"><use href="#search"/></svg>
-            Request a Site Inspection
-          </a>
-          <a class="button button-outline" href="tel:+923323070499">
-            <svg class="icon" aria-hidden="true"><use href="#phone"/></svg>
-            Call Now
-          </a>
+            <div class="ibs-f-wrap">
+        <div class="ibs-f-hero-main">
+          <div class="ibs-f-hero-content">
+            <span class="ibs-f-hero-label">Termite Treatment · Karachi</span>
+            <h1 id="page-title">Termite Treatment &amp; Proofing <span>in Karachi</span></h1>
+            <p class="ibs-f-hero-copy">Protect wooden doors, frames and fixtures from termite damage. IBS provides pre-construction and post-construction treatment, with recommendations based on your property and the signs found during inspection.</p>
+            <div class="ibs-f-actions">
+              <a class="ibs-f-btn" href="/contact"><svg class="icon" aria-hidden="true"><use href="#search"/></svg> Request a Site Inspection</a>
+              <a class="ibs-f-btn ibs-f-hero-call" href="tel:+923323070499"><svg class="icon" aria-hidden="true"><use href="#phone"/></svg> Call Now</a>
+            </div>
+            <div class="badges"> <span> <svg class="icon" aria-hidden="true"><use href="#building"/></svg> Pre-Construction Treatment </span> <span> <svg class="icon" aria-hidden="true"><use href="#home"/></svg> Existing Property Treatment </span> <span> <svg class="icon" aria-hidden="true"><use href="#wood"/></svg> Wood &amp; Fixture Assessment </span> </div>
+            <nav class="breadcrumb" aria-label="Breadcrumb"> <a href="/">Home</a> <span aria-hidden="true">›</span> <a href="/services">Services</a> <span aria-hidden="true">›</span> <span aria-current="page">Termite Proofing</span> </nav>
+          </div>
         </div>
-        <div class="badges">
-          <span>
-            <svg class="icon" aria-hidden="true"><use href="#building"/></svg>
-            Pre-Construction Treatment
-          </span>
-          <span>
-            <svg class="icon" aria-hidden="true"><use href="#home"/></svg>
-            Existing Property Treatment
-          </span>
-          <span>
-            <svg class="icon" aria-hidden="true"><use href="#wood"/></svg>
-            Wood &amp; Fixture Assessment
-          </span>
-        </div>
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a>
-          <span aria-hidden="true">›</span>
-          <a href="/services">Services</a>
-          <span aria-hidden="true">›</span>
-          <span aria-current="page">Termite Proofing</span>
-        </nav>
       </div>
-            <div class="ibs-f-hero-bottom">
+      <div class="ibs-f-hero-bottom">
           <div class="ibs-f-controls" hidden>
             <div class="ibs-f-dots" aria-label="Choose background image">
               <button class="ibs-f-dot" type="button" aria-label="Show PEB shed waterproofing image" aria-pressed="true"></button>

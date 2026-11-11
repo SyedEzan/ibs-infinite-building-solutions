@@ -159,6 +159,7 @@
       font-weight: 500;
       line-height: 1.5;
       text-align: center;
+      text-decoration: none;
       transition: background .2s, border-color .2s;
     }
 
@@ -337,6 +338,10 @@
     .ibs-final .ibs-f-hero-copy + .ibs-f-hero-copy {
       margin-top: 12px !important;
     }
+    .ibs-f-hero-copy strong {
+      color: #fff;
+      font-weight: 600;
+    }
 
     .ibs-f-hero .ibs-f-actions {
       justify-content: center;
@@ -427,6 +432,7 @@
       border-radius: 50%;
       box-shadow: none;
       transform: translateY(-50%);
+      cursor: pointer;
     }
 
     .ibs-f-arrow:hover {
@@ -476,6 +482,7 @@
       border: 0;
       border-radius: 50%;
       box-shadow: none;
+      cursor: pointer;
     }
 
     .ibs-f-dot::before {
@@ -510,6 +517,7 @@
       box-shadow: none;
       font-size: 11px;
       line-height: 1;
+      cursor: pointer;
     }
 
     .ibs-f-hero [hidden] {
@@ -1153,11 +1161,14 @@
       .ibs-f-hero .ibs-f-actions {
         gap: 10px;
         margin-top: 23px;
+        flex-direction: column;
+        align-items: stretch;
       }
 
       .ibs-f-hero .ibs-f-btn {
         padding: 12px 16px;
         font-size: 12px;
+        width: 100%;
       }
 
       .ibs-final .ibs-f-arrow {
