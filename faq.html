@@ -100,9 +100,7 @@
       letter-spacing: 1.7px;
       text-transform: uppercase;
     }
-    .ibs-section-head h2,
-    .ibs-form-intro h2,
-    .ibs-area-copy h2 {
+    .ibs-section-head h2 {
       margin-bottom: 16px;
       font-size: clamp(27px, 3vw, 39px);
       font-weight: 700;
@@ -642,208 +640,6 @@
       height: 17px;
       color: #a9ceff;
     }
-    /* CONTACT OPTIONS */
-    .ibs-contact-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 20px;
-    }
-    .ibs-contact-card {
-      min-width: 0;
-      padding: 26px 22px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: #fff;
-    }
-    .ibs-contact-card h3 {
-      margin-bottom: 12px;
-      font-size: 17px;
-    }
-    .ibs-contact-card p,
-    .ibs-contact-card address {
-      margin-bottom: 0;
-      font-size: 13px;
-      font-style: normal;
-      line-height: 1.9;
-    }
-    .ibs-contact-card a {
-      text-decoration: none;
-      overflow-wrap: anywhere;
-    }
-    .ibs-contact-card a:hover {
-      color: var(--blue);
-      text-decoration: underline;
-    }
-    /* FORM */
-    .ibs-form-shell {
-      display: grid;
-      grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      overflow: hidden;
-      background: #fff;
-    }
-    .ibs-form-intro {
-      padding: 40px 34px;
-      background: var(--navy);
-      color: #dce6f2;
-    }
-    .ibs-form-intro .ibs-eyebrow {
-      color: #a9ceff;
-    }
-    .ibs-form-intro h2 {
-      color: #fff;
-      font-size: 32px;
-    }
-    .ibs-form-intro > p {
-      font-size: 14px;
-    }
-    .ibs-form-checks {
-      list-style: none;
-      padding: 0;
-      margin: 26px 0;
-    }
-    .ibs-form-checks li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      margin-bottom: 15px;
-      font-size: 13px;
-    }
-    .ibs-form-checks .ibs-icon {
-      width: 19px;
-      height: 19px;
-      margin-top: 3px;
-      color: #a9ceff;
-    }
-    .ibs-form-direct {
-      padding-top: 24px;
-      border-top: 1px solid rgba(255, 255, 255, .18);
-    }
-    .ibs-form-direct p {
-      margin-bottom: 10px;
-      font-size: 12px;
-    }
-    .ibs-form-direct a {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      color: #fff;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .ibs-form-card {
-      padding: 36px;
-    }
-    .ibs-form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px 18px;
-    }
-    .ibs-field {
-      min-width: 0;
-    }
-    .ibs-field-full {
-      grid-column: 1 / -1;
-    }
-    .ibs-field label {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--navy);
-      font-size: 12px;
-      font-weight: 600;
-    }
-    .ibs-required {
-      color: #b42318;
-    }
-    .ibs-field-label-note {
-      color: #63748a;
-      font-size: 11px;
-      font-weight: 400;
-    }
-    .ibs-input-wrap {
-      position: relative;
-    }
-    .ibs-input-wrap > .ibs-icon {
-      position: absolute;
-      left: 14px;
-      top: 16px;
-      width: 19px;
-      height: 19px;
-      color: #6a7c92;
-      pointer-events: none;
-    }
-    .ibs-field input,
-    .ibs-field select,
-    .ibs-field textarea {
-      display: block;
-      width: 100%;
-      min-height: 51px;
-      padding: 13px 14px 13px 42px;
-      border: 1px solid #ccd8e6;
-      border-radius: 9px;
-      background: #fff;
-      color: var(--navy);
-      font-size: 13px;
-      line-height: 1.6;
-      transition: border-color .2s, box-shadow .2s;
-    }
-    .ibs-field input::placeholder,
-    .ibs-field textarea::placeholder {
-      color: #738398;
-    }
-    .ibs-field textarea {
-      min-height: 140px;
-      resize: vertical;
-    }
-    .ibs-field select {
-      padding-right: 35px;
-    }
-    .ibs-field input:focus,
-    .ibs-field select:focus,
-    .ibs-field textarea:focus {
-      outline: none;
-      border-color: var(--blue);
-      box-shadow: 0 0 0 3px rgba(29, 78, 216, .12);
-    }
-    .ibs-consent {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      margin: 22px 0;
-      font-size: 12px;
-      line-height: 1.7;
-      cursor: pointer;
-    }
-    .ibs-consent input {
-      width: 16px;
-      height: 16px;
-      margin: 3px 0 0;
-      accent-color: var(--blue);
-      flex-shrink: 0;
-    }
-    .ibs-submit {
-      width: 100%;
-    }
-    .ibs-submit:disabled {
-      opacity: .65;
-      cursor: wait;
-    }
-    .ibs-form-status {
-      margin: 14px 0 0;
-      font-size: 12px;
-      line-height: 1.7;
-    }
-    .ibs-form-status:empty {
-      display: none;
-    }
-    .ibs-form-status[data-state="success"] {
-      color: #16703b;
-    }
-    .ibs-form-status[data-state="error"] {
-      color: #b42318;
-    }
     /* WHY IBS */
     .ibs-why-grid {
       display: grid;
@@ -863,53 +659,6 @@
     .ibs-why-card p {
       margin-bottom: 0;
       font-size: 13px;
-    }
-    /* KARACHI SERVICE AREA */
-    .ibs-area-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      align-items: center;
-      gap: 40px;
-    }
-    .ibs-area-copy > p {
-      font-size: 14px;
-    }
-    .ibs-area-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
-    }
-    .ibs-area-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 14px;
-      border: 1px solid var(--border);
-      border-radius: 30px;
-      background: #fff;
-      color: var(--navy);
-      font-size: 12px;
-    }
-    .ibs-area-pill .ibs-icon {
-      width: 15px;
-      height: 15px;
-      color: var(--blue);
-    }
-    .ibs-office-panel {
-      padding: 32px;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      background: #fff;
-    }
-    .ibs-office-panel h3 {
-      margin-bottom: 14px;
-      font-size: 21px;
-    }
-    .ibs-office-panel address {
-      margin-bottom: 23px;
-      font-size: 14px;
-      font-style: normal;
     }
     /* CTA */
     .ibs-cta-section {
@@ -1077,17 +826,9 @@
       .ibs-nav-links {
         gap: 18px;
       }
-      .ibs-contact-grid,
       .ibs-why-grid,
       .ibs-footer-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .ibs-form-shell,
-      .ibs-area-grid {
-        grid-template-columns: 1fr;
-      }
-      .ibs-form-intro {
-        padding: 34px;
       }
     }
     @media (max-width: 820px) {
@@ -1147,22 +888,9 @@
         flex-direction: column;
         gap: 11px;
       }
-      .ibs-contact-grid,
       .ibs-why-grid,
-      .ibs-form-grid,
       .ibs-footer-grid {
         grid-template-columns: 1fr;
-      }
-      .ibs-field-full {
-        grid-column: auto;
-      }
-      .ibs-form-intro,
-      .ibs-form-card,
-      .ibs-office-panel {
-        padding: 26px 22px;
-      }
-      .ibs-form-intro h2 {
-        font-size: 28px;
       }
       .ibs-cta-section {
         padding: 40px 0;
@@ -1386,238 +1114,394 @@
           </div>
         </div>
 </section>
-    <!-- CONTACT OPTIONS -->
-    <section class="ibs-section ibs-soft" aria-labelledby="contactTitle">
+    <!-- FAQ HUB -->
+    <section class="ibs-section ibs-soft" aria-labelledby="faqTitle">
       <div class="ibs-container">
         <div class="ibs-section-head">
-          <span class="ibs-eyebrow">Reach Us Directly</span>
-          <h2 id="contactTitle">Choose the way that works for you.</h2>
+          <span class="ibs-eyebrow">Questions, Answered</span>
+          <h2 id="faqTitle">All your questions, answered.</h2>
           <p>
-            A real specialist is one call away. We make it easy to start
-            with a clear answer.
+            Every question we hear most often — about waterproofing, termite
+            proofing, insulation, pest control and booking — in one place.
+            Choose a service below to filter the list.
           </p>
         </div>
-        <div class="ibs-contact-grid">
-          <article class="ibs-contact-card">
-            <div class="ibs-icon-box">
-              <svg class="ibs-icon" aria-hidden="true">
-                <use href="#icon-phone"></use>
-              </svg>
-            </div>
-            <h3>Call Us</h3>
-            <p>
-              <a href="tel:+923323070499">0332-3070499</a><br>
-              <a href="tel:+923366822155">0336-6822155</a>
-            </p>
-          </article>
-          <article class="ibs-contact-card">
-            <div class="ibs-icon-box">
-              <svg class="ibs-icon" aria-hidden="true">
-                <use href="#icon-mail"></use>
-              </svg>
-            </div>
-            <h3>Email</h3>
-            <p>
-              <a href="mailto:ibsolution786@gmail.com">
-                ibsolution786@gmail.com
-              </a>
-            </p>
-          </article>
-          <article class="ibs-contact-card">
-            <div class="ibs-icon-box">
-              <svg class="ibs-icon" aria-hidden="true">
-                <use href="#icon-pin"></use>
-              </svg>
-            </div>
-            <h3>Office</h3>
-            <address>
-              Office No.02, SB-44, Sector X-4<br>
-              Gulshan-e-Maymar, Karachi
-            </address>
-          </article>
-          <article class="ibs-contact-card">
-            <div class="ibs-icon-box">
-              <svg class="ibs-icon" aria-hidden="true">
-                <use href="#icon-clock"></use>
-              </svg>
-            </div>
-            <h3>Working Hours</h3>
-            <p>
-              Monday to Saturday<br>
-              9 AM to 6 PM
-            </p>
-          </article>
+        <div class="ibs-faq-filters" role="group" aria-label="Filter questions by service">
+          <button type="button" class="ibs-faq-filter is-active" data-filter="all" aria-pressed="true">All Questions (31)</button>
+          <button type="button" class="ibs-faq-filter" data-filter="waterproofing" aria-pressed="false">Waterproofing (8)</button>
+          <button type="button" class="ibs-faq-filter" data-filter="termite" aria-pressed="false">Termite Proofing (6)</button>
+          <button type="button" class="ibs-faq-filter" data-filter="insulation" aria-pressed="false">Thermal Insulation (4)</button>
+          <button type="button" class="ibs-faq-filter" data-filter="pest" aria-pressed="false">Pest Control (4)</button>
+          <button type="button" class="ibs-faq-filter" data-filter="general" aria-pressed="false">General & Booking (9)</button>
         </div>
-      </div>
-    </section>
-    <!-- CONTACT FORM -->
-    <section class="ibs-section" id="inspection" aria-labelledby="formTitle">
-      <div class="ibs-container">
-        <div class="ibs-form-shell">
-          <div class="ibs-form-intro">
-            <span class="ibs-eyebrow">Start With a Conversation</span>
-            <h2 id="formTitle">Send us a message.</h2>
-            <p>
-              Share a few details and our team will prepare the right
-              next step for your property.
-            </p>
-            <ul class="ibs-form-checks">
-              <li>
-                <svg class="ibs-icon" aria-hidden="true">
-                  <use href="#icon-check"></use>
-                </svg>
-                No-obligation first consultation
-              </li>
-              <li>
-                <svg class="ibs-icon" aria-hidden="true">
-                  <use href="#icon-check"></use>
-                </svg>
-                Clear recommendations from specialists
-              </li>
-              <li>
-                <svg class="ibs-icon" aria-hidden="true">
-                  <use href="#icon-check"></use>
-                </svg>
-                Free inspection for qualified projects
-              </li>
-            </ul>
-            <div class="ibs-form-direct">
-              <p>Prefer to speak with someone directly?</p>
-              <a href="tel:+923323070499">
-                <svg class="ibs-icon" aria-hidden="true">
-                  <use href="#icon-phone"></use>
-                </svg>
-                0332-3070499
-              </a>
+        <div class="ibs-faq-group" data-category="waterproofing">
+          <h3 class="ibs-faq-group-title">Waterproofing</h3>
+          <div class="ibs-faq-list">
+          <details class="ibs-faq-item">
+            <summary>
+              Which waterproofing system is suitable for my property?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              The suitable system depends on the application area, surface condition, water exposure and construction stage. IBS&#x27;s treatment schedule includes PU membranes for top roofs and external retaining walls, crystalline systems for specified concrete areas, and cementitious coatings for tanks and washrooms. An inspection helps confirm the appropriate scope.
             </div>
-          </div>
-          <div class="ibs-form-card">
-            <form id="contactForm" action="/api/contact" method="post">
-              <div class="ibs-form-grid">
-                <div class="ibs-field">
-                  <label for="name">
-                    Full Name <span class="ibs-required">*</span>
-                  </label>
-                  <div class="ibs-input-wrap">
-                    <svg class="ibs-icon" aria-hidden="true">
-                      <use href="#icon-user"></use>
-                    </svg>
-                    <input
-                      id="name"
-                      name="name"
-                      type="text"
-                      autocomplete="name"
-                      placeholder="Your full name"
-                      maxlength="120"
-                      required
-                    >
-                  </div>
-                </div>
-                <div class="ibs-field">
-                  <label for="email">
-                    Email <span class="ibs-field-label-note">(optional)</span>
-                  </label>
-                  <div class="ibs-input-wrap">
-                    <svg class="ibs-icon" aria-hidden="true">
-                      <use href="#icon-mail"></use>
-                    </svg>
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      autocomplete="email"
-                      placeholder="you@example.com"
-                      maxlength="254"
-                    >
-                  </div>
-                </div>
-                <div class="ibs-field">
-                  <label for="phone">
-                    Phone Number <span class="ibs-required">*</span>
-                  </label>
-                  <div class="ibs-input-wrap">
-                    <svg class="ibs-icon" aria-hidden="true">
-                      <use href="#icon-phone"></use>
-                    </svg>
-                    <input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      autocomplete="tel"
-                      placeholder="03XX-XXXXXXX"
-                      maxlength="30"
-                      required
-                    >
-                  </div>
-                </div>
-                <div class="ibs-field">
-                  <label for="service">
-                    Select Service <span class="ibs-required">*</span>
-                  </label>
-                  <div class="ibs-input-wrap">
-                    <svg class="ibs-icon" aria-hidden="true">
-                      <use href="#icon-tools"></use>
-                    </svg>
-                    <select id="service" name="service" required>
-                      <option value="" selected disabled>Choose a service</option>
-                      <option>Waterproofing</option>
-                      <option>Heat Proofing</option>
-                      <option>PU Coating</option>
-                      <option>Termite Proofing</option>
-                      <option>Insulation</option>
-                      <option>Roof Coating</option>
-                      <option>Pest Control</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="ibs-field ibs-field-full">
-                  <label for="message">
-                    Message <span class="ibs-field-label-note">(optional)</span>
-                  </label>
-                  <div class="ibs-input-wrap">
-                    <svg class="ibs-icon" aria-hidden="true">
-                      <use href="#icon-message"></use>
-                    </svg>
-                    <textarea
-                      id="message"
-                      name="message"
-                      placeholder="Tell us briefly about your property, location and the issue..."
-                      maxlength="5000"
-                    ></textarea>
-                  </div>
-                </div>
-              </div>
-              <label class="ibs-consent" for="consent">
-                <input
-                  id="consent"
-                  name="consent"
-                  type="checkbox"
-                  required
-                >
-                <span>
-                  I agree to be contacted by IBS about this enquiry.
-                </span>
-              </label>
-              <button
-                class="ibs-btn ibs-btn-blue ibs-submit"
-                id="submitButton"
-                type="submit"
-              >
-                <svg class="ibs-icon" aria-hidden="true">
-                  <use href="#icon-send"></use>
-                </svg>
-                <span id="submitLabel">Request Free Inspection</span>
-              </button>
-              <p
-                class="ibs-form-status"
-                id="formStatus"
-                role="status"
-                aria-live="polite"
-                aria-atomic="true"
-              ></p>
-            </form>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              Can IBS waterproof an already leaking roof?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              An existing roof can be assessed for treatment. We inspect the current surface, cracks, joints, drainage and previous waterproofing before recommending preparation and a suitable system. Some areas may require repair or removal of damaged material before application.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              Do you provide internal and external basement waterproofing?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              Yes. IBS specifies a PU polyurethane elastomeric membrane for external basement retaining walls and crystalline waterproofing for internal basement walls and floors. Access, concrete condition and the source of seepage help determine the work required.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              Do you waterproof underground and overhead water tanks?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              Yes. IBS specifies cementitious coatings for underground and overhead water tanks. Underground-tank treatment can include internal and external surfaces. For drinking-water storage, the selected product must be suitable for potable-water contact and used according to its instructions.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              Can washrooms be waterproofed before tiling?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              Yes. IBS specifies cementitious coating for washroom waterproofing. The treatment should be planned around floor levels, corners, drains, pipe penetrations and the proposed finish. The inspection and construction stage help determine the required scope.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              How long does waterproofing last?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              Service life depends on the selected product, preparation, application, exposure and maintenance. Drainage and later damage can also affect performance. IBS can explain the relevant care requirements after recommending a system for your property.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              Can waterproofing be applied during rain?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              Application depends on the selected product&#x27;s surface-moisture, weather and curing requirements. Rain can affect preparation or application, so scheduling must suit the system. Contact IBS to assess the leakage and discuss an appropriate treatment window.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              What is the cost of waterproofing in Karachi?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              Cost depends on the surface area, existing condition, and system chosen: Polyurethane, Bituminous, Crystalline, or Acrylic. IBS offers a <strong>free site survey</strong> to assess your specific situation and provide an accurate, no-obligation quote.
+            </div>
+          </details>
           </div>
         </div>
+        <div class="ibs-faq-group" data-category="termite">
+          <h3 class="ibs-faq-group-title">Termite Proofing</h3>
+          <div class="ibs-faq-list">
+          <details class="ibs-faq-item">
+            <summary>
+              When should I discuss termite treatment for a new building?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              Contact IBS during planning or before relevant foundation and flooring areas are covered. We can review the construction stage and explain suitable treatment timing. If construction is further along, available options depend on site access and the building layout.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              What preparation is needed for an occupied home?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              Preparation depends on the selected product and application method. Before treatment, ask about access, moving belongings, protecting food, precautions for children and pets, and re-entry instructions. Follow the product-specific guidance provided by the application team.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              What is the difference between termite treatment and termite proofing?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              Termite treatment addresses identified activity, while termite proofing usually refers to preventive measures intended to reduce entry risk. The recommended approach depends on your construction stage, site conditions and inspection findings.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              How often should termite treatment be repeated?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              There is no single repeat-treatment interval for every property. The product, application method, site changes and inspection findings influence the need for further work. Ask IBS for monitoring guidance for your treatment, and arrange an inspection if new signs appear.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              Can termite treatment be done in occupied homes?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              Yes. We plan treatments around occupants and explain the preparation and safety steps before work begins.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              How long does termite proofing last in Pakistan?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              Treatment life depends on the method, site conditions, and later disturbance to the treated area. We assess your property and explain the recommended treatment and follow-up requirements.
+            </div>
+          </details>
+          </div>
+        </div>
+        <div class="ibs-faq-group" data-category="insulation">
+          <h3 class="ibs-faq-group-title">Thermal Insulation</h3>
+          <div class="ibs-faq-list">
+          <details class="ibs-faq-item">
+            <summary>
+              How much can XPS roof insulation reduce my electricity bill in Karachi?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              Helps reduce roof heat transfer and cooling demand. Results depend on the building, insulation thickness and installation. In Karachi&#x27;s hot climate, where rooftop heat is the primary driver of high summer electricity bills, this translates into meaningful monthly savings on air conditioning. The exact reduction depends on the size of your roof, the thickness of the insulation installed, and how much of your cooling load comes from rooftop heat gain.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              How long does XPS insulation last on a roof in Pakistan?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              XPS (extruded polystyrene) is a highly durable material that is resistant to moisture and compression. When properly installed and protected, INSUGREEN XPS insulation can last for decades without losing its insulating performance. Unlike some other insulation materials, XPS does not absorb water, so it maintains its thermal resistance even in humid conditions like those found in Karachi.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              Can XPS insulation be installed on an existing roof or only during construction?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              XPS insulation can be installed on both new and existing roofs. For new buildings, the boards are typically installed as part of the roof construction. For existing buildings, the insulation can be applied on top of the roof slab and then covered with a protective screed or waterproofing layer. IBS assesses your roof condition and recommends the most suitable installation approach for your building.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              Is XPS insulation suitable for cold storage and poultry farms in Pakistan?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              Yes. INSUGREEN XPS insulation is widely used in cold storages, poultry farms, and dairy farms across Pakistan. These facilities need to maintain consistent internal temperatures, and XPS boards provide excellent thermal resistance while being moisture-resistant and easy to clean. This helps reduce energy costs and keeps produce, poultry, and dairy products at the right temperature.
+            </div>
+          </details>
+          </div>
+        </div>
+        <div class="ibs-faq-group" data-category="pest">
+          <h3 class="ibs-faq-group-title">Pest Control</h3>
+          <div class="ibs-faq-list">
+          <details class="ibs-faq-item">
+            <summary>
+              How long does a pest control treatment take?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              Timing depends on the property size, pest type, access and selected method. IBS can provide a time estimate after reviewing the treatment scope. Some problems require further visits and monitoring.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              What preparation is needed before treatment?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              Preparation depends on the treatment. Ask about storing food, clearing access, moving belongings and precautions for children and pets. Bed bug preparation can differ from kitchen pest treatment, so follow the checklist provided for your visit.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              When can I return to my property after treatment?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              Re-entry depends on the product, application method and site conditions. Follow the specific instructions given by the treatment team. Do not use a general waiting time as a substitute for the product&#x27;s re-entry requirements.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              Do you offer scheduled pest control for businesses?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              Yes. IBS offers scheduled pest management enquiries for restaurants, offices, warehouses and shops. The visit frequency and treatment scope are discussed according to the pest activity and business requirements.
+            </div>
+          </details>
+          </div>
+        </div>
+        <div class="ibs-faq-group" data-category="general">
+          <h3 class="ibs-faq-group-title">General & Booking</h3>
+          <div class="ibs-faq-list">
+          <details class="ibs-faq-item">
+            <summary>
+              How quickly can IBS inspect my property?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              Our team usually calls back within 24 hours and schedules an inspection at the earliest convenient time.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              Is the site survey really free?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              Yes. The survey, the diagnosis and the quotation are all free, with no obligation to proceed. You only pay if you approve the quotation and the work goes ahead.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              Which areas do you cover?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              We serve residential, commercial, and industrial properties across Karachi. Contact our team with your location to arrange a site inspection.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              Does IBS serve cities outside Karachi?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              Yes. IBS provides waterproofing, termite proofing, insulation, and pest control across all of Pakistan, including Lahore, Islamabad, Rawalpindi, Faisalabad, and other cities.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              What types of buildings does IBS work on?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              We work on all building types: homes, apartments, offices, commercial plazas, warehouses, factories, hospitals, and schools. Our solutions are customized to the specific demands of each structure.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              How long will my project take?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              It depends on the area being treated, the condition of the surface and the system chosen. Your quotation includes an expected timeline, and our teams work to complete on schedule — no unnecessary delays.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              Do I need to leave my home during the work?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              For waterproofing, termite proofing and insulation, families normally stay in the home while we work. For pest control treatments, the team will advise you on any short re-entry waiting time before the job starts.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              What should I do before the team arrives?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              Very little — mainly clear access to the area being treated, and access to water and electricity where needed. When your job is scheduled, we confirm the exact details with you in advance.
+            </div>
+          </details>
+          <details class="ibs-faq-item">
+            <summary>
+              What happens after the work is complete?
+              <svg class="ibs-icon" aria-hidden="true">
+                <use href="#icon-chevron"></use>
+              </svg>
+            </summary>
+            <div class="ibs-faq-answer">
+              We walk through the finished work with you, explain how to care for the treated area, and set out any follow-up your treatment needs. If you have questions later, you can always contact us.
+            </div>
+          </details>
+          </div>
+        </div>
+        <p class="ibs-faq-empty" hidden>No questions in this category yet.</p>
+        <p class="ibs-faq-more">Still have questions? <a href="/contact">Contact us &rarr;</a></p>
       </div>
     </section>
     <!-- WHY IBS -->
@@ -1679,50 +1563,6 @@
         </div>
       </div>
     </section>
-    <!-- KARACHI SERVICE AREA -->
-    <section class="ibs-section" aria-labelledby="areasTitle">
-      <div class="ibs-container ibs-area-grid">
-        <div class="ibs-area-copy">
-          <span class="ibs-eyebrow">Service Area</span>
-          <h2 id="areasTitle">Building protection across Karachi.</h2>
-          <p>
-            Serving residential, commercial, and industrial properties
-            across Karachi.
-          </p>
-          <div class="ibs-area-pills">
-            <span class="ibs-area-pill">
-              <svg class="ibs-icon" aria-hidden="true">
-                <use href="#icon-pin"></use>
-              </svg>
-              Karachi
-            </span>
-          </div>
-        </div>
-        <div class="ibs-office-panel">
-          <div class="ibs-icon-box">
-            <svg class="ibs-icon" aria-hidden="true">
-              <use href="#icon-pin"></use>
-            </svg>
-          </div>
-          <h3>Our Karachi Office</h3>
-          <address>
-            Office No.02, SB-44, Sector X-4<br>
-            Gulshan-e-Maymar, Karachi, Pakistan
-          </address>
-          <a
-            class="ibs-btn ibs-btn-blue"
-            href="https://www.google.com/maps/search/?api=1&amp;query=Office%20No.02%2C%20SB-44%2C%20Sector%20X-4%2C%20Gulshan-e-Maymar%2C%20Karachi%2C%20Pakistan"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg class="ibs-icon" aria-hidden="true">
-              <use href="#icon-pin"></use>
-            </svg>
-            View Address on Maps
-          </a>
-        </div>
-      </div>
-    </section>
     <!-- CALL CTA -->
     <section class="ibs-cta-section" aria-labelledby="ctaTitle">
       <div class="ibs-container">
@@ -1754,136 +1594,268 @@
         </div>
       </div>
     </section>
-    <!-- FAQ -->
-    <section class="ibs-section ibs-soft" aria-labelledby="faqTitle">
-      <div class="ibs-container">
-        <div class="ibs-section-head">
-          <span class="ibs-eyebrow">Questions, Answered</span>
-          <h2 id="faqTitle">Before you make the call.</h2>
-          <p>
-            A few of the questions we hear most often from property owners.
-          </p>
-        </div>
-        <div class="ibs-faq-list">
-          <details class="ibs-faq-item">
-            <summary>
-              How quickly can IBS inspect my property?
-              <svg class="ibs-icon" aria-hidden="true">
-                <use href="#icon-chevron"></use>
-              </svg>
-            </summary>
-            <div class="ibs-faq-answer">
-              Our team usually calls back within 24 hours and schedules
-              an inspection at the earliest convenient time.
-            </div>
-          </details>
-          <details class="ibs-faq-item">
-            <summary>
-              Do you offer free inspections?
-              <svg class="ibs-icon" aria-hidden="true">
-                <use href="#icon-chevron"></use>
-              </svg>
-            </summary>
-            <div class="ibs-faq-answer">
-              Yes. Qualified residential, commercial, and industrial
-              projects can receive a free initial site inspection.
-            </div>
-          </details>
-          <details class="ibs-faq-item">
-            <summary>
-              Which areas do you cover?
-              <svg class="ibs-icon" aria-hidden="true">
-                <use href="#icon-chevron"></use>
-              </svg>
-            </summary>
-            <div class="ibs-faq-answer">
-              We serve residential, commercial, and industrial properties
-              across Karachi. Contact our team with your location to
-              arrange a site inspection.
-            </div>
-          </details>
-          <details class="ibs-faq-item">
-            <summary>
-              How long does waterproofing last?
-              <svg class="ibs-icon" aria-hidden="true">
-                <use href="#icon-chevron"></use>
-              </svg>
-            </summary>
-            <div class="ibs-faq-answer">
-              Service life depends on the surface and system. Our
-              specialist recommends the right preparation and protection
-              for your conditions.
-            </div>
-          </details>
-          <details class="ibs-faq-item">
-            <summary>
-              Can termite treatment be done in occupied homes?
-              <svg class="ibs-icon" aria-hidden="true">
-                <use href="#icon-chevron"></use>
-              </svg>
-            </summary>
-            <div class="ibs-faq-answer">
-              Yes. We plan treatments around occupants and explain the
-              preparation and safety steps before work begins.
-            </div>
-          </details>
-        </div>
-      </div>
-    </section>
   </main>
   <!-- FOOTER -->
   <!-- FLOATING CONTROLS -->
   <!-- FAQ PAGE SCHEMA -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "@id": "https://ibsolutions.pk/faq#webpage",
-    "url": "https://ibsolutions.pk/faq",
-    "name": "FAQs | IBS",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How quickly can IBS inspect my property?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our team usually calls back within 24 hours and schedules an inspection at the earliest convenient time."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you offer free inspections?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Qualified residential, commercial, and industrial projects can receive a free initial site inspection."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Which areas do you cover?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We serve residential, commercial, and industrial properties across Karachi. Contact our team with your location to arrange a site inspection."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How long does waterproofing last?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Service life depends on the surface and system. Our specialist recommends the right preparation and protection for your conditions."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can termite treatment be done in occupied homes?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. We plan treatments around occupants and explain the preparation and safety steps before work begins."
-        }
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://ibsolutions.pk/faq#webpage",
+  "url": "https://ibsolutions.pk/faq",
+  "name": "FAQs | IBS",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which waterproofing system is suitable for my property?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The suitable system depends on the application area, surface condition, water exposure and construction stage. IBS's treatment schedule includes PU membranes for top roofs and external retaining walls, crystalline systems for specified concrete areas, and cementitious coatings for tanks and washrooms. An inspection helps confirm the appropriate scope."
       }
-    ]
-  }
+    },
+    {
+      "@type": "Question",
+      "name": "Can IBS waterproof an already leaking roof?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An existing roof can be assessed for treatment. We inspect the current surface, cracks, joints, drainage and previous waterproofing before recommending preparation and a suitable system. Some areas may require repair or removal of damaged material before application."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you provide internal and external basement waterproofing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. IBS specifies a PU polyurethane elastomeric membrane for external basement retaining walls and crystalline waterproofing for internal basement walls and floors. Access, concrete condition and the source of seepage help determine the work required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you waterproof underground and overhead water tanks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. IBS specifies cementitious coatings for underground and overhead water tanks. Underground-tank treatment can include internal and external surfaces. For drinking-water storage, the selected product must be suitable for potable-water contact and used according to its instructions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can washrooms be waterproofed before tiling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. IBS specifies cementitious coating for washroom waterproofing. The treatment should be planned around floor levels, corners, drains, pipe penetrations and the proposed finish. The inspection and construction stage help determine the required scope."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does waterproofing last?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Service life depends on the selected product, preparation, application, exposure and maintenance. Drainage and later damage can also affect performance. IBS can explain the relevant care requirements after recommending a system for your property."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can waterproofing be applied during rain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Application depends on the selected product's surface-moisture, weather and curing requirements. Rain can affect preparation or application, so scheduling must suit the system. Contact IBS to assess the leakage and discuss an appropriate treatment window."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the cost of waterproofing in Karachi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cost depends on the surface area, existing condition, and system chosen: Polyurethane, Bituminous, Crystalline, or Acrylic. IBS offers a free site survey to assess your specific situation and provide an accurate, no-obligation quote."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When should I discuss termite treatment for a new building?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Contact IBS during planning or before relevant foundation and flooring areas are covered. We can review the construction stage and explain suitable treatment timing. If construction is further along, available options depend on site access and the building layout."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What preparation is needed for an occupied home?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Preparation depends on the selected product and application method. Before treatment, ask about access, moving belongings, protecting food, precautions for children and pets, and re-entry instructions. Follow the product-specific guidance provided by the application team."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between termite treatment and termite proofing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Termite treatment addresses identified activity, while termite proofing usually refers to preventive measures intended to reduce entry risk. The recommended approach depends on your construction stage, site conditions and inspection findings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should termite treatment be repeated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no single repeat-treatment interval for every property. The product, application method, site changes and inspection findings influence the need for further work. Ask IBS for monitoring guidance for your treatment, and arrange an inspection if new signs appear."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can termite treatment be done in occupied homes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We plan treatments around occupants and explain the preparation and safety steps before work begins."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does termite proofing last in Pakistan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Treatment life depends on the method, site conditions, and later disturbance to the treated area. We assess your property and explain the recommended treatment and follow-up requirements."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much can XPS roof insulation reduce my electricity bill in Karachi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Helps reduce roof heat transfer and cooling demand. Results depend on the building, insulation thickness and installation. In Karachi's hot climate, where rooftop heat is the primary driver of high summer electricity bills, this translates into meaningful monthly savings on air conditioning. The exact reduction depends on the size of your roof, the thickness of the insulation installed, and how much of your cooling load comes from rooftop heat gain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does XPS insulation last on a roof in Pakistan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XPS (extruded polystyrene) is a highly durable material that is resistant to moisture and compression. When properly installed and protected, INSUGREEN XPS insulation can last for decades without losing its insulating performance. Unlike some other insulation materials, XPS does not absorb water, so it maintains its thermal resistance even in humid conditions like those found in Karachi."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can XPS insulation be installed on an existing roof or only during construction?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XPS insulation can be installed on both new and existing roofs. For new buildings, the boards are typically installed as part of the roof construction. For existing buildings, the insulation can be applied on top of the roof slab and then covered with a protective screed or waterproofing layer. IBS assesses your roof condition and recommends the most suitable installation approach for your building."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is XPS insulation suitable for cold storage and poultry farms in Pakistan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. INSUGREEN XPS insulation is widely used in cold storages, poultry farms, and dairy farms across Pakistan. These facilities need to maintain consistent internal temperatures, and XPS boards provide excellent thermal resistance while being moisture-resistant and easy to clean. This helps reduce energy costs and keeps produce, poultry, and dairy products at the right temperature."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a pest control treatment take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Timing depends on the property size, pest type, access and selected method. IBS can provide a time estimate after reviewing the treatment scope. Some problems require further visits and monitoring."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What preparation is needed before treatment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Preparation depends on the treatment. Ask about storing food, clearing access, moving belongings and precautions for children and pets. Bed bug preparation can differ from kitchen pest treatment, so follow the checklist provided for your visit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When can I return to my property after treatment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Re-entry depends on the product, application method and site conditions. Follow the specific instructions given by the treatment team. Do not use a general waiting time as a substitute for the product's re-entry requirements."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer scheduled pest control for businesses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. IBS offers scheduled pest management enquiries for restaurants, offices, warehouses and shops. The visit frequency and treatment scope are discussed according to the pest activity and business requirements."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can IBS inspect my property?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our team usually calls back within 24 hours and schedules an inspection at the earliest convenient time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the site survey really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The survey, the diagnosis and the quotation are all free, with no obligation to proceed. You only pay if you approve the quotation and the work goes ahead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which areas do you cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We serve residential, commercial, and industrial properties across Karachi. Contact our team with your location to arrange a site inspection."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does IBS serve cities outside Karachi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. IBS provides waterproofing, termite proofing, insulation, and pest control across all of Pakistan, including Lahore, Islamabad, Rawalpindi, Faisalabad, and other cities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What types of buildings does IBS work on?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We work on all building types: homes, apartments, offices, commercial plazas, warehouses, factories, hospitals, and schools. Our solutions are customized to the specific demands of each structure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long will my project take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the area being treated, the condition of the surface and the system chosen. Your quotation includes an expected timeline, and our teams work to complete on schedule — no unnecessary delays."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to leave my home during the work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For waterproofing, termite proofing and insulation, families normally stay in the home while we work. For pest control treatments, the team will advise you on any short re-entry waiting time before the job starts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I do before the team arrives?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Very little — mainly clear access to the area being treated, and access to water and electricity where needed. When your job is scheduled, we confirm the exact details with you in advance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens after the work is complete?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We walk through the finished work with you, explain how to care for the treated area, and set out any follow-up your treatment needs. If you have questions later, you can always contact us."
+      }
+    }
+  ]
+}
   </script>
   
 
@@ -2304,6 +2276,30 @@
       } else {
         boot();
       }
+    })();
+  </script>
+
+
+  <script>
+    (() => {
+      const buttons = [...document.querySelectorAll(".ibs-faq-filter")];
+      if (!buttons.length) return;
+      const groups = [...document.querySelectorAll(".ibs-faq-group")];
+      const empty = document.querySelector(".ibs-faq-empty");
+      buttons.forEach(btn => btn.addEventListener("click", () => {
+        buttons.forEach(b => {
+          b.classList.toggle("is-active", b === btn);
+          b.setAttribute("aria-pressed", String(b === btn));
+        });
+        const filter = btn.dataset.filter;
+        let visible = 0;
+        groups.forEach(group => {
+          const show = filter === "all" || group.dataset.category === filter;
+          group.hidden = !show;
+          if (show) visible++;
+        });
+        if (empty) empty.hidden = visible > 0;
+      }));
     })();
   </script>
 
