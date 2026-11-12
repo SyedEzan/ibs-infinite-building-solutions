@@ -629,6 +629,84 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 24px;
     }
+    .ibs-service-rows {
+      display: grid;
+      gap: 24px;
+    }
+    .ibs-service-row {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 28px;
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 6px 24px rgba(15, 42, 67, .03);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .ibs-service-row:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 34px rgba(15, 42, 67, .10);
+    }
+    .ibs-service-row-photo {
+      overflow: hidden;
+      border-radius: 12px;
+    }
+    .ibs-service-row-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 190px;
+      object-fit: cover;
+    }
+    .ibs-service-row-icon {
+      display: grid;
+      place-items: center;
+      min-height: 190px;
+      background: var(--blue-light);
+      border-radius: 12px;
+      color: var(--blue);
+    }
+    .ibs-service-row-icon .ibs-icon {
+      width: 54px;
+      height: 54px;
+    }
+    .ibs-service-row h3 {
+      font-size: 20px;
+      margin: 0 0 10px;
+    }
+    .ibs-service-row p {
+      font-size: 14px;
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+    .ibs-feature-list {
+      padding: 0;
+      margin: 0 0 20px;
+      list-style: none;
+    }
+    .ibs-feature-list li {
+      position: relative;
+      padding: 9px 0 9px 23px;
+      border-bottom: 1px solid #edf1f7;
+      font-size: 13px;
+    }
+    .ibs-feature-list li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      font-weight: 700;
+    }
+    @media (max-width: 820px) {
+      .ibs-service-row {
+        grid-template-columns: 1fr;
+      }
+      .ibs-service-row-photo img,
+      .ibs-service-row-icon {
+        min-height: 170px;
+      }
+    }
     .ibs-service-card {
       display: flex;
       flex-direction: column;
@@ -1144,106 +1222,92 @@
             energy-efficient, and pest-free.
           </p>
         </div>
-        <div class="ibs-services-grid">
-          <!-- WATERPROOFING -->
-          <article class="ibs-service-card">
-            <div class="ibs-service-top">
-              <div class="ibs-service-icon">
-                <svg class="ibs-icon" aria-hidden="true">
-                  <use href="#icon-water"></use>
-                </svg>
-              </div>
-              <div>
-                <span class="ibs-service-tag">Water &amp; Seepage Protection</span>
-                <h3>Waterproofing</h3>
-              </div>
+        <div class="ibs-service-rows">
+          <article class="ibs-service-row">
+            <div class="ibs-service-row-photo">
+              <img src="/assets/ibs/hero-roof.webp" alt="Roof waterproofing work in Karachi" width="1448" height="1086" loading="lazy" decoding="async">
             </div>
-            <p>
-              Protection against roof leaks, water seepage, dampness, and
-              structural damage using Polyurethane, Bituminous, Crystalline,
-              and Acrylic systems matched to each surface.
-            </p>
-            <a class="ibs-service-link" href="/waterproofing">
-              Explore Waterproofing
-              <svg class="ibs-icon" aria-hidden="true">
-                <use href="#icon-arrow"></use>
-              </svg>
-            </a>
+            <div>
+              <span class="ibs-service-tag">Water &amp; Seepage Protection</span>
+              <h3>Waterproofing</h3>
+              <p>Complete waterproofing systems for roofs, bathrooms, water tanks, basements and external walls.</p>
+              <ul class="ibs-feature-list">
+              <li>PU polyurethane &amp; crystalline systems</li>
+              <li>Cementitious, bituminous &amp; acrylic coatings</li>
+              <li>Leak tracing before treatment, not guesswork</li>
+              </ul>
+              <a class="ibs-service-link" href="/waterproofing">
+                View Waterproofing
+                <svg class="ibs-icon" aria-hidden="true">
+                  <use href="#icon-arrow"></use>
+                </svg>
+              </a>
+            </div>
           </article>
-          <!-- TERMITE PROOFING -->
-          <article class="ibs-service-card">
-            <div class="ibs-service-top">
-              <div class="ibs-service-icon">
-                <svg class="ibs-icon" aria-hidden="true">
-                  <use href="#icon-termite"></use>
-                </svg>
-              </div>
-              <div>
-                <span class="ibs-service-tag">Pre &amp; Post Construction</span>
-                <h3>Termite Proofing</h3>
-              </div>
+          <article class="ibs-service-row">
+            <div class="ibs-service-row-photo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Termite_tubes-1.jpg" alt="Termite mud tubes on a wall" loading="lazy" decoding="async">
             </div>
-            <p>
-              Pre-construction soil treatment and post-construction chemical
-              barrier systems that create protective barriers against
-              underground termite infestation.
-            </p>
-            <a class="ibs-service-link" href="/termite-proofing">
-              Explore Termite Proofing
-              <svg class="ibs-icon" aria-hidden="true">
-                <use href="#icon-arrow"></use>
-              </svg>
-            </a>
+            <div>
+              <span class="ibs-service-tag">Pre &amp; Post Construction</span>
+              <h3>Termite Proofing</h3>
+              <p>Treatment and prevention for homes under construction and buildings already under attack.</p>
+              <ul class="ibs-feature-list">
+              <li>Chemical barrier &amp; soil treatment</li>
+              <li>Wood and furniture treatment</li>
+              <li>Inspection of door frames, skirting and floor joints</li>
+              </ul>
+              <a class="ibs-service-link" href="/termite-proofing">
+                View Termite Proofing
+                <svg class="ibs-icon" aria-hidden="true">
+                  <use href="#icon-arrow"></use>
+                </svg>
+              </a>
+            </div>
           </article>
-          <!-- XPS INSULATION -->
-          <article class="ibs-service-card">
-            <div class="ibs-service-top">
-              <div class="ibs-service-icon">
-                <svg class="ibs-icon" aria-hidden="true">
-                  <use href="#icon-insulation"></use>
-                </svg>
-              </div>
-              <div>
-                <span class="ibs-service-tag">Roof &amp; Wall Insulation</span>
-                <h3>Thermal / XPS Insulation</h3>
-              </div>
+          <article class="ibs-service-row">
+            <div class="ibs-service-row-photo">
+              <img src="/assets/ibs/hero-peb.webp" alt="Insulated industrial building roof" width="1600" height="1000" loading="lazy" decoding="async">
             </div>
-            <p>
-              INSUGREEN XPS extruded polystyrene boards that reduce heat
-              transfer through roofs and walls, helping lower cooling costs
-              and keep buildings comfortable year-round.
-            </p>
-            <a class="ibs-service-link" href="/thermal-insulation">
-              Explore XPS Insulation
-              <svg class="ibs-icon" aria-hidden="true">
-                <use href="#icon-arrow"></use>
-              </svg>
-            </a>
+            <div>
+              <span class="ibs-service-tag">Roof &amp; Wall Insulation</span>
+              <h3>Thermal / XPS Insulation</h3>
+              <p>INSUGREEN XPS insulation boards for roofs and walls — cooler rooms, lower electricity bills.</p>
+              <ul class="ibs-feature-list">
+              <li>High-density XPS boards</li>
+              <li>Roof and wall applications</li>
+              <li>Installed with waterproofing where needed</li>
+              </ul>
+              <a class="ibs-service-link" href="/thermal-insulation">
+                View XPS Insulation
+                <svg class="ibs-icon" aria-hidden="true">
+                  <use href="#icon-arrow"></use>
+                </svg>
+              </a>
+            </div>
           </article>
-          <!-- PEST CONTROL -->
-          <article class="ibs-service-card">
-            <div class="ibs-service-top">
-              <div class="ibs-service-icon">
-                <svg class="ibs-icon" aria-hidden="true">
-                  <use href="#icon-pest"></use>
-                </svg>
-              </div>
-              <div>
-                <span class="ibs-service-tag">Residential &amp; Commercial</span>
-                <h3>Pest Control</h3>
-              </div>
-            </div>
-            <p>
-              Residential and commercial pest management, including
-              cockroach, rodent, and bed bug control with trained application
-              and treatment suited to the infestation.
-            </p>
-            <a class="ibs-service-link" href="/pest-control">
-              Explore Pest Control
+          <article class="ibs-service-row">
+            <div class="ibs-service-row-icon">
               <svg class="ibs-icon" aria-hidden="true">
-                <use href="#icon-arrow"></use>
+                <use href="#icon-pest"></use>
               </svg>
-            </a>
+            </div>
+            <div>
+              <span class="ibs-service-tag">Residential &amp; Commercial</span>
+              <h3>Pest Control</h3>
+              <p>Ongoing pest management for homes, offices, restaurants, warehouses and housing societies.</p>
+              <ul class="ibs-feature-list">
+              <li>Cockroach gel &amp; spray treatment</li>
+              <li>Full fumigation services</li>
+              <li>One-time and scheduled visits</li>
+              </ul>
+              <a class="ibs-service-link" href="/pest-control">
+                View Pest Control
+                <svg class="ibs-icon" aria-hidden="true">
+                  <use href="#icon-arrow"></use>
+                </svg>
+              </a>
+            </div>
           </article>
         </div>
       </div>
@@ -1494,6 +1558,10 @@
     <path d="M5 12l7-7 7 7"/>
   </svg>
 </button>
+<div class="ibs-sticky-bar" role="navigation" aria-label="Quick contact">
+  <a href="tel:+923323070499">Call 0332-3070499</a>
+  <a href="https://wa.me/923323070499" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+</div>
 <!--IBS:FOOTER-->
   <script src="/components/shared-behavior.js" defer></script>
   <script>

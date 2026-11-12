@@ -415,14 +415,14 @@
 
   .ibs-whatsapp {
     right: 16px;
-    bottom: 16px;
+    bottom: 72px;
     width: 52px;
     height: 52px;
   }
 
   .ibs-back-top {
     right: 20px;
-    bottom: 80px;
+    bottom: 140px;
   }
 }
 
@@ -431,5 +431,52 @@
   .ibs-back-top,
   .ibs-social-links a {
     transition: none;
+  }
+}
+
+/* ---------- Mobile sticky Call / WhatsApp bar ---------- */
+.ibs-sticky-bar {
+  display: none;
+}
+
+@media (max-width: 820px) {
+  body {
+    padding-bottom: 56px;
+  }
+
+  .ibs-sticky-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 950;
+    display: flex;
+    height: 56px;
+    background: #0f2a43;
+    box-shadow: 0 -4px 16px rgba(15, 42, 67, .18);
+  }
+
+  .ibs-sticky-bar a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .ibs-sticky-bar a + a {
+    background: #25d366;
+    border-left: 1px solid rgba(255, 255, 255, .25);
+  }
+
+  .ibs-whatsapp {
+    bottom: 72px;
+  }
+
+  .ibs-back-top {
+    bottom: 140px;
   }
 }

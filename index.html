@@ -603,6 +603,13 @@
       border-radius: 18px;
       box-shadow: 0 6px 24px rgba(15, 42, 67, .03);
     }
+    .ibs-service-card {
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .ibs-service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 34px rgba(15, 42, 67, .10);
+    }
     .ibs-service-top {
       display: flex;
       align-items: center;
@@ -758,14 +765,24 @@
       border: 1px solid var(--border);
       border-radius: 16px;
     }
-    .ibs-why-card::before {
-      content: "";
-      display: block;
-      width: 30px;
-      height: 4px;
-      background: var(--blue);
-      border-radius: 3px;
-      margin-bottom: 21px;
+    .ibs-why-icon {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      background: #0f2a43;
+      color: #fff;
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+    .ibs-why-icon svg {
+      width: 26px;
+      height: 26px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
     .ibs-why-card h3 {
       font-size: 17px;
@@ -834,12 +851,23 @@
       gap: 22px;
     }
     .ibs-review-card {
+      position: relative;
       display: flex;
       flex-direction: column;
       padding: 28px;
       background: #fff;
       border: 1px solid var(--border);
       border-radius: 16px;
+    }
+    .ibs-review-card::before {
+      content: "\201C";
+      position: absolute;
+      top: 6px;
+      right: 22px;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 72px;
+      line-height: 1;
+      color: var(--blue-light);
     }
     .ibs-review-stars {
       color: #bd870b;
@@ -850,8 +878,8 @@
     .ibs-review-card blockquote {
       padding: 0;
       margin: 0 0 24px;
-      font-size: 14px;
-      line-height: 1.85;
+      font-size: 15px;
+      line-height: 1.8;
     }
     .ibs-review-person {
       display: flex;
@@ -1174,8 +1202,16 @@
       height: 190px;
       object-fit: cover;
     }
+    .ibs-service-photo svg {
+      display: block;
+      width: 100%;
+      height: 190px;
+    }
     @media (max-width: 640px) {
       .ibs-service-photo img {
+        height: 160px;
+      }
+      .ibs-service-photo svg {
         height: 160px;
       }
     }
@@ -1241,6 +1277,61 @@
 
   </div>
 </header>
+  <!-- REUSABLE SVG ICONS -->
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="0"
+    height="0"
+    aria-hidden="true"
+    style="position:absolute;overflow:hidden"
+  >
+    <defs>
+      <symbol id="icon-water" viewBox="0 0 24 24">
+        <path d="M12 3s-7 8-7 12a7 7 0 0 0 14 0c0-4-7-12-7-12Z"/>
+        <path d="M8 15a4 4 0 0 0 4 4"/>
+      </symbol>
+      <symbol id="icon-termite" viewBox="0 0 24 24">
+        <ellipse cx="12" cy="14" rx="4" ry="6"/>
+        <path d="M9 8a3 3 0 0 1 6 0M10 5 8 3M14 5l2-2M8 11l-4-2M8 14H3M8 17l-4 3M16 11l4-2M16 14h5M16 17l4 3M12 9v11"/>
+      </symbol>
+      <symbol id="icon-insulation" viewBox="0 0 24 24">
+        <path d="m12 3 10 5-10 5L2 8Z"/>
+        <path d="m2 12 10 5 10-5M2 16l10 5 10-5"/>
+      </symbol>
+      <symbol id="icon-pest" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="m5.6 18.4 12.8-12.8"/>
+        <ellipse cx="12" cy="13" rx="3" ry="4"/>
+        <path d="M10 9a2 2 0 0 1 4 0M9 11l-2-1M9 14H7M15 11l2-1M15 14h2"/>
+      </symbol>
+      <symbol id="icon-inspect" viewBox="0 0 24 24">
+        <circle cx="10" cy="10" r="6"/>
+        <path d="m15 15 6 6M7 10h6M10 7v6"/>
+      </symbol>
+      <symbol id="icon-pin" viewBox="0 0 24 24">
+        <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/>
+        <circle cx="12" cy="10" r="3"/>
+      </symbol>
+      <symbol id="icon-shield" viewBox="0 0 24 24">
+        <path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6Z"/>
+        <path d="m9 12 2 2 4-4"/>
+      </symbol>
+      <symbol id="icon-team" viewBox="0 0 24 24">
+        <circle cx="9" cy="8" r="3.5"/>
+        <path d="M3.5 19.5a5.5 5.5 0 0 1 11 0"/>
+        <path d="M16 5.5a3.5 3.5 0 0 1 0 6.5M17.5 14.5a5.5 5.5 0 0 1 3 5"/>
+      </symbol>
+      <symbol id="icon-clipboard" viewBox="0 0 24 24">
+        <rect x="5" y="4" width="14" height="17" rx="2"/>
+        <path d="M9 2.5h6M9 13.5l2 2 4-4"/>
+      </symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M12 7v5l3.5 2"/>
+      </symbol>
+    </defs>
+  </svg>
+
   <!-- HEADER -->
   <main>
     <!-- HERO -->
@@ -1466,13 +1557,7 @@
             </div>
             <div class="ibs-service-top">
               <div class="ibs-service-icon">
-                <img
-                  src="/assets/waterproofing logo.webp"
-                  alt=""
-                  width="40"
-                  height="40"
-                  loading="lazy"
-                >
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-water"></use></svg>
               </div>
               <div>
                 <span class="ibs-service-tag">
@@ -1504,13 +1589,7 @@
             </div>
             <div class="ibs-service-top">
               <div class="ibs-service-icon">
-                <img
-                  src="/assets/TermiteProofinglogo.webp"
-                  alt=""
-                  width="40"
-                  height="40"
-                  loading="lazy"
-                >
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-termite"></use></svg>
               </div>
               <div>
                 <span class="ibs-service-tag">
@@ -1542,13 +1621,7 @@
             </div>
             <div class="ibs-service-top">
               <div class="ibs-service-icon">
-                <img
-                  src="/assets/Insugreenlogo.webp"
-                  alt=""
-                  width="40"
-                  height="40"
-                  loading="lazy"
-                >
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-insulation"></use></svg>
               </div>
               <div>
                 <span class="ibs-service-tag">Energy Saving</span>
@@ -1574,17 +1647,32 @@
           <!-- PEST CONTROL -->
           <article class="ibs-service-card">
             <div class="ibs-service-photo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/Blatella_germanica_%28German_cockroach%29.jpg" alt="German cockroach" loading="lazy" decoding="async">
+              <svg viewBox="0 0 800 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Pest control treatment illustration">
+              <rect width="800" height="300" fill="#edf3ff"/>
+              <circle cx="660" cy="70" r="110" fill="#dfe7f0"/>
+              <circle cx="120" cy="250" r="80" fill="#dfe7f0"/>
+              <circle cx="700" cy="250" r="46" fill="#dbe7f3"/>
+              <g>
+                <rect x="150" y="120" width="86" height="130" rx="14" fill="#1d4ed8"/>
+                <rect x="150" y="120" width="86" height="34" rx="14" fill="#0f2a43"/>
+                <rect x="176" y="86" width="34" height="34" rx="6" fill="#0f2a43"/>
+                <rect x="210" y="96" width="52" height="14" rx="7" fill="#0f2a43"/>
+                <rect x="168" y="176" width="50" height="46" rx="8" fill="#ffffff" opacity=".92"/>
+                <path d="M168 199h50M168 211h34" stroke="#1d4ed8" stroke-width="6" stroke-linecap="round"/>
+              </g>
+              <g fill="#1d4ed8">
+                <path d="M300 130c10 13 18 21 18 30a18 18 0 1 1-36 0c0-9 8-17 18-30z"/>
+                <path d="M330 190c7 9 12 15 12 21a12 12 0 1 1-24 0c0-6 5-12 12-21z"/>
+              </g>
+              <g>
+                <path d="M520 60l96 38v78c0 62-40 108-96 128-56-20-96-66-96-128v-78z" fill="#0f2a43"/>
+                <path d="M478 176l28 28 56-60" fill="none" stroke="#ffffff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+            </svg>
             </div>
             <div class="ibs-service-top">
               <div class="ibs-service-icon" aria-hidden="true">
-                <img
-                  src="/assets/Pest Control logo.webp"
-                  alt=""
-                  width="40"
-                  height="40"
-                  loading="lazy"
-                >
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-pest"></use></svg>
               </div>
               <div>
                 <span class="ibs-service-tag">Homes &amp; Offices</span>
@@ -1685,6 +1773,9 @@
         </div>
         <div class="ibs-why-grid">
           <article class="ibs-why-card">
+            <div class="ibs-why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><use href="#icon-inspect"></use></svg>
+            </div>
             <h3>Solutions for Your Property</h3>
             <p>
               We assess the condition of your property and recommend a
@@ -1692,6 +1783,9 @@
             </p>
           </article>
           <article class="ibs-why-card">
+            <div class="ibs-why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><use href="#icon-shield"></use></svg>
+            </div>
             <h3>Certified Materials Only</h3>
             <p>
               We use internationally certified, ISO-compliant waterproofing
@@ -1700,6 +1794,9 @@
             </p>
           </article>
           <article class="ibs-why-card">
+            <div class="ibs-why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><use href="#icon-team"></use></svg>
+            </div>
             <h3>Trained, Experienced Teams</h3>
             <p>
               Our teams are professionally trained in surface preparation
@@ -1708,6 +1805,9 @@
             </p>
           </article>
           <article class="ibs-why-card">
+            <div class="ibs-why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><use href="#icon-clipboard"></use></svg>
+            </div>
             <h3>Free Survey &amp; Honest Advice</h3>
             <p>
               We visit your site, diagnose the actual problem, and recommend
@@ -1715,6 +1815,9 @@
             </p>
           </article>
           <article class="ibs-why-card">
+            <div class="ibs-why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><use href="#icon-pin"></use></svg>
+            </div>
             <h3>Pan-Pakistan Service</h3>
             <p>
               Based in Karachi, we serve residential, commercial, and
@@ -1723,6 +1826,9 @@
             </p>
           </article>
           <article class="ibs-why-card">
+            <div class="ibs-why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><use href="#icon-clock"></use></svg>
+            </div>
             <h3>Fast Project Turnaround</h3>
             <p>
               Construction timelines matter. Our teams work efficiently
@@ -2133,6 +2239,10 @@
     <path d="M5 12l7-7 7 7"/>
   </svg>
 </button>
+<div class="ibs-sticky-bar" role="navigation" aria-label="Quick contact">
+  <a href="tel:+923323070499">Call 0332-3070499</a>
+  <a href="https://wa.me/923323070499" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+</div>
 <!--IBS:FOOTER-->
   <script src="/components/shared-behavior.js" defer></script>
   <script>
