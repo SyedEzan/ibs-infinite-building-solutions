@@ -730,6 +730,17 @@
       max-width: 340px;
       margin-inline: auto;
     }
+    /* Two-partner variant: two cards side by side, centred */
+    .ibs-partner-grid.ibs-partner-two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-width: 720px;
+      margin-inline: auto;
+    }
+    /* Partner cards stack logo above name so wide logos fit */
+    .ibs-partner-card {
+      flex-direction: column;
+      gap: 12px;
+    }
     /* TEAM */
     .ibs-team-grid {
       display: grid;
@@ -1423,7 +1434,7 @@
             and long-lasting building protection solutions.
           </p>
         </div>
-        <div class="ibs-partner-grid ibs-partner-single">
+        <div class="ibs-partner-grid ibs-partner-two">
           <article class="ibs-partner-card">
             <img
               src="/assets/ali akbar groups.webp"
@@ -1433,6 +1444,16 @@
               style="display:block; margin: 0 auto;"
             >
             <h3>Ali Akbar Group Pakistan</h3>
+          </article>
+          <article class="ibs-partner-card">
+            <img
+              src="/assets/friends-environmental-solutions.webp"
+              alt="Friends Environmental Solutions"
+              width="200"
+              height="79"
+              style="display:block; margin: 0 auto;"
+            >
+            <h3>Friends Environmental Solutions</h3>
           </article>
         </div>
       </div>
