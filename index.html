@@ -616,6 +616,11 @@
     .ibs-service-card:hover .ibs-service-tag {
       color: #fff;
     }
+    /* The global h1/h2/h3 rule sets the heading colour explicitly, so it
+       does not inherit the card's white hover colour — target it directly. */
+    .ibs-service-card:hover h3 {
+      color: #fff;
+    }
     .ibs-service-card:hover .ibs-service-icon {
       background: #fff;
       color: var(--blue);
@@ -648,6 +653,19 @@
     .ibs-service-icon img {
       width: 40px;
       height: 40px;
+      object-fit: contain;
+    }
+    /* Service logos are wordmarks: a larger white tile in both states so
+       the black pest logo stays visible on the navy hover. */
+    .ibs-service-card .ibs-service-icon {
+      width: 64px;
+      height: 64px;
+      background: #fff;
+      border: 1px solid #e6edf3;
+    }
+    .ibs-service-card .ibs-service-icon img {
+      width: 52px;
+      height: 52px;
       object-fit: contain;
     }
     .ibs-service-icon svg {
@@ -1590,7 +1608,7 @@
             </div>
             <div class="ibs-service-top">
               <div class="ibs-service-icon">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-water"></use></svg>
+                <img src="/assets/waterproofing%20logo.webp" alt="Waterproofing logo" width="163" height="131" loading="lazy" decoding="async">
               </div>
               <div>
                 <span class="ibs-service-tag">
@@ -1622,7 +1640,7 @@
             </div>
             <div class="ibs-service-top">
               <div class="ibs-service-icon">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-termite"></use></svg>
+                <img src="/assets/TermiteProofinglogo.webp" alt="Termite Proofing logo" width="80" height="80" loading="lazy" decoding="async">
               </div>
               <div>
                 <span class="ibs-service-tag">
@@ -1654,7 +1672,7 @@
             </div>
             <div class="ibs-service-top">
               <div class="ibs-service-icon">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-insulation"></use></svg>
+                <img src="/assets/Insugreenlogo.webp" alt="INSUGREEN logo" width="80" height="80" loading="lazy" decoding="async">
               </div>
               <div>
                 <span class="ibs-service-tag">Energy Saving</span>
@@ -1684,7 +1702,7 @@
             </div>
             <div class="ibs-service-top">
               <div class="ibs-service-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-pest"></use></svg>
+                <img src="/assets/Pest%20Control%20logo.webp" alt="Pest Control logo" width="687" height="573" loading="lazy" decoding="async">
               </div>
               <div>
                 <span class="ibs-service-tag">Homes &amp; Offices</span>
