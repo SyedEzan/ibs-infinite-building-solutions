@@ -5,6 +5,79 @@
    equal-specificity chrome rules. Uses literal colours (no CSS var deps).
    ========================================================================== */
 
+/* ---------- Top bar ---------- */
+.ibs-topbar {
+  background: #1a3a5c;
+  color: #c5d3e2;
+}
+
+.ibs-topbar .ibs-container {
+  width: min(1120px, calc(100% - 48px));
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 40px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.ibs-topbar-mail {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  flex: 1 1 auto;
+  color: #c5d3e2;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.ibs-topbar-mail:hover {
+  color: #ffffff;
+}
+
+.ibs-topbar-mail svg {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: #a9ceff;
+}
+
+.ibs-topbar-mail span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Social icons in the top bar: same white-box treatment as the footer,
+   smaller to fit the slim bar. */
+.ibs-topbar .ibs-social-links {
+  margin-top: 0;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.ibs-topbar .ibs-social-links a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.ibs-topbar .ibs-social-links img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Facebook's icon file has ~40% transparent padding around its glyph
+   (visible glyph covers only ~60% of the 490px file), so its img is scaled
+   up to render the same visible size as the other two icons. */
+.ibs-topbar .ibs-social-links a[href*="facebook.com"] img {
+  width: 33px;
+  height: 33px;
+}
+
 /* ---------- Header ---------- */
 .ibs-header {
   position: sticky;
@@ -408,6 +481,14 @@
 }
 
 @media (max-width: 640px) {
+  .ibs-topbar .ibs-container {
+    gap: 12px;
+  }
+
+  .ibs-topbar-mail {
+    font-size: 12px;
+  }
+
   .ibs-footer-grid {
     grid-template-columns: 1fr;
     gap: 25px;
