@@ -316,6 +316,15 @@
   object-fit: contain;
 }
 
+/* Facebook's icon file has ~40% transparent padding around its glyph
+   (visible glyph covers only ~60% of the 490px file), so in the footer —
+   as in the top bar — its img is scaled up to render the same visible
+   size as the other two icons. Footer boxes stay 36×36 rounded squares. */
+.ibs-footer .ibs-social-links a[href*="facebook.com"] img {
+  width: 33px;
+  height: 33px;
+}
+
 .ibs-footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, .14);
   padding: 20px 0;
