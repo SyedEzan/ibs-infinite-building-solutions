@@ -603,12 +603,31 @@
       border-radius: 18px;
       box-shadow: 0 6px 24px rgba(15, 42, 67, .03);
     }
+    /* DIN-style hover: the card flips white -> navy, all text white.
+       Pure colour swap (~0.35s) — no lift, no zoom, no shadow change. */
     .ibs-service-card {
-      transition: transform .2s ease, box-shadow .2s ease;
+      transition: background-color .35s ease, color .35s ease, border-color .35s ease;
     }
     .ibs-service-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 34px rgba(15, 42, 67, .10);
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+    }
+    .ibs-service-card:hover .ibs-service-tag {
+      color: #fff;
+    }
+    .ibs-service-card:hover .ibs-service-icon {
+      background: #fff;
+      color: var(--blue);
+    }
+    .ibs-service-card:hover .ibs-feature-list li {
+      border-bottom-color: rgba(255, 255, 255, .16);
+    }
+    .ibs-service-card:hover .ibs-feature-list li::before {
+      color: #fff;
+    }
+    .ibs-service-card:hover .ibs-service-link {
+      color: #fff;
     }
     .ibs-service-top {
       display: flex;
