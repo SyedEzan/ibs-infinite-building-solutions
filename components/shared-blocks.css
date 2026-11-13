@@ -7,8 +7,8 @@
 
 /* ---------- Top bar ---------- */
 .ibs-topbar {
-  background: #1a3a5c;
-  color: #c5d3e2;
+  background: #1d4ed8;
+  color: #ffffff;
 }
 
 .ibs-topbar .ibs-container {
@@ -29,7 +29,7 @@
   gap: 8px;
   min-width: 0;
   flex: 1 1 auto;
-  color: #c5d3e2;
+  color: #ffffff;
   font-size: 13px;
   text-decoration: none;
 }
@@ -42,7 +42,7 @@
   flex-shrink: 0;
   width: 16px;
   height: 16px;
-  color: #a9ceff;
+  color: #ffffff;
 }
 
 .ibs-topbar-mail span {
