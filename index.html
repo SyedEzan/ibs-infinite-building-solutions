@@ -1953,152 +1953,213 @@
       </div>
     </section>
     <!-- SERVICES -->
-    <section
-      class="ibs-section ibs-soft"
-      id="services"
-      aria-labelledby="ibs-services-title"
-    >
-      <div class="ibs-container">
-        <div class="ibs-section-head">
-          <span class="ibs-eyebrow">What We Do</span>
-          <h2 id="ibs-services-title">
-            Our Building Protection Services
-          </h2>
-          <p>
-            From rooftop waterproofing to termite barriers, our teams protect
-            your building with solutions suited to each surface.
-          </p>
+  <style>
+    /* SERVICES — reference-style cards (preview) */
+    .ibsx-services {
+      background: #ffffff;
+      padding: 88px 0 108px;
+    }
+    .ibsx-wrap {
+      width: min(1180px, calc(100% - 48px));
+      margin-inline: auto;
+    }
+    .ibsx-head {
+      max-width: 780px;
+      margin-bottom: 48px;
+      text-align: left;
+    }
+    .ibsx-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .ibsx-eyebrow::before {
+      content: "";
+      flex: none;
+      width: 30px;
+      height: 3px;
+      background: var(--blue);
+    }
+    .ibsx-head h2 {
+      font-size: clamp(28px, 3.2vw, 40px);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    .ibsx-head p {
+      font-size: 16px;
+      line-height: 1.65;
+      color: #54677f;
+      margin-bottom: 0;
+    }
+    .ibsx-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 24px;
+      row-gap: 28px;
+    }
+    .ibsx-card {
+      background: #ffffff;
+      border: 1px solid #e3eaf2;
+      border-radius: 10px;
+      box-shadow: 0 10px 34px rgba(15, 42, 67, 0.08);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .ibsx-photo {
+      position: relative;
+      flex: none;
+    }
+    .ibsx-photo > img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 10px 10px 0 0;
+    }
+    .ibsx-bar {
+      position: absolute;
+      top: 0;
+      left: 24px;
+      width: 50px;
+      height: 4px;
+      background: var(--blue);
+      z-index: 2;
+    }
+    .ibsx-chip {
+      position: absolute;
+      left: 24px;
+      bottom: -26px;
+      width: 52px;
+      height: 52px;
+      background: var(--blue-light);
+      border: 1px solid #d3e2fb;
+      border-radius: 8px;
+      box-shadow: 0 4px 14px rgba(15, 42, 67, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+    .ibsx-chip img {
+      max-width: 38px;
+      max-height: 38px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+    .ibsx-body {
+      padding: 42px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .ibsx-body h3 {
+      font-size: 23px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .ibsx-body p {
+      font-size: 16px;
+      line-height: 1.55;
+      color: #54677f;
+      margin-bottom: 0;
+    }
+    .ibsx-link {
+      margin-top: auto;
+      padding-top: 24px;
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      align-self: flex-start;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      color: var(--blue);
+      text-decoration: none;
+    }
+    .ibsx-link:hover {
+      color: var(--navy);
+    }
+    @media (max-width: 760px) {
+      .ibsx-services {
+        padding: 64px 0 84px;
+      }
+      .ibsx-wrap {
+        width: calc(100% - 32px);
+      }
+      .ibsx-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+    <section class="ibsx-services" id="services" aria-labelledby="ibs-services-title">
+      <div class="ibsx-wrap">
+        <div class="ibsx-head">
+          <span class="ibsx-eyebrow">What We Do</span>
+          <h2 id="ibs-services-title">Our Building Protection Services</h2>
+          <p>From rooftop waterproofing to termite barriers, our teams protect your building with solutions suited to each surface.</p>
         </div>
-        <div class="ibs-services-grid">
-          <!-- WATERPROOFING -->
-          <article class="ibs-service-card">
-            <div class="ibs-service-photo">
-              <img src="/assets/ibs/hero-roof.webp" alt="Roof waterproofing work in Karachi" width="1448" height="1086" loading="lazy" decoding="async">
+        <div class="ibsx-grid">
+          <article class="ibsx-card">
+            <div class="ibsx-photo">
+              <img src="/assets/ibs/hero-roof.webp" alt="Roof waterproofing work in Karachi" loading="lazy" decoding="async">
+              <span class="ibsx-bar" aria-hidden="true"></span>
+              <span class="ibsx-chip"><img src="/assets/waterproofing%20logo.webp" alt="Waterproofing logo" loading="lazy" decoding="async"></span>
             </div>
-            <div class="ibs-service-top">
-              <div class="ibs-service-icon">
-                <img src="/assets/waterproofing%20logo.webp" alt="Waterproofing logo" width="163" height="131" loading="lazy" decoding="async">
-              </div>
-              <div>
-                <span class="ibs-service-tag">
-                  Residential &amp; Commercial
-                </span>
-                <h3>Waterproofing</h3>
-              </div>
+            <div class="ibsx-body">
+              <h3>Waterproofing</h3>
+              <p>Persistent roof leaks, basement seepage, or damp walls cause structural damage, mold, and costly repairs. IBS applies the right waterproofing system: Polyurethane, Bituminous, Crystalline, or Acrylic.</p>
+              <a class="ibsx-link" href="/waterproofing">Learn more <span aria-hidden="true">&rarr;</span></a>
             </div>
-            <p>
-              Persistent roof leaks, basement seepage, or damp walls cause
-              structural damage, mold, and costly repairs. IBS applies the
-              right waterproofing system: Polyurethane, Bituminous,
-              Crystalline, or Acrylic.
-            </p>
-            <ul class="ibs-feature-list">
-              <li>Roof, terrace &amp; balcony waterproofing</li>
-              <li>Basement &amp; underground waterproofing</li>
-              <li>Bathroom &amp; wet area treatment</li>
-              <li>Polyurethane, Bituminous &amp; Crystalline systems</li>
-            </ul>
-            <a class="ibs-service-link" href="/waterproofing">
-              Learn more <span aria-hidden="true">→</span>
-            </a>
           </article>
-          <!-- TERMITE PROOFING -->
-          <article class="ibs-service-card">
-            <div class="ibs-service-photo">
+          <article class="ibsx-card">
+            <div class="ibsx-photo">
               <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Termite_tubes-1.jpg" alt="Termite mud tubes on a wall" loading="lazy" decoding="async">
+              <span class="ibsx-bar" aria-hidden="true"></span>
+              <span class="ibsx-chip"><img src="/assets/TermiteProofinglogo.webp" alt="Termite Proofing logo" loading="lazy" decoding="async"></span>
             </div>
-            <div class="ibs-service-top">
-              <div class="ibs-service-icon">
-                <img src="/assets/TermiteProofinglogo.webp" alt="Termite Proofing logo" width="80" height="80" loading="lazy" decoding="async">
-              </div>
-              <div>
-                <span class="ibs-service-tag">
-                  Pre &amp; Post Construction
-                </span>
-                <h3>Termite Proofing</h3>
-              </div>
+            <div class="ibsx-body">
+              <h3>Termite Proofing</h3>
+              <p>Termites silently destroy wooden furniture, door frames, and structural elements before you notice. IBS provides pre-construction soil treatment and post-construction chemical barrier systems using professional anti-termite chemicals.</p>
+              <a class="ibsx-link" href="/termite-proofing">Learn more <span aria-hidden="true">&rarr;</span></a>
             </div>
-            <p>
-              Termites silently destroy wooden furniture, door frames, and
-              structural elements before you notice. IBS provides
-              pre-construction soil treatment and post-construction chemical
-              barrier systems using professional anti-termite chemicals.
-            </p>
-            <ul class="ibs-feature-list">
-              <li>Pre-construction soil treatment</li>
-              <li>Post-construction chemical barrier</li>
-              <li>Wood treatment &amp; borate application</li>
-              <li>Site-specific treatment recommendations</li>
-            </ul>
-            <a class="ibs-service-link" href="/termite-proofing">
-              Learn more <span aria-hidden="true">→</span>
-            </a>
           </article>
-          <!-- XPS INSULATION -->
-          <article class="ibs-service-card">
-            <div class="ibs-service-photo">
-              <img src="/assets/ibs/hero-peb.webp" alt="Insulated industrial building roof" width="1600" height="1000" loading="lazy" decoding="async">
+          <article class="ibsx-card">
+            <div class="ibsx-photo">
+              <img src="/assets/ibs/hero-peb.webp" alt="Insulated industrial building roof" loading="lazy" decoding="async">
+              <span class="ibsx-bar" aria-hidden="true"></span>
+              <span class="ibsx-chip"><img src="/assets/Insugreenlogo.webp" alt="INSUGREEN logo" loading="lazy" decoding="async"></span>
             </div>
-            <div class="ibs-service-top">
-              <div class="ibs-service-icon">
-                <img src="/assets/Insugreenlogo.webp" alt="INSUGREEN logo" width="80" height="80" loading="lazy" decoding="async">
-              </div>
-              <div>
-                <span class="ibs-service-tag">Energy Saving</span>
-                <h3>XPS Insulation</h3>
-              </div>
+            <div class="ibsx-body">
+              <h3>XPS Insulation</h3>
+              <p>Pakistan's intense heat drives up electricity bills. IBS installs INSUGREEN XPS extruded polystyrene boards that block heat transfer through your roof and walls, reducing cooling demand. Results depend on the building, insulation thickness and installation.</p>
+              <a class="ibsx-link" href="/thermal-insulation">Learn more <span aria-hidden="true">&rarr;</span></a>
             </div>
-            <p>
-              Pakistan's intense heat drives up electricity bills. IBS
-              installs INSUGREEN XPS extruded polystyrene boards that block
-              heat transfer through your roof and walls, reducing cooling
-              cooling demand. Results depend on the building, insulation thickness and installation.
-            </p>
-            <ul class="ibs-feature-list">
-              <li>Roof &amp; wall thermal insulation</li>
-              <li>INSUGREEN certified XPS boards</li>
-              <li>Helps reduce roof heat transfer and cooling demand. Results depend on the building, insulation thickness and installation.</li>
-              <li>Moisture-resistant &amp; long-lasting</li>
-            </ul>
-            <a class="ibs-service-link" href="/thermal-insulation">
-              Learn more <span aria-hidden="true">→</span>
-            </a>
           </article>
-          <!-- PEST CONTROL -->
-          <article class="ibs-service-card">
-            <div class="ibs-service-photo">
+          <article class="ibsx-card">
+            <div class="ibsx-photo">
               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Pestering_pests%2C_Entomology_sprays_down_threats_150323-F-XD389-010.jpg/1280px-Pestering_pests%2C_Entomology_sprays_down_threats_150323-F-XD389-010.jpg" alt="Pest control technician spraying pesticide treatment" loading="lazy" decoding="async">
+              <span class="ibsx-bar" aria-hidden="true"></span>
+              <span class="ibsx-chip"><img src="/assets/Pest%20Control%20logo.webp" alt="Pest Control logo" loading="lazy" decoding="async"></span>
             </div>
-            <div class="ibs-service-top">
-              <div class="ibs-service-icon" aria-hidden="true">
-                <img src="/assets/Pest%20Control%20logo.webp" alt="Pest Control logo" width="687" height="573" loading="lazy" decoding="async">
-              </div>
-              <div>
-                <span class="ibs-service-tag">Homes &amp; Offices</span>
-                <h3>Pest Control</h3>
-              </div>
+            <div class="ibsx-body">
+              <h3>Pest Control</h3>
+              <p>Cockroaches, rodents, bed bugs, and mosquitoes spread disease and damage property. IBS uses safe, professionally applied pesticides and fumigation to treat and control infestations in homes, restaurants, and commercial spaces.</p>
+              <a class="ibsx-link" href="/pest-control">Learn more <span aria-hidden="true">&rarr;</span></a>
             </div>
-            <p>
-              Cockroaches, rodents, bed bugs, and mosquitoes spread disease
-              and damage property. IBS uses safe, professionally applied
-              pesticides and fumigation to treat and control infestations in
-              homes, restaurants, and commercial spaces.
-            </p>
-            <ul class="ibs-feature-list">
-              <li>Residential &amp; commercial fumigation</li>
-              <li>Cockroach, rodent &amp; bed bug control</li>
-              <li>Safe, professional pesticide application</li>
-              <li>Measured, targeted pest treatment</li>
-            </ul>
-            <a class="ibs-service-link" href="/pest-control">
-              Learn more <span aria-hidden="true">→</span>
-            </a>
           </article>
         </div>
         <div class="ibs-services-action">
-          <a class="ibs-btn ibs-btn-blue" href="/services">
-            View All Services
-          </a>
+          <a class="ibs-btn ibs-btn-blue" href="/services">View All Services</a>
         </div>
       </div>
     </section>
