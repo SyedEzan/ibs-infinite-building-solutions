@@ -1252,6 +1252,321 @@
         height: 160px;
       }
     }
+    /* NEW SECTIONS: Causes, Problem Finder, Monsoon Calendar */
+    .ibs-new-causes,
+    .ibs-new-finder,
+    .ibs-new-calendar {
+      background: #fff;
+    }
+    .ibs-new-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+    .ibs-new-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+    .ibs-new-card {
+      display: flex;
+      flex-direction: column;
+      padding: 28px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 6px 24px rgba(15, 42, 67, .03);
+    }
+    .ibs-new-card h3 {
+      font-size: 19px;
+      margin: 0 0 10px;
+    }
+    .ibs-new-card p {
+      font-size: 14px;
+      line-height: 1.85;
+      margin-bottom: 0;
+    }
+    .ibs-new-photo {
+      margin: -28px -28px 20px;
+      overflow: hidden;
+      border-radius: 18px 18px 0 0;
+    }
+    .ibs-new-photo img {
+      display: block;
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+    }
+    .ibs-new-karachi {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      margin-top: 24px;
+      padding: 28px;
+      background: var(--navy);
+      border-radius: 18px;
+      color: #fff;
+    }
+    .ibs-new-karachi h3 {
+      color: #fff;
+      font-size: 21px;
+      margin: 0 0 10px;
+    }
+    .ibs-new-karachi p {
+      color: #dbe4ef;
+      font-size: 14px;
+      line-height: 1.85;
+      margin: 0;
+    }
+    .ibs-new-karachi img {
+      width: 320px;
+      height: 190px;
+      object-fit: cover;
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+    .ibs-new-dodont {
+      margin-top: 24px;
+    }
+    .ibs-new-dodont h3 {
+      font-size: 17px;
+      margin: 0 0 12px;
+    }
+    .ibs-new-dodont ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .ibs-new-dodont li {
+      position: relative;
+      padding: 8px 0 8px 26px;
+      font-size: 14px;
+      border-bottom: 1px solid #edf1f7;
+    }
+    .ibs-new-dodont li:last-child {
+      border-bottom: 0;
+    }
+    .ibs-new-do li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      font-weight: 700;
+    }
+    .ibs-new-dont li::before {
+      content: "\2715";
+      position: absolute;
+      left: 0;
+      color: #c0392b;
+      font-weight: 700;
+    }
+    /* Problem Finder */
+    .ibs-new-finder-card {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 28px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 6px 24px rgba(15, 42, 67, .03);
+    }
+    .ibs-new-finder-photo {
+      margin: -28px -28px 24px;
+      overflow: hidden;
+      border-radius: 18px 18px 0 0;
+    }
+    .ibs-new-finder-photo img {
+      display: block;
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .ibs-new-progress {
+      height: 6px;
+      background: var(--blue-light);
+      border-radius: 99px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .ibs-new-progress span {
+      display: block;
+      height: 100%;
+      background: var(--blue);
+      border-radius: 99px;
+      transition: width .3s ease;
+    }
+    .ibs-new-finder-step {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .ibs-new-finder-q {
+      font-size: 21px;
+      color: var(--navy);
+      font-weight: 700;
+      margin: 0 0 18px;
+    }
+    .ibs-new-options {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .ibs-new-option {
+      padding: 14px 16px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy);
+      text-align: left;
+      cursor: pointer;
+      transition: border-color .2s, background .2s;
+    }
+    .ibs-new-option:hover {
+      border-color: var(--blue);
+      background: var(--blue-light);
+    }
+    .ibs-new-finder-back {
+      margin-top: 18px;
+      background: none;
+      border: 0;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0;
+    }
+    .ibs-new-finder-result h3 {
+      font-size: 22px;
+      margin: 0 0 6px;
+    }
+    .ibs-new-finder-note {
+      font-size: 13px;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .ibs-new-result-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+    .ibs-new-result-box {
+      padding: 18px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    .ibs-new-result-box h4 {
+      font-size: 15px;
+      color: var(--navy);
+      margin: 0 0 8px;
+    }
+    .ibs-new-result-box p {
+      font-size: 13px;
+      line-height: 1.8;
+      margin: 0;
+    }
+    .ibs-new-finder-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .ibs-new-finder-restart {
+      background: none;
+      border: 0;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0;
+    }
+    /* Monsoon Calendar */
+    .ibs-new-cal-tag {
+      display: block;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .ibs-new-cal-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .ibs-new-cal-list li {
+      position: relative;
+      padding: 8px 0 8px 26px;
+      font-size: 14px;
+      border-bottom: 1px solid #edf1f7;
+    }
+    .ibs-new-cal-list li:last-child {
+      border-bottom: 0;
+    }
+    .ibs-new-cal-list li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      font-weight: 700;
+    }
+    .ibs-new-cal-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+      padding: 24px 28px;
+      background: var(--navy);
+      border-radius: 18px;
+      color: #fff;
+    }
+    .ibs-new-cal-strip h3 {
+      color: #fff;
+      font-size: 19px;
+      margin: 0;
+    }
+    .ibs-new-cal-strip p {
+      color: #dbe4ef;
+      font-size: 14px;
+      margin: 4px 0 0;
+    }
+    @media (max-width: 900px) {
+      .ibs-new-grid-3,
+      .ibs-new-result-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .ibs-new-karachi {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .ibs-new-karachi img {
+        width: 100%;
+      }
+    }
+    @media (max-width: 640px) {
+      .ibs-new-grid-3,
+      .ibs-new-grid-2,
+      .ibs-new-result-grid,
+      .ibs-new-options {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .ibs-new-photo img {
+        height: 160px;
+      }
+      .ibs-new-finder-photo img {
+        height: 180px;
+      }
+    }
+
   </style>
   <link rel="stylesheet" href="/components/shared-blocks.css">
 </head>
@@ -1729,6 +2044,273 @@
         <div class="ibs-services-action">
           <a class="ibs-btn ibs-btn-blue" href="/services">
             View All Services
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- CAUSES -->
+    <section
+      class="ibs-section ibs-new-causes"
+      id="causes"
+      aria-labelledby="ibs-causes-title"
+    >
+      <div class="ibs-container">
+        <div class="ibs-section-head">
+          <span class="ibs-eyebrow">Know the Cause</span>
+          <h2 id="ibs-causes-title">
+            Why Buildings Get Damp in Karachi
+          </h2>
+          <p>
+            Damp rarely appears for no reason. These are the most common
+            causes we find in homes and buildings across Karachi — and each
+            one has a lasting fix.
+          </p>
+        </div>
+        <div class="ibs-new-grid-3">
+          <article class="ibs-new-card">
+            <div class="ibs-new-photo">
+              <img
+                src="https://image.luminews.my/dnkp0eolt60inz7sqen0rl7oqjkn?w=2048&q=75"
+                alt="Heavy monsoon rain falling off a building roof"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <h3>Monsoon Rain</h3>
+            <p>
+              Heavy seasonal rain soaks roofs, terraces and walls, and any
+              weak spot lets water in.
+            </p>
+          </article>
+          <article class="ibs-new-card">
+            <div class="ibs-new-photo">
+              <img
+                src="https://www.knoxvilleroofingandsiding.com/wp-content/uploads/roof-leak-penetrating-interior-ceiling-980x605.jpg"
+                alt="Brown water stain spreading across a ceiling"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <h3>Roof Seepage</h3>
+            <p>
+              Water finds its way through small cracks, worn coatings and
+              poorly sealed joints on the roof.
+            </p>
+          </article>
+          <article class="ibs-new-card">
+            <div class="ibs-new-photo">
+              <img
+                src="https://www.kingfisheruk.com/images/problems/rising-damp-1.jpg"
+                alt="Damp damage and peeling paint at the base of a wall"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <h3>Rising Damp</h3>
+            <p>
+              Moisture from the ground climbs up through walls and floors,
+              leaving tide marks and peeling paint near the base.
+            </p>
+          </article>
+          <article class="ibs-new-card">
+            <div class="ibs-new-photo">
+              <img
+                src="https://cdn.prod.website-files.com/66744f149125cbb213a68e1d/6792f1d7bc09ffcf5626fbb3_a-photo-of-a-leaky-pipe-in-a-bathroom-th_EWWVTJEoQbq_FYwXeXVafA_Bq6rd6_UQkyky65P-oNGDA-p-1080.webp"
+                alt="A leaking water pipe in a bathroom"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <h3>Bathroom &amp; Tank Leaks</h3>
+            <p>
+              Hidden leaks behind tiles, under sinks and around water tanks
+              can dampen walls for months before they show.
+            </p>
+          </article>
+          <article class="ibs-new-card">
+            <div class="ibs-new-photo">
+              <img
+                src="https://i.f1g.fr/media/cms/orig/2023/04/03/f965f6e6c1e17a2481011fa5ee9b83ffd621fc4619b38163b851dec122652843.jpg"
+                alt="Cracked and peeling plaster on an aging building wall"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <h3>Aging Buildings &amp; Worn Coatings</h3>
+            <p>
+              Older buildings and coatings that were never renewed lose their
+              protection, so water gets in more easily.
+            </p>
+          </article>
+          <article class="ibs-new-card">
+            <div class="ibs-new-photo">
+              <img
+                src="https://www.dakwerken-adrem.be/images/dakgoot-verstopt-door-mos.jpg"
+                alt="A roof gutter clogged with leaves and debris"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <h3>Poor Drainage</h3>
+            <p>
+              Blocked roof drains and gutters let rainwater pool on the roof
+              instead of draining away.
+            </p>
+          </article>
+        </div>
+        <div class="ibs-new-karachi">
+          <div>
+            <h3>The Karachi Problem</h3>
+            <p>
+              Monsoon rain plus older construction makes damp a recurring
+              problem in Karachi. Roofs and walls that cope in the dry months
+              are tested every monsoon — and a small leak left alone becomes
+              a big repair.
+            </p>
+          </div>
+          <img
+            src="https://nwmphn.org.au/wp-content/uploads/2025/05/flood-5x4-1-scaled.jpg"
+            alt="A city street flooded after heavy monsoon rain"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+        <div class="ibs-new-grid-2 ibs-new-dodont">
+          <article class="ibs-new-card ibs-new-do">
+            <h3>Do</h3>
+            <ul>
+              <li>Book a free site survey</li>
+              <li>Fix small leaks early</li>
+              <li>Keep roof drains and gutters clear</li>
+            </ul>
+          </article>
+          <article class="ibs-new-card ibs-new-dont">
+            <h3>Don&rsquo;t</h3>
+            <ul>
+              <li>Paint over damp patches</li>
+              <li>Ignore a small leak</li>
+              <li>Use chemical shortcuts</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!-- PROBLEM FINDER -->
+    <section
+      class="ibs-section ibs-new-finder"
+      id="finder"
+      aria-labelledby="ibs-finder-title"
+    >
+      <div class="ibs-container">
+        <div class="ibs-section-head">
+          <span class="ibs-eyebrow">Find Your Problem</span>
+          <h2 id="ibs-finder-title">
+            What&rsquo;s Wrong With Your Building?
+          </h2>
+          <p>
+            Find your problem in 60 seconds. Answer three quick questions
+            and we will point you to the service that usually fits.
+          </p>
+        </div>
+        <div class="ibs-new-finder-card">
+          <div class="ibs-new-finder-photo">
+            <img
+              src="https://www.belfor.com/th/wp-content/uploads/sites/20/2026/08/Rainwater-leak-edited.png.webp"
+              alt="Water dripping from a leaking ceiling"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+          <div id="ibs-finder">
+            <div class="ibs-new-progress" aria-hidden="true">
+              <span id="ibs-finder-bar" style="width: 33%"></span>
+            </div>
+            <p class="ibs-new-finder-step" id="ibs-finder-step">
+              Question 1 of 3
+            </p>
+            <div id="ibs-finder-body" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- MONSOON CALENDAR -->
+    <section
+      class="ibs-section ibs-new-calendar"
+      id="monsoon-calendar"
+      aria-labelledby="ibs-calendar-title"
+    >
+      <div class="ibs-container">
+        <div class="ibs-section-head">
+          <span class="ibs-eyebrow">Season by Season</span>
+          <h2 id="ibs-calendar-title">
+            Protect Your Building, Season by Season
+          </h2>
+          <p>
+            A little preparation before the monsoon saves a lot of repair
+            after it. Here is a simple seasonal checklist for Karachi
+            buildings.
+          </p>
+        </div>
+        <div class="ibs-new-grid-3">
+          <article class="ibs-new-card">
+            <div class="ibs-new-photo">
+              <img
+                src="https://cdn.prod.website-files.com/67dff134686c0fa648c99782/67dff24a647cc1c2a0fb64a8_Roof-inspection-p-1080.jpg"
+                alt="A worker inspecting a roof"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <span class="ibs-new-cal-tag">May &ndash; June</span>
+            <h3>Pre-Monsoon</h3>
+            <ul class="ibs-new-cal-list">
+              <li>Check the roof and terrace for cracks and worn coating</li>
+              <li>Clear drains and gutters so rainwater can run off</li>
+              <li>Inspect waterproofing before the rains arrive</li>
+            </ul>
+          </article>
+          <article class="ibs-new-card">
+            <div class="ibs-new-photo">
+              <img
+                src="https://www.thecooldown.com/wp-content/uploads/2023/06/QYXEDUCxWz9W.jpg"
+                alt="A street flooded during heavy monsoon rain"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <span class="ibs-new-cal-tag">July &ndash; September</span>
+            <h3>Monsoon</h3>
+            <ul class="ibs-new-cal-list">
+              <li>Watch for new leaks and damp patches after heavy rain</li>
+              <li>Keep drains clear through the season</li>
+              <li>Note where water enters, so it can be fixed at the source</li>
+            </ul>
+          </article>
+          <article class="ibs-new-card">
+            <div class="ibs-new-photo">
+              <img
+                src="https://www.dcx.ae/wp-content/uploads/2026/06/Apartment-Balcony-Waterproofing.jpg"
+                alt="A worker applying waterproofing coating"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <span class="ibs-new-cal-tag">October &ndash; November</span>
+            <h3>Post-Monsoon</h3>
+            <ul class="ibs-new-cal-list">
+              <li>Inspect the roof and walls for damage after the rains</li>
+              <li>Repair small issues before they spread</li>
+              <li>Plan insulation before winter, when roof work is easier</li>
+            </ul>
+          </article>
+        </div>
+        <div class="ibs-new-cal-strip">
+          <div>
+            <h3>Not sure your building is ready for the next monsoon?</h3>
+            <p>Book a free site survey and let our team check it for you.</p>
+          </div>
+          <a class="ibs-btn ibs-btn-blue" href="/contact">
+            Book a Free Site Survey
           </a>
         </div>
       </div>
@@ -2522,6 +3104,201 @@
         document.addEventListener("DOMContentLoaded", boot, {
           once: true
         });
+      } else {
+        boot();
+      }
+    })();
+  </script>
+  <script>
+    (() => {
+      function boot() {
+        const root = document.getElementById("ibs-finder");
+        if (!root || root.dataset.ready === "fixed") return;
+        root.dataset.ready = "fixed";
+
+        const bar = document.getElementById("ibs-finder-bar");
+        const stepLabel = document.getElementById("ibs-finder-step");
+        const body = document.getElementById("ibs-finder-body");
+
+        const QUESTIONS = [
+          {
+            q: "Where is the problem?",
+            options: [
+              "Roof",
+              "Walls",
+              "Bathroom or tank",
+              "Wood or furniture",
+              "Too much heat",
+              "Pests"
+            ]
+          },
+          {
+            q: "How long has it been there?",
+            options: [
+              "Just started",
+              "A few weeks",
+              "Months or longer",
+              "It keeps coming back"
+            ]
+          },
+          {
+            q: "How many areas are affected?",
+            options: ["One spot", "A few spots", "The whole building"]
+          }
+        ];
+
+        const RESULTS = {
+          waterproofing: {
+            service: "Waterproofing",
+            means:
+              "Water is finding its way in through the roof, walls or plumbing, and the damp you can see is often only part of it.",
+            try:
+              "Clear roof drains and gutters, note exactly where and when water appears, and do not paint over damp patches — it hides the problem without fixing it.",
+            call:
+              "If the damp keeps coming back, is spreading, or covers more than one area, book a free site survey so the source can be found and fixed properly."
+          },
+          termite: {
+            service: "Termite Proofing",
+            means:
+              "Termites may be active in the woodwork. They work quietly, and the damage is often worse than it looks.",
+            try:
+              "Look for mud tubes along walls and hollow-sounding wood. Avoid disturbing the area — household sprays can scatter termites without removing them.",
+            call:
+              "Any sign of termites is worth a free inspection. Early treatment is simpler and less disruptive."
+          },
+          xps: {
+            service: "XPS Insulation",
+            means:
+              "Heat is entering through an uninsulated roof, which is the main reason rooms stay hot and cooling bills climb.",
+            try:
+              "Note which rooms get hottest and at what time of day, and keep curtains closed during the strongest sun.",
+            call:
+              "Book a free site survey and the team can assess whether XPS roof insulation suits your building."
+          },
+          pest: {
+            service: "Pest Control",
+            means:
+              "Pests have found food, water or shelter in the building, and without treatment they are likely to return.",
+            try:
+              "Keep food sealed and stored, clear standing water, and note where and when you see pests.",
+            call:
+              "If sightings keep happening, book a treatment. Scheduled visits keep the problem from coming back."
+          }
+        };
+
+        function serviceFor(location) {
+          if (location === "Wood or furniture") return "termite";
+          if (location === "Too much heat") return "xps";
+          if (location === "Pests") return "pest";
+          return "waterproofing";
+        }
+
+        function esc(text) {
+          return text
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+        }
+
+        let step = 0;
+        const answers = [];
+
+        function render() {
+          const total = QUESTIONS.length;
+          if (step < total) {
+            bar.style.width = ((step + 1) / total) * 100 + "%";
+            stepLabel.textContent = "Question " + (step + 1) + " of " + total;
+            const q = QUESTIONS[step];
+            let html =
+              '<p class="ibs-new-finder-q">' + esc(q.q) + "</p>" +
+              '<div class="ibs-new-options">';
+            q.options.forEach((opt) => {
+              html +=
+                '<button type="button" class="ibs-new-option" data-opt="' +
+                esc(opt) +
+                '">' +
+                esc(opt) +
+                "</button>";
+            });
+            html += "</div>";
+            if (step > 0) {
+              html +=
+                '<button type="button" class="ibs-new-finder-back" id="ibs-finder-back">&larr; Back</button>';
+            }
+            body.innerHTML = html;
+            body.querySelectorAll(".ibs-new-option").forEach((btn) => {
+              btn.addEventListener("click", () => {
+                answers[step] = btn.getAttribute("data-opt");
+                step += 1;
+                render();
+              });
+            });
+            const back = document.getElementById("ibs-finder-back");
+            if (back) {
+              back.addEventListener("click", () => {
+                step -= 1;
+                render();
+              });
+            }
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          bar.style.width = "100%";
+          stepLabel.textContent = "Your result";
+          const key = serviceFor(answers[0]);
+          const r = RESULTS[key];
+          const notes = [];
+          if (answers[1] === "It keeps coming back") {
+            notes.push(
+              "Because the problem keeps coming back, the underlying cause likely needs professional treatment."
+            );
+          }
+          if (answers[1] === "Months or longer") {
+            notes.push(
+              "Because this has been going on for months, it is worth having the cause checked properly."
+            );
+          }
+          if (answers[2] === "The whole building") {
+            notes.push(
+              "Since more than one area is affected, a full site survey is the best next step."
+            );
+          }
+          let html =
+            '<div class="ibs-new-finder-result">' +
+            "<h3>You likely need: " + esc(r.service) + "</h3>" +
+            '<p class="ibs-new-finder-note">This is general guidance based on your answers, not a diagnosis. A free site survey confirms the cause.</p>';
+          if (notes.length) {
+            html += '<p class="ibs-new-finder-note">' + esc(notes.join(" ")) + "</p>";
+          }
+          html +=
+            '<div class="ibs-new-result-grid">' +
+            '<div class="ibs-new-result-box"><h4>What this usually means</h4><p>' + esc(r.means) + "</p></div>" +
+            '<div class="ibs-new-result-box"><h4>What you can safely try</h4><p>' + esc(r.try) + "</p></div>" +
+            '<div class="ibs-new-result-box"><h4>When to call IBS</h4><p>' + esc(r.call) + "</p></div>" +
+            "</div>" +
+            '<div class="ibs-new-finder-actions">' +
+            '<a class="ibs-btn ibs-btn-blue" href="/contact">Get a Free Site Survey</a>' +
+            '<button type="button" class="ibs-new-finder-restart" id="ibs-finder-restart">Start Over</button>' +
+            "</div>" +
+            "</div>";
+          body.innerHTML = html;
+          document
+            .getElementById("ibs-finder-restart")
+            .addEventListener("click", () => {
+              step = 0;
+              answers.length = 0;
+              render();
+            });
+        }
+
+        render();
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", boot, { once: true });
       } else {
         boot();
       }
