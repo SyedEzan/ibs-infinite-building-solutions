@@ -1271,6 +1271,7 @@
     .ibs-new-card {
       display: flex;
       flex-direction: column;
+      min-width: 0;
       padding: 28px;
       background: #fff;
       border: 1px solid var(--border);
@@ -1543,6 +1544,9 @@
       .ibs-new-grid-3,
       .ibs-new-result-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .ibs-new-calendar .ibs-new-grid-3 {
+        grid-template-columns: minmax(0, 1fr);
       }
       .ibs-new-karachi {
         flex-direction: column;
