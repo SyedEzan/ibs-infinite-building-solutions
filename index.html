@@ -1570,6 +1570,71 @@
         height: 180px;
       }
     }
+    /* WHY CHOOSE US (reference style, after stats strip) */
+    .ibs-why2 {
+      background: #fff;
+      padding: clamp(3.4rem, 7vw, 5.2rem) 1.25rem clamp(3.6rem, 7vw, 5rem);
+    }
+    .ibs-why2-wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .ibs-why2 h2 {
+      margin: 0 auto;
+      max-width: 720px;
+      text-align: center;
+      color: #0f2a43;
+      font-size: clamp(1.65rem, 3.4vw, 2.2rem);
+      line-height: 1.28;
+      font-weight: 800;
+      letter-spacing: -.01em;
+      text-wrap: balance;
+    }
+    .ibs-why2-grid {
+      margin-top: clamp(2rem, 4.5vw, 3rem);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.15rem;
+    }
+    .ibs-why2-card {
+      background: #fff;
+      border: 1px solid #e2eaf1;
+      border-radius: 14px;
+      padding: 1.9rem 1.8rem 2rem;
+      transition: border-color .18s ease, box-shadow .18s ease;
+    }
+    .ibs-why2-card:hover {
+      border-color: #1d4ed8;
+      box-shadow: 0 10px 28px rgba(15, 42, 67, .09);
+    }
+    .ibs-why2-num {
+      color: #1d4ed8;
+      font-weight: 800;
+      font-size: .92rem;
+      letter-spacing: .04em;
+    }
+    .ibs-why2-card h3 {
+      margin: .85rem 0 .65rem;
+      color: #0f2a43;
+      font-size: 1.22rem;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+    .ibs-why2-card p {
+      margin: 0;
+      color: #5b6b7c;
+      font-size: .99rem;
+      line-height: 1.72;
+      font-weight: 500;
+    }
+    @media (max-width: 760px) {
+      .ibs-why2-grid {
+        grid-template-columns: 1fr;
+      }
+      .ibs-why2-card {
+        padding: 1.6rem 1.4rem 1.7rem;
+      }
+    }
 
   </style>
   <link rel="stylesheet" href="/components/shared-blocks.css">
@@ -1748,7 +1813,7 @@
             </p>
             <div class="ibs-f-actions">
               <a class="ibs-f-btn" href="/contact">
-                Get Free Site Survey
+                Get Free Consultation
                 <span aria-hidden="true">&#8599;</span>
               </a>
               <a class="ibs-f-btn ibs-f-hero-call" href="tel:+923323070499">
@@ -1798,6 +1863,34 @@
         </div>
       </div>
     </div>
+    <!-- WHY CHOOSE US -->
+    <section class="ibs-why2" aria-labelledby="ibs-why2-title">
+      <div class="ibs-why2-wrap">
+        <h2 id="ibs-why2-title">Why Choose Infinite Building Solutions?</h2>
+        <div class="ibs-why2-grid">
+          <article class="ibs-why2-card">
+            <div class="ibs-why2-num">01</div>
+            <h3>Free Consultation &amp; Honest Advice</h3>
+            <p>We visit your site, diagnose the actual problem, and recommend only what you need. Transparent assessment, honest pricing.</p>
+          </article>
+          <article class="ibs-why2-card">
+            <div class="ibs-why2-num">02</div>
+            <h3>Certified Materials Only</h3>
+            <p>We use internationally certified, ISO-compliant waterproofing chemicals and anti-termite treatments. Never cheap substitutes. The right material for each surface, every time.</p>
+          </article>
+          <article class="ibs-why2-card">
+            <div class="ibs-why2-num">03</div>
+            <h3>Trained, Experienced Teams</h3>
+            <p>Our teams are professionally trained in surface preparation and application techniques. Proper application is what separates a 2-year result from a 10-year one.</p>
+          </article>
+          <article class="ibs-why2-card">
+            <div class="ibs-why2-num">04</div>
+            <h3>Fast Project Turnaround</h3>
+            <p>Construction timelines matter. Our teams work efficiently to complete projects on schedule. No unnecessary delays, no surprises.</p>
+          </article>
+        </div>
+      </div>
+    </section>
     <!-- PROBLEMS WE SOLVE -->
     <section
       class="ibs-section"
@@ -2183,7 +2276,7 @@
           <article class="ibs-new-card ibs-new-do">
             <h3>Do</h3>
             <ul>
-              <li>Book a free site survey</li>
+              <li>Book a free consultation</li>
               <li>Fix small leaks early</li>
               <li>Keep roof drains and gutters clear</li>
             </ul>
@@ -2311,10 +2404,10 @@
         <div class="ibs-new-cal-strip">
           <div>
             <h3>Not sure your building is ready for the next monsoon?</h3>
-            <p>Book a free site survey and let our team check it for you.</p>
+            <p>Book a free consultation and let our team check it for you.</p>
           </div>
           <a class="ibs-btn ibs-btn-blue" href="/contact">
-            Book a Free Site Survey
+            Book a Free Consultation
           </a>
         </div>
       </div>
@@ -2338,7 +2431,7 @@
         <div class="ibs-process-grid">
           <article class="ibs-process-card">
             <span class="ibs-step-number">01</span>
-            <h3>Free Site Survey</h3>
+            <h3>Free Consultation</h3>
             <p>
               Our expert visits your property, inspects the problem, and
               recommends the best solution at no cost.
@@ -2371,90 +2464,6 @@
         </div>
       </div>
     </section>
-    <!-- WHY IBS -->
-    <section
-      class="ibs-section ibs-soft"
-      aria-labelledby="ibs-why-title"
-    >
-      <div class="ibs-container">
-        <div class="ibs-section-head">
-          <span class="ibs-eyebrow">Why IBS</span>
-          <h2 id="ibs-why-title">
-            Why Choose Infinite Building Solutions?
-          </h2>
-          <p>
-            Serving since 2018. 500+ projects. One commitment: protect your building
-            and keep it protected.
-          </p>
-        </div>
-        <div class="ibs-why-grid">
-          <article class="ibs-why-card">
-            <div class="ibs-why-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><use href="#icon-inspect"></use></svg>
-            </div>
-            <h3>Solutions for Your Property</h3>
-            <p>
-              We assess the condition of your property and recommend a
-              waterproofing or termite treatment suited to the problem.
-            </p>
-          </article>
-          <article class="ibs-why-card">
-            <div class="ibs-why-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><use href="#icon-shield"></use></svg>
-            </div>
-            <h3>Certified Materials Only</h3>
-            <p>
-              We use internationally certified, ISO-compliant waterproofing
-              chemicals and anti-termite treatments. Never cheap substitutes.
-              The right material for each surface, every time.
-            </p>
-          </article>
-          <article class="ibs-why-card">
-            <div class="ibs-why-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><use href="#icon-team"></use></svg>
-            </div>
-            <h3>Trained, Experienced Teams</h3>
-            <p>
-              Our teams are professionally trained in surface preparation
-              and application techniques. Proper application is what
-              separates a 2-year result from a 10-year one.
-            </p>
-          </article>
-          <article class="ibs-why-card">
-            <div class="ibs-why-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><use href="#icon-clipboard"></use></svg>
-            </div>
-            <h3>Free Survey &amp; Honest Advice</h3>
-            <p>
-              We visit your site, diagnose the actual problem, and recommend
-              only what you need. Transparent assessment, honest pricing.
-            </p>
-          </article>
-          <article class="ibs-why-card">
-            <div class="ibs-why-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><use href="#icon-pin"></use></svg>
-            </div>
-            <h3>Pan-Pakistan Service</h3>
-            <p>
-              Based in Karachi, we serve residential, commercial, and
-              industrial clients across Pakistan, including Lahore,
-              Islamabad, Rawalpindi, and beyond.
-            </p>
-          </article>
-          <article class="ibs-why-card">
-            <div class="ibs-why-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><use href="#icon-clock"></use></svg>
-            </div>
-            <h3>Fast Project Turnaround</h3>
-            <p>
-              Construction timelines matter. Our teams work efficiently
-              to complete projects on schedule. No unnecessary delays,
-              no surprises.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
     <!-- FAQ -->
     <section
       class="ibs-section"
@@ -2481,7 +2490,7 @@
               <p>
                 Cost depends on the surface area, existing condition, and
                 system chosen: Polyurethane, Bituminous, Crystalline, or
-                Acrylic. IBS offers a <strong>free site survey</strong>
+                Acrylic. IBS offers a <strong>free consultation</strong>
                 to assess your specific situation and provide an accurate,
                 no-obligation quote.
               </p>
@@ -2641,7 +2650,7 @@
               Call 0332-3070499
             </a>
             <a class="ibs-btn ibs-btn-outline" href="/contact">
-              Book Free Site Survey
+              Book Free Consultation
             </a>
           </div>
           <p class="ibs-cta-contact">
@@ -3159,7 +3168,7 @@
             try:
               "Clear roof drains and gutters, note exactly where and when water appears, and do not paint over damp patches — it hides the problem without fixing it.",
             call:
-              "If the damp keeps coming back, is spreading, or covers more than one area, book a free site survey so the source can be found and fixed properly."
+              "If the damp keeps coming back, is spreading, or covers more than one area, book a free consultation so the source can be found and fixed properly."
           },
           termite: {
             service: "Termite Proofing",
@@ -3177,7 +3186,7 @@
             try:
               "Note which rooms get hottest and at what time of day, and keep curtains closed during the strongest sun.",
             call:
-              "Book a free site survey and the team can assess whether XPS roof insulation suits your building."
+              "Book a free consultation and the team can assess whether XPS roof insulation suits your building."
           },
           pest: {
             service: "Pest Control",
@@ -3267,13 +3276,13 @@
           }
           if (answers[2] === "The whole building") {
             notes.push(
-              "Since more than one area is affected, a full site survey is the best next step."
+              "Since more than one area is affected, a free consultation is the best next step."
             );
           }
           let html =
             '<div class="ibs-new-finder-result">' +
             "<h3>You likely need: " + esc(r.service) + "</h3>" +
-            '<p class="ibs-new-finder-note">This is general guidance based on your answers, not a diagnosis. A free site survey confirms the cause.</p>';
+            '<p class="ibs-new-finder-note">This is general guidance based on your answers, not a diagnosis. A free consultation confirms the cause.</p>';
           if (notes.length) {
             html += '<p class="ibs-new-finder-note">' + esc(notes.join(" ")) + "</p>";
           }
@@ -3284,7 +3293,7 @@
             '<div class="ibs-new-result-box"><h4>When to call IBS</h4><p>' + esc(r.call) + "</p></div>" +
             "</div>" +
             '<div class="ibs-new-finder-actions">' +
-            '<a class="ibs-btn ibs-btn-blue" href="/contact">Get a Free Site Survey</a>' +
+            '<a class="ibs-btn ibs-btn-blue" href="/contact">Get a Free Consultation</a>' +
             '<button type="button" class="ibs-new-finder-restart" id="ibs-finder-restart">Start Over</button>' +
             "</div>" +
             "</div>";
