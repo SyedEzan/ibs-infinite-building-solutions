@@ -758,6 +758,78 @@
       line-height: 1.85;
       margin: 0 0 16px;
     }
+    /* PROBLEMS WE SOLVE — horizontal photo rows */
+    .prob-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .prob-row {
+      display: flex;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 6px 24px rgba(15, 42, 67, .03);
+    }
+    .prob-row.flip {
+      flex-direction: row-reverse;
+    }
+    .prob-photo {
+      flex: 0 0 45%;
+      position: relative;
+      min-height: 240px;
+    }
+    .prob-photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .prob-body {
+      flex: 1 1 auto;
+      min-width: 0;
+      padding: 32px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .prob-num {
+      display: inline-block;
+      background: var(--blue-light);
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 6px 10px;
+      border-radius: 8px;
+      margin-bottom: 14px;
+    }
+    .prob-body h3 {
+      font-size: 20px;
+      margin: 0 0 8px;
+    }
+    .prob-body p {
+      font-size: 14px;
+      line-height: 1.85;
+      margin: 0 0 16px;
+    }
+    @media (max-width: 720px) {
+      .prob-row,
+      .prob-row.flip {
+        flex-direction: column;
+      }
+      .prob-photo {
+        flex: none;
+        height: 210px;
+        min-height: 0;
+      }
+      .prob-body {
+        padding: 24px 22px;
+      }
+    }
     /* PROCESS */
     .ibs-process-grid {
       display: grid;
@@ -1891,110 +1963,6 @@
         </div>
       </div>
     </section>
-    <!-- PROBLEMS WE SOLVE -->
-    <section
-      class="ibs-section"
-      aria-labelledby="ibs-problems-title"
-    >
-      <div class="ibs-container">
-        <div class="ibs-section-head">
-          <span class="ibs-eyebrow">Common Problems</span>
-          <h2 id="ibs-problems-title">
-            Problems We Solve
-          </h2>
-          <p>
-            Leaks, damp, termites or heat — if any of these sound familiar,
-            IBS has a lasting fix for it.
-          </p>
-        </div>
-        <div class="ibs-problems-grid">
-          <!-- ROOF LEAKS -->
-          <article class="ibs-problem-card">
-            <div class="ibs-service-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 3.5c3.2 4.2 6 7.2 6 10.3a6 6 0 1 1-12 0c0-3.1 2.8-6.1 6-10.3z"/></svg>
-            </div>
-            <span class="ibs-service-tag">Waterproofing</span>
-            <h3>Roof Leaks &amp; Seepage</h3>
-            <p>
-              Rainwater coming through your roof, terrace or balcony?
-            </p>
-            <a class="ibs-service-link" href="/waterproofing">
-              See the solution <span aria-hidden="true">→</span>
-            </a>
-          </article>
-          <!-- DAMP WALLS -->
-          <article class="ibs-problem-card">
-            <div class="ibs-service-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M12 4l-1.8 4.5L12.5 12l-2 8"/></svg>
-            </div>
-            <span class="ibs-service-tag">Waterproofing</span>
-            <h3>Damp Walls &amp; Peeling Paint</h3>
-            <p>
-              Damp patches, bubbling paint or plaster falling off your walls?
-            </p>
-            <a class="ibs-service-link" href="/waterproofing">
-              See the solution <span aria-hidden="true">→</span>
-            </a>
-          </article>
-          <!-- BATHROOM & TANK LEAKS -->
-          <article class="ibs-problem-card">
-            <div class="ibs-service-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M5 8h14v12H5z"/><path d="M5 12h14"/><path d="M9 8V4h6"/></svg>
-            </div>
-            <span class="ibs-service-tag">Waterproofing</span>
-            <h3>Bathroom &amp; Tank Leaks</h3>
-            <p>
-              Water leaking from bathrooms, kitchens or overhead tanks?
-            </p>
-            <a class="ibs-service-link" href="/waterproofing">
-              See the solution <span aria-hidden="true">→</span>
-            </a>
-          </article>
-          <!-- TERMITE DAMAGE -->
-          <article class="ibs-problem-card">
-            <div class="ibs-service-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><ellipse cx="12" cy="14" rx="4.5" ry="6"/><circle cx="12" cy="6.5" r="2.5"/><path d="M7.5 10L4 8.5M7.5 14H3.5M7.5 18l-3.5 1.5M16.5 10l3.5-1.5M16.5 14h4M16.5 18l3.5 1.5"/></svg>
-            </div>
-            <span class="ibs-service-tag">Termite Proofing</span>
-            <h3>Termites Eating Your Wood</h3>
-            <p>
-              Mud tubes on walls, hollow-sounding wood or damaged door frames?
-            </p>
-            <a class="ibs-service-link" href="/termite-proofing">
-              See the solution <span aria-hidden="true">→</span>
-            </a>
-          </article>
-          <!-- HEAT -->
-          <article class="ibs-problem-card">
-            <div class="ibs-service-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5 5l1.8 1.8M17.2 17.2L19 19M19 5l-1.8 1.8M6.8 17.2L5 19"/></svg>
-            </div>
-            <span class="ibs-service-tag">XPS Insulation</span>
-            <h3>Too Much Heat Indoors</h3>
-            <p>
-              Top floor unbearably hot in summer, with high cooling bills?
-            </p>
-            <a class="ibs-service-link" href="/thermal-insulation">
-              See the solution <span aria-hidden="true">→</span>
-            </a>
-          </article>
-          <!-- PESTS -->
-          <article class="ibs-problem-card">
-            <div class="ibs-service-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M9 10h6v10a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 20z"/><path d="M10.5 10V6.5h3V10"/><path d="M10.5 6.5h3l1-2.5h.5"/><path d="M15 4.5L19 3"/></svg>
-            </div>
-            <span class="ibs-service-tag">Pest Control</span>
-            <h3>Cockroaches &amp; Pests</h3>
-            <p>
-              Cockroaches, mosquitoes or rodents in your home or workplace?
-            </p>
-            <a class="ibs-service-link" href="/pest-control">
-              See the solution <span aria-hidden="true">→</span>
-            </a>
-          </article>
-        </div>
-      </div>
-    </section>
     <!-- SERVICES -->
     <section
       class="ibs-section ibs-soft"
@@ -2142,6 +2110,122 @@
           <a class="ibs-btn ibs-btn-blue" href="/services">
             View All Services
           </a>
+        </div>
+      </div>
+    </section>
+    <!-- PROBLEMS WE SOLVE -->
+    <section
+      class="ibs-section"
+      aria-labelledby="ibs-problems-title"
+    >
+      <div class="ibs-container">
+        <div class="ibs-section-head">
+          <span class="ibs-eyebrow">Common Problems</span>
+          <h2 id="ibs-problems-title">
+            Problems We Solve
+          </h2>
+          <p>
+            Leaks, damp, termites or heat — if any of these sound familiar,
+            IBS has a lasting fix for it.
+          </p>
+        </div>
+        <div class="prob-list">
+          <!-- ROOF LEAKS -->
+          <article class="prob-row">
+            <div class="prob-photo">
+              <img src="/assets/ibs/hero-roof.webp" alt="A worker applying waterproofing coating on a flat roof" loading="lazy" decoding="async">
+            </div>
+            <div class="prob-body">
+              <span class="prob-num" aria-hidden="true">01</span>
+              <h3>Roof Leaks &amp; Seepage</h3>
+              <p>
+                Rainwater coming through your roof, terrace or balcony?
+              </p>
+              <a class="ibs-service-link" href="/waterproofing">
+                See the solution <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+          <!-- DAMP WALLS -->
+          <article class="prob-row flip">
+            <div class="prob-photo">
+              <img src="/assets/ibs/hero-basement.webp" alt="A worker applying waterproofing treatment to a basement wall" loading="lazy" decoding="async">
+            </div>
+            <div class="prob-body">
+              <span class="prob-num" aria-hidden="true">02</span>
+              <h3>Damp Walls &amp; Peeling Paint</h3>
+              <p>
+                Damp patches, bubbling paint or plaster falling off your walls?
+              </p>
+              <a class="ibs-service-link" href="/waterproofing">
+                See the solution <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+          <!-- BATHROOM & TANK LEAKS -->
+          <article class="prob-row">
+            <div class="prob-photo">
+              <img src="/assets/ibs/hero-washroom.webp" alt="A worker applying waterproofing coating to washroom walls" loading="lazy" decoding="async">
+            </div>
+            <div class="prob-body">
+              <span class="prob-num" aria-hidden="true">03</span>
+              <h3>Bathroom &amp; Tank Leaks</h3>
+              <p>
+                Water leaking from bathrooms, kitchens or overhead tanks?
+              </p>
+              <a class="ibs-service-link" href="/waterproofing">
+                See the solution <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+          <!-- TERMITE DAMAGE -->
+          <article class="prob-row flip">
+            <div class="prob-photo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Termite_tubes-1.jpg" alt="Termite mud tubes running up a building foundation" loading="lazy" decoding="async">
+            </div>
+            <div class="prob-body">
+              <span class="prob-num" aria-hidden="true">04</span>
+              <h3>Termites Eating Your Wood</h3>
+              <p>
+                Mud tubes on walls, hollow-sounding wood or damaged door frames?
+              </p>
+              <a class="ibs-service-link" href="/termite-proofing">
+                See the solution <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+          <!-- HEAT -->
+          <article class="prob-row">
+            <div class="prob-photo">
+              <img src="/assets/ibs/hero-peb.webp" alt="A worker spraying white coating on a metal roof" loading="lazy" decoding="async">
+            </div>
+            <div class="prob-body">
+              <span class="prob-num" aria-hidden="true">05</span>
+              <h3>Too Much Heat Indoors</h3>
+              <p>
+                Top floor unbearably hot in summer, with high cooling bills?
+              </p>
+              <a class="ibs-service-link" href="/thermal-insulation">
+                See the solution <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+          <!-- PESTS -->
+          <article class="prob-row flip">
+            <div class="prob-photo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Pestering_pests%2C_Entomology_sprays_down_threats_150323-F-XD389-010.jpg/1280px-Pestering_pests%2C_Entomology_sprays_down_threats_150323-F-XD389-010.jpg" alt="Pest control technician spraying pesticide treatment" loading="lazy" decoding="async">
+            </div>
+            <div class="prob-body">
+              <span class="prob-num" aria-hidden="true">06</span>
+              <h3>Cockroaches &amp; Pests</h3>
+              <p>
+                Cockroaches, mosquitoes or rodents in your home or workplace?
+              </p>
+              <a class="ibs-service-link" href="/pest-control">
+                See the solution <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
