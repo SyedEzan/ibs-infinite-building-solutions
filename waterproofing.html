@@ -14,7 +14,8 @@
   <meta property="og:description" content="Waterproofing for roofs, basements, bathrooms and water tanks in Karachi. PU membrane, crystalline and cementitious systems applied by IBS. Book a free consultation.">
   <meta property="og:url" content="https://ibsolutions.pk/waterproofing">
   <meta property="og:image" content="https://ibsolutions.pk/assets/herosectionimg.webp">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://ibsolutions.pk/assets/herosectionimg.webp">
 
   <link rel="stylesheet" href="/components/shared-blocks.css">
 
@@ -1436,7 +1437,6 @@
           <summary>Services</summary>
 
           <div class="ibs-dropdown-panel">
-            <a href="/services">All Services</a>
             <a href="/waterproofing">Waterproofing</a>
             <a href="/termite-proofing">Termite Proofing</a>
             <a href="/thermal-insulation">XPS Insulation</a>
@@ -1480,7 +1480,7 @@
 
         <div class="ibs-f-slide">
           <img
-            src="assets/ibs/hero-roof.webp"
+            data-src="assets/ibs/hero-roof.webp"
             alt=""
             width="1448"
             height="1086"
@@ -1490,7 +1490,7 @@
 
         <div class="ibs-f-slide">
           <img
-            src="assets/ibs/hero-tank.webp"
+            data-src="assets/ibs/hero-tank.webp"
             alt=""
             width="1280"
             height="960"
@@ -1501,7 +1501,7 @@
 
         <div class="ibs-f-slide">
           <img
-            src="assets/ibs/hero-washroom.webp"
+            data-src="assets/ibs/hero-washroom.webp"
             alt=""
             width="1361"
             height="900"
@@ -1511,7 +1511,7 @@
 
         <div class="ibs-f-slide">
           <img
-            src="assets/ibs/hero-basement.webp"
+            data-src="assets/ibs/hero-basement.webp"
             alt=""
             width="1800"
             height="1200"
@@ -2780,7 +2780,6 @@
           <li><a href="/about">About IBS</a></li>
           <li><a href="/our-process">Our Process</a></li>
           <li><a href="/guides">Guides</a></li>
-          <li><a href="/services">Our Services</a></li>
           <li><a href="/contact">Contact Us</a></li>
         </ul>
       </div>
@@ -2878,6 +2877,14 @@
             const img = slides[index]?.querySelector("img");
             return !!(img && img.complete && img.naturalWidth);
           };
+          // Slides 2-5 start without a src (data-src only) so the browser
+          // does not fetch them on first paint; load one on demand.
+          const loadSlide = index => {
+            const img = slides[index]?.querySelector("img");
+            if (img && img.dataset.src && !img.getAttribute("src")) {
+              img.src = img.dataset.src;
+            }
+          };
 
           function fullWidth() {
             hero.style.setProperty(
@@ -2930,6 +2937,7 @@
           }
 
           function show(index) {
+            loadSlide(index);
             if (!ready(index)) return false;
 
             if (busy) {
@@ -2980,6 +2988,8 @@
                 direction * step +
                 slides.length
               ) % slides.length;
+
+              loadSlide(index);
 
               if (ready(index)) {
                 show(index);
@@ -3082,6 +3092,21 @@
           if (controls) controls.hidden = false;
           if (prev) prev.hidden = false;
           if (next) next.hidden = false;
+
+          // Load the next slide right away so the first auto-advance finds
+          // it ready; load the remaining slides once the page has fully
+          // loaded, so first paint is not blocked by them.
+          loadSlide((current + 1) % slides.length);
+
+          const preloadRest = () => {
+            slides.forEach((_, index) => loadSlide(index));
+          };
+
+          if (document.readyState === "complete") {
+            preloadRest();
+          } else {
+            window.addEventListener("load", preloadRest, { once: true });
+          }
 
           update();
           schedule();

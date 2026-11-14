@@ -12,7 +12,8 @@
   <meta property="og:description" content="Pest inspections and treatment for homes, offices, restaurants and commercial properties in Karachi.">
   <meta property="og:url" content="https://ibsolutions.pk/pest-control">
   <meta property="og:image" content="https://ibsolutions.pk/assets/ibs-logo.webp">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://ibsolutions.pk/assets/ibs-logo.webp">
   <link rel="icon" href="/assets/ibs-logo.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -812,20 +813,6 @@
       margin: 0 auto 26px;
       color: #dce6f0;
     }
-    .cta-contact {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px 24px;
-      margin-top: 26px;
-      color: #dce6f0;
-      font-size: 13px;
-    }
-    .cta-contact a {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
     /* FOOTER */
     .footer {
       padding: 55px 0 0;
@@ -1070,7 +1057,6 @@
         <summary>Services</summary>
 
         <div class="ibs-dropdown-panel">
-          <a href="/services">All Services</a>
           <a href="/waterproofing">Waterproofing</a>
           <a href="/termite-proofing">Termite Proofing</a>
           <a href="/thermal-insulation">XPS Insulation</a>
@@ -1162,16 +1148,16 @@
           <img src="/assets/ibs/hero-peb.webp" alt="" width="1600" height="1000" fetchpriority="high" decoding="async" style="--image-position: center 45%;">
         </div>
         <div class="ibs-f-slide">
-          <img src="/assets/ibs/hero-roof.webp" alt="" width="1448" height="1086" decoding="async">
+          <img data-src="/assets/ibs/hero-roof.webp" alt="" width="1448" height="1086" decoding="async">
         </div>
         <div class="ibs-f-slide">
-          <img src="/assets/ibs/hero-tank.webp" alt="" width="1280" height="960" decoding="async" style="--image-position: center 45%;">
+          <img data-src="/assets/ibs/hero-tank.webp" alt="" width="1280" height="960" decoding="async" style="--image-position: center 45%;">
         </div>
         <div class="ibs-f-slide">
-          <img src="/assets/ibs/hero-washroom.webp" alt="" width="1361" height="900" decoding="async">
+          <img data-src="/assets/ibs/hero-washroom.webp" alt="" width="1361" height="900" decoding="async">
         </div>
         <div class="ibs-f-slide">
-          <img src="/assets/ibs/hero-basement.webp" alt="" width="1800" height="1200" decoding="async">
+          <img data-src="/assets/ibs/hero-basement.webp" alt="" width="1800" height="1200" decoding="async">
         </div>
       </div>
       <div class="ibs-f-hero-shade" aria-hidden="true"></div>
@@ -1193,7 +1179,7 @@
               <a class="ibs-f-btn ibs-f-hero-call" href="tel:+923323070499"><svg class="icon" aria-hidden="true"><use href="#phone"/></svg> Call Now</a>
             </div>
             <div class="badges"> <span> <svg class="icon" aria-hidden="true"><use href="#home"/></svg> Residential Pest Control </span> <span> <svg class="icon" aria-hidden="true"><use href="#building"/></svg> Commercial Pest Management </span> <span> <svg class="icon" aria-hidden="true"><use href="#search"/></svg> Inspection &amp; Prevention Guidance </span> </div>
-            <nav class="breadcrumb" aria-label="Breadcrumb"> <a href="/">Home</a> <span aria-hidden="true">›</span> <a href="/services">Services</a> <span aria-hidden="true">›</span> <span aria-current="page">Pest Control</span> </nav>
+            <nav class="breadcrumb" aria-label="Breadcrumb"> <a href="/">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">Pest Control</span> </nav>
           </div>
         </div>
       </div>
@@ -1302,7 +1288,7 @@
           <article class="photo-card">
             <img
               class="pest-image contain"
-              src="https://upload.wikimedia.org/wikipedia/commons/8/85/Blatella_germanica_%28German_cockroach%29.jpg"
+              src="/assets/pest-cockroach.webp"
               alt="Reference photograph of a cockroach"
               width="330"
               height="187"
@@ -1321,7 +1307,7 @@
           <article class="photo-card">
             <img
               class="pest-image"
-              src="https://upload.wikimedia.org/wikipedia/commons/6/63/Rattus_norvegicus_.jpg"
+              src="/assets/pest-rat.webp"
               alt="Brown rat, shown as a reference for rodent identification"
               width="4896"
               height="3672"
@@ -1340,7 +1326,7 @@
           <article class="photo-card">
             <img
               class="pest-image contain"
-              src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Cimex_lectularius.jpg"
+              src="/assets/pest-bed-bug.webp"
               alt="Close-up reference photograph of a bed bug"
               width="1806"
               height="1190"
@@ -1765,16 +1751,6 @@
               WhatsApp Us
             </a>
           </div>
-          <div class="cta-contact">
-            <a href="tel:+923366822155">
-              <svg class="icon" aria-hidden="true"><use href="#phone"/></svg>
-              0336-6822155
-            </a>
-            <a href="mailto:ibsolution786@gmail.com">
-              <svg class="icon" aria-hidden="true"><use href="#mail"/></svg>
-              ibsolution786@gmail.com
-            </a>
-          </div>
         </div>
       </div>
     </section>
@@ -1838,12 +1814,6 @@
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Services",
-            "item": "https://ibsolutions.pk/services"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
             "name": "Pest Control",
             "item": "https://ibsolutions.pk/pest-control"
           }
@@ -1958,7 +1928,6 @@
           <li><a href="/about">About IBS</a></li>
           <li><a href="/our-process">Our Process</a></li>
           <li><a href="/guides">Guides</a></li>
-          <li><a href="/services">Our Services</a></li>
           <li><a href="/contact">Contact Us</a></li>
         </ul>
       </div>
@@ -2054,6 +2023,14 @@
             const img = slides[index]?.querySelector("img");
             return !!(img && img.complete && img.naturalWidth);
           };
+          // Slides 2-5 start without a src (data-src only) so the browser
+          // does not fetch them on first paint; load one on demand.
+          const loadSlide = index => {
+            const img = slides[index]?.querySelector("img");
+            if (img && img.dataset.src && !img.getAttribute("src")) {
+              img.src = img.dataset.src;
+            }
+          };
 
           function fullWidth() {
             hero.style.setProperty(
@@ -2106,6 +2083,7 @@
           }
 
           function show(index) {
+            loadSlide(index);
             if (!ready(index)) return false;
 
             if (busy) {
@@ -2156,6 +2134,8 @@
                 direction * step +
                 slides.length
               ) % slides.length;
+
+              loadSlide(index);
 
               if (ready(index)) {
                 show(index);
@@ -2258,6 +2238,21 @@
           if (controls) controls.hidden = false;
           if (prev) prev.hidden = false;
           if (next) next.hidden = false;
+
+          // Load the next slide right away so the first auto-advance finds
+          // it ready; load the remaining slides once the page has fully
+          // loaded, so first paint is not blocked by them.
+          loadSlide((current + 1) % slides.length);
+
+          const preloadRest = () => {
+            slides.forEach((_, index) => loadSlide(index));
+          };
+
+          if (document.readyState === "complete") {
+            preloadRest();
+          } else {
+            window.addEventListener("load", preloadRest, { once: true });
+          }
 
           update();
           schedule();

@@ -14,6 +14,7 @@
   <meta property="og:url" content="https://ibsolutions.pk/guides/pest-prevention">
   <meta property="og:image" content="https://ibsolutions.pk/assets/herosectionimg.webp">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://ibsolutions.pk/assets/herosectionimg.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -159,7 +160,7 @@
     }
     .ibs-logo img {
       width: auto;
-      height: 94px;
+      height: 92px;
       object-fit: contain;
     }
     .ibs-nav-links {
@@ -1360,7 +1361,6 @@
         <summary>Services</summary>
 
         <div class="ibs-dropdown-panel">
-          <a href="/services">All Services</a>
           <a href="/waterproofing">Waterproofing</a>
           <a href="/termite-proofing">Termite Proofing</a>
           <a href="/thermal-insulation">XPS Insulation</a>
@@ -1388,16 +1388,16 @@
           <img src="/assets/ibs/hero-peb.webp" alt="" width="1600" height="1000" fetchpriority="high" decoding="async" style="--image-position: center 45%;">
         </div>
         <div class="ibs-f-slide">
-          <img src="/assets/ibs/hero-roof.webp" alt="" width="1448" height="1086" decoding="async">
+          <img data-src="/assets/ibs/hero-roof.webp" alt="" width="1448" height="1086" decoding="async">
         </div>
         <div class="ibs-f-slide">
-          <img src="/assets/ibs/hero-tank.webp" alt="" width="1280" height="960" decoding="async" style="--image-position: center 45%;">
+          <img data-src="/assets/ibs/hero-tank.webp" alt="" width="1280" height="960" decoding="async" style="--image-position: center 45%;">
         </div>
         <div class="ibs-f-slide">
-          <img src="/assets/ibs/hero-washroom.webp" alt="" width="1361" height="900" decoding="async">
+          <img data-src="/assets/ibs/hero-washroom.webp" alt="" width="1361" height="900" decoding="async">
         </div>
         <div class="ibs-f-slide">
-          <img src="/assets/ibs/hero-basement.webp" alt="" width="1800" height="1200" decoding="async">
+          <img data-src="/assets/ibs/hero-basement.webp" alt="" width="1800" height="1200" decoding="async">
         </div>
       </div>
       <div class="ibs-f-hero-shade" aria-hidden="true"></div>
@@ -1443,7 +1443,7 @@
         <div class="ibs-article">
           <a class="ibs-back-link" href="/guides">&larr; Back to all guides</a>
           <figure class="ibs-article-photo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/Blatella_germanica_%28German_cockroach%29.jpg" alt="German cockroach" loading="lazy" decoding="async">
+            <img src="/assets/pest-cockroach.webp" alt="German cockroach" loading="lazy" decoding="async">
           </figure>
           <div class="ibs-article-body">
 
@@ -1499,7 +1499,7 @@
         <div class="ibs-guides-grid">
           <article class="ibs-service-card ibs-guide-card" data-topic="termite">
             <div class="ibs-service-photo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Termite_tubes-1.jpg" alt="Termite mud tubes on a wall" loading="lazy" decoding="async">
+              <img src="/assets/termite-tubes.webp" alt="Termite mud tubes on a wall" loading="lazy" decoding="async">
             </div>
             <span class="ibs-service-tag">Termite Proofing</span>
             <h3>7 Signs Your Home May Have Termites</h3>
@@ -1688,7 +1688,6 @@
           <li><a href="/about">About IBS</a></li>
           <li><a href="/our-process">Our Process</a></li>
           <li><a href="/guides">Guides</a></li>
-          <li><a href="/services">Our Services</a></li>
           <li><a href="/contact">Contact Us</a></li>
         </ul>
       </div>
@@ -1784,6 +1783,14 @@
             const img = slides[index]?.querySelector("img");
             return !!(img && img.complete && img.naturalWidth);
           };
+          // Slides 2-5 start without a src (data-src only) so the browser
+          // does not fetch them on first paint; load one on demand.
+          const loadSlide = index => {
+            const img = slides[index]?.querySelector("img");
+            if (img && img.dataset.src && !img.getAttribute("src")) {
+              img.src = img.dataset.src;
+            }
+          };
 
           function fullWidth() {
             hero.style.setProperty(
@@ -1836,6 +1843,7 @@
           }
 
           function show(index) {
+            loadSlide(index);
             if (!ready(index)) return false;
 
             if (busy) {
@@ -1886,6 +1894,8 @@
                 direction * step +
                 slides.length
               ) % slides.length;
+
+              loadSlide(index);
 
               if (ready(index)) {
                 show(index);
@@ -1988,6 +1998,21 @@
           if (controls) controls.hidden = false;
           if (prev) prev.hidden = false;
           if (next) next.hidden = false;
+
+          // Load the next slide right away so the first auto-advance finds
+          // it ready; load the remaining slides once the page has fully
+          // loaded, so first paint is not blocked by them.
+          loadSlide((current + 1) % slides.length);
+
+          const preloadRest = () => {
+            slides.forEach((_, index) => loadSlide(index));
+          };
+
+          if (document.readyState === "complete") {
+            preloadRest();
+          } else {
+            window.addEventListener("load", preloadRest, { once: true });
+          }
 
           update();
           schedule();

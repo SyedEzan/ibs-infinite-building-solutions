@@ -12,7 +12,8 @@
   <meta property="og:description" content="INSUGREEN XPS board insulation for roofs and walls in Karachi. Reduces heat transfer and cooling demand. Book a site inspection.">
   <meta property="og:url" content="https://ibsolutions.pk/thermal-insulation">
   <meta property="og:image" content="https://ibsolutions.pk/assets/ibs-logo.webp">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://ibsolutions.pk/assets/ibs-logo.webp">
   <link rel="icon" href="/assets/ibs-logo.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -842,7 +843,6 @@
         <details class="ibs-nav-dropdown">
           <summary>Services</summary>
           <div class="ibs-dropdown-panel">
-            <a href="/services">All Services</a>
             <a href="/waterproofing">Waterproofing</a>
             <a href="/termite-proofing">Termite Proofing</a>
             <a href="/thermal-insulation">XPS Insulation</a>
@@ -870,16 +870,16 @@
           <img src="/assets/ibs/hero-peb.webp" alt="" width="1600" height="1000" fetchpriority="high" decoding="async" style="--image-position: center 45%;">
         </div>
         <div class="ibs-f-slide">
-          <img src="/assets/ibs/hero-roof.webp" alt="" width="1448" height="1086" decoding="async">
+          <img data-src="/assets/ibs/hero-roof.webp" alt="" width="1448" height="1086" decoding="async">
         </div>
         <div class="ibs-f-slide">
-          <img src="/assets/ibs/hero-tank.webp" alt="" width="1280" height="960" decoding="async" style="--image-position: center 45%;">
+          <img data-src="/assets/ibs/hero-tank.webp" alt="" width="1280" height="960" decoding="async" style="--image-position: center 45%;">
         </div>
         <div class="ibs-f-slide">
-          <img src="/assets/ibs/hero-washroom.webp" alt="" width="1361" height="900" decoding="async">
+          <img data-src="/assets/ibs/hero-washroom.webp" alt="" width="1361" height="900" decoding="async">
         </div>
         <div class="ibs-f-slide">
-          <img src="/assets/ibs/hero-basement.webp" alt="" width="1800" height="1200" decoding="async">
+          <img data-src="/assets/ibs/hero-basement.webp" alt="" width="1800" height="1200" decoding="async">
         </div>
       </div>
       <div class="ibs-f-hero-shade" aria-hidden="true"></div>
@@ -893,7 +893,7 @@
             <div class="ibs-f-wrap">
         <div class="ibs-f-hero-main">
           <div class="ibs-f-hero-content">
-            <nav class="breadcrumb" aria-label="Breadcrumb"> <a href="/">Home</a><span>›</span> <a href="/services">Services</a><span>›</span> <span aria-current="page">Thermal Insulation</span> </nav>
+            <nav class="breadcrumb" aria-label="Breadcrumb"> <a href="/">Home</a><span>›</span> <span aria-current="page">Thermal Insulation</span> </nav>
             <span class="ibs-f-hero-label">Roof & Thermal Insulation</span>
             <h1 id="insulation-hero-title">Roof & Thermal Insulation Services in Karachi</h1>
             <p class="ibs-f-hero-copy">Karachi's intense summer heat drives up electricity bills as rooftops absorb sunlight. IBS installs INSUGREEN XPS extruded polystyrene boards for roof insulation, blocking heat transfer through roofs and walls to keep buildings cooler and reduce cooling costs.</p>
@@ -1126,8 +1126,7 @@
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ibsolutions.pk/" },
-          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://ibsolutions.pk/services" },
-          { "@type": "ListItem", "position": 3, "name": "Thermal Insulation", "item": "https://ibsolutions.pk/thermal-insulation" }
+          { "@type": "ListItem", "position": 2, "name": "Thermal Insulation", "item": "https://ibsolutions.pk/thermal-insulation" }
         ]
       }
     ]
@@ -1254,7 +1253,6 @@
           <li><a href="/about">About IBS</a></li>
           <li><a href="/our-process">Our Process</a></li>
           <li><a href="/guides">Guides</a></li>
-          <li><a href="/services">Our Services</a></li>
           <li><a href="/contact">Contact Us</a></li>
         </ul>
       </div>
@@ -1321,6 +1319,14 @@
             const img = slides[index]?.querySelector("img");
             return !!(img && img.complete && img.naturalWidth);
           };
+          // Slides 2-5 start without a src (data-src only) so the browser
+          // does not fetch them on first paint; load one on demand.
+          const loadSlide = index => {
+            const img = slides[index]?.querySelector("img");
+            if (img && img.dataset.src && !img.getAttribute("src")) {
+              img.src = img.dataset.src;
+            }
+          };
 
           function fullWidth() {
             hero.style.setProperty(
@@ -1373,6 +1379,7 @@
           }
 
           function show(index) {
+            loadSlide(index);
             if (!ready(index)) return false;
 
             if (busy) {
@@ -1423,6 +1430,8 @@
                 direction * step +
                 slides.length
               ) % slides.length;
+
+              loadSlide(index);
 
               if (ready(index)) {
                 show(index);
@@ -1525,6 +1534,21 @@
           if (controls) controls.hidden = false;
           if (prev) prev.hidden = false;
           if (next) next.hidden = false;
+
+          // Load the next slide right away so the first auto-advance finds
+          // it ready; load the remaining slides once the page has fully
+          // loaded, so first paint is not blocked by them.
+          loadSlide((current + 1) % slides.length);
+
+          const preloadRest = () => {
+            slides.forEach((_, index) => loadSlide(index));
+          };
+
+          if (document.readyState === "complete") {
+            preloadRest();
+          } else {
+            window.addEventListener("load", preloadRest, { once: true });
+          }
 
           update();
           schedule();
