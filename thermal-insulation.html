@@ -566,6 +566,38 @@
       font-size: 20px;
     }
     .card p { font-size: 14px; }
+    .photo-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 8px 25px rgba(15,42,67,.05);
+    }
+    .photo-image {
+      display: block;
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      object-position: center;
+      background: #eee;
+    }
+    .photo-content { padding: 25px; }
+    .photo-content h3 {
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+    .photo-content p { font-size: 14px; }
+    .section-image {
+      display: block;
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      object-position: center;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #eee;
+      margin-bottom: 28px;
+    }
     .icon-box {
       display: flex;
       align-items: center;
@@ -958,6 +990,7 @@
           <h2 id="process-title">How XPS Insulation Is Installed</h2>
           <p>IBS assesses your roof condition and recommends the most suitable installation approach for your building, whether new construction or an existing property.</p>
         </div>
+        <img class="section-image" src="/assets/thermal-roof-install.webp" alt="Worker installing pink insulation batts between timber studs" loading="lazy">
         <div class="process-grid">
           <article class="card">
             <span class="step">01</span>
@@ -991,26 +1024,26 @@
           <p>XPS insulation is suitable for residential homes, commercial buildings, cold storages, poultry farms and dairy facilities across Pakistan.</p>
         </div>
         <div class="grid-three">
-          <article class="card">
-            <div class="icon-box">
-              <svg class="icon" aria-hidden="true"><use href="#building"/></svg>
-            </div>
+          <article class="photo-card">
+            <img class="photo-image" src="/assets/thermal-residential-roof.webp" alt="Modern house roof in bright sunlight" loading="lazy">
+            <div class="photo-content">
             <h3>Residential Roofs</h3>
             <p>Keep homes cooler in Karachi's intense summer heat and reduce air conditioning costs.</p>
-          </article>
-          <article class="card">
-            <div class="icon-box">
-              <svg class="icon" aria-hidden="true"><use href="#building"/></svg>
             </div>
+          </article>
+          <article class="photo-card">
+            <img class="photo-image" src="/assets/thermal-commercial-roof.webp" alt="Modern glass office buildings at dusk" loading="lazy">
+            <div class="photo-content">
             <h3>Commercial Buildings</h3>
             <p>Office and retail properties benefit from lower cooling demand and improved comfort.</p>
-          </article>
-          <article class="card">
-            <div class="icon-box">
-              <svg class="icon" aria-hidden="true"><use href="#building"/></svg>
             </div>
+          </article>
+          <article class="photo-card">
+            <img class="photo-image" src="/assets/thermal-cold-storage.webp" alt="Workers in a warehouse with stocked storage racking" loading="lazy">
+            <div class="photo-content">
             <h3>Cold Storage &amp; Farms</h3>
             <p>Moisture-resistant XPS boards maintain consistent temperatures for cold storage and poultry farms.</p>
+            </div>
           </article>
         </div>
       </div>
