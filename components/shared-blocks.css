@@ -216,6 +216,17 @@
   margin: 5px auto;
 }
 
+/* ---------- Hero under the glass header ---------- */
+/* The hero slides up underneath the sticky glass header so the hero
+   photo shows through the frosted glass at page top. The negative
+   margin is compensated by equal padding-top, so hero content stays
+   exactly where it was. Heights match the header nav at each
+   breakpoint (104px desktop / 84px tablet / 72px small phones). */
+.ibs-f-hero {
+  margin-top: -104px;
+  padding-top: 104px;
+}
+
 /* ---------- Footer ---------- */
 .ibs-footer {
   background: #1641b5;
@@ -533,6 +544,11 @@
     min-height: 84px;
   }
 
+  .ibs-f-hero {
+    margin-top: -84px;
+    padding-top: 84px;
+  }
+
   .ibs-header .ibs-logo img {
     height: 74px;
   }
@@ -619,6 +635,11 @@
 @media (max-width: 640px) {
   .ibs-header .ibs-nav {
     min-height: 72px;
+  }
+
+  .ibs-f-hero {
+    margin-top: -72px;
+    padding-top: 72px;
   }
 
   .ibs-header .ibs-logo img {
