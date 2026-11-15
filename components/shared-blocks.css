@@ -771,6 +771,28 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
     padding-top: 122px;
   }
 
+  /* Mobile hero: left-aligned text on all pages (was centred).
+     Descendant selectors beat each page's inline hero rules, including
+     on waterproofing.html where this file loads first. */
+  .ibs-f-hero .ibs-f-hero-main {
+    justify-content: flex-start;
+    padding-inline: 20px;
+  }
+
+  .ibs-f-hero .ibs-f-hero-content {
+    margin-inline: 0;
+    text-align: left;
+  }
+
+  .ibs-f-hero .ibs-f-hero-content h1 {
+    margin-inline: 0;
+    text-align: left;
+  }
+
+  .ibs-f-hero .ibs-f-hero-copy {
+    text-align: left;
+  }
+
   .ibs-header .ibs-logo img {
     height: 64px;
   }
