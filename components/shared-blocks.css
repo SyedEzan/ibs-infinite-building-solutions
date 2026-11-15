@@ -445,13 +445,35 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
   object-fit: contain;
 }
 
-/* Facebook's icon file has ~40% transparent padding around its glyph
-   (visible glyph covers only ~60% of the 490px file), so in the footer —
-   as in the top bar — its img is scaled up to render the same visible
-   size as the other two icons. Footer boxes stay 36×36 rounded squares. */
-.ibs-footer .ibs-social-links a[href*="facebook.com"] img {
-  width: 33px;
-  height: 33px;
+/* Footer social icons: Din Brothers style — dark squares with a single
+   bright glyph colour (theirs are dark red #3a1b1d squares with red
+   glyphs; IBS uses near-black navy #0a1e30 squares, same as the contact
+   cards, with white glyphs). Scoped to .ibs-footer so the top bar keeps
+   its white circles. Icons are inline SVGs (Facebook, Instagram,
+   WhatsApp) — the old brand-colour WebP images are no longer used here. */
+.ibs-footer .ibs-social-links {
+  gap: 15px;
+}
+
+.ibs-footer .ibs-social-links a {
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+  background: #0a1e30;
+  box-shadow: none;
+  color: #fff;
+}
+
+.ibs-footer .ibs-social-links a:hover {
+  background: #12365a;
+  box-shadow: none;
+  transform: translateY(-2px);
+}
+
+.ibs-footer .ibs-social-links svg {
+  width: 22px;
+  height: 22px;
+  display: block;
 }
 
 .ibs-footer-bottom {
