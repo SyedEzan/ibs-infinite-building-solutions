@@ -139,9 +139,9 @@ body.ibs-js .ibs-header {
   transition: filter .3s ease;
 }
 
-/* White logo when the background behind the logo is dark; dark logo
-   when it is light — the logo adapts, the pill stays dark. */
-body.ibs-logo-on-dark .ibs-header .ibs-logo img {
+/* White logo ONLY while the header overlaps the hero section; below
+   the hero it shows its actual dark-navy colours. */
+body.ibs-over-hero .ibs-header .ibs-logo img {
   filter: brightness(0) invert(1);
 }
 
@@ -253,9 +253,9 @@ body.ibs-logo-on-dark .ibs-header .ibs-logo img {
   margin: 5px auto;
 }
 
-/* White toggle when the background behind it is dark (it sits next to
-   the logo, so it follows the logo's theme). */
-body.ibs-logo-on-dark .ibs-header .ibs-menu-toggle {
+/* White toggle while the header is over the hero (it sits next to the
+   logo, so it follows the logo's theme). */
+body.ibs-over-hero .ibs-header .ibs-menu-toggle {
   background: rgba(255, 255, 255, .14);
   border-color: rgba(255, 255, 255, .28);
   color: #fff;
