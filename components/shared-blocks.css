@@ -146,18 +146,26 @@ body.ibs-over-hero .ibs-header .ibs-logo img {
 }
 
 /* The pill is solid dark (white links) — translucent would turn grey
-   over white sections, so it is opaque to stay dark everywhere. */
+   over white sections, so it is opaque to stay dark everywhere.
+   The nav is a plain flex row: the links sit in their own dark pill,
+   and the "Get a Quote" CTA is a separate blue pill beside it
+   (EquitiFy layout — the logo is untouched). */
 .ibs-header .ibs-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ibs-header .ibs-nav-pill {
   display: flex;
   align-items: center;
   gap: 26px;
   background: #0f2a43;
   border-radius: 999px;
   padding: 6px 8px 6px 22px;
-  transition: background-color .3s ease;
 }
 
-.ibs-header .ibs-nav-links > a,
+.ibs-header .ibs-nav-pill > a,
 .ibs-header .ibs-nav-dropdown > summary {
   color: #fff;
   text-decoration: none;
@@ -169,7 +177,7 @@ body.ibs-over-hero .ibs-header .ibs-logo img {
   transition: color .3s ease;
 }
 
-.ibs-header .ibs-nav-links > a:hover,
+.ibs-header .ibs-nav-pill > a:hover,
 .ibs-header .ibs-nav-dropdown > summary:hover {
   color: #dbe7ff;
 }
@@ -598,11 +606,11 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
     height: 74px;
   }
 
-  .ibs-header .ibs-nav-links {
+  .ibs-header .ibs-nav-pill {
     gap: 16px;
   }
 
-  .ibs-header .ibs-nav-links > a,
+  .ibs-header .ibs-nav-pill > a,
   .ibs-header .ibs-nav-dropdown > summary {
     font-size: 15px;
   }
@@ -651,12 +659,24 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
     backdrop-filter: blur(16px) saturate(1.4);
   }
 
-  .ibs-header .ibs-nav-links > a,
+  /* Inside the mobile panel the pill dissolves — links stack
+     vertically with no pill background, CTA below them. */
+  .ibs-header .ibs-nav-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  .ibs-header .ibs-nav-pill > a,
   .ibs-header .ibs-nav-dropdown > summary {
     color: #fff;
   }
 
-  .ibs-header .ibs-nav-links > a:hover,
+  .ibs-header .ibs-nav-pill > a:hover,
   .ibs-header .ibs-nav-dropdown > summary:hover {
     color: #dbe7ff;
   }
@@ -676,7 +696,7 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
     display: flex;
   }
 
-  .ibs-header .ibs-nav-links > a,
+  .ibs-header .ibs-nav-pill > a,
   .ibs-header .ibs-nav-dropdown > summary {
     font-size: 16px;
     padding: 8px 0;
