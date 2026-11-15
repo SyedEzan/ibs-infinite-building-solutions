@@ -145,15 +145,13 @@ body.ibs-logo-on-dark .ibs-header .ibs-logo img {
   filter: brightness(0) invert(1);
 }
 
-/* The pill is always the dark frosted capsule (white links) — the dark
-   theme is locked everywhere, over any background. */
+/* The pill is solid dark (white links) — translucent would turn grey
+   over white sections, so it is opaque to stay dark everywhere. */
 .ibs-header .ibs-nav-links {
   display: flex;
   align-items: center;
   gap: 26px;
-  background: rgba(5, 19, 32, .38);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  background: #0f2a43;
   border-radius: 999px;
   padding: 6px 8px 6px 22px;
   transition: background-color .3s ease;
