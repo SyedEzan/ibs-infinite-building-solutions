@@ -114,6 +114,7 @@
   width: auto;
   height: 86px;
   object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, .85)) drop-shadow(0 0 2px rgba(255, 255, 255, .75));
 }
 
 .ibs-header .ibs-nav-links {
