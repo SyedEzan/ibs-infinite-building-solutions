@@ -540,54 +540,70 @@
       .ibs-f-prev { left: 10px; }
       .ibs-f-next { right: 10px; }
     }
-    /* SCROLLING STATS STRIP */
-    .ibs-marquee {
-      background: #000;
-      overflow: hidden;
-      white-space: nowrap;
-      border-top: 1px solid rgba(255, 255, 255, .06);
+    /* PROFESSIONAL STATS SECTION (Option C — Light Cards, theme colours) */
+    .ibsx-stats {
+      background: #f5f8fc;
+      padding: 48px 20px 44px;
     }
-    .ibs-marquee-track {
-      display: inline-flex;
-      align-items: center;
-      gap: 0;
-      padding: 16px 0;
-      will-change: transform;
-      animation: ibs-marquee-scroll 28s linear infinite;
+    .ibsx-stats-wrap {
+      max-width: 1150px;
+      margin: 0 auto;
     }
-    .ibs-marquee-group {
-      display: inline-flex;
-      align-items: center;
-      flex-shrink: 0;
+    .ibsx-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
     }
-    .ibs-marquee-item {
-      color: #fff;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: .6px;
-      padding: 0 20px;
+    .ibsx-stat-card {
+      background: #fff;
+      border: 1px solid #e3eaf2;
+      border-radius: 10px;
+      box-shadow: 0 10px 34px rgba(15, 42, 67, .08);
+      padding: 28px 20px 24px;
+      text-align: center;
     }
-    .ibs-marquee-sep {
-      color: #fff;
-      font-size: 16px;
+    .ibsx-stat-bar {
+      width: 50px;
+      height: 4px;
+      background: #1d4ed8;
+      margin: 0 auto 16px;
+      border-radius: 2px;
+    }
+    .ibsx-stat-num {
+      font-size: 44px;
+      font-weight: 800;
       line-height: 1;
+      color: #0f2a43;
+      letter-spacing: -1px;
     }
-    .ibs-marquee:hover .ibs-marquee-track,
-    .ibs-marquee:focus-within .ibs-marquee-track {
-      animation-play-state: paused;
+    .ibsx-stat-num .ibsx-stat-plus {
+      color: #1d4ed8;
     }
-    @keyframes ibs-marquee-scroll {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
+    .ibsx-stat-label {
+      margin-top: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #3a4a5e;
     }
-    @media (prefers-reduced-motion: reduce) {
-      .ibs-marquee-track {
-        animation: none;
-        transform: none;
-        white-space: normal;
+    .ibsx-stats-note {
+      margin: 22px 0 0;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 600;
+      color: #0f2a43;
+      letter-spacing: .4px;
+    }
+    @media (max-width: 900px) {
+      .ibsx-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
-      .ibs-marquee {
-        white-space: normal;
+    }
+    @media (max-width: 520px) {
+      .ibsx-stats {
+        padding: 36px 16px 32px;
+      }
+      .ibsx-stat-num {
+        font-size: 36px;
       }
     }
     /* SERVICES */
@@ -1231,10 +1247,6 @@
       }
       .ibs-f-prev { left: 16px; }
       .ibs-f-next { right: 16px; }
-      .ibs-marquee-item {
-        font-size: 12px;
-        padding: 0 14px;
-      }
       .ibs-services-grid,
       .ibs-process-grid,
       .ibs-why-grid,
@@ -1900,31 +1912,34 @@
         </div>
       </div>
     </section>
-    <!-- SCROLLING STATS STRIP (homepage only) -->
-    <div class="ibs-marquee" role="region" aria-label="IBS highlights">
-      <div class="ibs-marquee-track">
-        <div class="ibs-marquee-group">
-          <span class="ibs-marquee-item">500+ Projects Completed</span>
-          <span class="ibs-marquee-sep" aria-hidden="true">&bull;</span>
-          <span class="ibs-marquee-item">Since 2018</span>
-          <span class="ibs-marquee-sep" aria-hidden="true">&bull;</span>
-          <span class="ibs-marquee-item">Serving Karachi &amp; Nationwide</span>
-          <span class="ibs-marquee-sep" aria-hidden="true">&bull;</span>
-          <span class="ibs-marquee-item">1000+ Satisfied Clients</span>
-          <span class="ibs-marquee-sep" aria-hidden="true">&bull;</span>
+    <!-- PROFESSIONAL STATS SECTION (Option C — Light Cards) -->
+    <section class="ibsx-stats" aria-label="IBS at a glance">
+      <div class="ibsx-stats-wrap">
+        <div class="ibsx-stats-grid">
+          <article class="ibsx-stat-card">
+            <div class="ibsx-stat-bar" aria-hidden="true"></div>
+            <div class="ibsx-stat-num">500<span class="ibsx-stat-plus">+</span></div>
+            <div class="ibsx-stat-label">Projects Completed</div>
+          </article>
+          <article class="ibsx-stat-card">
+            <div class="ibsx-stat-bar" aria-hidden="true"></div>
+            <div class="ibsx-stat-num">1000<span class="ibsx-stat-plus">+</span></div>
+            <div class="ibsx-stat-label">Satisfied Clients</div>
+          </article>
+          <article class="ibsx-stat-card">
+            <div class="ibsx-stat-bar" aria-hidden="true"></div>
+            <div class="ibsx-stat-num">8<span class="ibsx-stat-plus">+</span></div>
+            <div class="ibsx-stat-label">Years of Experience</div>
+          </article>
+          <article class="ibsx-stat-card">
+            <div class="ibsx-stat-bar" aria-hidden="true"></div>
+            <div class="ibsx-stat-num">4</div>
+            <div class="ibsx-stat-label">Specialist Services</div>
+          </article>
         </div>
-        <div class="ibs-marquee-group" aria-hidden="true">
-          <span class="ibs-marquee-item">500+ Projects Completed</span>
-          <span class="ibs-marquee-sep">&bull;</span>
-          <span class="ibs-marquee-item">Since 2018</span>
-          <span class="ibs-marquee-sep">&bull;</span>
-          <span class="ibs-marquee-item">Serving Karachi &amp; Nationwide</span>
-          <span class="ibs-marquee-sep">&bull;</span>
-          <span class="ibs-marquee-item">1000+ Satisfied Clients</span>
-          <span class="ibs-marquee-sep">&bull;</span>
-        </div>
+        <p class="ibsx-stats-note">Serving Karachi &amp; Nationwide</p>
       </div>
-    </div>
+    </section>
     <!-- WHY CHOOSE US -->
     <section class="ibs-why2" aria-labelledby="ibs-why2-title">
       <div class="ibs-why2-wrap">
