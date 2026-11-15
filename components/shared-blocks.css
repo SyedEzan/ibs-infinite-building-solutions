@@ -101,12 +101,12 @@ body.ibs-at-top .ibs-topbar {
   transition: background-color .3s ease, border-color .3s ease, box-shadow .3s ease;
 }
 
-/* EquitiFy-style floating header: fully transparent both at the top over
-   the hero and once scrolled — only the colours invert (white logo and
-   dark pill at the top; dark logo and light-grey pill when scrolled). The
-   plain .ibs-header rule above stays as the no-JS fallback. */
-body.ibs-at-top .ibs-header,
-body.ibs-scrolled .ibs-header {
+/* Adaptive floating header: once JS has run, the header itself is fully
+   transparent in every state — the logo and the nav pill carry the
+   contrast, and their colours follow the background behind them (see the
+   .ibs-logo-on-dark / .ibs-nav-on-dark rules below). The plain .ibs-header
+   rule above stays as the no-JS fallback. */
+body.ibs-js .ibs-header {
   background: transparent;
   border-bottom-color: transparent;
   -webkit-backdrop-filter: none;
@@ -140,18 +140,20 @@ body.ibs-scrolled .ibs-header {
   transition: filter .3s ease;
 }
 
-/* White logo while the header floats over the hero photo. */
-body.ibs-at-top .ibs-header .ibs-logo img {
+/* White logo when the background behind the logo is dark. */
+body.ibs-logo-on-dark .ibs-header .ibs-logo img {
   filter: brightness(0) invert(1);
 }
 
+/* The pill's default is the light theme (flat light-grey, dark links);
+   the dark theme applies when the background behind the pill is dark. */
 .ibs-header .ibs-nav-links {
   display: flex;
   align-items: center;
   gap: 26px;
-  background: rgba(5, 19, 32, .38);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  background: #eef1f4;
+  border: 1px solid rgba(15, 42, 67, .08);
+  box-shadow: 0 4px 16px rgba(15, 42, 67, .08);
   border-radius: 999px;
   padding: 6px 8px 6px 22px;
   transition: background-color .3s ease;
@@ -159,7 +161,7 @@ body.ibs-at-top .ibs-header .ibs-logo img {
 
 .ibs-header .ibs-nav-links > a,
 .ibs-header .ibs-nav-dropdown > summary {
-  color: #fff;
+  color: #0f2a43;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -171,24 +173,25 @@ body.ibs-at-top .ibs-header .ibs-logo img {
 
 .ibs-header .ibs-nav-links > a:hover,
 .ibs-header .ibs-nav-dropdown > summary:hover {
-  color: #dbe7ff;
-}
-
-/* Scrolled state: the pill turns flat light-grey and the links dark. */
-body.ibs-scrolled .ibs-header .ibs-nav-links {
-  background: #eef1f4;
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
-}
-
-body.ibs-scrolled .ibs-header .ibs-nav-links > a:not(.ibs-nav-call),
-body.ibs-scrolled .ibs-header .ibs-nav-dropdown > summary {
-  color: #0f2a43;
-}
-
-body.ibs-scrolled .ibs-header .ibs-nav-links > a:not(.ibs-nav-call):hover,
-body.ibs-scrolled .ibs-header .ibs-nav-dropdown > summary:hover {
   color: #1d4ed8;
+}
+
+body.ibs-nav-on-dark .ibs-header .ibs-nav-links {
+  background: rgba(5, 19, 32, .38);
+  border-color: transparent;
+  box-shadow: none;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+body.ibs-nav-on-dark .ibs-header .ibs-nav-links > a:not(.ibs-nav-call),
+body.ibs-nav-on-dark .ibs-header .ibs-nav-dropdown > summary {
+  color: #fff;
+}
+
+body.ibs-nav-on-dark .ibs-header .ibs-nav-links > a:not(.ibs-nav-call):hover,
+body.ibs-nav-on-dark .ibs-header .ibs-nav-dropdown > summary:hover {
+  color: #dbe7ff;
 }
 
 .ibs-header .ibs-nav-dropdown {
@@ -255,10 +258,10 @@ body.ibs-scrolled .ibs-header .ibs-nav-dropdown > summary:hover {
   display: none;
   width: 44px;
   height: 44px;
-  background: rgba(255, 255, 255, .14);
-  border: 1px solid rgba(255, 255, 255, .28);
+  background: rgba(15, 42, 67, .08);
+  border: 1px solid rgba(15, 42, 67, .15);
   border-radius: 9px;
-  color: #fff;
+  color: #0f2a43;
   cursor: pointer;
 }
 
@@ -270,12 +273,12 @@ body.ibs-scrolled .ibs-header .ibs-nav-dropdown > summary:hover {
   margin: 5px auto;
 }
 
-/* Dark toggle once scrolled (the header is transparent, so the white
-   toggle would vanish over light sections). */
-body.ibs-scrolled .ibs-header .ibs-menu-toggle {
-  background: rgba(15, 42, 67, .08);
-  border-color: rgba(15, 42, 67, .15);
-  color: #0f2a43;
+/* White toggle when the background behind it is dark (it sits next to
+   the logo, so it follows the logo's theme). */
+body.ibs-logo-on-dark .ibs-header .ibs-menu-toggle {
+  background: rgba(255, 255, 255, .14);
+  border-color: rgba(255, 255, 255, .28);
+  color: #fff;
 }
 
 /* ---------- Hero under the floating header ---------- */
@@ -657,28 +660,34 @@ body.ibs-scrolled .ibs-header .ibs-menu-toggle {
     gap: 18px;
   }
 
-  /* Inside the dark mobile menu the links stay white even when scrolled,
-     and the panel keeps its dark glass (the light-grey pill is desktop). */
-  body.ibs-scrolled .ibs-header .ibs-nav-links {
+  /* The mobile menu is always a dark navy panel, whatever the header
+     theme is — so its links stay white and the panel keeps its dark
+     glass (the light-grey pill is desktop-only). */
+  body.ibs-js .ibs-header .ibs-nav-links {
     background: rgba(15, 42, 67, .88);
+    border-color: transparent;
+    box-shadow: 0 12px 20px rgba(15, 42, 67, .25);
     -webkit-backdrop-filter: blur(16px) saturate(1.4);
     backdrop-filter: blur(16px) saturate(1.4);
   }
 
-  body.ibs-scrolled .ibs-header .ibs-nav-links > a,
-  body.ibs-scrolled .ibs-header .ibs-nav-dropdown > summary {
+  .ibs-header .ibs-nav-links > a,
+  .ibs-header .ibs-nav-dropdown > summary {
     color: #fff;
   }
 
+  .ibs-header .ibs-nav-links > a:hover,
+  .ibs-header .ibs-nav-dropdown > summary:hover {
+    color: #dbe7ff;
+  }
+
   /* And the CTA goes white inside the dark mobile menu. */
-  body.ibs-at-top .ibs-header .ibs-nav-links .ibs-nav-call,
-  body.ibs-scrolled .ibs-header .ibs-nav-links .ibs-nav-call {
+  .ibs-header .ibs-nav-links .ibs-nav-call {
     background: #fff;
     color: #0f2a43;
   }
 
-  body.ibs-at-top .ibs-header .ibs-nav-links .ibs-nav-call:hover,
-  body.ibs-scrolled .ibs-header .ibs-nav-links .ibs-nav-call:hover {
+  .ibs-header .ibs-nav-links .ibs-nav-call:hover {
     background: #edf3ff;
     color: #0f2a43;
   }

@@ -94,16 +94,82 @@
       });
     }
 
-    /* ---------- Transparent header at top (EquitiFy style) ---------- */
-    var hasHero = !!document.querySelector(".ibs-f-hero");
-    function updateHeaderState() {
-      var atTop = hasHero && window.scrollY <= 10;
-      document.body.classList.toggle("ibs-at-top", atTop);
-      document.body.classList.toggle("ibs-scrolled", !atTop);
+    /* ---------- Adaptive header: text colour follows the background ---------- */
+    /* The header is transparent, so the logo and the nav pill flip between
+       white-on-dark and dark-on-light depending on what is actually behind
+       them as the page scrolls. We sample the rendered background under
+       the logo and under the pill (via elementsFromPoint) and classify it
+       by luminance; photos use a precomputed average-luminance map. */
+    var IBS_IMG_LUM = {"/assets/Insugreenlogo.webp":0.797,"/assets/Pest Control logo.webp":0.001,"/assets/TermiteProofinglogo.webp":0.75,"/assets/ali akbar groups.webp":0.265,"/assets/calendar-monsoon.webp":0.302,"/assets/calendar-post-monsoon.webp":0.311,"/assets/calendar-pre-monsoon.webp":0.168,"/assets/cause-aging-buildings.webp":0.267,"/assets/cause-bathroom-tank-leaks.webp":0.199,"/assets/cause-monsoon-rain.webp":0.053,"/assets/cause-poor-drainage.webp":0.135,"/assets/cause-rising-damp.webp":0.527,"/assets/cause-roof-seepage.webp":0.633,"/assets/facebook-icon.webp":0.026,"/assets/finder-roof-leak.webp":0.157,"/assets/friends-environmental-solutions.webp":0.345,"/assets/herosection.2.webp":0.093,"/assets/herosectionimg.webp":0.337,"/assets/ibs-logo-header.webp":0.024,"/assets/ibs-logo.webp":0.008,"/assets/ibs/bathroom-leak.webp":0.269,"/assets/ibs/bathroom.webp":0.446,"/assets/ibs/ceiling-stain.webp":0.323,"/assets/ibs/concrete-cracks.webp":0.217,"/assets/ibs/foundation.webp":0.198,"/assets/ibs/hero-basement.webp":0.06,"/assets/ibs/hero-peb.webp":0.284,"/assets/ibs/hero-roof.webp":0.283,"/assets/ibs/hero-tank.webp":0.179,"/assets/ibs/hero-washroom.webp":0.139,"/assets/ibs/peeling-paint.webp":0.216,"/assets/ibs/pool.webp":0.306,"/assets/karachi-problem-flood.webp":0.236,"/assets/logo-instagram.webp":0.359,"/assets/pest-bed-bug.webp":0.406,"/assets/pest-cockroach.webp":0.746,"/assets/pest-commercial-spray.webp":0.163,"/assets/pest-rat.webp":0.139,"/assets/pest-residential-spray.webp":0.259,"/assets/pest-technician.webp":0.093,"/assets/problem-bathroom-leak.webp":0.364,"/assets/problem-cockroach.webp":0.153,"/assets/problem-damp-wall.webp":0.237,"/assets/problem-heat.webp":0.547,"/assets/problem-roof-leak.webp":0.442,"/assets/problem-termite-damage.webp":0.062,"/assets/standing-water-tank.webp":0.271,"/assets/termite-barrier-spray.webp":0.296,"/assets/termite-frass.webp":0.141,"/assets/termite-house-damage.webp":0.155,"/assets/termite-shed-wings.webp":0.636,"/assets/termite-soil-treatment.webp":0.277,"/assets/termite-tubes.webp":0.324,"/assets/termite-wood-damage.webp":0.256,"/assets/thermal-cold-storage.webp":0.175,"/assets/thermal-commercial-roof.webp":0.088,"/assets/thermal-residential-roof.webp":0.061,"/assets/thermal-roof-install.webp":0.133,"/assets/waterproofing logo.webp":0.667,"/assets/whatsapp-logo.webp":0.367};
+    function ibsRelLum(r, g, b) {
+      function ch(c) { c /= 255; return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); }
+      return 0.2126 * ch(r) + 0.7152 * ch(g) + 0.0722 * ch(b);
     }
-    window.addEventListener("scroll", updateHeaderState, { passive: true });
-    window.addEventListener("resize", updateHeaderState);
-    updateHeaderState();
+    function ibsColorLum(color) {
+      var m = color && color.match(/rgba?\(([^)]+)\)/);
+      if (!m) return 1;
+      var p = m[1].split(",");
+      return ibsRelLum(parseFloat(p[0]) || 0, parseFloat(p[1]) || 0, parseFloat(p[2]) || 0);
+    }
+    function ibsImageLum(url) {
+      try {
+        var path = new URL(url, location.href).pathname;
+        if (IBS_IMG_LUM[path] != null) return IBS_IMG_LUM[path];
+        var file = path.split("/").pop();
+        for (var k in IBS_IMG_LUM) { if (k.split("/").pop() === file) return IBS_IMG_LUM[k]; }
+      } catch (e) { /* fall through to the default below */ }
+      return 0.3; /* unknown photo: assume dark */
+    }
+    function ibsBackgroundLumAt(x, y) {
+      var els = document.elementsFromPoint ? document.elementsFromPoint(x, y) : [];
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+        if (el.closest && el.closest(".ibs-header, .ibs-topbar")) continue;
+        var node = el;
+        while (node && node !== document.documentElement) {
+          if (node.tagName === "IMG") return ibsImageLum(node.currentSrc || node.src);
+          var cs = getComputedStyle(node);
+          var bi = cs.backgroundImage;
+          if (bi && bi !== "none") {
+            var m = bi.match(/url\(["']?([^"')]+)["']?\)/);
+            if (m) return ibsImageLum(m[1]);
+          }
+          var bg = cs.backgroundColor;
+          if (bg && bg !== "rgba(0, 0, 0, 0)" && bg !== "transparent") return ibsColorLum(bg);
+          node = node.parentElement;
+        }
+        return 1;
+      }
+      return 1;
+    }
+    function ibsSamplePoint(el) {
+      if (!el) return null;
+      var r = el.getBoundingClientRect();
+      if (!r.width || !r.height) return null;
+      return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+    }
+    function updateHeaderTheme() {
+      var logo = document.querySelector(".ibs-header .ibs-logo");
+      var nav = document.querySelector(".ibs-header .ibs-nav-links");
+      var toggle = document.querySelector(".ibs-header .ibs-menu-toggle");
+      var logoPt = ibsSamplePoint(logo);
+      var navPt = ibsSamplePoint(nav) || ibsSamplePoint(toggle);
+      var logoDark = logoPt ? ibsBackgroundLumAt(logoPt.x, logoPt.y) < 0.5 : false;
+      var navDark = navPt ? ibsBackgroundLumAt(navPt.x, navPt.y) < 0.5 : logoDark;
+      document.body.classList.add("ibs-js");
+      document.body.classList.toggle("ibs-logo-on-dark", logoDark);
+      document.body.classList.toggle("ibs-nav-on-dark", navDark);
+      document.body.classList.toggle("ibs-at-top", window.scrollY <= 10);
+    }
+    var ibsThemeTicking = false;
+    function scheduleHeaderTheme() {
+      if (ibsThemeTicking) return;
+      ibsThemeTicking = true;
+      requestAnimationFrame(function () { ibsThemeTicking = false; updateHeaderTheme(); });
+    }
+    window.addEventListener("scroll", scheduleHeaderTheme, { passive: true });
+    window.addEventListener("resize", scheduleHeaderTheme);
+    updateHeaderTheme();
 
     /* ---------- Back to top ---------- */
     var backTop = document.getElementById("ibs-back-top");
