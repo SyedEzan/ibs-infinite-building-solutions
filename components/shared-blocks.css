@@ -871,6 +871,11 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
     bottom: 84px;
   }
 
+  /* No top bar on mobile — the header starts the page. */
+  .ibs-topbar {
+    display: none;
+  }
+
   .ibs-topbar-tagline {
     display: none;
   }
