@@ -814,6 +814,16 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
     gap: 25px;
   }
 
+  /* Mobile footer: keep only the essentials (logo + socials + contact).
+     Hide the text under the logo and the Services/Company link columns —
+     those links are already in the header menu. */
+  .ibs-footer-brand,
+  .ibs-footer-grid > div:first-child > p,
+  .ibs-footer-grid > div:nth-child(2),
+  .ibs-footer-grid > div:nth-child(3) {
+    display: none;
+  }
+
   .ibs-back-top {
     right: 20px;
     bottom: 140px;
