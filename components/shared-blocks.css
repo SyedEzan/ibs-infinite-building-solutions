@@ -616,8 +616,12 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
 }
 
 .ibs-footer-card-visual svg[viewBox="52 42 88 66"] {
+  /* Gmail "M" logo: explicit width AND height (38 x 29, the 88:66
+     viewBox ratio) so mobile browsers never have to compute the height
+     from `auto` — a computed-height quirk can clip the logo inside
+     the chip's overflow:hidden. */
   width: 38px;
-  height: auto;
+  height: 29px;
 }
 
 .ibs-footer-card-text {
