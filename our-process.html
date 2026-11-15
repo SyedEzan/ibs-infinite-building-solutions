@@ -1068,37 +1068,62 @@
       }
     }
 
-    /* PROCESS PAGE */
+    /* PROCESS PAGE — KCS style: single-column vertical stack of white
+       cards, each with a solid blue circular number badge on the left
+       and the title + description on the right. No timeline, no icons. */
     .ibs-process-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      max-width: 880px;
+      margin: 0 auto;
     }
     .ibs-process-card {
-      padding: 26px 22px;
-      background: var(--soft);
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 26px 28px;
+      background: #fff;
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 14px;
+      box-shadow: 0 4px 18px rgba(15, 42, 67, .05);
+    }
+    .ibs-process-card-text {
+      flex: 1;
+      min-width: 0;
     }
     .ibs-step-number {
+      flex-shrink: 0;
       display: grid;
       place-items: center;
-      width: 44px;
-      height: 44px;
-      margin-bottom: 19px;
-      background: #e4edff;
-      color: var(--blue);
-      border-radius: 12px;
-      font-size: 16px;
+      width: 52px;
+      height: 52px;
+      margin-bottom: 0;
+      background: var(--blue);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 20px;
       font-weight: 700;
     }
     .ibs-process-card h3 {
-      font-size: 16px;
-      margin-bottom: 12px;
+      font-size: 19px;
+      margin-bottom: 6px;
+      color: var(--navy);
     }
     .ibs-process-card p {
-      font-size: 13px;
+      font-size: 15px;
+      line-height: 1.6;
       margin-bottom: 0;
+      color: #3a4a5e;
+    }
+    /* KCS-style pill eyebrow, scoped to this page's section heads. */
+    .ibs-section-head .ibs-eyebrow {
+      display: inline-block;
+      padding: 7px 16px;
+      background: #e4edff;
+      border: 1px solid #b6cbed;
+      border-radius: 999px;
+      color: var(--navy);
     }
     .ibs-steps-detail {
       display: grid;
@@ -1119,12 +1144,20 @@
       gap: 18px;
       margin-bottom: 8px;
     }
+    /* KCS-style circular number badge for the detail steps too. */
     .ibs-step-big {
-      color: var(--blue);
-      font-size: 34px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      background: var(--blue);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 20px;
       font-weight: 700;
       line-height: 1;
-      letter-spacing: -1px;
+      letter-spacing: 0;
     }
     .ibs-step-detail-head .ibs-eyebrow {
       margin-bottom: 2px;
@@ -1240,22 +1273,26 @@
       stroke-linejoin: round;
     }
     @media (max-width: 960px) {
-      .ibs-process-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
       .ibs-why-grid {
         grid-template-columns: 1fr;
       }
     }
     @media (max-width: 640px) {
-      .ibs-process-grid {
-        grid-template-columns: 1fr;
+      .ibs-process-card {
+        gap: 16px;
+        padding: 22px;
+      }
+      .ibs-step-number,
+      .ibs-step-big {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+      }
+      .ibs-process-card h3 {
+        font-size: 17px;
       }
       .ibs-step-detail {
         padding: 24px 22px;
-      }
-      .ibs-step-big {
-        font-size: 28px;
       }
       .ibs-step-detail h3 {
         font-size: 19px;
@@ -1271,7 +1308,7 @@
     <div class="ibs-topbar-left">
       <span class="ibs-topbar-tagline">Strength you can trust</span>
       <a class="ibs-topbar-mail" href="mailto:ibsolution786@gmail.com">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
+      <svg class="ibs-gmail-logo" viewBox="52 42 88 66" aria-hidden="true"><path fill="#4285f4" d="M58 108h14V74L52 59v43c0 3.32 2.69 6 6 6"/><path fill="#34a853" d="M120 108h14c3.32 0 6-2.69 6-6V59l-20 15"/><path fill="#fbbc04" d="M120 48v26l20-15v-8c0-7.42-8.47-11.65-14.4-7.2"/><path fill="#ea4335" d="M72 74V48l24 18 24-18v26L96 92"/><path fill="#c5221f" d="M52 51v8l20 15V48l-5.6-4.2c-5.94-4.45-14.4-.22-14.4 7.2"/></svg>
       <span>ibsolution786@gmail.com</span>
       </a>
     </div>
@@ -1422,23 +1459,31 @@
         <div class="ibs-process-grid">
           <div class="ibs-process-card">
             <span class="ibs-step-number">1</span>
-            <h3>Free Consultation</h3>
-            <p>We visit, inspect and diagnose — at no cost.</p>
+            <div class="ibs-process-card-text">
+              <h3>Free Consultation</h3>
+              <p>We visit, inspect and diagnose — at no cost.</p>
+            </div>
           </div>
           <div class="ibs-process-card">
             <span class="ibs-step-number">2</span>
-            <h3>Detailed Quotation</h3>
-            <p>An itemised written quote. No hidden charges.</p>
+            <div class="ibs-process-card-text">
+              <h3>Detailed Quotation</h3>
+              <p>An itemised written quote. No hidden charges.</p>
+            </div>
           </div>
           <div class="ibs-process-card">
             <span class="ibs-step-number">3</span>
-            <h3>Professional Application</h3>
-            <p>Certified materials, applied by trained teams.</p>
+            <div class="ibs-process-card-text">
+              <h3>Professional Application</h3>
+              <p>Certified materials, applied by trained teams.</p>
+            </div>
           </div>
           <div class="ibs-process-card">
             <span class="ibs-step-number">4</span>
-            <h3>Completion &amp; Handover</h3>
-            <p>A joint walkthrough and care guidance.</p>
+            <div class="ibs-process-card-text">
+              <h3>Completion &amp; Handover</h3>
+              <p>A joint walkthrough and care guidance.</p>
+            </div>
           </div>
         </div>
       </div>

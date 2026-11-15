@@ -99,6 +99,13 @@
   color: #ffffff;
 }
 
+/* Real Gmail logo in the top bar (replaces the generic envelope icon).
+   The Gmail mark is 88:66, so 20×15 keeps its shape. */
+.ibs-topbar-mail .ibs-gmail-logo {
+  width: 20px;
+  height: 15px;
+}
+
 .ibs-topbar-mail span {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -346,19 +353,19 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
 
 .ibs-footer-brand {
   color: #fff;
-  font-size: 16px;
+  font-size: 18px;
   margin-bottom: 12px;
 }
 
 .ibs-footer p,
 .ibs-footer address {
-  font-size: 12px;
+  font-size: 14px;
   font-style: normal;
   line-height: 1.9;
 }
 
 .ibs-footer h3 {
-  font-size: 14px;
+  font-size: 16px;
   color: #fff;
   margin-bottom: 17px;
 }
@@ -376,7 +383,7 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
 .ibs-footer-links a,
 .ibs-footer-contact a {
   color: #c5d3e2;
-  font-size: 12px;
+  font-size: 14px;
   text-decoration: none;
 }
 
@@ -440,7 +447,7 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
 
 .ibs-footer-bottom p {
   margin: 0;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 /* ---------- Floating WhatsApp ---------- */
