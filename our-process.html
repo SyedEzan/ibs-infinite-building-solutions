@@ -1810,33 +1810,31 @@
       <div>
         <h3>Quick Links</h3>
 
-        <ul class="ibs-footer-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About IBS</a></li>
-          <li><a href="/our-process">Our Process</a></li>
-          <li><a href="/guides">Guides</a></li>
-          <li><a href="/faq">FAQs</a></li>
-          <li><a href="/contact">Contact Us</a></li>
-        </ul>
-      </div>
+        <div class="ibs-footer-links-2col">
+          <ul class="ibs-footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About IBS</a></li>
+            <li><a href="/our-process">Our Process</a></li>
+            <li><a href="/guides">Guides</a></li>
+            <li><a href="/faq">FAQs</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+          </ul>
 
-      <div>
-        <h3>Our Services</h3>
-
-        <ul class="ibs-footer-links">
-          <li>
-            <a href="/waterproofing">Waterproofing in Karachi</a>
-          </li>
-          <li>
-            <a href="/termite-proofing">Termite Proofing Pakistan</a>
-          </li>
-          <li>
-            <a href="/thermal-insulation">XPS Insulation Karachi</a>
-          </li>
-          <li>
-            <a href="/pest-control">Pest Control Karachi</a>
-          </li>
-        </ul>
+          <ul class="ibs-footer-links">
+            <li>
+              <a href="/waterproofing">Waterproofing in Karachi</a>
+            </li>
+            <li>
+              <a href="/termite-proofing">Termite Proofing Pakistan</a>
+            </li>
+            <li>
+              <a href="/thermal-insulation">XPS Insulation Karachi</a>
+            </li>
+            <li>
+              <a href="/pest-control">Pest Control Karachi</a>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div class="ibs-footer-subscribe">
@@ -1849,15 +1847,19 @@
 
         <form class="ibs-subscribe-form" id="ibs-subscribe-form" novalidate>
           <label for="ibs-subscribe-email">Email address</label>
-          <input
-            type="email"
-            id="ibs-subscribe-email"
-            name="email"
-            placeholder="Your email address"
-            autocomplete="email"
-            required
-          >
-          <button type="submit">Subscribe</button>
+          <div class="ibs-subscribe-bar">
+            <input
+              type="email"
+              id="ibs-subscribe-email"
+              name="email"
+              placeholder="Enter Email Address"
+              autocomplete="email"
+              required
+            >
+            <button type="submit" aria-label="Subscribe">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 22-7z"/></svg>
+            </button>
+          </div>
           <p
             class="ibs-subscribe-msg"
             id="ibs-subscribe-msg"

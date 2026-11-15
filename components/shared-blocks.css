@@ -325,12 +325,14 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
 
 /* ---------- Footer ---------- */
 .ibs-footer {
-  background-color: #1641b5;
-  /* Subtle dotted texture (Din Brothers style): a fine dot grid in
-     low-opacity white over the blue, so the footer reads as textured
-     without losing readability. */
-  background-image: radial-gradient(rgba(255, 255, 255, .08) 1px, transparent 1.4px);
-  background-size: 14px 14px;
+  /* Din Brothers match, better background: deep IBS navy (#0f2a43) with a
+     subtle dotted texture and a soft blue glow at the top, instead of
+     their flat charcoal. */
+  background-color: #0f2a43;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(29, 78, 216, .28), transparent 70%),
+    radial-gradient(rgba(255, 255, 255, .07) 1px, transparent 1.4px);
+  background-size: 100% 100%, 14px 14px;
   color: #c5d3e2;
   padding: 54px 0 0;
 }
@@ -342,7 +344,7 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
 
 .ibs-footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
+  grid-template-columns: 1.1fr 1fr 1fr;
   gap: 30px;
   padding-bottom: 36px;
 }
@@ -379,6 +381,14 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+/* Quick Links split into two sub-columns on desktop (Din Brothers style),
+   collapsing to one column on mobile. */
+.ibs-footer-links-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
 }
 
 .ibs-footer-links li {
@@ -469,11 +479,17 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
   white-space: nowrap;
 }
 
-.ibs-subscribe-form input[type="email"] {
+/* Subscribe as one wide bar with the send button inside it at the right
+   end (Din Brothers style): the button is a small IBS-blue square with a
+   white paper-plane icon only, no text. */
+.ibs-subscribe-bar {
+  position: relative;
+}
+
+.ibs-subscribe-bar input[type="email"] {
   width: 100%;
   box-sizing: border-box;
-  padding: 11px 14px;
-  margin-bottom: 10px;
+  padding: 13px 56px 13px 14px;
   border: 1px solid rgba(255, 255, 255, .35);
   border-radius: 8px;
   background: rgba(255, 255, 255, .1);
@@ -482,36 +498,45 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
   font-family: inherit;
 }
 
-.ibs-subscribe-form input[type="email"]::placeholder {
+.ibs-subscribe-bar input[type="email"]::placeholder {
   color: rgba(255, 255, 255, .65);
 }
 
-.ibs-subscribe-form input[type="email"]:focus {
+.ibs-subscribe-bar input[type="email"]:focus {
   outline: 2px solid #7fb0ff;
   outline-offset: 1px;
   border-color: #7fb0ff;
 }
 
-.ibs-subscribe-form button[type="submit"] {
-  width: 100%;
-  padding: 11px 14px;
+.ibs-subscribe-bar button[type="submit"] {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   background: #1d4ed8;
   color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  font-family: inherit;
   cursor: pointer;
 }
 
-.ibs-subscribe-form button[type="submit"]:hover {
+.ibs-subscribe-bar button[type="submit"]:hover {
   background: #1641b5;
 }
 
-.ibs-subscribe-form button[type="submit"]:disabled {
+.ibs-subscribe-bar button[type="submit"]:disabled {
   opacity: .6;
   cursor: default;
+}
+
+.ibs-subscribe-bar button[type="submit"] svg {
+  width: 20px;
+  height: 20px;
 }
 
 .ibs-subscribe-msg {
@@ -553,15 +578,18 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
   gap: 14px;
   padding: 16px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, .08);
-  border: 1px solid rgba(255, 255, 255, .14);
+  /* Near-black navy cards (Din Brothers style: their cards are pure black
+     on charcoal; IBS uses a very dark navy so the cards read darker than
+     the deep-navy footer). */
+  background: #0a1e30;
+  border: 1px solid rgba(255, 255, 255, .1);
   color: #c5d3e2;
   text-decoration: none;
 }
 
 .ibs-footer-card:hover {
-  background: rgba(255, 255, 255, .14);
-  border-color: rgba(255, 255, 255, .3);
+  background: #0d2740;
+  border-color: rgba(255, 255, 255, .25);
 }
 
 .ibs-footer-card-visual {
@@ -986,8 +1014,14 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
     gap: 25px;
   }
 
+  /* Quick Links collapse to a single column on mobile. */
+  .ibs-footer-links-2col {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
   /* Mobile footer: Din Brothers style — one stacked column, nothing
-     hidden. Order: About, Quick Links, Our Services, Subscribe, then
+     hidden. Order: About, Quick Links, Subscribe, then
      the contact cards. */
   .ibs-footer-cards {
     grid-template-columns: 1fr;
