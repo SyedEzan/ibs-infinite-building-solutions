@@ -325,7 +325,12 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
 
 /* ---------- Footer ---------- */
 .ibs-footer {
-  background: #1641b5;
+  background-color: #1641b5;
+  /* Subtle dotted texture (Din Brothers style): a fine dot grid in
+     low-opacity white over the blue, so the footer reads as textured
+     without losing readability. */
+  background-image: radial-gradient(rgba(255, 255, 255, .08) 1px, transparent 1.4px);
+  background-size: 14px 14px;
   color: #c5d3e2;
   padding: 54px 0 0;
 }
