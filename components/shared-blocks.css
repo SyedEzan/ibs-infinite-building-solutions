@@ -12,6 +12,13 @@
   color: #ffffff;
 }
 
+/* At the very top (over the hero) the top bar is transparent too, so the
+   whole top area floats over the photo like the EquitiFy reference. */
+body.ibs-at-top .ibs-topbar {
+  background: transparent;
+  border-bottom-color: transparent;
+}
+
 .ibs-topbar .ibs-container {
   width: min(1120px, calc(100% - 48px));
   margin-inline: auto;
@@ -89,6 +96,20 @@
   -webkit-backdrop-filter: blur(16px) saturate(1.4);
   backdrop-filter: blur(16px) saturate(1.4);
   box-shadow: 0 8px 30px rgba(15, 42, 67, .18);
+  transition: background-color .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+
+/* EquitiFy-style floating header: fully transparent both at the top over
+   the hero and once scrolled — only the colours invert (white logo and
+   dark pill at the top; dark logo and light-grey pill when scrolled). The
+   plain .ibs-header rule above stays as the no-JS fallback. */
+body.ibs-at-top .ibs-header,
+body.ibs-scrolled .ibs-header {
+  background: transparent;
+  border-bottom-color: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: none;
 }
 
 .ibs-header .ibs-container {
@@ -114,27 +135,58 @@
   width: auto;
   height: 86px;
   object-fit: contain;
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, .85)) drop-shadow(0 0 2px rgba(255, 255, 255, .75));
+  transition: filter .3s ease;
+}
+
+/* White logo while the header floats over the hero photo. */
+body.ibs-at-top .ibs-header .ibs-logo img {
+  filter: brightness(0) invert(1);
 }
 
 .ibs-header .ibs-nav-links {
   display: flex;
   align-items: center;
   gap: 26px;
+  background: rgba(5, 19, 32, .38);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-radius: 999px;
+  padding: 6px 8px 6px 22px;
+  transition: background-color .3s ease;
 }
 
 .ibs-header .ibs-nav-links > a,
 .ibs-header .ibs-nav-dropdown > summary {
   color: #fff;
   text-decoration: none;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
   cursor: pointer;
+  transition: color .3s ease;
 }
 
 .ibs-header .ibs-nav-links > a:hover,
 .ibs-header .ibs-nav-dropdown > summary:hover {
   color: #dbe7ff;
+}
+
+/* Scrolled state: the pill turns flat light-grey and the links dark. */
+body.ibs-scrolled .ibs-header .ibs-nav-links {
+  background: #eef1f4;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+body.ibs-scrolled .ibs-header .ibs-nav-links > a,
+body.ibs-scrolled .ibs-header .ibs-nav-dropdown > summary {
+  color: #0f2a43;
+}
+
+body.ibs-scrolled .ibs-header .ibs-nav-links > a:hover,
+body.ibs-scrolled .ibs-header .ibs-nav-dropdown > summary:hover {
+  color: #1d4ed8;
 }
 
 .ibs-header .ibs-nav-dropdown {
@@ -181,17 +233,20 @@
 }
 
 .ibs-header .ibs-nav-links .ibs-nav-call {
-  background: #fff;
-  color: #0f2a43;
-  font-size: 16px;
+  background: #1d4ed8;
+  color: #fff;
+  font-size: 14px;
   font-weight: 600;
-  padding: 12px 20px;
-  border-radius: 9px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 999px;
+  transition: background-color .3s ease, color .3s ease;
 }
 
 .ibs-header .ibs-nav-links .ibs-nav-call:hover {
-  background: #edf3ff;
-  color: #0f2a43;
+  background: #1641b5;
+  color: #fff;
 }
 
 .ibs-header .ibs-menu-toggle {
@@ -213,15 +268,23 @@
   margin: 5px auto;
 }
 
-/* ---------- Hero under the glass header ---------- */
-/* The hero slides up underneath the sticky glass header so the hero
-   photo shows through the frosted glass at page top. The negative
+/* Dark toggle once scrolled (the header is transparent, so the white
+   toggle would vanish over light sections). */
+body.ibs-scrolled .ibs-header .ibs-menu-toggle {
+  background: rgba(15, 42, 67, .08);
+  border-color: rgba(15, 42, 67, .15);
+  color: #0f2a43;
+}
+
+/* ---------- Hero under the floating header ---------- */
+/* The hero slides up underneath the top bar + sticky header so the hero
+   photo shows through the transparent header at page top. The negative
    margin is compensated by equal padding-top, so hero content stays
-   exactly where it was. Heights match the header nav at each
-   breakpoint (104px desktop / 84px tablet / 72px small phones). */
+   exactly where it was. Heights match top bar (49px) + header at each
+   breakpoint (105px desktop / 85px tablet / 73px small phones). */
 .ibs-f-hero {
-  margin-top: -104px;
-  padding-top: 104px;
+  margin-top: -154px;
+  padding-top: 154px;
 }
 
 /* ---------- Footer ---------- */
@@ -542,8 +605,8 @@
   }
 
   .ibs-f-hero {
-    margin-top: -84px;
-    padding-top: 84px;
+    margin-top: -134px;
+    padding-top: 134px;
   }
 
   .ibs-header .ibs-logo img {
@@ -583,12 +646,39 @@
     padding: 22px 24px;
     background: rgba(15, 42, 67, .88);
     border-bottom: 1px solid rgba(255, 255, 255, .16);
+    border-radius: 0;
     -webkit-backdrop-filter: blur(16px) saturate(1.4);
     backdrop-filter: blur(16px) saturate(1.4);
     box-shadow: 0 12px 20px rgba(15, 42, 67, .25);
     align-items: stretch;
     flex-direction: column;
     gap: 18px;
+  }
+
+  /* Inside the dark mobile menu the links stay white even when scrolled,
+     and the panel keeps its dark glass (the light-grey pill is desktop). */
+  body.ibs-scrolled .ibs-header .ibs-nav-links {
+    background: rgba(15, 42, 67, .88);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    backdrop-filter: blur(16px) saturate(1.4);
+  }
+
+  body.ibs-scrolled .ibs-header .ibs-nav-links > a,
+  body.ibs-scrolled .ibs-header .ibs-nav-dropdown > summary {
+    color: #fff;
+  }
+
+  /* And the CTA goes white inside the dark mobile menu. */
+  body.ibs-at-top .ibs-header .ibs-nav-links .ibs-nav-call,
+  body.ibs-scrolled .ibs-header .ibs-nav-links .ibs-nav-call {
+    background: #fff;
+    color: #0f2a43;
+  }
+
+  body.ibs-at-top .ibs-header .ibs-nav-links .ibs-nav-call:hover,
+  body.ibs-scrolled .ibs-header .ibs-nav-links .ibs-nav-call:hover {
+    background: #edf3ff;
+    color: #0f2a43;
   }
 
   .ibs-header .ibs-nav-links.is-open {
@@ -635,8 +725,8 @@
   }
 
   .ibs-f-hero {
-    margin-top: -72px;
-    padding-top: 72px;
+    margin-top: -122px;
+    padding-top: 122px;
   }
 
   .ibs-header .ibs-logo img {

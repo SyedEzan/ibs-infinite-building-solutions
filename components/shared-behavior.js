@@ -94,6 +94,17 @@
       });
     }
 
+    /* ---------- Transparent header at top (EquitiFy style) ---------- */
+    var hasHero = !!document.querySelector(".ibs-f-hero");
+    function updateHeaderState() {
+      var atTop = hasHero && window.scrollY <= 10;
+      document.body.classList.toggle("ibs-at-top", atTop);
+      document.body.classList.toggle("ibs-scrolled", !atTop);
+    }
+    window.addEventListener("scroll", updateHeaderState, { passive: true });
+    window.addEventListener("resize", updateHeaderState);
+    updateHeaderState();
+
     /* ---------- Back to top ---------- */
     var backTop = document.getElementById("ibs-back-top");
     if (backTop) {
