@@ -344,9 +344,9 @@
   z-index: 900;
   display: flex;
   align-items: center;
-  gap: 10px;
-  height: 58px;
-  padding: 6px 6px 6px 18px;
+  gap: 12px;
+  height: 44px;
+  padding: 0 0 0 18px;
   border: 0;
   background: #fff;
   border-radius: 999px;
@@ -365,38 +365,40 @@
 
 .ibs-whatsapp-icon {
   flex: none;
-  width: 46px;
-  height: 46px;
+  width: 56px;
+  height: 56px;
+  margin-right: -8px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #25D366;
   border-radius: 50%;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .25);
 }
 
 .ibs-whatsapp-icon svg {
-  width: 26px;
-  height: 26px;
+  width: 30px;
+  height: 30px;
   fill: #ffffff;
 }
 
 .ibs-whatsapp-close {
   display: none;
   flex: none;
-  width: 46px;
-  height: 46px;
+  width: 56px;
+  height: 56px;
   align-items: center;
   justify-content: center;
   background: #25D366;
   border-radius: 50%;
   color: #fff;
-  font-size: 30px;
+  font-size: 32px;
   line-height: 1;
 }
 
 .ibs-whatsapp.is-open {
-  width: 58px;
-  height: 58px;
+  width: 56px;
+  height: 56px;
   padding: 0;
   gap: 0;
 }
@@ -414,7 +416,7 @@
 .ibs-whatsapp-popup {
   position: fixed;
   right: 22px;
-  bottom: 92px;
+  bottom: 84px;
   z-index: 900;
   width: 320px;
   max-width: calc(100vw - 32px);
