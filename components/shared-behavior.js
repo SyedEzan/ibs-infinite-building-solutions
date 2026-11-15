@@ -247,6 +247,63 @@
       });
     }
 
+    /* ---------- Footer subscribe form (all pages) ---------- */
+    var subscribeForm = document.getElementById("ibs-subscribe-form");
+    if (subscribeForm) {
+      var subscribeEmail = document.getElementById("ibs-subscribe-email");
+      var subscribeMsg = document.getElementById("ibs-subscribe-msg");
+      var subscribeButton = subscribeForm.querySelector("button[type=\"submit\"]");
+      var subscribing = false;
+
+      function showSubscribeMsg(message, ok) {
+        if (!subscribeMsg) return;
+        subscribeMsg.textContent = message;
+        subscribeMsg.classList.toggle("is-ok", !!ok);
+        subscribeMsg.classList.toggle("is-err", !ok);
+      }
+
+      subscribeForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+        if (subscribing) return;
+
+        var email = subscribeEmail ? String(subscribeEmail.value || "").trim() : "";
+        if (!email || !/^[^\s@,;<>]+@[^\s@,;<>]+\.[^\s@,;<>]{2,}$/.test(email)) {
+          showSubscribeMsg("Please enter a valid email address.", false);
+          return;
+        }
+
+        subscribing = true;
+        if (subscribeButton) subscribeButton.disabled = true;
+        subscribeForm.setAttribute("aria-busy", "true");
+        showSubscribeMsg("Subscribing...", true);
+
+        try {
+          var response = await fetch("/api/subscribe", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email: email })
+          });
+          var result = await response.json().catch(function () { return null; });
+
+          if (!response.ok || (result && result.success === false)) {
+            throw new Error((result && result.message) || "Unable to subscribe. Please try again.");
+          }
+          if (!result) {
+            throw new Error("We could not confirm your subscription. Please try again.");
+          }
+
+          showSubscribeMsg("Thank you for subscribing. You will hear from IBS soon.", true);
+          subscribeForm.reset();
+        } catch (error) {
+          showSubscribeMsg((error && error.message) || "Something went wrong. Please try again.", false);
+        } finally {
+          subscribing = false;
+          if (subscribeButton) subscribeButton.disabled = false;
+          subscribeForm.removeAttribute("aria-busy");
+        }
+      });
+    }
+
     /* ---------- Optional widgets (homepage / about) ---------- */
 
     /* Animated counters */

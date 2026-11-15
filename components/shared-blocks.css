@@ -343,7 +343,7 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
 }
 
 .ibs-footer-logo {
-  width: 75px;
+  width: 105px;
   height: auto;
   margin-bottom: 16px;
   padding: 5px;
@@ -448,6 +448,163 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
 .ibs-footer-bottom p {
   margin: 0;
   font-size: 12px;
+}
+
+/* ---------- Footer: Subscribe form ---------- */
+.ibs-footer-subscribe p {
+  margin-bottom: 14px;
+}
+
+.ibs-subscribe-form label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.ibs-subscribe-form input[type="email"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 14px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(255, 255, 255, .35);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .1);
+  color: #fff;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.ibs-subscribe-form input[type="email"]::placeholder {
+  color: rgba(255, 255, 255, .65);
+}
+
+.ibs-subscribe-form input[type="email"]:focus {
+  outline: 2px solid #7fb0ff;
+  outline-offset: 1px;
+  border-color: #7fb0ff;
+}
+
+.ibs-subscribe-form button[type="submit"] {
+  width: 100%;
+  padding: 11px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #1d4ed8;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.ibs-subscribe-form button[type="submit"]:hover {
+  background: #1641b5;
+}
+
+.ibs-subscribe-form button[type="submit"]:disabled {
+  opacity: .6;
+  cursor: default;
+}
+
+.ibs-subscribe-msg {
+  margin: 10px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  min-height: 20px;
+}
+
+.ibs-subscribe-msg.is-ok {
+  color: #bfe3c8;
+}
+
+.ibs-subscribe-msg.is-err {
+  color: #ffd2d2;
+}
+
+/* ---------- Footer: contact cards ----------
+   Three tappable cards (Address / Call / Email). Each card's visual is
+   the same size chip (72x54) so the map, phone and Gmail logo read as a
+   matching set. */
+.ibs-footer-contact-cards {
+  padding-bottom: 36px;
+}
+
+.ibs-footer-contact-cards > h3 {
+  margin-bottom: 17px;
+}
+
+.ibs-footer-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.ibs-footer-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .14);
+  color: #c5d3e2;
+  text-decoration: none;
+}
+
+.ibs-footer-card:hover {
+  background: rgba(255, 255, 255, .14);
+  border-color: rgba(255, 255, 255, .3);
+}
+
+.ibs-footer-card-visual {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 54px;
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.ibs-footer-card-visual svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.ibs-footer-card-visual svg[viewBox="0 0 24 24"] {
+  width: 28px;
+  height: 28px;
+}
+
+.ibs-footer-card-visual svg[viewBox="52 42 88 66"] {
+  width: 38px;
+  height: auto;
+}
+
+.ibs-footer-card-text {
+  display: block;
+  min-width: 0;
+}
+
+.ibs-footer-card-label {
+  display: block;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.ibs-footer-card-value {
+  display: block;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
 /* ---------- Floating WhatsApp ---------- */
@@ -824,14 +981,15 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
     gap: 25px;
   }
 
-  /* Mobile footer: keep only the essentials (logo + socials + contact).
-     Hide the text under the logo and the Services/Company link columns —
-     those links are already in the header menu. */
-  .ibs-footer-brand,
-  .ibs-footer-grid > div:first-child > p,
-  .ibs-footer-grid > div:nth-child(2),
-  .ibs-footer-grid > div:nth-child(3) {
-    display: none;
+  /* Mobile footer: Din Brothers style — one stacked column, nothing
+     hidden. Order: About, Quick Links, Our Services, Subscribe, then
+     the contact cards. */
+  .ibs-footer-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .ibs-footer-contact-cards {
+    padding-bottom: 28px;
   }
 
   .ibs-back-top {
