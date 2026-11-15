@@ -78,13 +78,20 @@
 
     /* ---------- Floating WhatsApp ---------- */
     var whatsapp = document.getElementById("ibs-whatsapp");
-    if (whatsapp) {
-      function updateWhatsApp() {
-        whatsapp.classList.toggle("is-visible", window.scrollY > 300);
-      }
-      window.addEventListener("scroll", updateWhatsApp, { passive: true });
-      window.addEventListener("resize", updateWhatsApp);
-      updateWhatsApp();
+    var whatsappPopup = document.getElementById("ibs-whatsapp-popup");
+    if (whatsapp && whatsappPopup) {
+      whatsapp.addEventListener("click", function () {
+        var open = whatsapp.classList.toggle("is-open");
+        whatsappPopup.hidden = !open;
+        whatsapp.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && whatsapp.classList.contains("is-open")) {
+          whatsapp.classList.remove("is-open");
+          whatsappPopup.hidden = true;
+          whatsapp.setAttribute("aria-expanded", "false");
+        }
+      });
     }
 
     /* ---------- Back to top ---------- */
