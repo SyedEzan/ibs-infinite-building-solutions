@@ -126,24 +126,22 @@ body.ibs-js .ibs-header {
   gap: 24px;
 }
 
-/* The logo sits in a dark frosted capsule matching the nav pill, so the
-   white logo stays readable over any background — the dark theme is
-   locked everywhere. */
 .ibs-header .ibs-logo {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  background: rgba(5, 19, 32, .38);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  border-radius: 999px;
-  padding: 4px 14px;
 }
 
 .ibs-header .ibs-logo img {
   width: auto;
   height: 86px;
   object-fit: contain;
+  transition: filter .3s ease;
+}
+
+/* White logo when the background behind the logo is dark; dark logo
+   when it is light — the logo adapts, the pill stays dark. */
+body.ibs-logo-on-dark .ibs-header .ibs-logo img {
   filter: brightness(0) invert(1);
 }
 
@@ -242,12 +240,10 @@ body.ibs-js .ibs-header {
   display: none;
   width: 44px;
   height: 44px;
-  background: rgba(5, 19, 32, .38);
-  border: 1px solid rgba(255, 255, 255, .28);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  background: rgba(15, 42, 67, .08);
+  border: 1px solid rgba(15, 42, 67, .15);
   border-radius: 9px;
-  color: #fff;
+  color: #0f2a43;
   cursor: pointer;
 }
 
@@ -257,6 +253,14 @@ body.ibs-js .ibs-header {
   height: 2px;
   background: currentColor;
   margin: 5px auto;
+}
+
+/* White toggle when the background behind it is dark (it sits next to
+   the logo, so it follows the logo's theme). */
+body.ibs-logo-on-dark .ibs-header .ibs-menu-toggle {
+  background: rgba(255, 255, 255, .14);
+  border-color: rgba(255, 255, 255, .28);
+  color: #fff;
 }
 
 /* ---------- Hero under the floating header ---------- */
@@ -596,10 +600,6 @@ body.ibs-js .ibs-header {
     height: 74px;
   }
 
-  .ibs-header .ibs-logo {
-    padding: 3px 12px;
-  }
-
   .ibs-header .ibs-nav-links {
     gap: 16px;
   }
@@ -724,10 +724,6 @@ body.ibs-js .ibs-header {
 
   .ibs-header .ibs-logo img {
     height: 64px;
-  }
-
-  .ibs-header .ibs-logo {
-    padding: 2px 10px;
   }
 
   .ibs-topbar .ibs-container {
