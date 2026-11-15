@@ -112,8 +112,9 @@
   white-space: nowrap;
 }
 
-/* Social icons in the top bar: same white-box treatment as the footer,
-   smaller to fit the slim bar. */
+/* Social icons in the top bar: same dark-square treatment as the footer
+   (near-black navy squares with white glyphs), sized 36px to fit the
+   slim bar. */
 .ibs-topbar .ibs-social-links {
   margin-top: 0;
   gap: 8px;
@@ -123,20 +124,21 @@
 .ibs-topbar .ibs-social-links a {
   width: 36px;
   height: 36px;
-  border-radius: 50%;
+  border-radius: 8px;
+  background: #0a1e30;
+  box-shadow: none;
+  color: #fff;
 }
 
-.ibs-topbar .ibs-social-links img {
+.ibs-topbar .ibs-social-links a:hover {
+  background: #12365a;
+  box-shadow: none;
+}
+
+.ibs-topbar .ibs-social-links svg {
   width: 20px;
   height: 20px;
-}
-
-/* Facebook's icon file has ~40% transparent padding around its glyph
-   (visible glyph covers only ~60% of the 490px file), so its img is scaled
-   up to render the same visible size as the other two icons. */
-.ibs-topbar .ibs-social-links a[href*="facebook.com"] img {
-  width: 33px;
-  height: 33px;
+  display: block;
 }
 
 /* ---------- Header ---------- */
