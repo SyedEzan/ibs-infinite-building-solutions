@@ -102,10 +102,9 @@ body.ibs-at-top .ibs-topbar {
 }
 
 /* Adaptive floating header: once JS has run, the header itself is fully
-   transparent in every state — the logo and the nav pill carry the
-   contrast, and their colours follow the background behind them (see the
-   .ibs-logo-on-dark / .ibs-nav-on-dark rules below). The plain .ibs-header
-   rule above stays as the no-JS fallback. */
+   transparent in every state — the logo capsule and the nav pill carry
+   the contrast, and both are locked to the dark theme everywhere. The
+   plain .ibs-header rule above stays as the no-JS fallback. */
 body.ibs-js .ibs-header {
   background: transparent;
   border-bottom-color: transparent;
@@ -127,33 +126,36 @@ body.ibs-js .ibs-header {
   gap: 24px;
 }
 
+/* The logo sits in a dark frosted capsule matching the nav pill, so the
+   white logo stays readable over any background — the dark theme is
+   locked everywhere. */
 .ibs-header .ibs-logo {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
+  background: rgba(5, 19, 32, .38);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-radius: 999px;
+  padding: 4px 14px;
 }
 
 .ibs-header .ibs-logo img {
   width: auto;
   height: 86px;
   object-fit: contain;
-  transition: filter .3s ease;
-}
-
-/* White logo when the background behind the logo is dark. */
-body.ibs-logo-on-dark .ibs-header .ibs-logo img {
   filter: brightness(0) invert(1);
 }
 
-/* The pill's default is the light theme (flat light-grey, dark links);
-   the dark theme applies when the background behind the pill is dark. */
+/* The pill is always the dark frosted capsule (white links) — the dark
+   theme is locked everywhere, over any background. */
 .ibs-header .ibs-nav-links {
   display: flex;
   align-items: center;
   gap: 26px;
-  background: #eef1f4;
-  border: 1px solid rgba(15, 42, 67, .08);
-  box-shadow: 0 4px 16px rgba(15, 42, 67, .08);
+  background: rgba(5, 19, 32, .38);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   border-radius: 999px;
   padding: 6px 8px 6px 22px;
   transition: background-color .3s ease;
@@ -161,7 +163,7 @@ body.ibs-logo-on-dark .ibs-header .ibs-logo img {
 
 .ibs-header .ibs-nav-links > a,
 .ibs-header .ibs-nav-dropdown > summary {
-  color: #0f2a43;
+  color: #fff;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -173,24 +175,6 @@ body.ibs-logo-on-dark .ibs-header .ibs-logo img {
 
 .ibs-header .ibs-nav-links > a:hover,
 .ibs-header .ibs-nav-dropdown > summary:hover {
-  color: #1d4ed8;
-}
-
-body.ibs-nav-on-dark .ibs-header .ibs-nav-links {
-  background: rgba(5, 19, 32, .38);
-  border-color: transparent;
-  box-shadow: none;
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-}
-
-body.ibs-nav-on-dark .ibs-header .ibs-nav-links > a:not(.ibs-nav-call),
-body.ibs-nav-on-dark .ibs-header .ibs-nav-dropdown > summary {
-  color: #fff;
-}
-
-body.ibs-nav-on-dark .ibs-header .ibs-nav-links > a:not(.ibs-nav-call):hover,
-body.ibs-nav-on-dark .ibs-header .ibs-nav-dropdown > summary:hover {
   color: #dbe7ff;
 }
 
@@ -258,10 +242,12 @@ body.ibs-nav-on-dark .ibs-header .ibs-nav-dropdown > summary:hover {
   display: none;
   width: 44px;
   height: 44px;
-  background: rgba(15, 42, 67, .08);
-  border: 1px solid rgba(15, 42, 67, .15);
+  background: rgba(5, 19, 32, .38);
+  border: 1px solid rgba(255, 255, 255, .28);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   border-radius: 9px;
-  color: #0f2a43;
+  color: #fff;
   cursor: pointer;
 }
 
@@ -271,14 +257,6 @@ body.ibs-nav-on-dark .ibs-header .ibs-nav-dropdown > summary:hover {
   height: 2px;
   background: currentColor;
   margin: 5px auto;
-}
-
-/* White toggle when the background behind it is dark (it sits next to
-   the logo, so it follows the logo's theme). */
-body.ibs-logo-on-dark .ibs-header .ibs-menu-toggle {
-  background: rgba(255, 255, 255, .14);
-  border-color: rgba(255, 255, 255, .28);
-  color: #fff;
 }
 
 /* ---------- Hero under the floating header ---------- */
@@ -618,6 +596,10 @@ body.ibs-logo-on-dark .ibs-header .ibs-menu-toggle {
     height: 74px;
   }
 
+  .ibs-header .ibs-logo {
+    padding: 3px 12px;
+  }
+
   .ibs-header .ibs-nav-links {
     gap: 16px;
   }
@@ -742,6 +724,10 @@ body.ibs-logo-on-dark .ibs-header .ibs-menu-toggle {
 
   .ibs-header .ibs-logo img {
     height: 64px;
+  }
+
+  .ibs-header .ibs-logo {
+    padding: 2px 10px;
   }
 
   .ibs-topbar .ibs-container {
