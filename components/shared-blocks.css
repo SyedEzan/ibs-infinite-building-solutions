@@ -787,6 +787,16 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
   .ibs-f-hero .ibs-f-hero-content h1 {
     margin-inline: 0;
     text-align: left;
+    text-wrap: balance;
+  }
+
+  /* On mobile the heading's second part (the light-blue span) must flow
+     inline instead of forcing its own line — the block span is what made
+     headings break into three ragged lines ("Waterproofing" / "Services"
+     / "in Karachi"). */
+  .ibs-f-hero .ibs-f-hero-content h1 span {
+    display: inline;
+    margin-top: 0;
   }
 
   .ibs-f-hero .ibs-f-hero-copy {
