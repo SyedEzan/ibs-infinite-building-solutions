@@ -55,26 +55,31 @@
   flex-shrink: 0;
 }
 
+/* Top bar phone: icon only (no number text) — a dark square button
+   matching the social icons, with the green phone glyph. */
 .ibs-topbar-phone {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
   flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #0a1e30;
   color: #ffffff;
-  font-size: 13px;
-  font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
 }
 
 .ibs-topbar-phone:hover {
+  background: #12365a;
   color: #dbe7ff;
 }
 
 .ibs-topbar-phone svg {
   flex-shrink: 0;
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
 }
 
 .ibs-topbar-mail {
