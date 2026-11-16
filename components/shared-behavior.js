@@ -241,7 +241,7 @@
         } finally {
           submitting = false;
           if (submitButton) submitButton.disabled = false;
-          if (submitLabel) submitLabel.textContent = "Request Free Inspection";
+          if (submitLabel) submitLabel.textContent = "Request Free Consultation";
           form.removeAttribute("aria-busy");
         }
       });
