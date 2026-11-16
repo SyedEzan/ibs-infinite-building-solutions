@@ -1130,3 +1130,28 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
     display: none;
   }
 }
+
+/* In-text content links: pages reset <a> to inherit, so style these explicitly */
+.ibs-article-body p a,
+.ibs-faq-answer a,
+.ibs-section-head p a {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.ibs-article-body p a:hover,
+.ibs-faq-answer a:hover,
+.ibs-section-head p a:hover {
+  color: var(--navy);
+}
+/* Guide CTA secondary service link (white on the navy CTA box) */
+.ibs-cta-box .ibs-cta-service-link {
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ibs-cta-box .ibs-cta-service-link:hover {
+  color: #dbe7ff;
+}
