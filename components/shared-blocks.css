@@ -171,6 +171,18 @@ body.ibs-js .ibs-header {
   box-shadow: none;
 }
 
+/* Scrolled past the hero: give the header a frosted white background so
+   page content no longer shows through the transparent bar and collides
+   with the logo while scrolling. Over the hero it stays transparent (above).
+   Frosted white (not navy) so the dark logo below the hero stays readable. */
+body.ibs-js:not(.ibs-over-hero) .ibs-header {
+  background: rgba(255, 255, 255, .88);
+  border-bottom-color: rgba(15, 42, 67, .08);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  backdrop-filter: blur(16px) saturate(1.4);
+  box-shadow: 0 8px 30px rgba(15, 42, 67, .12);
+}
+
 .ibs-header .ibs-container {
   width: min(1120px, calc(100% - 48px));
   margin-inline: auto;
