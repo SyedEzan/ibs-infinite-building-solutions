@@ -722,6 +722,24 @@ body.ibs-over-hero .ibs-header .ibs-menu-toggle {
   overflow-wrap: anywhere;
 }
 
+.ibs-footer-card-value a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ibs-footer-card-value a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.ibs-footer-card-directions {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #8fb8ff;
+}
+
 /* ---------- Floating WhatsApp ---------- */
 .ibs-whatsapp {
   position: fixed;

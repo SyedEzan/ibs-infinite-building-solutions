@@ -608,6 +608,45 @@
         font-size: 36px;
       }
     }
+
+    /* AREAS WE SERVE (Karachi) */
+    .ibs-areas-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .ibs-area-chip {
+      background: #f5f8fc;
+      border: 1px solid #e3eaf2;
+      border-radius: 10px;
+      padding: 16px 12px;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 600;
+      color: #0f2a43;
+    }
+    .ibs-areas-note {
+      max-width: 720px;
+      margin: 26px auto 0;
+      text-align: center;
+      color: #3a4a5e;
+    }
+    .ibs-areas-cta {
+      margin-top: 26px;
+      text-align: center;
+    }
+    @media (max-width: 900px) {
+      .ibs-areas-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 560px) {
+      .ibs-areas-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
     /* SERVICES */
     .ibs-services-grid {
       display: grid;
@@ -1715,6 +1754,77 @@
 
   </style>
   <link rel="stylesheet" href="/components/shared-blocks.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Infinite Building Solutions",
+    "url": "https://ibsolutions.pk/",
+    "image": "https://ibsolutions.pk/assets/herosection.2.webp",
+    "telephone": "+92 332 3070499",
+    "email": "ibsolution786@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Office No.02, SB-44, Sector X-4, Gulshan-e-Maymar",
+      "addressLocality": "Karachi",
+      "addressCountry": "PK"
+    },
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Karachi"
+      },
+      {
+        "@type": "Place",
+        "name": "DHA"
+      },
+      {
+        "@type": "Place",
+        "name": "Clifton"
+      },
+      {
+        "@type": "Place",
+        "name": "Gulshan-e-Iqbal"
+      },
+      {
+        "@type": "Place",
+        "name": "Gulshan-e-Maymar"
+      },
+      {
+        "@type": "Place",
+        "name": "North Nazimabad"
+      },
+      {
+        "@type": "Place",
+        "name": "Bahria Town Karachi"
+      },
+      {
+        "@type": "Place",
+        "name": "Scheme 33"
+      },
+      {
+        "@type": "Place",
+        "name": "PECHS"
+      },
+      {
+        "@type": "Place",
+        "name": "Malir"
+      },
+      {
+        "@type": "Place",
+        "name": "Korangi"
+      },
+      {
+        "@type": "Place",
+        "name": "SITE Area"
+      },
+      {
+        "@type": "Place",
+        "name": "Saddar"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 <!--IBS:HEADER-->
@@ -1722,7 +1832,7 @@
   <div class="ibs-container">
     <div class="ibs-topbar-left">
       <span class="ibs-topbar-tagline">Strength you can trust</span>
-      <a class="ibs-topbar-mail" href="mailto:ibsolution786@gmail.com">
+      <a class="ibs-topbar-mail" href="mailto:ibsolution786@gmail.com" aria-label="Email Us">
       <svg class="ibs-gmail-logo" viewBox="52 42 88 66" aria-hidden="true"><path fill="#4285f4" d="M58 108h14V74L52 59v43c0 3.32 2.69 6 6 6"/><path fill="#34a853" d="M120 108h14c3.32 0 6-2.69 6-6V59l-20 15"/><path fill="#fbbc04" d="M120 48v26l20-15v-8c0-7.42-8.47-11.65-14.4-7.2"/><path fill="#ea4335" d="M72 74V48l24 18 24-18v26L96 92"/><path fill="#c5221f" d="M52 51v8l20 15V48l-5.6-4.2c-5.94-4.45-14.4-.22-14.4 7.2"/></svg>
       <span>ibsolution786@gmail.com</span>
       </a>
@@ -1889,11 +1999,12 @@
             </h1>
             <p class="ibs-f-hero-copy">
               Infinite Building Solutions protects homes, offices, and
-              industrial buildings across Karachi and Pakistan with professional
+              industrial buildings across Karachi with professional
               <strong>waterproofing in Karachi</strong>,
               <strong>termite proofing</strong>,
               <strong>XPS insulation</strong>, and
-              <strong>pest control</strong>.
+              <strong>pest control</strong> — larger projects across
+              Pakistan on request.
             </p>
             <div class="ibs-f-actions">
               <a class="ibs-f-btn" href="/contact">
@@ -1947,7 +2058,7 @@
             <div class="ibsx-stat-label">Specialist Services</div>
           </article>
         </div>
-        <p class="ibsx-stats-note">Serving Karachi &amp; Nationwide</p>
+        <p class="ibsx-stats-note">Serving Karachi — larger projects across Pakistan on request</p>
       </div>
     </section>
     <!-- WHY CHOOSE US -->
@@ -2685,10 +2796,11 @@
             </summary>
             <div class="ibs-faq-answer">
               <p>
-                Yes. IBS provides waterproofing, termite proofing,
-                insulation, and pest control across all of Pakistan,
-                including Lahore, Islamabad, Rawalpindi, Faisalabad,
-                and other cities.
+                Our main service area is Karachi. For larger commercial
+                and industrial projects, we also work in other cities
+                such as Lahore and Islamabad. Contact us with your
+                location and project details and we will confirm
+                availability.
               </p>
             </div>
           </details>
@@ -2705,6 +2817,42 @@
               </p>
             </div>
           </details>
+        </div>
+      </div>
+    </section>
+    <!-- AREAS WE SERVE -->
+    <section class="ibs-section" aria-labelledby="ibs-areas-title">
+      <div class="ibs-container">
+        <div class="ibs-section-head">
+          <span class="ibs-eyebrow">Service Areas</span>
+          <h2 id="ibs-areas-title">
+            Areas We Serve in Karachi
+          </h2>
+          <p>
+            Based in Gulshan-e-Maymar, our teams reach homes, offices and
+            industrial buildings across Karachi.
+          </p>
+        </div>
+        <div class="ibs-areas-grid">
+          <div class="ibs-area-chip">DHA</div>
+          <div class="ibs-area-chip">Clifton</div>
+          <div class="ibs-area-chip">Gulshan-e-Iqbal</div>
+          <div class="ibs-area-chip">Gulshan-e-Maymar</div>
+          <div class="ibs-area-chip">North Nazimabad</div>
+          <div class="ibs-area-chip">Bahria Town Karachi</div>
+          <div class="ibs-area-chip">Scheme 33</div>
+          <div class="ibs-area-chip">PECHS</div>
+          <div class="ibs-area-chip">Malir</div>
+          <div class="ibs-area-chip">Korangi</div>
+          <div class="ibs-area-chip">SITE Area</div>
+          <div class="ibs-area-chip">Saddar</div>
+        </div>
+        <p class="ibs-areas-note">
+          We also take on larger projects in other cities across Pakistan.
+          Contact us to discuss your site.
+        </p>
+        <div class="ibs-areas-cta">
+          <a class="ibs-btn ibs-btn-blue" href="/contact">Book a Free Consultation</a>
         </div>
       </div>
     </section>
@@ -2845,7 +2993,6 @@
       "longitude": 67.13272
     },
     "areaServed": [
-
       {
 
         "@type": "City",
@@ -2853,12 +3000,88 @@
         "name": "Karachi"
 
       },
-
       {
 
-        "@type": "Country",
+        "@type": "Place",
 
-        "name": "Pakistan"
+        "name": "DHA"
+
+      },
+      {
+
+        "@type": "Place",
+
+        "name": "Clifton"
+
+      },
+      {
+
+        "@type": "Place",
+
+        "name": "Gulshan-e-Iqbal"
+
+      },
+      {
+
+        "@type": "Place",
+
+        "name": "Gulshan-e-Maymar"
+
+      },
+      {
+
+        "@type": "Place",
+
+        "name": "North Nazimabad"
+
+      },
+      {
+
+        "@type": "Place",
+
+        "name": "Bahria Town Karachi"
+
+      },
+      {
+
+        "@type": "Place",
+
+        "name": "Scheme 33"
+
+      },
+      {
+
+        "@type": "Place",
+
+        "name": "PECHS"
+
+      },
+      {
+
+        "@type": "Place",
+
+        "name": "Malir"
+
+      },
+      {
+
+        "@type": "Place",
+
+        "name": "Korangi"
+
+      },
+      {
+
+        "@type": "Place",
+
+        "name": "SITE Area"
+
+      },
+      {
+
+        "@type": "Place",
+
+        "name": "Saddar"
 
       }
 
@@ -2878,9 +3101,9 @@
         <h3>About Company</h3>
 
         <p>
-          Pakistan's trusted specialists in waterproofing, termite
-          proofing, XPS insulation and pest
-          control. Serving Karachi and nationwide since 2018.
+          Karachi-based specialists in waterproofing, termite proofing,
+          XPS insulation and pest control since 2018. Larger projects
+          across Pakistan on request.
         </p>
 
         <div class="ibs-social-links">
@@ -2993,21 +3216,22 @@
             <span class="ibs-footer-card-value">
               Office No.02, SB-44, Sector X-4, Gulshan-e-Maymar, Karachi
             </span>
+            <span class="ibs-footer-card-directions">Get Directions →</span>
           </span>
         </a>
 
-        <a class="ibs-footer-card" href="tel:+923323070499">
+        <div class="ibs-footer-card">
           <span class="ibs-footer-card-visual" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="#1faa55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
           </span>
           <span class="ibs-footer-card-text">
             <span class="ibs-footer-card-label">Call Us</span>
             <span class="ibs-footer-card-value">
-              0332-3070499<br>
-              0336-6822155
+              <a href="tel:+923323070499">0332-3070499</a><br>
+              <a href="tel:+923366822155">0336-6822155</a>
             </span>
           </span>
-        </a>
+        </div>
 
         <a class="ibs-footer-card" href="mailto:ibsolution786@gmail.com">
           <span class="ibs-footer-card-visual" aria-hidden="true">
